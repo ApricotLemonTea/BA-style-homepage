@@ -25,19 +25,14 @@ const hover = ref(window.matchMedia('(hover: none)').matches)
 
 const about = () => {
   Modal.open({
-    title: '关于',
+    title: 'About',
     content: () => [
-      h('p', {}, `© ${new Date().getFullYear()} ${config.author}`),
+      h('p', {}, `© 2024 ${config.author}`),
+      h('p', {}, 'apricotlemontea@gmail.com'),
       h('br', {}, ''),
       h('p', {}, 'Originally made by 小鱼yuzifu'),
-      h('span', {}, '项目地址：'),
-      h('a', { href: 'https://github.com/sf-yuzifu/homepage', target: '_blank' }, '[Github]'),
-      config.ICP
-        ? [
-            h('br', {}, ''),
-            h('a', { href: 'https://beian.miit.gov.cn/', target: '_blank' }, config.ICP)
-          ]
-        : null
+      h('span', {}, 'Project repository：'),
+      h('a', { href: 'https://github.com/sf-yuzifu/homepage', target: '_blank' }, '[ Github ]')
     ],
     footer: false
   })
@@ -85,7 +80,8 @@ setInterval(() => {
       }"
     >
       <img src="/img/gold.png" alt="" />
-      <span>11,451,419</span>
+<!--      TODO 根据访问用户数修改金币数量-->
+      <span>11,451</span>
     </div>
     <div
       class="toolbox"
@@ -95,6 +91,7 @@ setInterval(() => {
       }"
     >
       <img src="/img/pyroxene.png" alt="" />
+<!--      TODO 每次点击这个tab加1个青辉石-->
       <span>24,000</span>
     </div>
     <a

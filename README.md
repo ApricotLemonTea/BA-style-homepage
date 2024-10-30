@@ -1,15 +1,14 @@
 <h1 align="center">小鱼档案</h1>
 
-<p align="center">
-  <a href='https://gitee.com/sf-yuzifu/homepage/stargazers'><img src='https://gitee.com/sf-yuzifu/homepage/badge/star.svg?theme=dark' alt='star' /></a>
-  <a href='https://github.com/sf-yuzifu/homepage/stargazers'><img alt="GitHub stars" src="https://img.shields.io/github/stars/sf-yuzifu/homepage?style=social" /></a>
-</p>
+<div align="center">《蔚蓝档案》风格的个人主页</div>
 
-<div align="center">有关小鱼的《蔚蓝档案》风格的个人主页</div>
-
-<p align="center">
-  <img src='shots/main.png' alt='小鱼档案' />
-</p>
+---
+## TODO
+- 背景大图L2D
+- 左上角level框点击后弹出个人信息页面（新增）
+- 金币数量记录访客数
+- 青辉石数量记录点击数
+---
 
 ## 预览链接
 

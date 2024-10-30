@@ -4,10 +4,15 @@ import config from '/_config.json'
 
 const exp = ref(config.exp)
 const nextExp = ref(config.nextExp)
+
+const openProfile = () => {
+  // TODO 新增一个个人信息页面
+  alert("profile")
+}
 </script>
 
 <template>
-  <div class="level-box">
+  <div class="level-box" @click="openProfile">
     <div class="container">
       <div class="level css-cursor-hover-enabled">
         <span>Lv.</span>

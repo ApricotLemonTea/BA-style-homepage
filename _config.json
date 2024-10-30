@@ -6,10 +6,10 @@
   "keywords": "ブルアカ,杏仁レモンティー,ホームページ",
   "ICP": "",
   "manifest": {
-    "name": "杏仁レモンティー",
-    "short_name": "杏仁レモンティー",
+    "name": "Homepage - 杏仁レモンティー",
+    "short_name": "Homepage - 杏仁レモンティー",
     "description": "杏仁レモンティーのブルアカ風のホームページ",
-    "theme_color": "#128AFA",
+    "theme_color": "#9370DB",
     "start_url": "/",
     "id": "Homepage",
     "icons": [
@@ -30,20 +30,40 @@
   "iconfont": "https://at.alicdn.com/t/c/font_4336463_0i6ly0yvyzb.js",
   "dock": [
     {
-      "name": "Boxy编辑器",
-      "href": "https://boxy.cocotais.cn/",
-      "imgSrc": "/img/boxy.png"
+      "name": "Booth",
+      "href": "https://apricotlemontea.booth.pm",
+      "imgSrc": "/img/booth.png"
+    },
+    {
+      "name": "Skeb",
+      "href": "https://skeb.jp/@ApricotLemonTea",
+      "imgSrc": "/img/skeb.png"
     }
   ],
   "contact": [
     {
+      "name": "Twitter",
+      "href": "https://twitter.com/ApricotLemonTea",
+      "imgSrc": "/img/twitter.png"
+    },
+    {
+      "name": "Misskey",
+      "href": "https://misskey.io/@ApricotLemonTea",
+      "imgSrc": "/img/misskey.png"
+    },
+    {
+      "name": "Mail",
+      "href": "mailto://aoricotlemontea@gmail.com",
+      "imgSrc": "/img/mail.png"
+    },
+    {
       "name": "Github",
-      "href": "https://github.com/sf-yuzifu",
-      "iconfont": "icon-github"
+      "href": "https://github.com/ApricotLemonTea",
+      "imgSrc": "/img/github.png"
     }
   ],
   "task": {
-    "name": "个人博客",
-    "href": "https://blog.yzf.moe/"
+    "name": "イラスト",
+    "href": "https://xfolio.jp/portfolio/ApricotLemonTea"
   }
 }
