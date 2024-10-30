@@ -32,7 +32,7 @@ const about = () => {
       h('br', {}, ''),
       h('p', {}, 'Originally made by 小鱼yuzifu'),
       h('span', {}, 'Project repository：'),
-      h('a', { href: 'https://github.com/sf-yuzifu/homepage', target: '_blank' }, '[ Github ]')
+      h('a', { href: 'https://github.com/sf-yuzifu/homepage', target: '_blank' }, '[ GitHub ]')
     ],
     footer: false
   })
