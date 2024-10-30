@@ -27,15 +27,11 @@ const about = () => {
   Modal.open({
     title: '关于',
     content: () => [
-      h(
-        'p',
-        {},
-        config.author === '小鱼yuzifu'
-          ? `© ${new Date().getFullYear()} 小鱼yuzifu`
-          : [`© ${new Date().getFullYear()} ${config.author}`, h('p', {}, 'Made by 小鱼yuzifu')]
-      ),
+      h('p', {}, `© ${new Date().getFullYear()} ${config.author}`),
+      h('br', {}, ''),
+      h('p', {}, 'Originally made by 小鱼yuzifu'),
       h('span', {}, '项目地址：'),
-      h('a', { href: 'https://github.com/sf-yuzifu/homepage', target: '_blank' }, 'Github'),
+      h('a', { href: 'https://github.com/sf-yuzifu/homepage', target: '_blank' }, '[Github]'),
       config.ICP
         ? [
             h('br', {}, ''),

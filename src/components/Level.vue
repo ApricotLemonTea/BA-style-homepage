@@ -87,7 +87,7 @@ const nextExp = ref(config.nextExp)
 
 .container .name {
   color: #fff;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
 }
 
