@@ -40,7 +40,8 @@ const switchL2D = () => {
   </transition>
   <div id="background"></div>
   <main v-if="!loading">
-<!--    <Background :l2dOnly="l2dOnly"></Background>-->
+    <!--<Background :l2dOnly="l2dOnly"></Background>-->
+    <img src="/public/l2d/404.png">
     <transition name="up">
       <Level v-if="!l2dOnly"></Level>
     </transition>
