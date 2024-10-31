@@ -1,11 +1,16 @@
 <script setup>
 import { Modal } from '@arco-design/web-vue'
-import { h, reactive, ref, watch } from 'vue'
+import { h, onMounted, reactive, ref, watch } from 'vue'
 import config from '/_config.json'
 import gsap from 'gsap'
+import busuanzi from 'busuanzi.pure.js'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
+
+onMounted(() => {
+  busuanzi.fetch()
+})
 
 const dialogVisible = ref(false)
 
@@ -23,8 +28,7 @@ const ap = ref(
           86400000)
     )
 )
-const credit = ref(11451)
-const pyroxene = ref(24000)
+const pyroxene = ref(24000) // 青辉石
 const tweened = reactive({
   number: 24000
 })
@@ -113,8 +117,8 @@ const numberWithCommas = (num) => {
       }"
     >
       <img src="/img/gold.png" alt="" />
-      <!--TODO 根据访问用户数修改金币数量-->
-      <span>{{ numberWithCommas(credit) }}</span>
+      <!--根据访问用户数显示信用点数量-->
+      <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span></span>
     </div>
     <!--青辉石-->
     <div
