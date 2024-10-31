@@ -19,6 +19,9 @@ const ap = ref(
           86400000)
     )
 )
+const credit = ref(11451)
+const pyroxene = ref(24000)
+
 const img = ref('/img/max.png')
 const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
@@ -58,10 +61,18 @@ window.matchMedia('(hover: none)').addListener((e) => {
 setInterval(() => {
   ap.value++
 }, 60000)
+
+/**
+ * 每次点击青辉石数量+1200
+ */
+const handleClickPyroxene = () => {
+  pyroxene.value += 1200
+}
 </script>
 
 <template>
   <div class="toolbox-box">
+    <!--体力-->
     <div
       class="toolbox"
       :style="{
@@ -72,6 +83,7 @@ setInterval(() => {
       <img src="/img/ap.png" alt="" />
       <span>{{ ap + '/' + max_ap }}</span>
     </div>
+    <!--信用点-->
     <div
       class="toolbox"
       :style="{
@@ -80,9 +92,10 @@ setInterval(() => {
       }"
     >
       <img src="/img/gold.png" alt="" />
-<!--      TODO 根据访问用户数修改金币数量-->
-      <span>11,451</span>
+      <!--TODO 根据访问用户数修改金币数量-->
+      <span>{{ credit }}</span>
     </div>
+    <!--青辉石-->
     <div
       class="toolbox"
       :style="{
@@ -91,8 +104,8 @@ setInterval(() => {
       }"
     >
       <img src="/img/pyroxene.png" alt="" />
-<!--      TODO 每次点击这个tab加1个青辉石-->
-      <span>24,000</span>
+      <span>{{ pyroxene }}</span>
+      <img src="/img/plus.png" alt="" @click="handleClickPyroxene" class="plus-icon" />
     </div>
     <a
       class="about toolbox"
@@ -186,6 +199,11 @@ setInterval(() => {
 .arco-icon {
   font-size: 32px;
   transform: skew(10deg);
+}
+
+.plus-icon {
+  position: absolute;
+  right: 0;
 }
 
 @media screen and (max-width: 1199px) {
