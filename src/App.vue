@@ -41,18 +41,24 @@ const switchL2D = () => {
   <div id="background"></div>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img src="/public/l2d/404.png">
+    <img src="/l2d/404.png">
+
     <transition name="up">
       <Level v-if="!l2dOnly"></Level>
     </transition>
+
     <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D"></Toolbox>
+
     <transition name="left">
       <Contact v-if="!l2dOnly"></Contact>
     </transition>
+
     <Task :l2dOnly="l2dOnly"></Task>
+
     <transition name="down">
       <Footer v-if="!l2dOnly"></Footer>
     </transition>
+
     <div id="curtain"></div>
   </main>
   <Cursor></Cursor>
