@@ -71,7 +71,7 @@ window.matchMedia('(hover: none)').addListener((e) => {
 
 setInterval(() => {
   ap.value++
-}, 60000)
+}, 10000)
 
 /**
  * 每次点击青辉石数量+1200
