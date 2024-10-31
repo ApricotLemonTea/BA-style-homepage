@@ -83,6 +83,12 @@ const increasePyroxene = () => {
   pyroxene.value += 1200
 }
 
+/**
+ * 数字增加千位分隔符
+ */
+const numberWithCommas = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
 </script>
 
 <template>
@@ -108,7 +114,7 @@ const increasePyroxene = () => {
     >
       <img src="/img/gold.png" alt="" />
       <!--TODO 根据访问用户数修改金币数量-->
-      <span>{{ credit }}</span>
+      <span>{{ numberWithCommas(credit) }}</span>
     </div>
     <!--青辉石-->
     <div
@@ -119,7 +125,7 @@ const increasePyroxene = () => {
       }"
     >
       <img src="/img/pyroxene.png" alt="" />
-      <span>{{ tweened.number.toFixed(0) }}</span>
+      <span>{{ numberWithCommas(tweened.number.toFixed(0)) }}</span>
       <img src="/img/plus.png" alt="" @click="handleClickPyroxene" class="plus-icon" />
     </div>
     <a
@@ -149,7 +155,7 @@ const increasePyroxene = () => {
   <a-modal v-model:visible="dialogVisible" @ok="increasePyroxene"
            ok-text="いいね！" cancel-text="いらない">
     <template #title>
-      青輝石購入?
+      青輝石購入？
     </template>
     <div style="margin: 0 20px">
       <div class="modal-text">青輝石1200個、</div>
