@@ -7,6 +7,8 @@ import gsap from 'gsap'
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 
+const dialogVisible = ref(false)
+
 const max_ap = 60 + config.level * 2
 const ap = ref(
   max_ap -
@@ -75,8 +77,12 @@ setInterval(() => {
  * 每次点击青辉石数量+1200
  */
 const handleClickPyroxene = () => {
+  dialogVisible.value = true
+}
+const increasePyroxene = () => {
   pyroxene.value += 1200
 }
+
 </script>
 
 <template>
@@ -139,6 +145,17 @@ const handleClickPyroxene = () => {
       <img alt="" :src="img" />
     </a>
   </div>
+
+  <a-modal v-model:visible="dialogVisible" @ok="increasePyroxene"
+           ok-text="いいね！" cancel-text="いらない">
+    <template #title>
+      青輝石購入?
+    </template>
+    <div style="margin: 0 20px">
+      <div class="modal-text">青輝石1200個、</div>
+      <div class="modal-text">無料でもらえます！</div>
+    </div>
+  </a-modal>
 </template>
 
 <style scoped>
@@ -213,6 +230,11 @@ const handleClickPyroxene = () => {
 .plus-icon {
   position: absolute;
   right: 0;
+}
+
+.modal-text {
+  font-size: 20px;
+  color: #003153;
 }
 
 @media screen and (max-width: 1199px) {
