@@ -23,7 +23,7 @@ const ap = ref(
           86400000)
     )
 )
-const credit = ref(114514) // 信用点
+const credit = ref(Math.floor(Math.random() * 99999999)) // 信用点
 const pyroxene = ref(24000) // 青辉石
 const tweened = reactive({
   number: 24000
