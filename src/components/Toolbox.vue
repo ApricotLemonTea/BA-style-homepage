@@ -7,7 +7,8 @@ import gsap from 'gsap'
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 
-const dialogVisible = ref(false)
+const getDialogVisible = ref(false)
+const exceedDialogVisible = ref(false)
 
 const max_ap = 60 + config.level * 2
 const ap = ref(
@@ -31,6 +32,7 @@ const pyroxene = ref(24000) // 青辉石
 const tweenedPyroxene = reactive({
   number: pyroxene.value
 })
+const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
 
 const img = ref('/img/max.png')
 const showMin = ref(false)
@@ -80,16 +82,22 @@ setInterval(() => {
 }, 10000)
 
 /**
- * 点击青辉石加号打开弹窗
+ * 点击青辉石打开弹窗
  */
 const handleClickPyroxene = () => {
-  dialogVisible.value = true
+  if (pyroxeneTimes.value <= 20){
+    getDialogVisible.value = true
+  } else {
+    // 超过一井后不能再拿
+    exceedDialogVisible.value = true
+  }
 }
 /**
  * 青辉石+1200
  */
 const increasePyroxene = () => {
   pyroxene.value += 1200
+  pyroxeneTimes.value += 1
 }
 
 /**
@@ -134,7 +142,7 @@ const numberWithCommas = (num) => {
     </div>
 
     <!--青辉石-->
-    <div
+    <div @click="handleClickPyroxene"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
@@ -143,7 +151,7 @@ const numberWithCommas = (num) => {
     >
       <img src="/img/pyroxene.png" alt="" />
       <span>{{ numberWithCommas(tweenedPyroxene.number.toFixed(0)) }}</span>
-      <img src="/img/plus.png" alt="" @click="handleClickPyroxene" class="plus-icon" />
+      <img src="/img/plus.png" alt="" class="plus-icon" />
     </div>
 
     <!--打开about-->
@@ -173,14 +181,24 @@ const numberWithCommas = (num) => {
     </a>
   </div>
 
-  <a-modal v-model:visible="dialogVisible" @ok="increasePyroxene"
+  <a-modal v-model:visible="getDialogVisible" @ok="increasePyroxene"
            ok-text="いいね！" cancel-text="いらない">
     <template #title>
       青輝石購入？
     </template>
     <div style="margin: 0 20px">
       <div class="modal-text">青輝石1200個、</div>
-      <div class="modal-text">無料でもらえます！</div>
+      <div class="modal-text">無料でもらえる！</div>
+    </div>
+  </a-modal>
+  <a-modal v-model:visible="exceedDialogVisible"
+           ok-text="わかった" hide-cancel>
+    <template #title>
+      青輝石購入？
+    </template>
+    <div>
+      <div class="modal-text">もう一天井分もらったよ、</div>
+      <div class="modal-text">また今度来てね</div>
     </div>
   </a-modal>
 </template>
