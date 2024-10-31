@@ -86,13 +86,6 @@ const handleClickPyroxene = () => {
 const increasePyroxene = () => {
   pyroxene.value += 1200
 }
-
-/**
- * 数字增加千位分隔符
- */
-const numberWithCommas = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
 </script>
 
 <template>
@@ -129,7 +122,7 @@ const numberWithCommas = (num) => {
       }"
     >
       <img src="/img/pyroxene.png" alt="" />
-      <span>{{ numberWithCommas(tweened.number.toFixed(0)) }}</span>
+      <span>{{ tweened.number.toFixed(0) }}</span>
       <img src="/img/plus.png" alt="" @click="handleClickPyroxene" class="plus-icon" />
     </div>
     <a
