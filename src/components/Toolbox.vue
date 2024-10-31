@@ -1,9 +1,13 @@
 <script setup>
 import { Modal } from '@arco-design/web-vue'
-import { h, ref } from 'vue'
+import { h, reactive, ref, watch } from 'vue'
 import config from '/_config.json'
+import gsap from 'gsap'
+
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
+
+const dialogVisible = ref(false)
 
 const max_ap = 60 + config.level * 2
 const ap = ref(
@@ -19,9 +23,19 @@ const ap = ref(
           86400000)
     )
 )
+const credit = ref(11451)
+const pyroxene = ref(24000)
+const tweened = reactive({
+  number: 24000
+})
+
 const img = ref('/img/max.png')
 const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
+
+watch(pyroxene, (n) => {
+  gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
+})
 
 const about = () => {
   Modal.open({
@@ -58,10 +72,22 @@ window.matchMedia('(hover: none)').addListener((e) => {
 setInterval(() => {
   ap.value++
 }, 60000)
+
+/**
+ * 每次点击青辉石数量+1200
+ */
+const handleClickPyroxene = () => {
+  dialogVisible.value = true
+}
+const increasePyroxene = () => {
+  pyroxene.value += 1200
+}
+
 </script>
 
 <template>
   <div class="toolbox-box">
+    <!--体力-->
     <div
       class="toolbox"
       :style="{
@@ -72,6 +98,7 @@ setInterval(() => {
       <img src="/img/ap.png" alt="" />
       <span>{{ ap + '/' + max_ap }}</span>
     </div>
+    <!--信用点-->
     <div
       class="toolbox"
       :style="{
@@ -80,9 +107,10 @@ setInterval(() => {
       }"
     >
       <img src="/img/gold.png" alt="" />
-<!--      TODO 根据访问用户数修改金币数量-->
-      <span>11,451</span>
+      <!--TODO 根据访问用户数修改金币数量-->
+      <span>{{ credit }}</span>
     </div>
+    <!--青辉石-->
     <div
       class="toolbox"
       :style="{
@@ -91,8 +119,8 @@ setInterval(() => {
       }"
     >
       <img src="/img/pyroxene.png" alt="" />
-<!--      TODO 每次点击这个tab加1个青辉石-->
-      <span>24,000</span>
+      <span>{{ tweened.number.toFixed(0) }}</span>
+      <img src="/img/plus.png" alt="" @click="handleClickPyroxene" class="plus-icon" />
     </div>
     <a
       class="about toolbox"
@@ -117,6 +145,17 @@ setInterval(() => {
       <img alt="" :src="img" />
     </a>
   </div>
+
+  <a-modal v-model:visible="dialogVisible" @ok="increasePyroxene"
+           ok-text="いいね！" cancel-text="いらない">
+    <template #title>
+      青輝石購入?
+    </template>
+    <div style="margin: 0 20px">
+      <div class="modal-text">青輝石1200個、</div>
+      <div class="modal-text">無料でもらえます！</div>
+    </div>
+  </a-modal>
 </template>
 
 <style scoped>
@@ -186,6 +225,16 @@ setInterval(() => {
 .arco-icon {
   font-size: 32px;
   transform: skew(10deg);
+}
+
+.plus-icon {
+  position: absolute;
+  right: 0;
+}
+
+.modal-text {
+  font-size: 20px;
+  color: #003153;
 }
 
 @media screen and (max-width: 1199px) {
