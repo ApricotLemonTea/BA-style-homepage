@@ -30,18 +30,6 @@
   "iconfont": "https://at.alicdn.com/t/c/font_4336463_0i6ly0yvyzb.js",
   "dock": [
     {
-      "name": "Booth",
-      "href": "https://apricotlemontea.booth.pm",
-      "imgSrc": "/img/booth.png"
-    },
-    {
-      "name": "Skeb",
-      "href": "https://skeb.jp/@ApricotLemonTea",
-      "imgSrc": "/img/skeb.png"
-    }
-  ],
-  "contact": [
-    {
       "name": "Twitter",
       "href": "https://twitter.com/ApricotLemonTea",
       "imgSrc": "/img/twitter.png"
@@ -60,6 +48,23 @@
       "name": "GitHub",
       "href": "https://github.com/ApricotLemonTea",
       "imgSrc": "/img/github.png"
+    },
+    {
+      "name": "マシュマロ",
+      "href": "https://marshmallow-qa.com/62oia1oswinpi32",
+      "imgSrc": "/img/marshmallow.png"
+    }
+  ],
+  "contact": [
+    {
+      "name": "Booth",
+      "href": "https://apricotlemontea.booth.pm",
+      "imgSrc": "/img/booth.png"
+    },
+    {
+      "name": "Skeb",
+      "href": "https://skeb.jp/@ApricotLemonTea",
+      "imgSrc": "/img/skeb.png"
     }
   ],
   "task": {
