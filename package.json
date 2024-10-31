@@ -15,7 +15,6 @@
   "dependencies": {
     "@pixi/sound": "^5.2.2",
     "axios": "^1.5.0",
-    "busuanzi.pure.js": "^1.0.3",
     "gsap": "^3.12.5",
     "nprogress": "^0.2.0",
     "pixi-spine": "^4.0.4",
