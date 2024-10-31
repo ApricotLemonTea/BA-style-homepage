@@ -25,8 +25,8 @@ if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
       Modal.open({
-        title: '通知',
-        content: '老师，站点已更新，刷新即可访问最新内容！',
+        title: 'メッセージ',
+        content: 'アップデートがあります、ページを再起動してください',
         onOk: () => {
           updateSW(true)
         }

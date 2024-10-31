@@ -149,7 +149,7 @@ const increasePyroxene = () => {
   <a-modal v-model:visible="dialogVisible" @ok="increasePyroxene"
            ok-text="いいね！" cancel-text="いらない">
     <template #title>
-      青輝石購入?
+      青輝石購入？
     </template>
     <div style="margin: 0 20px">
       <div class="modal-text">青輝石1200個、</div>

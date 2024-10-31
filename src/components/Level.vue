@@ -7,7 +7,7 @@ const nextExp = ref(config.nextExp)
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
-  alert("profile")
+  alert("TODO: open a profile page")
 }
 </script>
 
