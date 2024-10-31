@@ -24,9 +24,12 @@ const ap = ref(
     )
 )
 const credit = ref(Math.floor(Math.random() * 99999999)) // 信用点
+const tweenedCredit = reactive({
+  number: credit.value
+})
 const pyroxene = ref(24000) // 青辉石
-const tweened = reactive({
-  number: 24000
+const tweenedPyroxene = reactive({
+  number: pyroxene.value
 })
 
 const img = ref('/img/max.png')
@@ -34,7 +37,10 @@ const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
 
 watch(pyroxene, (n) => {
-  gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
+  gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
+})
+watch(credit, (n) => {
+  gsap.to(tweenedCredit, { duration: 0.5, number: Number(n) || 0 })
 })
 
 const about = () => {
@@ -74,14 +80,25 @@ setInterval(() => {
 }, 10000)
 
 /**
- * 每次点击青辉石数量+1200
+ * 点击青辉石加号打开弹窗
  */
 const handleClickPyroxene = () => {
   dialogVisible.value = true
 }
+/**
+ * 青辉石+1200
+ */
 const increasePyroxene = () => {
   pyroxene.value += 1200
 }
+
+/**
+ * 生成随机的八位数信用点
+ */
+const generateCredit = () => {
+  credit.value = Math.floor(Math.random() * 99999999)
+}
+
 /**
  * 数字增加千位分隔符
  */
@@ -103,8 +120,9 @@ const numberWithCommas = (num) => {
       <img src="/img/ap.png" alt="" />
       <span>{{ ap + '/' + max_ap }}</span>
     </div>
+
     <!--信用点-->
-    <div
+    <div @click="generateCredit"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
@@ -112,8 +130,9 @@ const numberWithCommas = (num) => {
       }"
     >
       <img src="/img/gold.png" alt="" />
-      <span> {{ numberWithCommas(credit) }} </span>
+      <span> {{ numberWithCommas(tweenedCredit.number.toFixed(0)) }} </span>
     </div>
+
     <!--青辉石-->
     <div
       class="toolbox"
@@ -123,9 +142,11 @@ const numberWithCommas = (num) => {
       }"
     >
       <img src="/img/pyroxene.png" alt="" />
-      <span>{{ numberWithCommas(tweened.number.toFixed(0)) }}</span>
+      <span>{{ numberWithCommas(tweenedPyroxene.number.toFixed(0)) }}</span>
       <img src="/img/plus.png" alt="" @click="handleClickPyroxene" class="plus-icon" />
     </div>
+
+    <!--打开about-->
     <a
       class="about toolbox"
       @click="about"
@@ -136,6 +157,8 @@ const numberWithCommas = (num) => {
     >
       <icon-info-circle class="css-cursor-hover-enabled" />
     </a>
+
+    <!--打开或关闭ui-->
     <a
       class="l2d toolbox"
       :class="{ canHover: !hover }"
