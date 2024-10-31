@@ -1,7 +1,9 @@
 <script setup>
 import { Modal } from '@arco-design/web-vue'
-import { h, ref } from 'vue'
+import { h, reactive, ref, watch } from 'vue'
 import config from '/_config.json'
+import gsap from 'gsap'
+
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 
@@ -21,10 +23,17 @@ const ap = ref(
 )
 const credit = ref(11451)
 const pyroxene = ref(24000)
+const tweened = reactive({
+  number: 24000
+})
 
 const img = ref('/img/max.png')
 const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
+
+watch(pyroxene, (n) => {
+  gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
+})
 
 const about = () => {
   Modal.open({
@@ -104,7 +113,7 @@ const handleClickPyroxene = () => {
       }"
     >
       <img src="/img/pyroxene.png" alt="" />
-      <span>{{ pyroxene }}</span>
+      <span>{{ tweened.number.toFixed(0) }}</span>
       <img src="/img/plus.png" alt="" @click="handleClickPyroxene" class="plus-icon" />
     </div>
     <a
