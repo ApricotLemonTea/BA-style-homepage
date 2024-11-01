@@ -1,26 +1,25 @@
 <script setup>
 import { Icon } from '@arco-design/web-vue'
 import config from '/_config.json'
+import { ref } from 'vue'
+import PatchNote from '@/components/PatchNote.vue'
 
 const IconFont = Icon.addFromIconFontCn({
   src: config.iconfont
 })
+
+const patchNoteRef = ref()
+
+/**
+ * 打开patch note页面
+ */
+const openPatchNote = () => {
+  patchNoteRef.value.open()
+}
 </script>
 
 <template>
   <div class="contact-box">
-    <!--お知らせ-->
-    <div class="contact css-cursor-hover-enabled">
-      <img src="" alt="" />
-      <span>お知らせ</span>
-    </div>
-
-    <!--パッチノート-->
-    <div class="contact css-cursor-hover-enabled">
-      <img src="" alt="" />
-      <span style="white-space: nowrap;">パッチノート</span>
-    </div>
-
     <a v-for="contact in config.contact" :key="contact"
       :href="contact.href"
       class="contact css-cursor-hover-enabled"
@@ -29,7 +28,18 @@ const IconFont = Icon.addFromIconFontCn({
       <icon-font v-if="contact.iconfont" :type="contact.iconfont" />
       <span>{{ contact.name }}</span>
     </a>
+
+    <!--パッチノート-->
+    <div class="contact css-cursor-hover-enabled"
+         @click="openPatchNote">
+      <img src="" alt="" />
+      <span style="white-space: nowrap;">パッチノート</span>
+    </div>
+
   </div>
+
+  <!--パッチノート的弹窗-->
+  <PatchNote ref="patchNoteRef"></PatchNote>
 </template>
 
 <style scoped>
