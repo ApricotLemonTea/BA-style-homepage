@@ -10,8 +10,8 @@ import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 import App from './App.vue'
 import { registerSW } from 'virtual:pwa-register'
 
-import { css } from './assets/font/BlueakaBeta2GBK-DemiBold.ttf';
-import { css as css2 } from './assets/font/BlueakaBeta2GBK-Bold.ttf';
+import { css } from './assets/font/Natsuzemi-Maru-Gothic.ttf';
+// import { css as css2 } from './assets/font/BlueakaBeta2GBK-Bold.ttf';
 // console.log(css.family, css.weight);
 // console.log(css2.family, css2.weight);
 
@@ -27,6 +27,8 @@ if ('serviceWorker' in navigator) {
       Modal.open({
         title: 'メッセージ',
         content: 'アップデートがあります、ページを再起動してください',
+        okText: 'はい',
+        cancelText: 'あとで',
         onOk: () => {
           updateSW(true)
         }

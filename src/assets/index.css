@@ -8,7 +8,7 @@
 body {
   background-color: #fff;
   overflow: hidden;
-  font-family: BlueakaBeta2GBK, Inter, '-apple-system', BlinkMacSystemFont, 'PingFang SC',
+  font-family: Natsuzemi-Maru-Gothic, Inter, '-apple-system', BlinkMacSystemFont, 'PingFang SC',
     'Hiragino Sans GB', 'noto sans', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
     sans-serif !important;
 }
@@ -80,7 +80,7 @@ a {
 .arco-modal-body {
   padding: 50px 100px !important;
   font-size: 16px !important;
-  max-width: 240px;
+  /*max-width: 240px;*/
 }
 
 .arco-modal-header {
@@ -166,7 +166,6 @@ a {
 .zoom-modal-enter-from,.zoom-modal-appear-from {
   transform: scale(1) translateY(100%)!important;
   opacity: 0
-
 }
 
 .zoom-modal-enter-to,.zoom-modal-appear-to {

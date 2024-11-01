@@ -31,7 +31,7 @@ export default defineConfig({
     vueJsx(),
     Font.vite({
       css: {
-        fontFamily: 'BlueakaBeta2GBK'
+        fontFamily: 'Natsuzemi-Maru-Gothic'
       }
     }),
     createHtmlPlugin({

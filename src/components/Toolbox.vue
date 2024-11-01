@@ -9,6 +9,7 @@ const props = defineProps(['l2dOnly'])
 
 const getDialogVisible = ref(false)
 const exceedDialogVisible = ref(false)
+const aboutDialogVisible = ref(false)
 
 const max_ap = 60 + config.level * 2
 const ap = ref(
@@ -46,18 +47,7 @@ watch(credit, (n) => {
 })
 
 const about = () => {
-  Modal.open({
-    title: 'About',
-    content: () => [
-      h('p', {}, `© 2024 ${config.author}`),
-      h('p', {}, 'apricotlemontea@gmail.com'),
-      h('br', {}, ''),
-      h('p', {}, 'Originally made by 小鱼yuzifu'),
-      h('span', {}, 'Project repository：'),
-      h('a', { href: 'https://github.com/sf-yuzifu/homepage', target: '_blank' }, '[ GitHub ]')
-    ],
-    footer: false
-  })
+  aboutDialogVisible.value = true
 }
 
 const change = () => {
@@ -199,6 +189,20 @@ const numberWithCommas = (num) => {
     <div>
       <div class="modal-text">もう一天井分もらったよ、</div>
       <div class="modal-text">また今度来てね</div>
+    </div>
+  </a-modal>
+
+  <a-modal v-model:visible="aboutDialogVisible"
+           :footer="false">
+    <template #title>
+      About
+    </template>
+    <div style="color: #003153">
+      <p>© 2024 杏仁レモンティー</p>
+      <br />
+      <p>Originally made by 小鱼yuzifu</p>
+      <span>Project repository：</span>
+      <a href="https://github.com/sf-yuzifu/homepage" target="_blank">[ GitHub ]</a>
     </div>
   </a-modal>
 </template>

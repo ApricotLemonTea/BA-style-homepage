@@ -2,6 +2,9 @@
 import { ref } from 'vue'
 import config from '/_config.json'
 import { Icon } from '@arco-design/web-vue'
+import { Notification } from '@arco-design/web-vue'
+import useClipboard from 'vue-clipboard3'
+const { toClipboard } = useClipboard()
 
 const IconFont = Icon.addFromIconFontCn({
   src: config.iconfont
@@ -15,17 +18,47 @@ const addZero = (time) => {
 setInterval(() => {
   time.value = addZero(new Date().getHours()) + ':' + addZero(new Date().getMinutes())
 }, 1000)
+
+/**
+ * 复制邮件地址到剪贴板
+ */
+const copyMailAddress = async () => {
+  try {
+    await toClipboard("apricotlemontea@gmail.com")
+    Notification.success({
+      title: "メールアドレスをコピーしました",
+    })
+  } catch (e) {
+    console.log(e)
+  }
+}
 </script>
 
 <template>
   <div class="footer">
     <div class="project-box">
-      <a v-for="site in config.dock" :href="site.href" class="project css-cursor-hover-enabled">
+      <a v-for="site in config.dock" :key="site"
+         :href="site.href"
+         class="project css-cursor-hover-enabled"
+      >
         <img v-if="site.imgSrc" :src="site.imgSrc" alt="" />
         <icon-font v-if="site.iconfont" :type="site.iconfont" />
         <span>{{ site.name }}</span>
       </a>
+
+      <a-popover title="Mail">
+        <div class="project css-cursor-hover-enabled"
+          @click="copyMailAddress">
+          <img src="/img/mail.png" alt="" />
+          <span>Mail</span>
+        </div>
+        <template #content>
+          <p>apricotlemontea@gmail.com</p>
+          <p>(クリックでコピーできる)</p>
+        </template>
+      </a-popover>
     </div>
+
     <div class="time">
       <p>△×+○</p>
       <span>{{ time }}</span>
