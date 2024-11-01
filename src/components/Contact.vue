@@ -32,7 +32,7 @@ const openPatchNote = () => {
     <!--パッチノート-->
     <div class="contact css-cursor-hover-enabled"
          @click="openPatchNote">
-      <img src="" alt="" />
+      <img src="/img/patchNote.png" alt="" />
       <span style="white-space: nowrap;">パッチノート</span>
     </div>
 

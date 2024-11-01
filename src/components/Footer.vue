@@ -54,7 +54,7 @@ const copyMailAddress = async () => {
         </div>
         <template #content>
           <p>apricotlemontea@gmail.com</p>
-          <p>(クリックするとコピーできる)</p>
+          <p>(クリックでコピーできる)</p>
         </template>
       </a-popover>
     </div>

@@ -15,22 +15,22 @@ defineExpose({ open })
            title="パッチノート"
            ok-text="閉じる"
            hide-cancel
-           class="patch-note-modal"
            modal-animation-name="re-zoom-modal"
   >
     <div class="patch-note-container">
-      123456789022345678901234567890223456789012345678902234567890
+      <div>
+        <h2>工事中です</h2>
+        <a-divider :size="3"/>
+      </div>
     </div>
   </a-modal>
 </template>
 
 <style>
-.patch-note-modal{
-
-  .patch-note-container{
-    height: 60vh;
-    width: 70vw;
-  }
+.patch-note-container {
+  height: 60vh;
+  width: 70vw;
+  color: #003153;
 }
 
 .re-zoom-modal-enter-from,.re-zoom-modal-appear-from {

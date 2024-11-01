@@ -10,7 +10,7 @@ const openProfile = () => {
   // TODO 新增一个个人信息页面
   Notification.warning({
     id: "id",
-    title: "工事中...",
+    title: "工事中です",
     content: "プロフィールのページを追加する予定",
     position: "topLeft",
     closable: true
