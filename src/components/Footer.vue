@@ -25,9 +25,8 @@ setInterval(() => {
 const copyMailAddress = async () => {
   try {
     await toClipboard("apricotlemontea@gmail.com")
-    Notification.info({
-      content: "メールアドレスをコピーしました",
-      showIcon: false
+    Notification.success({
+      title: "メールアドレスをコピーしました",
     })
   } catch (e) {
     console.log(e)

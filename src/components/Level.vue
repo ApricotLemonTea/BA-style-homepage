@@ -8,9 +8,12 @@ const nextExp = ref(config.nextExp)
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
-  Notification.info({
-    content: "TODO: プロフィールのページを追加する",
-    showIcon: false
+  Notification.warning({
+    id: "id",
+    title: "工事中...",
+    content: "プロフィールのページを追加する予定",
+    position: "topLeft",
+    closable: true
   })
 }
 </script>
