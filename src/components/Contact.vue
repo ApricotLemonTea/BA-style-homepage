@@ -9,6 +9,18 @@ const IconFont = Icon.addFromIconFontCn({
 
 <template>
   <div class="contact-box">
+    <!--お知らせ-->
+    <div class="contact css-cursor-hover-enabled">
+      <img src="" alt="" />
+      <span>お知らせ</span>
+    </div>
+
+    <!--パッチノート-->
+    <div class="contact css-cursor-hover-enabled">
+      <img src="" alt="" />
+      <span style="white-space: nowrap;">パッチノート</span>
+    </div>
+
     <a
       v-for="contact in config.contact"
       :href="contact.href"
