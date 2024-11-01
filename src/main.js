@@ -27,6 +27,8 @@ if ('serviceWorker' in navigator) {
       Modal.open({
         title: 'メッセージ',
         content: 'アップデートがあります、ページを再起動してください',
+        okText: 'はい',
+        cancelText: 'あとで',
         onOk: () => {
           updateSW(true)
         }
