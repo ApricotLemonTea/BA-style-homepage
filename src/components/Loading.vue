@@ -33,17 +33,17 @@ setInterval(() => {
 
 <template>
   <div class="loading_wrapper">
-    <div ref="loadingImg" class="avatar_img bounce-top">
-      <img class="loading" :src="imgUrl" alt="" />
-      <div class="hide">
-        <img :src="imgList[0]" alt="" />
-        <img :src="imgList[1]" alt="" />
-        <img :src="imgList[2]" alt="" />
-        <img :src="imgList[3]" alt="" />
-        <video autoplay src="/transfrom.webm"></video>
-        <img src="/shitim/Tran_Shitim_Icon.png" alt="" />
-      </div>
-    </div>
+    <!--<div ref="loadingImg" class="avatar_img bounce-top">-->
+    <!--  <img class="loading" :src="imgUrl" alt="" />-->
+    <!--  <div class="hide">-->
+    <!--    <img :src="imgList[0]" alt="" />-->
+    <!--    <img :src="imgList[1]" alt="" />-->
+    <!--    <img :src="imgList[2]" alt="" />-->
+    <!--    <img :src="imgList[3]" alt="" />-->
+    <!--    <video autoplay src="/transfrom.webm"></video>-->
+    <!--    <img src="/shitim/Tran_Shitim_Icon.png" alt="" />-->
+    <!--  </div>-->
+    <!--</div>-->
     <div class="progress_wrapper">
       <h1 class="title">connecting...</h1>
       <div class="percent">{{ Math.floor(prop.percent * 100) + '%' }}</div>
