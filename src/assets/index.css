@@ -166,7 +166,6 @@ a {
 .zoom-modal-enter-from,.zoom-modal-appear-from {
   transform: scale(1) translateY(100%)!important;
   opacity: 0
-
 }
 
 .zoom-modal-enter-to,.zoom-modal-appear-to {
