@@ -37,7 +37,10 @@ const copyMailAddress = async () => {
 <template>
   <div class="footer">
     <div class="project-box">
-      <a v-for="site in config.dock" :href="site.href" class="project css-cursor-hover-enabled">
+      <a v-for="site in config.dock" :key="site"
+         :href="site.href"
+         class="project css-cursor-hover-enabled"
+      >
         <img v-if="site.imgSrc" :src="site.imgSrc" alt="" />
         <icon-font v-if="site.iconfont" :type="site.iconfont" />
         <span>{{ site.name }}</span>

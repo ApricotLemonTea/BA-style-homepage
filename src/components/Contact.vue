@@ -21,8 +21,7 @@ const IconFont = Icon.addFromIconFontCn({
       <span style="white-space: nowrap;">パッチノート</span>
     </div>
 
-    <a
-      v-for="contact in config.contact"
+    <a v-for="contact in config.contact" :key="contact"
       :href="contact.href"
       class="contact css-cursor-hover-enabled"
     >
