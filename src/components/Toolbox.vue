@@ -201,8 +201,6 @@ const numberWithCommas = (num) => {
       <p>© 2024 杏仁レモンティー</p>
       <br />
       <p>Originally made by 小鱼yuzifu</p>
-      <span>Project repository：</span>
-      <a href="https://github.com/sf-yuzifu/homepage" target="_blank">[ GitHub ]</a>
     </div>
   </a-modal>
 </template>
