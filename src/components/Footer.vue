@@ -26,7 +26,7 @@ const copyMailAddress = async () => {
   try {
     await toClipboard("apricotlemontea@gmail.com")
     Notification.success({
-      title: "メールアドレスをコピーしました",
+      title: "メールアドレスをコピーした",
     })
   } catch (e) {
     console.log(e)
