@@ -40,11 +40,6 @@
       "imgSrc": "/img/misskey.png"
     },
     {
-      "name": "Mail",
-      "href": "mailto://aoricotlemontea@gmail.com",
-      "imgSrc": "/img/mail.png"
-    },
-    {
       "name": "GitHub",
       "href": "https://github.com/ApricotLemonTea",
       "imgSrc": "/img/github.png"

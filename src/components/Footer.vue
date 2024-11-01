@@ -25,7 +25,18 @@ setInterval(() => {
         <icon-font v-if="site.iconfont" :type="site.iconfont" />
         <span>{{ site.name }}</span>
       </a>
+
+      <a-popover title="Mail">
+        <a class="project css-cursor-hover-enabled">
+          <img src="/img/mail.png" alt="" />
+          <span>Mail</span>
+        </a>
+        <template #content>
+          <span>apricotlemontea@gmail.com</span>
+        </template>
+      </a-popover>
     </div>
+
     <div class="time">
       <p>△×+○</p>
       <span>{{ time }}</span>
