@@ -80,7 +80,7 @@ a {
 .arco-modal-body {
   padding: 50px 100px !important;
   font-size: 16px !important;
-  max-width: 240px;
+  /*max-width: 240px;*/
 }
 
 .arco-modal-header {
