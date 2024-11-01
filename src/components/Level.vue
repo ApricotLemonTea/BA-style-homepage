@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { Notification } from '@arco-design/web-vue'
 import config from '/_config.json'
 
 const exp = ref(config.exp)
@@ -7,7 +8,10 @@ const nextExp = ref(config.nextExp)
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
-  alert("TODO: open a profile page")
+  Notification.info({
+    content: "TODO: プロフィールのページを追加する",
+    showIcon: false
+  })
 }
 </script>
 
