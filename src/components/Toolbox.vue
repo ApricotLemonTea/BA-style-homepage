@@ -25,7 +25,6 @@ const ap = ref(
           86400000)
     )
 )
-
 const credit = ref(Math.floor(Math.random() * 99999999)) // 信用点
 const tweenedCredit = reactive({
   number: credit.value
@@ -76,21 +75,21 @@ const apTooltipCountdown = ref(0)
  * 根据apTooltipCountdown控制tooltip显示
  */
 setInterval(() => {
-  if (ap.value < max_ap){
-    // 倒计时
+  // 倒计时
+  if (ap.value < max_ap) {
     countdown.value -= 1
-    if (apTooltipCountdown.value >= 0){
-      apTooltipCountdown.value -= 1
-    }
+  }
+  if (apTooltipCountdown.value >= 0){
+    apTooltipCountdown.value -= 1
+  }
 
-    // 时间到了之后的重置
-    if (countdown.value < 0){
-      ap.value++
-      countdown.value = 9
-    }
-    if (apTooltipCountdown.value < 0){
-      apTooltipVisible.value = false
-    }
+  // 时间到了之后的重置
+  if (countdown.value < 0){
+    ap.value++
+    countdown.value = 9
+  }
+  if (apTooltipCountdown.value < 0){
+    apTooltipVisible.value = false
   }
 }, 1000)
 
@@ -103,7 +102,6 @@ const handleClickAp = () => {
   if (apTooltipVisible.value) {
     return
   }
-
   apTooltipVisible.value = true
   apTooltipCountdown.value = 3
 }
