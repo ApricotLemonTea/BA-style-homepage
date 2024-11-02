@@ -27,12 +27,15 @@ const skip = () => {
 
 <template>
   <transition name="down2">
-    <div
-      v-if="!props.l2dOnly"
-      :name="config.task.name"
-      class="task css-cursor-hover-enabled"
-      @click="skip"
-    ></div>
+    <a-popover title="ポートフォリオ">
+      <div
+        v-if="!props.l2dOnly"
+        :name="config.task.name"
+        class="task css-cursor-hover-enabled"
+        @click="skip"
+      ></div>
+    </a-popover>
+
   </transition>
   <transition name="curtain">
     <video v-if="bg" autoplay src="/transfrom.webm" class="bg"></video>
