@@ -3,5 +3,5 @@
 ### 部署地址
 - https://apricotlemontea.com
 
-### 源项目
+### 源项目（作者：[小鱼yuzifu](https://github.com/sf-yuzifu)）
 - https://github.com/sf-yuzifu/homepage
