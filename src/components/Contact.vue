@@ -33,6 +33,7 @@ const openUrl = inject("openUrl")
         <span>Booth</span>
       </div>
       <template #content>
+        <p>アクリルグッズ屋</p>
       </template>
     </a-popover>
 
@@ -47,7 +48,7 @@ const openUrl = inject("openUrl")
     </a-popover>
 
     <!--パッチノート-->
-    <a-popover title="パッチノート">
+    <a-popover title="パッチノート" position="bottom">
       <div class="contact css-cursor-hover-enabled"
            @click="openPatchNote">
         <img src="/img/patchNote.png" alt="" />
