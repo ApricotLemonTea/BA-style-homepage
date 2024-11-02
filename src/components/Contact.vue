@@ -55,7 +55,7 @@ const openUrl = inject("openUrl")
         <span style="white-space: nowrap;">パッチノート</span>
       </div>
       <template #content>
-        <p>更新履歴はここに書いてる</p>
+        <p>更新履歴はここに書いてます</p>
       </template>
     </a-popover>
 

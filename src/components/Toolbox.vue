@@ -206,6 +206,7 @@ const openUrl = inject("openUrl")
     <div style="color: #003153">
       <p>当サイトは杏仁レモンティーの各種リンクのポータルサイトです。</p>
       <p>ブルーアーカイブのロビー仕様に仕上げています（非公式）。</p>
+      <p>当サイトに掲載されているイラスト、ロゴなどはすべて転載禁止です。</p>
       <br />
       <p>Copyright © 2024 杏仁レモンティー All Rights Reserved.</p>
       <br />
