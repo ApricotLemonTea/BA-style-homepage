@@ -95,7 +95,7 @@ const openUrl = inject("openUrl")
           <span>Wavebox</span>
         </div>
         <template #content>
-          <p>ご要望、ご感想などはこちらにどうぞ</p>
+          <p>ご要望、ご感想などはこちらに</p>
         </template>
       </a-popover>
     </div>
