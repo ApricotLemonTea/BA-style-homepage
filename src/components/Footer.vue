@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import config from '/_config.json'
 import { Icon } from '@arco-design/web-vue'
 import { Notification } from '@arco-design/web-vue'
@@ -32,29 +32,70 @@ const copyMailAddress = async () => {
     console.log(e)
   }
 }
+
+/**
+ * App.vue提供的打开url的方法
+ * @type {function}
+ */
+const openUrl = inject("openUrl")
 </script>
 
 <template>
   <div class="footer">
     <div class="project-box">
-      <a v-for="site in config.dock" :key="site"
-         :href="site.href"
-         class="project css-cursor-hover-enabled"
-      >
-        <img v-if="site.imgSrc" :src="site.imgSrc" alt="" />
-        <icon-font v-if="site.iconfont" :type="site.iconfont" />
-        <span>{{ site.name }}</span>
-      </a>
+      <a-popover title="Twitter">
+        <div class="project css-cursor-hover-enabled"
+             @click="openUrl('https://twitter.com/ApricotLemonTea')">
+          <img src="/img/twitter.png" alt="" />
+          <span>Twitter</span>
+        </div>
+        <template #content>
+          <p>主にここで喋ってる</p>
+        </template>
+      </a-popover>
+
+      <a-popover title="Misskey">
+        <div class="project css-cursor-hover-enabled"
+             @click="openUrl('https://misskey.io/@ApricotLemonTea')">
+          <img src="/img/misskey.png" alt="" />
+          <span>Misskey</span>
+        </div>
+        <template #content>
+          <p>たまに見てる</p>
+        </template>
+      </a-popover>
+
+      <a-popover title="GitHub">
+        <div class="project css-cursor-hover-enabled"
+             @click="openUrl('https://github.com/ApricotLemonTea/BA-style-homepage')">
+          <img src="/img/github.png" alt="" />
+          <span>GitHub</span>
+        </div>
+        <template #content>
+          パブリックレポジトリです
+        </template>
+      </a-popover>
 
       <a-popover title="Mail">
         <div class="project css-cursor-hover-enabled"
-          @click="copyMailAddress">
+             @click="copyMailAddress">
           <img src="/img/mail.png" alt="" />
           <span>Mail</span>
         </div>
         <template #content>
           <p>apricotlemontea@gmail.com</p>
           <p>(クリックでコピーできる)</p>
+        </template>
+      </a-popover>
+
+      <a-popover title="Wavebox">
+        <div class="project css-cursor-hover-enabled"
+          @click="openUrl('https://wavebox.me/wave/5n2bu0domp1j2fq9')">
+          <img src="/img/wavebox.png" alt="" />
+          <span>Wavebox</span>
+        </div>
+        <template #content>
+          <p>ご要望、ご感想などはこちら</p>
         </template>
       </a-popover>
     </div>
