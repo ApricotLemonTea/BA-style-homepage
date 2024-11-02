@@ -198,6 +198,7 @@ const openUrl = inject("openUrl")
   </a-modal>
 
   <a-modal v-model:visible="aboutDialogVisible"
+           modal-animation-name="no-slide-zoom-modal"
            :footer="false">
     <template #title>
       About
