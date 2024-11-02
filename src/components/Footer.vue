@@ -26,7 +26,7 @@ const copyMailAddress = async () => {
   try {
     await toClipboard("apricotlemontea@gmail.com")
     Notification.success({
-      title: "メールアドレスをコピーした",
+      title: "メールアドレスをコピーしました",
     })
   } catch (e) {
     console.log(e)
@@ -50,7 +50,7 @@ const openUrl = inject("openUrl")
           <span>Twitter</span>
         </div>
         <template #content>
-          <p>主にここで喋ってる</p>
+          <p>主にここで喋ってます</p>
         </template>
       </a-popover>
 
@@ -61,7 +61,7 @@ const openUrl = inject("openUrl")
           <span>Misskey</span>
         </div>
         <template #content>
-          <p>たまに見てる</p>
+          <p>たまに見てます</p>
         </template>
       </a-popover>
 
@@ -72,7 +72,7 @@ const openUrl = inject("openUrl")
           <span>GitHub</span>
         </div>
         <template #content>
-          パブリックレポジトリです
+          パブリックのレポジトリです
         </template>
       </a-popover>
 
@@ -84,7 +84,7 @@ const openUrl = inject("openUrl")
         </div>
         <template #content>
           <p>apricotlemontea@gmail.com</p>
-          <p>(クリックでコピーできる)</p>
+          <p>(クリックでコピーできます)</p>
         </template>
       </a-popover>
 
@@ -95,7 +95,7 @@ const openUrl = inject("openUrl")
           <span>Wavebox</span>
         </div>
         <template #content>
-          <p>ご要望、ご感想などはこちら</p>
+          <p>ご要望、ご感想などはこちらにどうぞ</p>
         </template>
       </a-popover>
     </div>

@@ -1,17 +1,20 @@
 <script setup>
-import { Modal } from '@arco-design/web-vue'
-import { h, reactive, ref, watch } from 'vue'
+import { inject, reactive, ref, watch } from 'vue'
 import config from '/_config.json'
 import gsap from 'gsap'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 
-const getDialogVisible = ref(false)
-const exceedDialogVisible = ref(false)
+const apTooltipVisible = ref(false)
+const increasePyroxeneDialogVisible = ref(false)
+const exceedPyroxeneDialogVisible = ref(false)
+const increaseApDialogVisible = ref(false)
+const exeedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
 const max_ap = 60 + config.level * 2
+// ap初始值根据今天经过的时间减少
 const ap = ref(
   max_ap -
     Math.trunc(
@@ -25,26 +28,35 @@ const ap = ref(
           86400000)
     )
 )
-const credit = ref(Math.floor(Math.random() * 99999999)) // 信用点
+const tweenedAp = reactive({
+  number: ap.value
+})
+watch(ap, (n) => {
+  gsap.to(tweenedAp, { duration: 0.5, number: Number(n) || 0 })
+})
+
+// 信用点
+const credit = ref(Math.floor(Math.random() * 99999999))
 const tweenedCredit = reactive({
   number: credit.value
-})
-const pyroxene = ref(24000) // 青辉石
-const tweenedPyroxene = reactive({
-  number: pyroxene.value
-})
-const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
-
-const img = ref('/img/max.png')
-const showMin = ref(false)
-const hover = ref(window.matchMedia('(hover: none)').matches)
-
-watch(pyroxene, (n) => {
-  gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
 })
 watch(credit, (n) => {
   gsap.to(tweenedCredit, { duration: 0.5, number: Number(n) || 0 })
 })
+
+// 青辉石
+const pyroxene = ref(24000)
+const tweenedPyroxene = reactive({
+  number: pyroxene.value
+})
+const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
+watch(pyroxene, (n) => {
+  gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
+})
+
+const img = ref('/img/max.png')
+const showMin = ref(false)
+const hover = ref(window.matchMedia('(hover: none)').matches)
 
 const about = () => {
   aboutDialogVisible.value = true
@@ -67,19 +79,71 @@ window.matchMedia('(hover: none)').addListener((e) => {
   hover.value = e.matches
 })
 
+const countdown = ref(9)
+const apTooltipCountdown = ref(0)
+
+/**
+ * 每十秒回复一点体力
+ * 根据apTooltipCountdown控制tooltip显示
+ */
 setInterval(() => {
-  ap.value++
-}, 10000)
+  // 倒计时
+  if (ap.value < max_ap) {
+    countdown.value -= 1
+  }
+  if (apTooltipCountdown.value >= 0){
+    apTooltipCountdown.value -= 1
+  }
+
+  // 时间到了之后的重置
+  if (countdown.value < 0){
+    ap.value += 1
+    countdown.value = 9
+  }
+  if (apTooltipCountdown.value < 0){
+    apTooltipVisible.value = false
+  }
+}, 1000)
+
+/**
+ * 点击体力按钮的事件<br/>
+ * 显示体力回复的倒计时tooltip 3s，<br/>
+ */
+const handleClickAp = () => {
+  // 防止重复点击及重复显示
+  if (apTooltipVisible.value || increaseApDialogVisible.value || exeedApDialogVisible.value) {
+    return
+  }
+  apTooltipVisible.value = true
+  apTooltipCountdown.value = 3
+}
+
+/**
+ * 点击体力加号的事件
+ */
+const handleClickApIncrease = () => {
+  if (ap.value < 999){
+    increaseApDialogVisible.value = true
+  } else {
+    exeedApDialogVisible.value = true
+  }
+}
+/**
+ * 体力增加到999
+ */
+const increaseAp = () => {
+  ap.value = 999
+}
 
 /**
  * 点击青辉石打开弹窗
  */
 const handleClickPyroxene = () => {
   if (pyroxeneTimes.value <= 20){
-    getDialogVisible.value = true
+    increasePyroxeneDialogVisible.value = true
   } else {
     // 超过一井后不能再拿
-    exceedDialogVisible.value = true
+    exceedPyroxeneDialogVisible.value = true
   }
 }
 /**
@@ -103,21 +167,37 @@ const generateCredit = () => {
 const numberWithCommas = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
+
+/**
+ * App.vue提供的打开url的方法
+ * @type {function}
+ */
+const openUrl = inject("openUrl")
 </script>
 
 <template>
   <div class="toolbox-box">
     <!--体力-->
-    <div
-      class="toolbox"
-      :style="{
+    <a-tooltip position="bottom" background-color="#254268"
+               :popup-visible="apTooltipVisible"
+               @click="handleClickAp"
+    >
+      <div
+        class="toolbox"
+        :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
         transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
       }"
-    >
-      <img src="/img/ap.png" alt="" />
-      <span>{{ ap + '/' + max_ap }}</span>
-    </div>
+      >
+        <img src="/img/ap.png" alt="" />
+        <span>{{ tweenedAp.number.toFixed(0) + '/' + max_ap }}</span>
+        <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
+      </div>
+      <template #content>
+        <p v-if="ap < max_ap">次の回復まであと<span style="color: #60c7ff">{{countdown}}秒</span>。</p>
+        <p v-else>自動回復の上限に到達しました。</p>
+      </template>
+    </a-tooltip>
 
     <!--信用点-->
     <div @click="generateCredit"
@@ -144,7 +224,7 @@ const numberWithCommas = (num) => {
       <img src="/img/plus.png" alt="" class="plus-icon" />
     </div>
 
-    <!--打开about-->
+    <!--打开about的按钮-->
     <a
       class="about toolbox"
       @click="about"
@@ -156,7 +236,7 @@ const numberWithCommas = (num) => {
       <icon-info-circle class="css-cursor-hover-enabled" />
     </a>
 
-    <!--打开或关闭ui-->
+    <!--打开或关闭ui的按钮-->
     <a
       class="l2d toolbox"
       :class="{ canHover: !hover }"
@@ -171,7 +251,7 @@ const numberWithCommas = (num) => {
     </a>
   </div>
 
-  <a-modal v-model:visible="getDialogVisible" @ok="increasePyroxene"
+  <a-modal v-model:visible="increasePyroxeneDialogVisible" @ok="increasePyroxene"
            ok-text="いいね！" cancel-text="いらない">
     <template #title>
       青輝石購入？
@@ -181,7 +261,7 @@ const numberWithCommas = (num) => {
       <div class="modal-text">無料でもらえる！</div>
     </div>
   </a-modal>
-  <a-modal v-model:visible="exceedDialogVisible"
+  <a-modal v-model:visible="exceedPyroxeneDialogVisible"
            ok-text="わかった" hide-cancel>
     <template #title>
       青輝石購入？
@@ -192,20 +272,58 @@ const numberWithCommas = (num) => {
     </div>
   </a-modal>
 
+  <a-modal v-model:visible="increaseApDialogVisible" @ok="increaseAp"
+           ok-text="いいね！" cancel-text="いらない">
+    <template #title>
+      AP購入？
+    </template>
+    <div style="margin: 0 20px">
+      <div class="modal-text">AP最大まで回復、</div>
+      <div class="modal-text">しかも無料！</div>
+    </div>
+  </a-modal>
+  <a-modal v-model:visible="exeedApDialogVisible"
+           ok-text="わかった" hide-cancel>
+    <template #title>
+      AP購入？
+    </template>
+    <div>
+      <div class="modal-text">もうAP最大だよ、</div>
+      <div class="modal-text">また今度来てね</div>
+    </div>
+  </a-modal>
+
   <a-modal v-model:visible="aboutDialogVisible"
+           modal-animation-name="no-slide-zoom-modal"
            :footer="false">
     <template #title>
       About
     </template>
     <div style="color: #003153">
-      <p>© 2024 杏仁レモンティー</p>
+      <p>当サイトは杏仁レモンティーの各種リンクのポータルサイトです。</p>
+      <p>ブルーアーカイブのロビー仕様に仕上げています（非公式）。</p>
       <br />
-      <p>Originally made by 小鱼yuzifu</p>
+      <p>Copyright © 2024 杏仁レモンティー All Rights Reserved.</p>
+      <br />
+      <p>Originally made by
+        <span @click="openUrl('https://github.com/sf-yuzifu/homepage')"
+              class="css-cursor-hover-enabled"
+              style="color: #5196ff">小鱼yuzifu</span>
+      </p>
+      <p>Font using
+        <span @click="openUrl('https://booth.pm/ja/items/4525676')"
+              class="css-cursor-hover-enabled"
+              style="color: #5196ff">夏蝉丸ゴシック</span>
+      </p>
     </div>
   </a-modal>
 </template>
 
 <style scoped>
+ba-tooltip {
+  border-radius: 100px;
+}
+
 .toolbox-box {
   position: absolute;
   right: 20px;

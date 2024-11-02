@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import patchNote from '/_patch_note.json'
 
 const dialogVisible = ref(false)
 
@@ -15,45 +16,37 @@ defineExpose({ open })
            title="パッチノート"
            ok-text="閉じる"
            hide-cancel
-           modal-animation-name="re-zoom-modal"
+           modal-animation-name="no-slide-zoom-modal"
   >
     <div class="patch-note-container">
-      <div>
-        <h2>2024-11-01　β版公開</h2>
-        <a-divider :size="3"/>
+      <div v-for="note in patchNote.patchNoteList">
+        <h1>{{note.title}}</h1>
+        <div class="patch-note-text-block">
+          <p v-for="item in note.contents" class="patch-note-text">
+            ・{{item}}
+          </p>
+        </div>
+        <a-divider :size="3" :margin="50"/>
       </div>
     </div>
+
   </a-modal>
 </template>
 
 <style>
 .patch-note-container {
   height: 60vh;
-  width: 70vw;
+  width: auto;
+  min-width: 50vw;
   color: #003153;
 }
 
-.re-zoom-modal-enter-from,.re-zoom-modal-appear-from {
-  transform: scale(0.5) translateY(0);
-  opacity: 0
-}
-.re-zoom-modal-enter-to,.re-zoom-modal-appear-to {
-  transform: scale(1) translateY(0);
-  opacity: 1
-}
-.re-zoom-modal-enter-active,.re-zoom-modal-appear-active {
-  transition: opacity .4s cubic-bezier(.3,1.3,.3,1),transform .4s cubic-bezier(.3,1,.3,1) !important;
+.patch-note-text-block {
+  text-align: left;
+  padding: 0 7vw;
 }
 
-.re-zoom-modal-leave-from {
-  transform: scale(1) translateY(0); /* 从正常大小和位置开始 */
-  opacity: 1; /* 完全不透明 */
-}
-.re-zoom-modal-leave-to {
-  transform: scale(0.5) translateY(0); /* 缩小 */
-  opacity: 0; /* 变得透明 */
-}
-.re-zoom-modal-leave-active {
-  transition: opacity .4s cubic-bezier(.3, 1.3, .3, 1), transform .4s cubic-bezier(.3, 1, .3, 1) !important; /* 应用过渡效果 */
+.patch-note-text {
+  font-size: 20px;
 }
 </style>
