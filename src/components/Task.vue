@@ -27,7 +27,7 @@ const skip = () => {
 
 <template>
   <transition name="down2">
-    <a-popover title="ポートフォリオ">
+    <a-popover title="Xfolio" content="ポートフォリオです">
       <div
         v-if="!props.l2dOnly"
         :name="config.task.name"
