@@ -194,7 +194,7 @@ const openUrl = inject("openUrl")
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
-        <p v-if="ap < max_ap">次の回復まであと<span style="color: #6ac4f3">{{countdown}}秒</span>。</p>
+        <p v-if="ap < max_ap">次の回復まであと<span style="color: #60c7ff">{{countdown}}秒</span>。</p>
         <p v-else>自動回復の上限に到達しました。</p>
       </template>
     </a-tooltip>
@@ -302,7 +302,7 @@ const openUrl = inject("openUrl")
     <div style="color: #003153">
       <p>当サイトは杏仁レモンティーの各種リンクのポータルサイトです。</p>
       <p>ブルーアーカイブのロビー仕様に仕上げています（非公式）。</p>
-      <p>当サイトに掲載されているイラスト、ロゴなどはすべて転載禁止です。</p>
+      <p>当サイトに使用されているイラスト、ロゴなどはすべて転載禁止です。</p>
       <br />
       <p>Copyright © 2024 杏仁レモンティー All Rights Reserved.</p>
       <br />
