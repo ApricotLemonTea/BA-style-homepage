@@ -50,6 +50,7 @@ const openUrl = inject("openUrl")
           <span>Twitter</span>
         </div>
         <template #content>
+          <p>主にここで喋ってる</p>
         </template>
       </a-popover>
 
@@ -60,16 +61,18 @@ const openUrl = inject("openUrl")
           <span>Misskey</span>
         </div>
         <template #content>
+          <p>たまに見てる</p>
         </template>
       </a-popover>
 
       <a-popover title="GitHub">
         <div class="project css-cursor-hover-enabled"
-             @click="openUrl('https://github.com/ApricotLemonTea')">
+             @click="openUrl('https://github.com/ApricotLemonTea/BA-style-homepage')">
           <img src="/img/github.png" alt="" />
           <span>GitHub</span>
         </div>
         <template #content>
+          パブリックレポジトリです
         </template>
       </a-popover>
 

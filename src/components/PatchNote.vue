@@ -19,7 +19,7 @@ defineExpose({ open })
   >
     <div class="patch-note-container">
       <div>
-        <h2>工事中です</h2>
+        <h2>2024-11-01　β版公開</h2>
         <a-divider :size="3"/>
       </div>
     </div>
