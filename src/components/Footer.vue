@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import config from '/_config.json'
 import { Icon } from '@arco-design/web-vue'
 import { Notification } from '@arco-design/web-vue'
@@ -34,12 +34,10 @@ const copyMailAddress = async () => {
 }
 
 /**
- * 打开链接
- * @param {String} url 要打开的目标地址
+ * App.vue提供的打开url的方法
+ * @type {function}
  */
-const openUrl = (url) => {
-  window.open(url, "_blank")
-}
+const openUrl = inject("openUrl")
 </script>
 
 <template>

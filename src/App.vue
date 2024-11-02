@@ -1,4 +1,5 @@
 <script setup>
+import { provide } from 'vue'
 import Cursor from '@/components/Cursor.vue'
 import Footer from '@/components/Footer.vue'
 import Level from '@/components/Level.vue'
@@ -32,6 +33,15 @@ const load = setInterval(() => {
 const switchL2D = () => {
   l2dOnly.value = !l2dOnly.value
 }
+
+/**
+ * 打开链接
+ * @param {String} url 要打开的目标地址
+ */
+const openUrl = (url) => {
+  window.open(url, "_blank")
+}
+provide("openUrl", openUrl)
 </script>
 
 <template>
