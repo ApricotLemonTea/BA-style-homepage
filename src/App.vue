@@ -35,7 +35,7 @@ const switchL2D = () => {
 }
 
 /**
- * 打开链接
+ * 打开url
  * @param {String} url 要打开的目标地址
  */
 const openUrl = (url) => {

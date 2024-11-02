@@ -1,6 +1,5 @@
 <script setup>
-import { Modal } from '@arco-design/web-vue'
-import { h, reactive, ref, watch } from 'vue'
+import { inject, reactive, ref, watch } from 'vue'
 import config from '/_config.json'
 import gsap from 'gsap'
 
@@ -103,6 +102,12 @@ const generateCredit = () => {
 const numberWithCommas = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
+
+/**
+ * App.vue提供的打开url的方法
+ * @type {function}
+ */
+const openUrl = inject("openUrl")
 </script>
 
 <template>
@@ -200,7 +205,16 @@ const numberWithCommas = (num) => {
     <div style="color: #003153">
       <p>© 2024 杏仁レモンティー</p>
       <br />
-      <p>Originally made by 小鱼yuzifu</p>
+      <p>Originally made by
+        <span @click="openUrl('https://github.com/sf-yuzifu/homepage')"
+              class="css-cursor-hover-enabled"
+              style="color: #5196ff">小鱼yuzifu</span>
+      </p>
+      <p>Font using
+        <span @click="openUrl('https://booth.pm/ja/items/4525676')"
+              class="css-cursor-hover-enabled"
+              style="color: #5196ff">夏蝉丸ゴシック</span>
+      </p>
     </div>
   </a-modal>
 </template>
