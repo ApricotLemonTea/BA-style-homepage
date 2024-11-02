@@ -26,7 +26,7 @@ const openUrl = inject("openUrl")
 
 <template>
   <div class="contact-box">
-    <a-popover title="Booth">
+    <a-popover title="BOOTH">
       <div class="contact css-cursor-hover-enabled"
            @click="openUrl('https://apricotlemontea.booth.pm')">
         <img src="/img/booth.png" alt="" />
