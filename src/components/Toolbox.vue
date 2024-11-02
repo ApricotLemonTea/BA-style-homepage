@@ -14,6 +14,7 @@ const exeedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
 const max_ap = 60 + config.level * 2
+// ap初始值根据今天经过的时间减少
 const ap = ref(
   max_ap -
     Math.trunc(
@@ -27,26 +28,35 @@ const ap = ref(
           86400000)
     )
 )
-const credit = ref(Math.floor(Math.random() * 99999999)) // 信用点
+const tweenedAp = reactive({
+  number: ap.value
+})
+watch(ap, (n) => {
+  gsap.to(tweenedAp, { duration: 0.5, number: Number(n) || 0 })
+})
+
+// 信用点
+const credit = ref(Math.floor(Math.random() * 99999999))
 const tweenedCredit = reactive({
   number: credit.value
-})
-const pyroxene = ref(24000) // 青辉石
-const tweenedPyroxene = reactive({
-  number: pyroxene.value
-})
-const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
-
-const img = ref('/img/max.png')
-const showMin = ref(false)
-const hover = ref(window.matchMedia('(hover: none)').matches)
-
-watch(pyroxene, (n) => {
-  gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
 })
 watch(credit, (n) => {
   gsap.to(tweenedCredit, { duration: 0.5, number: Number(n) || 0 })
 })
+
+// 青辉石
+const pyroxene = ref(24000)
+const tweenedPyroxene = reactive({
+  number: pyroxene.value
+})
+const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
+watch(pyroxene, (n) => {
+  gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
+})
+
+const img = ref('/img/max.png')
+const showMin = ref(false)
+const hover = ref(window.matchMedia('(hover: none)').matches)
 
 const about = () => {
   aboutDialogVisible.value = true
@@ -180,7 +190,7 @@ const openUrl = inject("openUrl")
       }"
       >
         <img src="/img/ap.png" alt="" />
-        <span>{{ ap + '/' + max_ap }}</span>
+        <span>{{ tweenedAp.number.toFixed(0) + '/' + max_ap }}</span>
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
