@@ -24,6 +24,8 @@ const ap = ref(
           86400000)
     )
 )
+const countdown = ref(10)
+
 const credit = ref(Math.floor(Math.random() * 99999999)) // 信用点
 const tweenedCredit = reactive({
   number: credit.value
@@ -66,11 +68,18 @@ window.matchMedia('(hover: none)').addListener((e) => {
   hover.value = e.matches
 })
 
+/**
+ * 每十秒回复一点体力
+ */
 setInterval(() => {
   if (ap.value < max_ap){
-    ap.value++
+    countdown.value -= 1
+    if(countdown.value <= 0){
+      ap.value++
+      countdown.value = 10
+    }
   }
-}, 10000)
+}, 1000)
 
 /**
  * 点击青辉石打开弹窗
@@ -115,7 +124,9 @@ const openUrl = inject("openUrl")
 <template>
   <div class="toolbox-box">
     <!--体力-->
-    <a-tooltip position="bottom" background-color="#254268">
+    <a-tooltip position="bottom" background-color="#254268"
+               trigger="click"
+    >
       <div
         class="toolbox"
         :style="{
@@ -127,7 +138,8 @@ const openUrl = inject("openUrl")
         <span>{{ ap + '/' + max_ap }}</span>
       </div>
       <template #content>
-        <p>自動回復の上限に到達しました。</p>
+        <p v-if="ap < max_ap">次の回復まであと<span style="color: #6ac4f3">{{countdown}}秒</span>。</p>
+        <p v-else>自動回復の上限に到達しました。</p>
       </template>
     </a-tooltip>
 
@@ -156,7 +168,7 @@ const openUrl = inject("openUrl")
       <img src="/img/plus.png" alt="" class="plus-icon" />
     </div>
 
-    <!--打开about-->
+    <!--打开about的按钮-->
     <a
       class="about toolbox"
       @click="about"
@@ -168,7 +180,7 @@ const openUrl = inject("openUrl")
       <icon-info-circle class="css-cursor-hover-enabled" />
     </a>
 
-    <!--打开或关闭ui-->
+    <!--打开或关闭ui的按钮-->
     <a
       class="l2d toolbox"
       :class="{ canHover: !hover }"
@@ -232,6 +244,10 @@ const openUrl = inject("openUrl")
 </template>
 
 <style scoped>
+ba-tooltip {
+  border-radius: 100px;
+}
+
 .toolbox-box {
   position: absolute;
   right: 20px;
