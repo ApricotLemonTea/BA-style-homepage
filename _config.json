@@ -29,18 +29,7 @@
   "nextExp": 8381,
   "iconfont": "https://at.alicdn.com/t/c/font_4336463_0i6ly0yvyzb.js",
   "dock": [],
-  "contact": [
-    {
-      "name": "Booth",
-      "href": "https://apricotlemontea.booth.pm",
-      "imgSrc": "/img/booth.png"
-    },
-    {
-      "name": "Skeb",
-      "href": "https://skeb.jp/@ApricotLemonTea",
-      "imgSrc": "/img/skeb.png"
-    }
-  ],
+  "contact": [],
   "task": {
     "name": "イラスト",
     "href": "https://xfolio.jp/portfolio/ApricotLemonTea"

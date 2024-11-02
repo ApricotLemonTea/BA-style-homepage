@@ -1,7 +1,7 @@
 <script setup>
 import { Icon } from '@arco-design/web-vue'
 import config from '/_config.json'
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import PatchNote from '@/components/PatchNote.vue'
 
 const IconFont = Icon.addFromIconFontCn({
@@ -16,25 +16,48 @@ const patchNoteRef = ref()
 const openPatchNote = () => {
   patchNoteRef.value.open()
 }
+
+/**
+ * App.vue提供的打开url的方法
+ * @type {function}
+ */
+const openUrl = inject("openUrl")
 </script>
 
 <template>
   <div class="contact-box">
-    <a v-for="contact in config.contact" :key="contact"
-      :href="contact.href"
-      class="contact css-cursor-hover-enabled"
-    >
-      <img v-if="contact.imgSrc" :src="contact.imgSrc" alt="" />
-      <icon-font v-if="contact.iconfont" :type="contact.iconfont" />
-      <span>{{ contact.name }}</span>
-    </a>
+    <a-popover title="Booth">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openUrl('https://apricotlemontea.booth.pm')">
+        <img src="/img/booth.png" alt="" />
+        <span>Booth</span>
+      </div>
+      <template #content>
+      </template>
+    </a-popover>
+
+    <a-popover title="Skeb">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openUrl('https://skeb.jp/@ApricotLemonTea')">
+        <img src="/img/skeb.png" alt="" />
+        <span>Skeb</span>
+      </div>
+      <template #content>
+      </template>
+    </a-popover>
 
     <!--パッチノート-->
-    <div class="contact css-cursor-hover-enabled"
-         @click="openPatchNote">
-      <img src="/img/patchNote.png" alt="" />
-      <span style="white-space: nowrap;">パッチノート</span>
-    </div>
+    <a-popover title="パッチノート">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openPatchNote">
+        <img src="/img/patchNote.png" alt="" />
+        <span style="white-space: nowrap;">パッチノート</span>
+      </div>
+      <template #content>
+        <p>更新履歴はここに書いてる</p>
+      </template>
+    </a-popover>
+
 
   </div>
 
