@@ -67,7 +67,9 @@ window.matchMedia('(hover: none)').addListener((e) => {
 })
 
 setInterval(() => {
-  ap.value++
+  if (ap.value < max_ap){
+    ap.value++
+  }
 }, 10000)
 
 /**
@@ -113,16 +115,21 @@ const openUrl = inject("openUrl")
 <template>
   <div class="toolbox-box">
     <!--体力-->
-    <div
-      class="toolbox"
-      :style="{
+    <a-tooltip position="bottom" background-color="#254268">
+      <div
+        class="toolbox"
+        :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
         transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
       }"
-    >
-      <img src="/img/ap.png" alt="" />
-      <span>{{ ap + '/' + max_ap }}</span>
-    </div>
+      >
+        <img src="/img/ap.png" alt="" />
+        <span>{{ ap + '/' + max_ap }}</span>
+      </div>
+      <template #content>
+        <p>自動回復の上限に到達しました。</p>
+      </template>
+    </a-tooltip>
 
     <!--信用点-->
     <div @click="generateCredit"
