@@ -34,6 +34,8 @@ const switchL2D = () => {
   l2dOnly.value = !l2dOnly.value
 }
 
+const imgSrc = ref("/l2d/hp_bg.png?t=" + new Date().toString())
+
 /**
  * 打开url
  * @param {String} url 要打开的目标地址
@@ -51,7 +53,7 @@ provide("openUrl", openUrl)
   <div id="background"></div>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img src="/l2d/hp_bg.png" class="background-img">
+    <img :src="imgSrc" class="background-img">
 
     <transition name="up">
       <Level v-if="!l2dOnly"></Level>
