@@ -30,7 +30,7 @@ const openUrl = inject("openUrl")
       <div class="contact css-cursor-hover-enabled"
            @click="openUrl('https://apricotlemontea.booth.pm')">
         <img src="/img/booth.png" alt="" />
-        <span>Booth</span>
+        <span>BOOTH</span>
       </div>
       <template #content>
         <p>アクリルグッズ屋</p>
