@@ -7,8 +7,10 @@ const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 
 const apTooltipVisible = ref(false)
-const getDialogVisible = ref(false)
-const exceedDialogVisible = ref(false)
+const increasePyroxeneDialogVisible = ref(false)
+const exceedPyroxeneDialogVisible = ref(false)
+const increaseApDialogVisible = ref(false)
+const exeedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
 const max_ap = 60 + config.level * 2
@@ -85,7 +87,7 @@ setInterval(() => {
 
   // 时间到了之后的重置
   if (countdown.value < 0){
-    ap.value++
+    ap.value += 1
     countdown.value = 9
   }
   if (apTooltipCountdown.value < 0){
@@ -98,8 +100,8 @@ setInterval(() => {
  * 显示体力回复的倒计时tooltip 3s，<br/>
  */
 const handleClickAp = () => {
-  // 防止重复点击
-  if (apTooltipVisible.value) {
+  // 防止重复点击及重复显示
+  if (apTooltipVisible.value || increaseApDialogVisible.value || exeedApDialogVisible.value) {
     return
   }
   apTooltipVisible.value = true
@@ -107,14 +109,31 @@ const handleClickAp = () => {
 }
 
 /**
+ * 点击体力加号的事件
+ */
+const handleClickApIncrease = () => {
+  if (ap.value < 999){
+    increaseApDialogVisible.value = true
+  } else {
+    exeedApDialogVisible.value = true
+  }
+}
+/**
+ * 体力增加到999
+ */
+const increaseAp = () => {
+  ap.value = 999
+}
+
+/**
  * 点击青辉石打开弹窗
  */
 const handleClickPyroxene = () => {
   if (pyroxeneTimes.value <= 20){
-    getDialogVisible.value = true
+    increasePyroxeneDialogVisible.value = true
   } else {
     // 超过一井后不能再拿
-    exceedDialogVisible.value = true
+    exceedPyroxeneDialogVisible.value = true
   }
 }
 /**
@@ -162,6 +181,7 @@ const openUrl = inject("openUrl")
       >
         <img src="/img/ap.png" alt="" />
         <span>{{ ap + '/' + max_ap }}</span>
+        <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
         <p v-if="ap < max_ap">次の回復まであと<span style="color: #6ac4f3">{{countdown}}秒</span>。</p>
@@ -221,7 +241,7 @@ const openUrl = inject("openUrl")
     </a>
   </div>
 
-  <a-modal v-model:visible="getDialogVisible" @ok="increasePyroxene"
+  <a-modal v-model:visible="increasePyroxeneDialogVisible" @ok="increasePyroxene"
            ok-text="いいね！" cancel-text="いらない">
     <template #title>
       青輝石購入？
@@ -231,13 +251,34 @@ const openUrl = inject("openUrl")
       <div class="modal-text">無料でもらえる！</div>
     </div>
   </a-modal>
-  <a-modal v-model:visible="exceedDialogVisible"
+  <a-modal v-model:visible="exceedPyroxeneDialogVisible"
            ok-text="わかった" hide-cancel>
     <template #title>
       青輝石購入？
     </template>
     <div>
       <div class="modal-text">もう一天井分もらったよ、</div>
+      <div class="modal-text">また今度来てね</div>
+    </div>
+  </a-modal>
+
+  <a-modal v-model:visible="increaseApDialogVisible" @ok="increaseAp"
+           ok-text="いいね！" cancel-text="いらない">
+    <template #title>
+      AP購入？
+    </template>
+    <div style="margin: 0 20px">
+      <div class="modal-text">AP最大まで回復、</div>
+      <div class="modal-text">しかも無料！</div>
+    </div>
+  </a-modal>
+  <a-modal v-model:visible="exeedApDialogVisible"
+           ok-text="わかった" hide-cancel>
+    <template #title>
+      AP購入？
+    </template>
+    <div>
+      <div class="modal-text">もうAP最大だよ、</div>
       <div class="modal-text">また今度来てね</div>
     </div>
   </a-modal>
