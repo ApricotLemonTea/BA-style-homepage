@@ -28,28 +28,7 @@
   "exp": 8382,
   "nextExp": 8381,
   "iconfont": "https://at.alicdn.com/t/c/font_4336463_0i6ly0yvyzb.js",
-  "dock": [
-    {
-      "name": "Twitter",
-      "href": "https://twitter.com/ApricotLemonTea",
-      "imgSrc": "/img/twitter.png"
-    },
-    {
-      "name": "Misskey",
-      "href": "https://misskey.io/@ApricotLemonTea",
-      "imgSrc": "/img/misskey.png"
-    },
-    {
-      "name": "GitHub",
-      "href": "https://github.com/ApricotLemonTea",
-      "imgSrc": "/img/github.png"
-    },
-    {
-      "name": "Wavebox",
-      "href": "https://wavebox.me/wave/5n2bu0domp1j2fq9",
-      "imgSrc": "/img/wavebox.png"
-    }
-  ],
+  "dock": [],
   "contact": [
     {
       "name": "Booth",
