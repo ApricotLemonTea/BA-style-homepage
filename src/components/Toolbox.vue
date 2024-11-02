@@ -6,6 +6,7 @@ import gsap from 'gsap'
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 
+const apTooltipVisible = ref(false)
 const getDialogVisible = ref(false)
 const exceedDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
@@ -24,7 +25,6 @@ const ap = ref(
           86400000)
     )
 )
-const countdown = ref(10)
 
 const credit = ref(Math.floor(Math.random() * 99999999)) // 信用点
 const tweenedCredit = reactive({
@@ -68,18 +68,45 @@ window.matchMedia('(hover: none)').addListener((e) => {
   hover.value = e.matches
 })
 
+const countdown = ref(9)
+const apTooltipCountdown = ref(0)
+
 /**
  * 每十秒回复一点体力
+ * 根据apTooltipCountdown控制tooltip显示
  */
 setInterval(() => {
   if (ap.value < max_ap){
+    // 倒计时
     countdown.value -= 1
-    if(countdown.value <= 0){
+    if (apTooltipCountdown.value >= 0){
+      apTooltipCountdown.value -= 1
+    }
+
+    // 时间到了之后的重置
+    if (countdown.value < 0){
       ap.value++
-      countdown.value = 10
+      countdown.value = 9
+    }
+    if (apTooltipCountdown.value < 0){
+      apTooltipVisible.value = false
     }
   }
 }, 1000)
+
+/**
+ * 点击体力按钮的事件<br/>
+ * 显示体力回复的倒计时tooltip 3s，<br/>
+ */
+const handleClickAp = () => {
+  // 防止重复点击
+  if (apTooltipVisible.value) {
+    return
+  }
+
+  apTooltipVisible.value = true
+  apTooltipCountdown.value = 3
+}
 
 /**
  * 点击青辉石打开弹窗
@@ -125,7 +152,8 @@ const openUrl = inject("openUrl")
   <div class="toolbox-box">
     <!--体力-->
     <a-tooltip position="bottom" background-color="#254268"
-               trigger="click"
+               :popup-visible="apTooltipVisible"
+               @click="handleClickAp"
     >
       <div
         class="toolbox"
