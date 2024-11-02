@@ -51,7 +51,7 @@ provide("openUrl", openUrl)
   <div id="background"></div>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img src="/l2d/404.png">
+    <img src="/l2d/hp_bg.png" class="background-img">
 
     <transition name="up">
       <Level v-if="!l2dOnly"></Level>
@@ -75,6 +75,12 @@ provide("openUrl", openUrl)
 </template>
 
 <style scoped>
+.background-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 main {
   display: flex;
   flex-direction: column;
