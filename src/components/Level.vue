@@ -34,7 +34,9 @@ const openProfile = () => {
           >
           </a-progress>
           <p :style="{ color: props.exp >= props.nextExp ? '#ffe433' : '#66E0FE' }">
-            {{ props.exp >= props.nextExp ? 'MAX' : props.exp + '/' + props.nextExp }}
+            {{ props.exp >= props.nextExp
+                ? props.exp + ' / ' + 'MAX'
+                : props.exp + ' / ' + props.nextExp }}
           </p>
         </div>
       </div>
