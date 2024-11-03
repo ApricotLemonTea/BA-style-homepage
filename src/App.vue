@@ -1,5 +1,6 @@
 <script setup>
-import { provide } from 'vue'
+import { onMounted, provide, ref } from 'vue'
+import getRequestAnalytics from '@/utils/cloudflareAnalytics'
 import Cursor from '@/components/Cursor.vue'
 import Footer from '@/components/Footer.vue'
 import Level from '@/components/Level.vue'
@@ -8,7 +9,6 @@ import Contact from '@/components/Contact.vue'
 import Task from '@/components/Task.vue'
 import Loading from '@/components/Loading.vue'
 import Background from '@/components/Background.vue'
-import { ref } from 'vue'
 
 const loading = ref(true)
 const percent = ref(1)
@@ -44,6 +44,10 @@ const openUrl = (url) => {
   window.open(url, "_blank")
 }
 provide("openUrl", openUrl)
+
+onMounted(() => {
+  getRequestAnalytics()
+})
 </script>
 
 <template>
