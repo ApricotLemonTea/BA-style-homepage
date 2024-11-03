@@ -45,8 +45,10 @@ const openUrl = (url) => {
 }
 provide("openUrl", openUrl)
 
-onMounted(() => {
-  getRequestAnalytics()
+const sumPV = ref(0)
+
+onMounted(async () => {
+  sumPV.value = await getRequestAnalytics()
 })
 </script>
 
