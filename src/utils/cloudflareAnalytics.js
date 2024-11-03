@@ -5,7 +5,7 @@ const zoneId = import.meta.env.VITE_CLOUDFLARE_ZONE_ID
 
 /**
  * cloudflare api统计从2024-11-01至今的page view总和
- * @returns {number} page view总和
+ * @returns { Promise<number> } page view总和
  */
 async function getRequestAnalytics() {
   const headers = {

@@ -1,10 +1,27 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { Notification } from '@arco-design/web-vue'
 import config from '/_config.json'
 
-const exp = ref(config.exp)
-const nextExp = ref(config.nextExp)
+const props = defineProps(["sumPV"])
+
+const exp = ref(props.sumPV)
+const nextExp = ref(0)
+const level = ref(0)
+
+/**
+ * 计算当前等级和下一级所需经验 <br/>
+ * ・每升一级的所需经验是前一级的1.123324倍 <br/>
+ * ・满级99级，总经验99,999 <br/>
+ * ・(1.123324 ^ 99 ≈ 99,999)
+ *
+ * @param exp 当前经验（页面的page view总和）
+ */
+const countLevelAndNextExp = (exp) => {
+  const base = 1.123324
+  level.value = Math.ceil(Math.log(exp) / Math.log(base))
+  nextExp.value = Math.floor(Math.pow(base, level.value + 1))
+}
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
@@ -16,6 +33,10 @@ const openProfile = () => {
     closable: true
   })
 }
+
+onMounted(() => {
+  countLevelAndNextExp(exp.value)
+})
 </script>
 
 <template>
@@ -23,7 +44,7 @@ const openProfile = () => {
     <div class="container">
       <div class="level css-cursor-hover-enabled">
         <span>Lv.</span>
-        <p>{{ config.level }}</p>
+        <p>{{ level }}</p>
       </div>
       <div class="right">
         <span class="name">{{ config.author }}</span>

@@ -46,7 +46,6 @@ const openUrl = (url) => {
 provide("openUrl", openUrl)
 
 const sumPV = ref(0)
-
 onMounted(async () => {
   sumPV.value = await getRequestAnalytics()
 })
@@ -62,7 +61,7 @@ onMounted(async () => {
     <img :src="imgSrc" class="background-img">
 
     <transition name="up">
-      <Level v-if="!l2dOnly"></Level>
+      <Level v-if="!l2dOnly" :sumPV="sumPV"></Level>
     </transition>
 
     <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D"></Toolbox>
