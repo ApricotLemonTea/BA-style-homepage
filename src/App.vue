@@ -1,5 +1,6 @@
 <script setup>
-import { provide } from 'vue'
+import { onMounted, provide, ref } from 'vue'
+
 import Cursor from '@/components/Cursor.vue'
 import Footer from '@/components/Footer.vue'
 import Level from '@/components/Level.vue'
@@ -8,13 +9,15 @@ import Contact from '@/components/Contact.vue'
 import Task from '@/components/Task.vue'
 import Loading from '@/components/Loading.vue'
 import Background from '@/components/Background.vue'
-import { ref } from 'vue'
 
 const loading = ref(true)
 const percent = ref(1)
 const l2dOnly = ref(false)
 
 import NProgress from 'nprogress'
+
+import getAccessAnalytics from '@/utils/cloudflareAnalytics'
+import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 
 NProgress.start()
 
@@ -44,6 +47,27 @@ const openUrl = (url) => {
   window.open(url, "_blank")
 }
 provide("openUrl", openUrl)
+
+const sumPV = ref(0)
+
+const exp = ref(0)
+const level = ref(0)
+const nextExp = ref(0)
+
+onMounted(async () => {
+  for (let i = 1; i <= 5; i++){
+    console.warn("(｀・ω・´)b")
+    console.error("(｀・ω・´)b")
+  }
+
+  // 统计页面page view总和
+  sumPV.value = await getAccessAnalytics()
+
+  // 计算当前等级和下一级所需经验
+  exp.value = sumPV.value
+  level.value = calculateLevelAndNextExp(exp.value).level
+  nextExp.value = calculateLevelAndNextExp(exp.value).nextExp
+})
 </script>
 
 <template>
@@ -56,10 +80,10 @@ provide("openUrl", openUrl)
     <img :src="imgSrc" class="background-img">
 
     <transition name="up">
-      <Level v-if="!l2dOnly"></Level>
+      <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp"></Level>
     </transition>
 
-    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D"></Toolbox>
+    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
 
     <transition name="left">
       <Contact v-if="!l2dOnly"></Contact>

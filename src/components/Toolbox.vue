@@ -1,10 +1,9 @@
 <script setup>
 import { inject, reactive, ref, watch } from 'vue'
-import config from '/_config.json'
 import gsap from 'gsap'
 
 const emit = defineEmits(['switch'])
-const props = defineProps(['l2dOnly'])
+const props = defineProps(['l2dOnly', 'level'])
 
 const apTooltipVisible = ref(false)
 const increasePyroxeneDialogVisible = ref(false)
@@ -13,7 +12,7 @@ const increaseApDialogVisible = ref(false)
 const exeedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
-const max_ap = 60 + config.level * 2
+const max_ap = 60 + props.level * 2
 // ap初始值根据今天经过的时间减少
 const ap = ref(
   max_ap -
@@ -190,7 +189,7 @@ const openUrl = inject("openUrl")
       }"
       >
         <img src="/img/ap.png" alt="" />
-        <span>{{ tweenedAp.number.toFixed(0) + '/' + max_ap }}</span>
+        <span>{{ tweenedAp.number.toFixed(0) + ' / ' + max_ap }}</span>
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
@@ -300,8 +299,8 @@ const openUrl = inject("openUrl")
       About
     </template>
     <div style="color: #003153">
-      <p>当サイトは杏仁レモンティーの各種リンクのポータルサイトです。</p>
-      <p>ブルーアーカイブのロビー仕様に仕上げています（非公式）。</p>
+      <p>当サイトは杏仁レモンティーの個人ホームページです。</p>
+      <p>ブルーアーカイブのロビー仕様に作っています（非公式）。</p>
       <br />
       <p>Copyright © 2024 杏仁レモンティー All Rights Reserved.</p>
       <br />

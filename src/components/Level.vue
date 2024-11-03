@@ -1,18 +1,17 @@
 <script setup>
-import { ref } from 'vue'
 import { Notification } from '@arco-design/web-vue'
 import config from '/_config.json'
 
-const exp = ref(config.exp)
-const nextExp = ref(config.nextExp)
+const props = defineProps(["exp", "level", "nextExp"])
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
-  Notification.warning({
+  Notification.info({
     id: "id",
-    title: "工事中",
-    content: "プロフィールのページを追加する予定",
+    title: "経験値とレベルについて",
+    content: "サイトの訪問者数が増える度に経験値が上がって、レベルアップもします",
     position: "topLeft",
+    duration: 4000,
     closable: true
   })
 }
@@ -23,7 +22,7 @@ const openProfile = () => {
     <div class="container">
       <div class="level css-cursor-hover-enabled">
         <span>Lv.</span>
-        <p>{{ config.level }}</p>
+        <p>{{ props.level }}</p>
       </div>
       <div class="right">
         <span class="name">{{ config.author }}</span>
@@ -35,8 +34,10 @@ const openProfile = () => {
             trackColor="#535E67"
           >
           </a-progress>
-          <p :style="{ color: exp >= nextExp ? '#ffe433' : '#66E0FE' }">
-            {{ exp >= nextExp ? 'MAX' : exp + '/' + nextExp }}
+          <p :style="{ color: props.exp >= props.nextExp ? '#ffe433' : '#66E0FE' }">
+            {{ props.exp >= props.nextExp
+                ? props.exp + ' / ' + 'MAX'
+                : props.exp + ' / ' + props.nextExp }}
           </p>
         </div>
       </div>

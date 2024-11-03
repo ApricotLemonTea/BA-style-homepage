@@ -1,8 +1,7 @@
 <script setup>
 import { inject, ref } from 'vue'
 import config from '/_config.json'
-import { Icon } from '@arco-design/web-vue'
-import { Notification } from '@arco-design/web-vue'
+import { Icon, Message } from '@arco-design/web-vue'
 import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
 
@@ -25,8 +24,9 @@ setInterval(() => {
 const copyMailAddress = async () => {
   try {
     await toClipboard("apricotlemontea@gmail.com")
-    Notification.success({
-      title: "メールアドレスをコピーしました",
+    Message.success({
+      content: "メールアドレスをコピーしました",
+      position: "bottom"
     })
   } catch (e) {
     console.log(e)
@@ -62,6 +62,17 @@ const openUrl = inject("openUrl")
         </div>
         <template #content>
           <p>たまに見てます</p>
+        </template>
+      </a-popover>
+
+      <a-popover title="pixivFANBOX">
+        <div class="project css-cursor-hover-enabled"
+             @click="openUrl('https://apricotlemontea.fanbox.cc/')">
+          <img src="/img/fanbox.png" alt="" />
+          <span>FANBOX</span>
+        </div>
+        <template #content>
+          <p>気が向いたら記事も書きます</p>
         </template>
       </a-popover>
 
