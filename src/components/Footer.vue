@@ -65,6 +65,17 @@ const openUrl = inject("openUrl")
         </template>
       </a-popover>
 
+      <a-popover title="pixivFANBOX">
+        <div class="project css-cursor-hover-enabled"
+             @click="openUrl('https://apricotlemontea.fanbox.cc/')">
+          <img src="/img/fanbox.png" alt="" />
+          <span>FANBOX</span>
+        </div>
+        <template #content>
+          <p>気が向いたら記事とかも書きます</p>
+        </template>
+      </a-popover>
+
       <a-popover title="GitHub">
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://github.com/ApricotLemonTea/BA-style-homepage')">
