@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, provide, ref } from 'vue'
-import getRequestAnalytics from '@/utils/cloudflareAnalytics'
+
 import Cursor from '@/components/Cursor.vue'
 import Footer from '@/components/Footer.vue'
 import Level from '@/components/Level.vue'
@@ -15,6 +15,9 @@ const percent = ref(1)
 const l2dOnly = ref(false)
 
 import NProgress from 'nprogress'
+
+import getAccessAnalytics from '@/utils/cloudflareAnalytics'
+import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 
 NProgress.start()
 
@@ -46,8 +49,19 @@ const openUrl = (url) => {
 provide("openUrl", openUrl)
 
 const sumPV = ref(0)
+
+const exp = ref(0)
+const level = ref(0)
+const nextExp = ref(0)
+
 onMounted(async () => {
-  sumPV.value = await getRequestAnalytics()
+  // 统计页面page view总和
+  sumPV.value = await getAccessAnalytics()
+
+  // 计算当前等级和下一级所需经验
+  exp.value = sumPV.value
+  level.value = calculateLevelAndNextExp(exp.value).level
+  nextExp.value = calculateLevelAndNextExp(exp.value).nextExp
 })
 </script>
 
@@ -61,10 +75,10 @@ onMounted(async () => {
     <img :src="imgSrc" class="background-img">
 
     <transition name="up">
-      <Level v-if="!l2dOnly" :sumPV="sumPV"></Level>
+      <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp"></Level>
     </transition>
 
-    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D"></Toolbox>
+    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
 
     <transition name="left">
       <Contact v-if="!l2dOnly"></Contact>

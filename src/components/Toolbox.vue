@@ -1,10 +1,9 @@
 <script setup>
 import { inject, reactive, ref, watch } from 'vue'
-import config from '/_config.json'
 import gsap from 'gsap'
 
 const emit = defineEmits(['switch'])
-const props = defineProps(['l2dOnly'])
+const props = defineProps(['l2dOnly', 'level'])
 
 const apTooltipVisible = ref(false)
 const increasePyroxeneDialogVisible = ref(false)
@@ -13,7 +12,7 @@ const increaseApDialogVisible = ref(false)
 const exeedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
-const max_ap = 60 + config.level * 2
+const max_ap = 60 + props.level * 2
 // ap初始值根据今天经过的时间减少
 const ap = ref(
   max_ap -
