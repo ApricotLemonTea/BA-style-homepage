@@ -6,11 +6,12 @@ const props = defineProps(["exp", "level", "nextExp"])
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
-  Notification.warning({
+  Notification.info({
     id: "id",
-    title: "工事中",
-    content: "プロフィールのページを追加する予定",
+    title: "経験値について",
+    content: "訪問者数が増える度に経験値が上がって、レベルアップもします",
     position: "topLeft",
+    duration: 4000,
     closable: true
   })
 }
