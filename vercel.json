@@ -3,5 +3,11 @@
     "deploymentEnabled": {
       "dev": false
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/cloudflare-api/(.*)",
+      "destination": "/api/proxy"
+    }
+  ]
 }

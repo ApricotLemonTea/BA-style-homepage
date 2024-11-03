@@ -31,7 +31,6 @@ export default defineConfig({
       '/cloudflare-api': {
         target: 'https://api.cloudflare.com/client/v4/graphql',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   },
