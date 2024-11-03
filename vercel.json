@@ -18,7 +18,7 @@
   "rewrites": [
     {
       "source": "/cloudflare-api/(.*)",
-      "destination": "/api/proxy"
+      "destination": "https://api.cloudflare.com/client/v4/graphql"
     }
   ]
 }
