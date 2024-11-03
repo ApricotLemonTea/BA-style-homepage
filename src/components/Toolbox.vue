@@ -189,7 +189,7 @@ const openUrl = inject("openUrl")
       }"
       >
         <img src="/img/ap.png" alt="" />
-        <span>{{ tweenedAp.number.toFixed(0) + '/' + max_ap }}</span>
+        <span>{{ tweenedAp.number.toFixed(0) + ' / ' + max_ap }}</span>
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
