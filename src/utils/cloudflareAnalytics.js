@@ -15,8 +15,10 @@ async function getAccessAnalytics() {
     query: "{" +
       "viewer {" +
         "zones(filter: {zoneTag:" + zoneId + "})" +
-          "{httpRequests1dGroups (limit:32," +
-          "filter:{date_geq:\"2024-11-01\",date_leq:\"" + formatDate(new Date()) + "\"},orderBy:[date_ASC])" +
+          "{httpRequests1dGroups (" +
+          "limit: 9999," +
+          "filter: {date_geq:\"2024-11-01\",date_leq:\"" + formatDate(new Date()) + "\"}," +
+          "orderBy: [date_DESC])" +
           "{sum {bytes, cachedBytes, cachedRequests, encryptedBytes, encryptedRequests, pageViews, requests, threats}" +
         "dimensions {date}" +
       "}}}}",

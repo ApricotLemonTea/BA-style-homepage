@@ -9,7 +9,7 @@ const openProfile = () => {
   Notification.info({
     id: "id",
     title: "経験値とレベルについて",
-    content: "サイトの訪問者数が増える度に経験値が上がって、レベルアップもします",
+    content: "サイトの訪問数が増えると経験値が上がって、レベルもアップします",
     position: "topLeft",
     duration: 4000,
     closable: true

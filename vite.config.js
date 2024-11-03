@@ -28,8 +28,8 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/cloudflare-api': {
-        target: 'https://api.cloudflare.com/client/v4/graphql',
+      '/client/v4': {
+        target: 'https://api.cloudflare.com',
         changeOrigin: true,
       }
     }
