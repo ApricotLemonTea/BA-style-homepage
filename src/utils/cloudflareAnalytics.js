@@ -10,7 +10,6 @@ const zoneId = import.meta.env.VITE_CLOUDFLARE_ZONE_ID
 async function getRequestAnalytics() {
   const headers = {
     Authorization: "Bearer " + apiToken,
-    'Content-Type': 'application/json',
   }
   const data = {
     query: "{" +
