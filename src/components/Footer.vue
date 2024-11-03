@@ -72,7 +72,7 @@ const openUrl = inject("openUrl")
           <span>FANBOX</span>
         </div>
         <template #content>
-          <p>気が向いたら記事とかも書きます</p>
+          <p>気が向いたら記事も書きます</p>
         </template>
       </a-popover>
 

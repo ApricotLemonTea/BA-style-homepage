@@ -55,6 +55,11 @@ const level = ref(0)
 const nextExp = ref(0)
 
 onMounted(async () => {
+  for (let i = 1; i <= 5; i++){
+    console.warn("(｀・ω・´)b")
+    console.error("(｀・ω・´)b")
+  }
+
   // 统计页面page view总和
   sumPV.value = await getAccessAnalytics()
 

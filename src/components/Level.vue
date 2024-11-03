@@ -8,7 +8,7 @@ const openProfile = () => {
   // TODO 新增一个个人信息页面
   Notification.info({
     id: "id",
-    title: "経験値について",
+    title: "経験値とレベルについて",
     content: "サイトの訪問者数が増える度に経験値が上がって、レベルアップもします",
     position: "topLeft",
     duration: 4000,
