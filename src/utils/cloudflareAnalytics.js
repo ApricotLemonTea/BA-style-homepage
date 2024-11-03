@@ -22,7 +22,7 @@ async function getAccessAnalytics() {
       "}}}}",
     variables: {}
   }
-  const res = await axios.post("/cloudflare-api", data, { headers })
+  const res = await axios.post("https://api.cloudflare.com/client/v4/graphql", data, { headers })
 
   let result = 0
   for (const item of res.data.data.viewer.zones[0].httpRequests1dGroups){
