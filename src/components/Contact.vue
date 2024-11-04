@@ -26,6 +26,17 @@ const openUrl = inject("openUrl")
 
 <template>
   <div class="contact-box">
+    <a-popover title="お知らせ" position="top">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openAnnounce">
+        <img src="/img/announce.png" alt="" />
+        <span style="white-space: nowrap;">お知らせ</span>
+      </div>
+      <template #content>
+        <p>重要な情報はここに書きます</p>
+      </template>
+    </a-popover>
+
     <a-popover title="パッチノート" position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="openPatchNote">
@@ -37,7 +48,7 @@ const openUrl = inject("openUrl")
       </template>
     </a-popover>
 
-    <a-popover title="ミッション" position="top">
+    <a-popover title="ミッション" position="bottom">
       <div class="contact css-cursor-hover-enabled"
            @click="openMission">
         <img src="/img/mission.png" alt="" />
@@ -47,16 +58,7 @@ const openUrl = inject("openUrl")
         <p>今後実装したい機能です</p>
         <p>（実装日時は未定）</p>
         <p>（実装できるかどうかも未定）</p>
-      </template>
-    </a-popover>
-
-    <a-popover title="お知らせ" position="bottom">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openAnnounce">
-        <img src="/img/announce.png" alt="" />
-        <span style="white-space: nowrap;">お知らせ</span>
-      </div>
-      <template #content>
+        <p>（期待しないでください）</p>
       </template>
     </a-popover>
   </div>
