@@ -49,6 +49,16 @@ const openUrl = inject("openUrl")
         <p>（実装できるかどうかも未定）</p>
       </template>
     </a-popover>
+
+    <a-popover title="お知らせ" position="bottom">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openAnnounce">
+        <img src="/img/announce.png" alt="" />
+        <span style="white-space: nowrap;">お知らせ</span>
+      </div>
+      <template #content>
+      </template>
+    </a-popover>
   </div>
 
   <!--パッチノート的弹窗-->
