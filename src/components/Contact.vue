@@ -104,7 +104,11 @@ const openUrl = inject("openUrl")
     #fff 1px 0 0,
     #fff 0 1px 0,
     #fff -1px 0 0,
-    #fff 0 -1px 0;
+    #fff 0 -1px 0,
+    #fff 2px 0 0,
+    #fff 0 2px 0,
+    #fff -2px 0 0,
+    #fff 0 -2px 0;
 }
 
 .arco-icon {
