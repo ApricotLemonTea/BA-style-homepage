@@ -26,41 +26,41 @@ const openUrl = inject("openUrl")
 
 <template>
   <div class="contact-box">
-    <a-popover title="BOOTH">
+    <a-popover title="お知らせ" position="top">
       <div class="contact css-cursor-hover-enabled"
-           @click="openUrl('https://apricotlemontea.booth.pm')">
-        <img src="/img/booth.png" alt="" />
-        <span>BOOTH</span>
+           @click="openAnnounce">
+        <img src="/img/announce.png" alt="" />
+        <span style="white-space: nowrap;">お知らせ</span>
       </div>
       <template #content>
-        <p>アクリルグッズ屋</p>
+        <p>重要な情報はここに書きます</p>
       </template>
     </a-popover>
 
-    <a-popover title="Skeb">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openUrl('https://skeb.jp/@ApricotLemonTea')">
-        <img src="/img/skeb.png" alt="" />
-        <span>Skeb</span>
-      </div>
-      <template #content>
-        <p>依頼募集中</p>
-      </template>
-    </a-popover>
-
-    <!--パッチノート-->
-    <a-popover title="パッチノート" position="bottom">
+    <a-popover title="パッチノート" position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="openPatchNote">
         <img src="/img/patchNote.png" alt="" />
         <span style="white-space: nowrap;">パッチノート</span>
       </div>
       <template #content>
-        <p>更新履歴はここに書いてます</p>
+        <p>サイトの更新履歴です</p>
       </template>
     </a-popover>
 
-
+    <a-popover title="ミッション" position="bottom">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openMission">
+        <img src="/img/mission.png" alt="" />
+        <span style="white-space: nowrap;">ミッション</span>
+      </div>
+      <template #content>
+        <p>今後実装したい機能です</p>
+        <p>（実装日時は未定）</p>
+        <p>（実装できるかどうかも未定）</p>
+        <p>（期待しないでください）</p>
+      </template>
+    </a-popover>
   </div>
 
   <!--パッチノート的弹窗-->
@@ -104,7 +104,11 @@ const openUrl = inject("openUrl")
     #fff 1px 0 0,
     #fff 0 1px 0,
     #fff -1px 0 0,
-    #fff 0 -1px 0;
+    #fff 0 -1px 0,
+    #fff 2px 0 0,
+    #fff 0 2px 0,
+    #fff -2px 0 0,
+    #fff 0 -2px 0;
 }
 
 .arco-icon {

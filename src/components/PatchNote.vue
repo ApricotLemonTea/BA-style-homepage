@@ -26,7 +26,7 @@ defineExpose({ open })
             ・{{item}}
           </p>
         </div>
-        <a-divider :size="3" :margin="50"/>
+        <a-divider :size="4" :margin="50"/>
       </div>
     </div>
 

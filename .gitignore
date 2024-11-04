@@ -133,3 +133,5 @@ dist
 yarn.lock
 
 .DS_Store
+
+/gitignoreFolder
