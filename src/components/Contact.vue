@@ -26,41 +26,29 @@ const openUrl = inject("openUrl")
 
 <template>
   <div class="contact-box">
-    <a-popover title="BOOTH">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openUrl('https://apricotlemontea.booth.pm')">
-        <img src="/img/booth.png" alt="" />
-        <span>BOOTH</span>
-      </div>
-      <template #content>
-        <p>アクリルグッズ屋</p>
-      </template>
-    </a-popover>
-
-    <a-popover title="Skeb">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openUrl('https://skeb.jp/@ApricotLemonTea')">
-        <img src="/img/skeb.png" alt="" />
-        <span>Skeb</span>
-      </div>
-      <template #content>
-        <p>依頼募集中</p>
-      </template>
-    </a-popover>
-
-    <!--パッチノート-->
-    <a-popover title="パッチノート" position="bottom">
+    <a-popover title="パッチノート" position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="openPatchNote">
         <img src="/img/patchNote.png" alt="" />
         <span style="white-space: nowrap;">パッチノート</span>
       </div>
       <template #content>
-        <p>更新履歴はここに書いてます</p>
+        <p>サイトの更新履歴です</p>
       </template>
     </a-popover>
 
-
+    <a-popover title="ミッション" position="top">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openMission">
+        <img src="/img/mission.png" alt="" />
+        <span style="white-space: nowrap;">ミッション</span>
+      </div>
+      <template #content>
+        <p>今後実装したい機能です</p>
+        <p>（実装日時は未定）</p>
+        <p>（実装できるかどうかも未定）</p>
+      </template>
+    </a-popover>
   </div>
 
   <!--パッチノート的弹窗-->

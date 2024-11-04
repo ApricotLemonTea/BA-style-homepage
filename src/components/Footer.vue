@@ -65,6 +65,28 @@ const openUrl = inject("openUrl")
         </template>
       </a-popover>
 
+      <a-popover title="BOOTH">
+        <div class="project css-cursor-hover-enabled"
+             @click="openUrl('https://apricotlemontea.booth.pm')">
+          <img src="/img/booth.png" alt="" />
+          <span>BOOTH</span>
+        </div>
+        <template #content>
+          <p>アクリルグッズ屋</p>
+        </template>
+      </a-popover>
+
+      <a-popover title="Skeb">
+        <div class="project css-cursor-hover-enabled"
+             @click="openUrl('https://skeb.jp/@ApricotLemonTea')">
+          <img src="/img/skeb.png" alt="" />
+          <span>Skeb</span>
+        </div>
+        <template #content>
+          <p>依頼募集中</p>
+        </template>
+      </a-popover>
+
       <a-popover title="pixivFANBOX">
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://apricotlemontea.fanbox.cc/')">
