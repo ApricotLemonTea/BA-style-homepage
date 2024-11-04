@@ -1,9 +1,4 @@
 {
-  "git": {
-    "deploymentEnabled": {
-      "dev": false
-    }
-  },
   "headers": [
     {
       "source": "/cloudflare-api/(.*)",
