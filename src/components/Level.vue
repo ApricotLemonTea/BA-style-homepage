@@ -11,6 +11,13 @@ const isLevelMax = computed(() => {
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
+  Notification.warning({
+    id: 'id',
+    title: "TODO：プロフィール画面を追加",
+    position: "topLeft",
+    duration: 4000,
+    closable: true
+  })
 }
 </script>
 
