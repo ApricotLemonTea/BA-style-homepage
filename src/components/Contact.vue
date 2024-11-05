@@ -50,7 +50,7 @@ const openAnnounce = () => {
         <h3 class="blue-text-color">ガイド</h3>
       </template>
       <template #content>
-        <p class="blue-text-color">このサイトの紹介を始めます</p>
+        <p class="blue-text-color">当サイトの紹介を始めます</p>
       </template>
     </a-popover>
 
