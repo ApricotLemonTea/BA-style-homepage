@@ -123,7 +123,9 @@ const startTourGuide = () => {
 
       <el-tour-step target="#pyroxene-ref" title="青輝石"></el-tour-step>
 
-      <el-tour-step target="#footer-ref" title="外部リンク"></el-tour-step>
+      <el-tour-step target="#task-ref" title="外部リンク" placement="top-end"></el-tour-step>
+
+      <el-tour-step target="#footer-ref" title="外部リンクその2"></el-tour-step>
     </el-tour>
   </main>
   <Cursor></Cursor>
@@ -172,15 +174,16 @@ const startTourGuide = () => {
 }
 #footer-ref {
   position: absolute;
-  bottom: 100px;
+  bottom: 0;
   width: 100vw;
   height: 200px;
 }
 #task-ref {
   position: absolute;
-  bottom: 100px;
-  width: 100vw;
-  height: 200px;
+  top: 600px;
+  right: 30px;
+  width: 200px;
+  height: 160px;
 }
 
 main {
