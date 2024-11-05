@@ -85,7 +85,7 @@ const startTourGuide = () => {
   <div id="background"></div>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <!--<img :src="imgSrc" class="background-img" alt="メモロビイラスト">-->
+    <img :src="imgSrc" class="background-img" alt="メモロビイラスト">
 
     <div id="level-ref"></div>
     <transition name="up">
