@@ -125,7 +125,7 @@ const startTourGuide = () => {
 
       <el-tour-step target="#task-ref" title="外部リンク" placement="top-end"></el-tour-step>
 
-      <el-tour-step target="#footer-ref" title="外部リンクその2"></el-tour-step>
+      <el-tour-step target="#footer-ref" title="外部リンクその2" placement="top"></el-tour-step>
     </el-tour>
   </main>
   <Cursor></Cursor>
@@ -138,52 +138,53 @@ const startTourGuide = () => {
   object-fit: cover;
 }
 #level-ref {
-  position: absolute;
+  position: fixed;
   top: 30px;
   left: 0;
   width: 330px;
   height: 120px;
 }
 #contact-ref {
-  position: absolute;
+  position: fixed;
   top: 150px;
   left: 15px;
   width: 285px;
   height: 200px;
 }
 #ap-ref {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 605px;
   width: 230px;
   height: 90px;
 }
 #credit-ref {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 366px;
   width: 230px;
   height: 90px;
 }
 #pyroxene-ref {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 127px;
   width: 230px;
   height: 90px;
 }
-#footer-ref {
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  height: 200px;
-}
 #task-ref {
-  position: absolute;
-  top: 600px;
+  position: fixed;
+  bottom: 130px;
   right: 30px;
   width: 200px;
   height: 160px;
+}
+#footer-ref {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 140px;
 }
 
 main {
