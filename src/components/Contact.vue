@@ -43,7 +43,7 @@ const openAnnounce = () => {
     <a-popover position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="$emit('start-guide')">
-        <img src="" alt="" />
+        <img src="/img/guide.png" alt="" />
         <span style="white-space: nowrap;">ガイド</span>
       </div>
       <template #title>
