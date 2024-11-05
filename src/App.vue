@@ -18,6 +18,7 @@ import NProgress from 'nprogress'
 
 import getAccessAnalytics from '@/utils/cloudflareAnalytics'
 import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
+import { Modal } from '@arco-design/web-vue'
 
 NProgress.start()
 
@@ -54,10 +55,14 @@ const level = ref(0)
 const nextExp = ref(0)
 
 onMounted(async () => {
+  // 控制台打印颜文字
   for (let i = 1; i <= 5; i++){
     console.warn("(｀・ω・´)b")
     console.error("(｀・ω・´)b")
   }
+
+  // 判断浏览器宽度是否适合显示
+  checkWindowSize()
 
   // 统计页面page view总和
   sumPV.value = await getAccessAnalytics()
@@ -75,6 +80,20 @@ const showGuide = ref(false)
  */
 const startTourGuide = () => {
   showGuide.value = true
+}
+
+/**
+ * 判断浏览器的宽度，不适配时弹出提示
+ */
+const checkWindowSize = () => {
+  if (window.innerWidth < 1200){
+    Modal.open({
+      title: "メッセージ",
+      content: "PCでの閲覧を推奨します、スマホは今後対応します。",
+      okText: "はい",
+      hideCancel: true
+    })
+  }
 }
 </script>
 
