@@ -151,24 +151,24 @@ const startTourGuide = () => {
 }
 #ap-ref {
   position: absolute;
-  top: 0;
-  right: 400px;
-  width: 200px;
-  height: 200px;
+  top: 20px;
+  right: 605px;
+  width: 230px;
+  height: 90px;
 }
 #credit-ref {
   position: absolute;
-  top: 0;
-  right: 200px;
-  width: 200px;
-  height: 200px;
+  top: 20px;
+  right: 366px;
+  width: 230px;
+  height: 90px;
 }
 #pyroxene-ref {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 200px;
+  top: 20px;
+  right: 127px;
+  width: 230px;
+  height: 90px;
 }
 #footer-ref {
   position: absolute;
