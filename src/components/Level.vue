@@ -1,8 +1,13 @@
 <script setup>
 import { Notification } from '@arco-design/web-vue'
 import config from '/_config.json'
+import { computed } from 'vue'
 
-const props = defineProps(["exp", "level", "nextExp"])
+const props = defineProps(["exp", "level", "nextExp", "total"])
+
+const isLevelMax = computed(() => {
+  return props.total >= 294784
+})
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
@@ -28,16 +33,16 @@ const openProfile = () => {
         <span class="name">{{ config.author }}</span>
         <div>
           <a-progress
-            :percent="exp / nextExp"
+            :percent="props.exp / props.nextExp"
             :show-text="false"
-            :color="exp >= nextExp ? '#ffe433' : '#89d5fd'"
+            :color="isLevelMax ? '#ffe433' : '#89d5fd'"
             trackColor="#535E67"
           >
           </a-progress>
-          <p :style="{ color: props.exp >= props.nextExp ? '#ffe433' : '#66E0FE' }">
-            {{ props.exp >= props.nextExp
-                ? props.exp + ' / ' + 'MAX'
-                : props.exp + ' / ' + props.nextExp }}
+          <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
+            {{ isLevelMax ? props.exp + ' / ' + 'MAX'
+                          : props.exp + ' / ' + props.nextExp }}
+            <span style="margin-left: 20px">（{{props.total}}）</span>
           </p>
         </div>
       </div>

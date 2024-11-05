@@ -64,9 +64,9 @@ onMounted(async () => {
   sumPV.value = await getAccessAnalytics()
 
   // 计算当前等级和下一级所需经验
-  exp.value = sumPV.value
-  level.value = calculateLevelAndNextExp(exp.value).level
-  nextExp.value = calculateLevelAndNextExp(exp.value).nextExp
+  exp.value = calculateLevelAndNextExp(sumPV.value).exp
+  level.value = calculateLevelAndNextExp(sumPV.value).level
+  nextExp.value = calculateLevelAndNextExp(sumPV.value).nextExp
 })
 </script>
 
@@ -80,7 +80,7 @@ onMounted(async () => {
     <img :src="imgSrc" class="background-img">
 
     <transition name="up">
-      <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp"></Level>
+      <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp" :total="sumPV"></Level>
     </transition>
 
     <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
