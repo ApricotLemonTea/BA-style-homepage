@@ -1,13 +1,14 @@
 <script setup>
 import { inject, ref } from 'vue'
-import config from '/_config.json'
-import { Icon, Message } from '@arco-design/web-vue'
+// import config from '/_config.json'
+// import { Icon } from '@arco-design/web-vue'
+import { Message } from '@arco-design/web-vue'
 import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
 
-const IconFont = Icon.addFromIconFontCn({
-  src: config.iconfont
-})
+// const IconFont = Icon.addFromIconFontCn({
+//   src: config.iconfont
+// })
 const time = ref(new Date().getHours() + ':' + new Date().getMinutes())
 
 const addZero = (time) => {

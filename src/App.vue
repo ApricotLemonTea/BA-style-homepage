@@ -8,7 +8,7 @@ import Toolbox from '@/components/Toolbox.vue'
 import Contact from '@/components/Contact.vue'
 import Task from '@/components/Task.vue'
 import Loading from '@/components/Loading.vue'
-import Background from '@/components/Background.vue'
+// import Background from '@/components/Background.vue'
 
 const loading = ref(true)
 const percent = ref(1)

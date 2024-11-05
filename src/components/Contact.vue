@@ -1,13 +1,13 @@
 <script setup>
-import { Icon } from '@arco-design/web-vue'
-import config from '/_config.json'
+// import { Icon } from '@arco-design/web-vue'
+// import config from '/_config.json'
 import { ref } from 'vue'
 import PatchNote from '@/components/PatchNote.vue'
 import Mission from '@/components/Mission.vue'
 
-const IconFont = Icon.addFromIconFontCn({
-  src: config.iconfont
-})
+// const IconFont = Icon.addFromIconFontCn({
+//   src: config.iconfont
+// })
 
 const patchNoteRef = ref()
 const missionRef = ref()
