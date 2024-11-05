@@ -4,6 +4,7 @@
 import { ref } from 'vue'
 import PatchNote from '@/components/PatchNote.vue'
 import Mission from '@/components/Mission.vue'
+import Announce from '@/components/Announce.vue'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -11,6 +12,7 @@ import Mission from '@/components/Mission.vue'
 
 const patchNoteRef = ref()
 const missionRef = ref()
+const announceRef = ref()
 
 /**
  * 打开patch note页面
@@ -24,6 +26,13 @@ const openPatchNote = () => {
  */
 const openMission = () => {
   missionRef.value.open()
+}
+
+/**
+ * 打开announce页面
+ */
+const openAnnounce = () => {
+  announceRef.value.open()
 }
 </script>
 
@@ -68,6 +77,7 @@ const openMission = () => {
 
   <PatchNote ref="patchNoteRef"></PatchNote>
   <Mission ref="missionRef"></Mission>
+  <Announce ref="announceRef"></Announce>
 </template>
 
 <style scoped>
