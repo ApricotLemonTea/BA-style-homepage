@@ -40,36 +40,45 @@ const openAnnounce = () => {
 
 <template>
   <div class="contact-box">
-    <a-popover title="ガイド" position="top">
+    <a-popover position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="$emit('start-guide')">
         <img src="" alt="" />
         <span style="white-space: nowrap;">ガイド</span>
       </div>
+      <template #title>
+        <h3 class="blue-text-color">ガイド</h3>
+      </template>
       <template #content>
-        <p>このサイトの紹介を始めます</p>
+        <p class="blue-text-color">このサイトの紹介を始めます</p>
       </template>
     </a-popover>
 
-    <a-popover title="お知らせ" position="top">
+    <a-popover position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="openAnnounce">
         <img src="/img/announce.png" alt="" />
         <span style="white-space: nowrap;">お知らせ</span>
       </div>
+      <template #title>
+        <h3 class="blue-text-color">お知らせ</h3>
+      </template>
       <template #content>
-        <p>重要な情報はここに書きます</p>
+        <p class="blue-text-color">重要な情報はここに書きます</p>
       </template>
     </a-popover>
 
-    <a-popover title="パッチノート" position="bottom">
+    <a-popover position="bottom">
       <div class="contact css-cursor-hover-enabled"
            @click="openPatchNote">
         <img src="/img/patchNote.png" alt="" />
         <span style="white-space: nowrap;">パッチノート</span>
       </div>
+      <template #title>
+        <h3 class="blue-text-color">パッチノート</h3>
+      </template>
       <template #content>
-        <p>サイトの更新履歴です</p>
+        <p class="blue-text-color">サイトの更新履歴です</p>
       </template>
     </a-popover>
 
@@ -79,11 +88,16 @@ const openAnnounce = () => {
         <img src="/img/mission.png" alt="" />
         <span style="white-space: nowrap;">ミッション</span>
       </div>
+      <template #title>
+        <h3 class="blue-text-color">ミッション</h3>
+      </template>
       <template #content>
-        <p>今後実装したい機能です</p>
-        <p>（実装日時は未定）</p>
-        <p>（実装できるかどうかも未定）</p>
-        <p>（期待しないでください）</p>
+        <div class="blue-text-color">
+          <p>今後実装したい機能です</p>
+          <p>（実装日時は未定）</p>
+          <p>（実装できるかどうかも未定）</p>
+          <p>（期待しないでください）</p>
+        </div>
       </template>
     </a-popover>
   </div>
