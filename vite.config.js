@@ -9,6 +9,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import config from './_config.json'
 import Font from 'vite-plugin-font'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -107,6 +110,12 @@ export default defineConfig({
     }),
     viteCompression({
       threshold: 10240 // the unit is Bytes
+    }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
     })
   ],
   resolve: {
