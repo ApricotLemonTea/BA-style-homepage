@@ -114,7 +114,7 @@ const startTourGuide = () => {
 
     <el-tour v-model="showGuide" :target-area-clickable="false">
       <template #indicators="{ current, total }">
-        <span>{{ current + 1 }} / {{ total }}</span>
+        <span class="blue-text-color">{{ current + 1 }} / {{ total }}</span>
       </template>
 
       <el-tour-step target="#level-ref">
@@ -200,8 +200,8 @@ const startTourGuide = () => {
 #contact-ref {
   position: fixed;
   top: 150px;
-  left: 15px;
-  width: 285px;
+  left: 20px;
+  width: 280px;
   height: 200px;
 }
 #ap-ref {
