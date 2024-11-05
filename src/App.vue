@@ -144,9 +144,9 @@ const startTourGuide = () => {
 }
 #contact-ref {
   position: absolute;
-  top: 200px;
-  left: 0;
-  width: 200px;
+  top: 150px;
+  left: 15px;
+  width: 285px;
   height: 200px;
 }
 #ap-ref {
