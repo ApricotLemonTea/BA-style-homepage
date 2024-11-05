@@ -28,7 +28,7 @@ if ('serviceWorker' in navigator) {
         title: 'メッセージ',
         content: 'アップデートがあります、ページを再起動してください',
         okText: 'はい',
-        cancelText: 'あとで',
+        hideCancel: true,
         onOk: () => {
           updateSW(true)
         }
