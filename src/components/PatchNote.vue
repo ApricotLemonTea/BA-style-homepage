@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import patchNote from '/_patch_note.json'
+import patchNote from '/src/notes/patch-note.json'
 
 const dialogVisible = ref(false)
 
@@ -22,7 +22,7 @@ defineExpose({ open })
       <div v-for="note in patchNote.patchNoteList">
         <h1>{{note.title}}</h1>
         <div class="patch-note-text-block">
-          <p v-for="item in note.contents" class="patch-note-text">
+          <p v-for="item in note.contents" :key="item" class="patch-note-text">
             ・{{item}}
           </p>
         </div>

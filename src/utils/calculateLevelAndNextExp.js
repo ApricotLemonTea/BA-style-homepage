@@ -1,22 +1,24 @@
 /**
  * 计算当前等级和下一级所需经验 <br/>
  *
- * @param exp 当前经验（页面的page view总和）
- * @return {{level: number, nextExp: number}}
+ * @param total 总经验量
+ * @return {{exp: number, level: number, nextExp: number}}
  */
-const calculateLevelAndNextExp = (exp) => {
-  if (exp >= 294784){
+const calculateLevelAndNextExp = (total) => {
+  if (total >= 294784){
     return {
+      exp: total - 294784,
       level: 90,
-      nextExp: 294784
+      nextExp: 0
     }
   }
 
-  for (let item of levelExpList){
-    if (exp < item.Total){
+  for (let i = 0; i <= levelExpList.length - 1; i++){
+    if (total < levelExpList[i + 1].Total){
       return {
-        level: item.Lv,
-        nextExp: item.Total
+        exp: total - levelExpList[i].Total,
+        level: levelExpList[i].Lv,
+        nextExp: levelExpList[i].Next
       }
     }
   }

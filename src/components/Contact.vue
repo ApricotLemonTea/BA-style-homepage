@@ -1,14 +1,20 @@
 <script setup>
-import { Icon } from '@arco-design/web-vue'
-import config from '/_config.json'
-import { inject, ref } from 'vue'
+// import { Icon } from '@arco-design/web-vue'
+// import config from '/_config.json'
+import { ref } from 'vue'
 import PatchNote from '@/components/PatchNote.vue'
+import Mission from '@/components/Mission.vue'
+import Announce from '@/components/Announce.vue'
 
-const IconFont = Icon.addFromIconFontCn({
-  src: config.iconfont
-})
+// const IconFont = Icon.addFromIconFontCn({
+//   src: config.iconfont
+// })
 
 const patchNoteRef = ref()
+const missionRef = ref()
+const announceRef = ref()
+
+defineEmits(["start-guide"])
 
 /**
  * 打开patch note页面
@@ -18,33 +24,61 @@ const openPatchNote = () => {
 }
 
 /**
- * App.vue提供的打开url的方法
- * @type {function}
+ * 打开mission页面
  */
-const openUrl = inject("openUrl")
+const openMission = () => {
+  missionRef.value.open()
+}
+
+/**
+ * 打开announce页面
+ */
+const openAnnounce = () => {
+  announceRef.value.open()
+}
 </script>
 
 <template>
   <div class="contact-box">
-    <a-popover title="お知らせ" position="top">
+    <a-popover position="top">
+      <div class="contact css-cursor-hover-enabled"
+           @click="$emit('start-guide')">
+        <img src="/img/guide.png" alt="" />
+        <span style="white-space: nowrap;">ガイド</span>
+      </div>
+      <template #title>
+        <h3 class="blue-text-color">ガイド</h3>
+      </template>
+      <template #content>
+        <p class="blue-text-color">当サイトの紹介を始めます</p>
+      </template>
+    </a-popover>
+
+    <a-popover position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="openAnnounce">
         <img src="/img/announce.png" alt="" />
         <span style="white-space: nowrap;">お知らせ</span>
       </div>
+      <template #title>
+        <h3 class="blue-text-color">お知らせ</h3>
+      </template>
       <template #content>
-        <p>重要な情報はここに書きます</p>
+        <p class="blue-text-color">重要な情報はここに書きます</p>
       </template>
     </a-popover>
 
-    <a-popover title="パッチノート" position="top">
+    <a-popover position="bottom">
       <div class="contact css-cursor-hover-enabled"
            @click="openPatchNote">
         <img src="/img/patchNote.png" alt="" />
         <span style="white-space: nowrap;">パッチノート</span>
       </div>
+      <template #title>
+        <h3 class="blue-text-color">パッチノート</h3>
+      </template>
       <template #content>
-        <p>サイトの更新履歴です</p>
+        <p class="blue-text-color">サイトの更新履歴です</p>
       </template>
     </a-popover>
 
@@ -54,17 +88,23 @@ const openUrl = inject("openUrl")
         <img src="/img/mission.png" alt="" />
         <span style="white-space: nowrap;">ミッション</span>
       </div>
+      <template #title>
+        <h3 class="blue-text-color">ミッション</h3>
+      </template>
       <template #content>
-        <p>今後実装したい機能です</p>
-        <p>（実装日時は未定）</p>
-        <p>（実装できるかどうかも未定）</p>
-        <p>（期待しないでください）</p>
+        <div class="blue-text-color">
+          <p>今後実装したい機能です</p>
+          <p>（実装日時は未定）</p>
+          <p>（実装できるかどうかも未定）</p>
+          <p>（期待しないでください）</p>
+        </div>
       </template>
     </a-popover>
   </div>
 
-  <!--パッチノート的弹窗-->
   <PatchNote ref="patchNoteRef"></PatchNote>
+  <Mission ref="missionRef"></Mission>
+  <Announce ref="announceRef"></Announce>
 </template>
 
 <style scoped>

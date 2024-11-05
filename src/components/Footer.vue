@@ -1,13 +1,14 @@
 <script setup>
 import { inject, ref } from 'vue'
-import config from '/_config.json'
-import { Icon, Message } from '@arco-design/web-vue'
+// import config from '/_config.json'
+// import { Icon } from '@arco-design/web-vue'
+import { Message } from '@arco-design/web-vue'
 import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
 
-const IconFont = Icon.addFromIconFontCn({
-  src: config.iconfont
-})
+// const IconFont = Icon.addFromIconFontCn({
+//   src: config.iconfont
+// })
 const time = ref(new Date().getHours() + ':' + new Date().getMinutes())
 
 const addZero = (time) => {
@@ -43,92 +44,118 @@ const openUrl = inject("openUrl")
 <template>
   <div class="footer">
     <div class="project-box">
-      <a-popover title="Twitter">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://twitter.com/ApricotLemonTea')">
           <img src="/img/twitter.png" alt="" />
           <span>Twitter</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">Twitter</h3>
+        </template>
         <template #content>
-          <p>主にここで喋ってます</p>
+          <p class="blue-text-color">主にここで喋ってます</p>
         </template>
       </a-popover>
 
-      <a-popover title="Misskey">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://misskey.io/@ApricotLemonTea')">
           <img src="/img/misskey.png" alt="" />
           <span>Misskey</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">Misskey</h3>
+        </template>
         <template #content>
-          <p>たまに見てます</p>
+          <p class="blue-text-color">たまに見てます</p>
         </template>
       </a-popover>
 
-      <a-popover title="BOOTH">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://apricotlemontea.booth.pm')">
           <img src="/img/booth.png" alt="" />
           <span>BOOTH</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">BOOTH</h3>
+        </template>
         <template #content>
-          <p>アクリルグッズ屋</p>
+          <p class="blue-text-color">アクリルグッズ屋</p>
         </template>
       </a-popover>
 
-      <a-popover title="Skeb">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://skeb.jp/@ApricotLemonTea')">
           <img src="/img/skeb.png" alt="" />
           <span>Skeb</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">Skeb</h3>
+        </template>
         <template #content>
-          <p>依頼募集中</p>
+          <p class="blue-text-color">依頼募集中</p>
         </template>
       </a-popover>
 
-      <a-popover title="pixivFANBOX">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://apricotlemontea.fanbox.cc/')">
           <img src="/img/fanbox.png" alt="" />
           <span>FANBOX</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">pixivFANBOX</h3>
+        </template>
         <template #content>
-          <p>気が向いたら記事も書きます</p>
+          <p class="blue-text-color">気が向いたら記事も書きます</p>
         </template>
       </a-popover>
 
-      <a-popover title="GitHub">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://github.com/ApricotLemonTea/BA-style-homepage')">
           <img src="/img/github.png" alt="" />
           <span>GitHub</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">GitHub</h3>
+        </template>
         <template #content>
-          パブリックのレポジトリです
+          <p  class="blue-text-color">パブリックのレポジトリです</p>
         </template>
       </a-popover>
 
-      <a-popover title="Mail">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
              @click="copyMailAddress">
           <img src="/img/mail.png" alt="" />
           <span>Mail</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">Mail</h3>
+        </template>
         <template #content>
-          <p>apricotlemontea@gmail.com</p>
-          <p>(クリックでコピーできます)</p>
+          <div class="blue-text-color">
+            <p style="font-size: 18px">apricotlemontea@gmail.com</p>
+            <p>(クリックでコピーできます)</p>
+          </div>
         </template>
       </a-popover>
 
-      <a-popover title="Wavebox">
+      <a-popover>
         <div class="project css-cursor-hover-enabled"
           @click="openUrl('https://wavebox.me/wave/5n2bu0domp1j2fq9')">
           <img src="/img/wavebox.png" alt="" />
           <span>Wavebox</span>
         </div>
+        <template #title>
+          <h3 class="blue-text-color">Wavebox</h3>
+        </template>
         <template #content>
-          <p>ご要望、ご感想などはこちらに</p>
+          <p class="blue-text-color">ご要望、ご感想などはこちらに</p>
         </template>
       </a-popover>
     </div>
@@ -235,6 +262,7 @@ const openUrl = inject("openUrl")
 .project img {
   width: 64px;
   height: 64px;
+  border-radius: 22%;
 }
 
 @media screen and (max-width: 830px) {
