@@ -49,7 +49,6 @@ const openUrl = (url) => {
 provide("openUrl", openUrl)
 
 const sumPV = ref(0)
-
 const exp = ref(0)
 const level = ref(0)
 const nextExp = ref(0)
@@ -68,6 +67,9 @@ onMounted(async () => {
   level.value = calculateLevelAndNextExp(sumPV.value).level
   nextExp.value = calculateLevelAndNextExp(sumPV.value).nextExp
 })
+
+const showGuide = ref(false)
+
 </script>
 
 <template>
@@ -83,6 +85,7 @@ onMounted(async () => {
       <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp" :total="sumPV"></Level>
     </transition>
 
+    <div id="toolbox-ref" class="toolbox-ref"></div>
     <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
 
     <transition name="left">
@@ -96,6 +99,26 @@ onMounted(async () => {
     </transition>
 
     <div id="curtain"></div>
+
+    <el-tour v-model="showGuide">
+      <el-tour-step :target="levelRef?.$el" title="経験値とレベル">
+
+      </el-tour-step>
+      <el-tour-step :target="contactRef?.$el" title="サイト内リンク">
+
+      </el-tour-step>
+      <el-tour-step target="#toolbox-ref" title="AP、クレジットと青輝石">
+
+      </el-tour-step>
+      <el-tour-step :target="footerRef?.$el" title="外部リンク">
+
+      </el-tour-step>
+      <el-tour-step :target="taskRef?.$el" title="外部リンクその2">
+
+      </el-tour-step>
+    </el-tour>
+
+    <el-button @click="() => {showGuide = true}">aaa</el-button>
   </main>
   <Cursor></Cursor>
 </template>
@@ -105,6 +128,14 @@ onMounted(async () => {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+.toolbox-ref{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
 }
 
 main {
