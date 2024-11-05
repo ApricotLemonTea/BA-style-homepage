@@ -1,14 +1,16 @@
 <script setup>
 import { Icon } from '@arco-design/web-vue'
 import config from '/_config.json'
-import { inject, ref } from 'vue'
+import { ref } from 'vue'
 import PatchNote from '@/components/PatchNote.vue'
+import Mission from '@/components/Mission.vue'
 
 const IconFont = Icon.addFromIconFontCn({
   src: config.iconfont
 })
 
 const patchNoteRef = ref()
+const missionRef = ref()
 
 /**
  * 打开patch note页面
@@ -18,10 +20,11 @@ const openPatchNote = () => {
 }
 
 /**
- * App.vue提供的打开url的方法
- * @type {function}
+ * 打开mission页面
  */
-const openUrl = inject("openUrl")
+const openMission = () => {
+  missionRef.value.open()
+}
 </script>
 
 <template>
@@ -63,8 +66,8 @@ const openUrl = inject("openUrl")
     </a-popover>
   </div>
 
-  <!--パッチノート的弹窗-->
   <PatchNote ref="patchNoteRef"></PatchNote>
+  <Mission ref="missionRef"></Mission>
 </template>
 
 <style scoped>
