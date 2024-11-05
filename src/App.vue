@@ -87,19 +87,25 @@ const startTourGuide = () => {
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
     <!--<img :src="imgSrc" class="background-img" alt="メモロビイラスト">-->
 
+    <div id="level-ref"></div>
     <transition name="up">
       <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp" :total="sumPV"></Level>
     </transition>
 
-    <div id="toolbox-ref" class="toolbox-ref"></div>
+    <div id="ap-ref"></div>
+    <div id="credit-ref"></div>
+    <div id="pyroxene-ref"></div>
     <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
 
+    <div id="contact-ref"></div>
     <transition name="left">
       <Contact v-if="!l2dOnly" @start-guide="startTourGuide"></Contact>
     </transition>
 
+    <div id="task-ref"></div>
     <Task :l2dOnly="l2dOnly"></Task>
 
+    <div id="footer-ref"></div>
     <transition name="down">
       <Footer v-if="!l2dOnly"></Footer>
     </transition>
@@ -107,21 +113,17 @@ const startTourGuide = () => {
     <div id="curtain"></div>
 
     <el-tour v-model="showGuide">
-      <el-tour-step :target="levelRef?.$el" title="経験値とレベル">
+      <el-tour-step target="#level-ref" title="経験値とレベル"></el-tour-step>
 
-      </el-tour-step>
-      <el-tour-step :target="contactRef?.$el" title="サイト内リンク">
+      <el-tour-step target="#contact-ref" title="サイト内リンク"></el-tour-step>
 
-      </el-tour-step>
-      <el-tour-step target="#toolbox-ref" title="AP、クレジットと青輝石">
+      <el-tour-step target="#ap-ref" title="AP"></el-tour-step>
 
-      </el-tour-step>
-      <el-tour-step :target="footerRef?.$el" title="外部リンク">
+      <el-tour-step target="#credit-ref" title="クレジット"></el-tour-step>
 
-      </el-tour-step>
-      <el-tour-step :target="taskRef?.$el" title="外部リンクその2">
+      <el-tour-step target="#pyroxene-ref" title="青輝石"></el-tour-step>
 
-      </el-tour-step>
+      <el-tour-step target="#footer-ref" title="外部リンク"></el-tour-step>
     </el-tour>
   </main>
   <Cursor></Cursor>
@@ -133,12 +135,51 @@ const startTourGuide = () => {
   height: 100vh;
   object-fit: cover;
 }
-
-.toolbox-ref{
+#level-ref {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 330px;
+  height: 120px;
+}
+#contact-ref {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+#ap-ref {
+  position: absolute;
+  top: 0;
+  right: 400px;
+  width: 200px;
+  height: 200px;
+}
+#credit-ref {
+  position: absolute;
+  top: 0;
+  right: 200px;
+  width: 200px;
+  height: 200px;
+}
+#pyroxene-ref {
   position: absolute;
   top: 0;
   right: 0;
   width: 200px;
+  height: 200px;
+}
+#footer-ref {
+  position: absolute;
+  bottom: 100px;
+  width: 100vw;
+  height: 200px;
+}
+#task-ref {
+  position: absolute;
+  bottom: 100px;
+  width: 100vw;
   height: 200px;
 }
 
