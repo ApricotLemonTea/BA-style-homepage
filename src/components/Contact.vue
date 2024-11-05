@@ -47,7 +47,7 @@ const openAnnounce = () => {
         <span style="white-space: nowrap;">ガイド</span>
       </div>
       <template #content>
-        <p>このサイトのいろいろ機能を紹介します</p>
+        <p>このサイトの紹介を始めます</p>
       </template>
     </a-popover>
 

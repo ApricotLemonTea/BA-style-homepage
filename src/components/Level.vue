@@ -11,14 +11,6 @@ const isLevelMax = computed(() => {
 
 const openProfile = () => {
   // TODO 新增一个个人信息页面
-  Notification.info({
-    id: "id",
-    title: "経験値とレベルについて",
-    content: "サイトの訪問数が増えると経験値が上がって、レベルもアップします",
-    position: "topLeft",
-    duration: 4000,
-    closable: true
-  })
 }
 </script>
 

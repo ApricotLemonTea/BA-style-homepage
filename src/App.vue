@@ -112,20 +112,73 @@ const startTourGuide = () => {
 
     <div id="curtain"></div>
 
-    <el-tour v-model="showGuide">
-      <el-tour-step target="#level-ref" title="経験値とレベル"></el-tour-step>
+    <el-tour v-model="showGuide" :target-area-clickable="false">
+      <template #indicators="{ current, total }">
+        <span>{{ current + 1 }} / {{ total }}</span>
+      </template>
 
-      <el-tour-step target="#contact-ref" title="サイト内リンク"></el-tour-step>
+      <el-tour-step target="#level-ref">
+        <template #header>
+          <h3 class="blue-text-color">経験値とレベル</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">サイトの訪問数が増えると経験値が上がって、レベルもアップします。</p>
+        </template>
+      </el-tour-step>
 
-      <el-tour-step target="#ap-ref" title="AP"></el-tour-step>
+      <el-tour-step target="#contact-ref">
+        <template #header>
+          <h3 class="blue-text-color">サイト内リンク</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">このサイトについてもっと知ることができます。</p>
+        </template>
+      </el-tour-step>
 
-      <el-tour-step target="#credit-ref" title="クレジット"></el-tour-step>
+      <el-tour-step target="#ap-ref">
+        <template #header>
+          <h3 class="blue-text-color">AP</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">10sごとに1AP自動回復します、チャージもできます。</p>
+        </template>
+      </el-tour-step>
 
-      <el-tour-step target="#pyroxene-ref" title="青輝石"></el-tour-step>
+      <el-tour-step target="#credit-ref">
+        <template #header>
+          <h3 class="blue-text-color">クレジット</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">クリックすることでギャンブル(?)できます。</p>
+        </template>
+      </el-tour-step>
 
-      <el-tour-step target="#task-ref" title="外部リンク" placement="top-end"></el-tour-step>
+      <el-tour-step target="#pyroxene-ref">
+        <template #header>
+          <h3 class="blue-text-color">青輝石</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">青輝石無料配布中、しかし上限はあります。</p>
+        </template>
+      </el-tour-step>
 
-      <el-tour-step target="#footer-ref" title="外部リンクその2" placement="top"></el-tour-step>
+      <el-tour-step target="#task-ref" placement="top-end">
+        <template #header>
+          <h3 class="blue-text-color">外部リンク</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。</p>
+        </template>
+      </el-tour-step>
+
+      <el-tour-step target="#footer-ref" placement="top">
+        <template #header>
+          <h3 class="blue-text-color">外部リンクその他</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">杏仁レモンティーのSNSなどの外部リンクです。</p>
+        </template>
+      </el-tour-step>
     </el-tour>
   </main>
   <Cursor></Cursor>
@@ -185,6 +238,14 @@ const startTourGuide = () => {
   left: 0;
   width: 100vw;
   height: 140px;
+}
+
+.blue-text-color {
+  color: #003153;
+}
+
+.mt-md-ml-10 {
+  margin: 10px 0 10px 10px;
 }
 
 main {
