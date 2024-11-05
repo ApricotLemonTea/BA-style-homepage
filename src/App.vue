@@ -240,10 +240,6 @@ const startTourGuide = () => {
   height: 140px;
 }
 
-.blue-text-color {
-  color: #003153;
-}
-
 .mt-md-ml-10 {
   margin: 10px 0 10px 10px;
 }
