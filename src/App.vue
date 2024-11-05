@@ -70,6 +70,12 @@ onMounted(async () => {
 
 const showGuide = ref(false)
 
+/**
+ * 开始漫游引导
+ */
+const startTourGuide = () => {
+  showGuide.value = true
+}
 </script>
 
 <template>
@@ -89,7 +95,7 @@ const showGuide = ref(false)
     <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
 
     <transition name="left">
-      <Contact v-if="!l2dOnly"></Contact>
+      <Contact v-if="!l2dOnly" @start-guide="startTourGuide"></Contact>
     </transition>
 
     <Task :l2dOnly="l2dOnly"></Task>
@@ -117,8 +123,6 @@ const showGuide = ref(false)
 
       </el-tour-step>
     </el-tour>
-
-    <el-button @click="() => {showGuide = true}">aaa</el-button>
   </main>
   <Cursor></Cursor>
 </template>

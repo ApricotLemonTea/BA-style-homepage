@@ -14,6 +14,8 @@ const patchNoteRef = ref()
 const missionRef = ref()
 const announceRef = ref()
 
+defineEmits(["start-guide"])
+
 /**
  * 打开patch note页面
  */
@@ -38,6 +40,17 @@ const openAnnounce = () => {
 
 <template>
   <div class="contact-box">
+    <a-popover title="ガイド" position="top">
+      <div class="contact css-cursor-hover-enabled"
+           @click="$emit('start-guide')">
+        <img src="" alt="" />
+        <span style="white-space: nowrap;">ガイド</span>
+      </div>
+      <template #content>
+        <p>このサイトのいろいろ機能を紹介します</p>
+      </template>
+    </a-popover>
+
     <a-popover title="お知らせ" position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="openAnnounce">
@@ -49,7 +62,7 @@ const openAnnounce = () => {
       </template>
     </a-popover>
 
-    <a-popover title="パッチノート" position="top">
+    <a-popover title="パッチノート" position="bottom">
       <div class="contact css-cursor-hover-enabled"
            @click="openPatchNote">
         <img src="/img/patchNote.png" alt="" />
