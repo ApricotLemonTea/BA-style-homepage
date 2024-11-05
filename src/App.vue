@@ -150,7 +150,7 @@ const checkWindowSize = () => {
           <h3 class="blue-text-color">サイト内リンク</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">このサイトについてもっと知ることができます。</p>
+          <p class="blue-text-color mt-md-ml-10">当サイトをもっと知ることができます。</p>
         </template>
       </el-tour-step>
 
@@ -159,7 +159,7 @@ const checkWindowSize = () => {
           <h3 class="blue-text-color">AP</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">10sごとに1AP自動回復します、チャージもできます。</p>
+          <p class="blue-text-color mt-md-ml-10">10秒ごとに1AP自動回復します、チャージもできます。</p>
         </template>
       </el-tour-step>
 
