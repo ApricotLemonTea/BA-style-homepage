@@ -235,6 +235,7 @@ const openUrl = inject("openUrl")
 .project img {
   width: 64px;
   height: 64px;
+  border-radius: 22%;
 }
 
 @media screen and (max-width: 830px) {
