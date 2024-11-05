@@ -177,7 +177,7 @@ const checkWindowSize = () => {
           <h3 class="blue-text-color">青輝石</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">青輝石無料配布中、しかし上限はあります。</p>
+          <p class="blue-text-color mt-md-ml-10">青輝石無料配布中、しかし上限があります。</p>
         </template>
       </el-tour-step>
 
