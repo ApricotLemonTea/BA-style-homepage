@@ -1,5 +1,6 @@
 <script setup>
-import { inject, ref } from 'vue'
+import { ref } from 'vue'
+import { openUrl } from '@/utils/commonFunctions'
 // import config from '/_config.json'
 // import { Icon } from '@arco-design/web-vue'
 import { Message } from '@arco-design/web-vue'
@@ -33,12 +34,6 @@ const copyMailAddress = async () => {
     console.log(e)
   }
 }
-
-/**
- * App.vue提供的打开url的方法
- * @type {function}
- */
-const openUrl = inject("openUrl")
 </script>
 
 <template>

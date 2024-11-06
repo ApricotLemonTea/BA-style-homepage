@@ -21,6 +21,9 @@ import getAccessAnalytics from '@/utils/cloudflareAnalytics'
 import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 import { Modal } from '@arco-design/web-vue'
 
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
+
 NProgress.start()
 
 const load = setInterval(() => {
@@ -41,15 +44,6 @@ const switchL2D = () => {
 
 const imgSrc = ref("/l2d/hp_bg.png?t=" + new Date().toString())
 
-/**
- * 打开url
- * @param {String} url 要打开的目标地址
- */
-const openUrl = (url) => {
-  window.open(url, "_blank")
-}
-provide("openUrl", openUrl)
-
 const sumPV = ref(0)
 const exp = ref(0)
 const level = ref(0)
@@ -67,6 +61,7 @@ onMounted(async () => {
 
   // 统计页面page view总和
   sumPV.value = await getAccessAnalytics()
+  userStore.total = sumPV.value
 
   // 计算当前等级和下一级所需经验
   exp.value = calculateLevelAndNextExp(sumPV.value).exp
@@ -109,13 +104,13 @@ const checkWindowSize = () => {
 
     <div id="level-ref"></div>
     <transition name="up">
-      <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp" :total="sumPV"></Level>
+      <Level v-if="!l2dOnly"></Level>
     </transition>
 
     <div id="ap-ref"></div>
     <div id="credit-ref"></div>
     <div id="pyroxene-ref"></div>
-    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
+    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D"></Toolbox>
 
     <div id="contact-ref"></div>
     <transition name="left">

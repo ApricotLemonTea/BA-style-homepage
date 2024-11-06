@@ -21,6 +21,7 @@
     "got": "^14.4.3",
     "gsap": "^3.12.5",
     "nprogress": "^0.2.0",
+    "pinia": "^2.2.6",
     "pixi-spine": "^4.0.4",
     "pixi.js": "^7.3.2",
     "rollup-plugin-copy": "^3.5.0",
