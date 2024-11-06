@@ -29,6 +29,16 @@ export const useUserStore = defineStore("userStore", {
      */
     randomCredit() {
       this.credit = Math.floor(Math.random() * 99999999)
+    },
+
+    /**
+     * 初始化AP <br/>
+     * ap初始值根据今天经过的时间减少
+     */
+    initAp() {
+      this.ap = this.maxAp - Math.trunc(
+        this.maxAp * ((new Date().getTime() - new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()} 00:00:00`)) / 86400000)
+      )
     }
   }
 })

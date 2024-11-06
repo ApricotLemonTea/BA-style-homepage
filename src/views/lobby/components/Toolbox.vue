@@ -15,10 +15,7 @@ const increaseApDialogVisible = ref(false)
 const exeedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
-// ap初始值根据今天经过的时间减少
-userStore.ap = userStore.maxAp - Math.trunc(
-  userStore.maxAp * ((new Date().getTime() - new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()} 00:00:00`)) / 86400000)
-)
+// AP
 const ap = computed(() => {
   return userStore.ap
 })

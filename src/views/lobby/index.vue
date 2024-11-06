@@ -64,6 +64,8 @@ onMounted(async () => {
   // 统计页面page view总和并存储到store中
   sumPV.value = await getAccessAnalytics()
   userStore.total = sumPV.value
+  // 初始化当前ap
+  userStore.initAp()
 })
 
 const showGuide = ref(false)
