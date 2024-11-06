@@ -1,7 +1,7 @@
 const routes = [
   {
     path: "/",
-    redirect: { name: "Lobby"}
+    redirect: { name: "Lobby" }
   },
   {
     path: "/lobby",
