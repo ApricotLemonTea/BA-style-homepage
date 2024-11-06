@@ -17,9 +17,6 @@ const showBackground = import.meta.env.VITE_SHOW_BACKGROUND
 
 import NProgress from 'nprogress'
 
-import getAccessAnalytics from '@/utils/cloudflareAnalytics'
-import { Modal } from '@arco-design/web-vue'
-
 import { useUserStore } from '@/store/userStore'
 const userStore = useUserStore()
 
