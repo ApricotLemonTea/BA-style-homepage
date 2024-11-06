@@ -49,25 +49,6 @@ const switchL2D = () => {
 
 const imgSrc = ref("/l2d/hp_bg.png?t=" + new Date().toString())
 
-const sumPV = ref(0)
-
-onMounted(async () => {
-  // 控制台打印颜文字
-  for (let i = 1; i <= 5; i++){
-    console.warn("(｀・ω・´)b")
-    console.error("(｀・ω・´)b")
-  }
-
-  // 判断浏览器宽度是否适合显示
-  checkWindowSize()
-
-  // 统计页面page view总和并存储到store中
-  sumPV.value = await getAccessAnalytics()
-  userStore.total = sumPV.value
-  // 初始化当前ap
-  userStore.initAp()
-})
-
 const showGuide = ref(false)
 
 /**
@@ -75,21 +56,6 @@ const showGuide = ref(false)
  */
 const startTourGuide = () => {
   showGuide.value = true
-}
-
-/**
- * 判断浏览器的宽度，不适配时弹出提示
- */
-const checkWindowSize = () => {
-  // 只在第一次打开网站时弹出提示
-  if (window.innerWidth < 1200 && userStore.isFirstOpen){
-    Modal.open({
-      title: "メッセージ",
-      content: "PCでの閲覧を推奨します、スマホは今後対応します。",
-      okText: "はい",
-      hideCancel: true
-    })
-  }
 }
 </script>
 

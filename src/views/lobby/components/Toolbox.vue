@@ -8,7 +8,9 @@ const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 const userStore = useUserStore()
 
-const apTooltipVisible = ref(userStore.apTooltipVisible)
+const apTooltipVisible = computed(() => {
+  return userStore.apTooltipVisible
+})
 const increasePyroxeneDialogVisible = ref(false)
 const exceedPyroxeneDialogVisible = ref(false)
 const increaseApDialogVisible = ref(false)
@@ -75,9 +77,9 @@ window.matchMedia('(hover: none)').addListener((e) => {
 })
 
 /* 自动回复AP的倒计时 */
-const countdown = ref(userStore.apRecoverCountdown)
-/* ap气泡文字的显示倒计时 */
-const apTooltipCountdown = ref(userStore.apTooltipCountdown)
+const apRecoverCountdown = computed(() => {
+  return userStore.apRecoverCountdown
+})
 
 /**
  * 点击体力按钮的事件<br/>
@@ -148,7 +150,7 @@ const increasePyroxene = () => {
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
-        <p v-if="userStore.ap < userStore.maxAp">次の回復まであと <span style="color: #60c7ff">{{countdown}} 秒</span>。</p>
+        <p v-if="userStore.ap < userStore.maxAp">次の回復まであと <span style="color: #60c7ff">{{apRecoverCountdown}} 秒</span>。</p>
         <p v-else>自動回復の上限に到達しました。</p>
       </template>
     </a-tooltip>
