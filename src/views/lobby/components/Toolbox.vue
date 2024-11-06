@@ -1,8 +1,8 @@
 <script setup>
-import { inject, reactive, ref, watch, computed } from 'vue'
+import { reactive, ref, watch, computed } from 'vue'
 import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
-import { numberWithCommas } from '@/utils/commonFunctions'
+import { numberWithCommas, openUrl } from '@/utils/commonFunctions'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
@@ -153,12 +153,6 @@ const increasePyroxene = () => {
   userStore.pyroxene += 1200
   pyroxeneTimes.value += 1
 }
-
-/**
- * /lobby/index.vue提供的打开url的方法
- * @type {function}
- */
-const openUrl = inject("openUrl")
 </script>
 
 <template>

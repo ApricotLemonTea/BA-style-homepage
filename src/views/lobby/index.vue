@@ -44,15 +44,6 @@ const switchL2D = () => {
 
 const imgSrc = ref("/l2d/hp_bg.png?t=" + new Date().toString())
 
-/**
- * 打开url
- * @param {String} url 要打开的目标地址
- */
-const openUrl = (url) => {
-  window.open(url, "_blank")
-}
-provide("openUrl", openUrl)
-
 const sumPV = ref(0)
 const exp = ref(0)
 const level = ref(0)
