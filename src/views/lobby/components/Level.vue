@@ -1,8 +1,9 @@
 <script setup>
 import config from '/_config.json'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/store/userStore'
+import Curtain from '@/components/Curtain.vue'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -11,8 +12,14 @@ const isLevelMax = computed(() => {
   return userStore.total >= 294784
 })
 
+const curtainRef = ref()
+/**
+ * 跳转到个人信息页面
+ */
 const openProfile = () => {
-  router.push({ name: "Profile" })
+  curtainRef.value.skip(() => {
+    router.push({ name: "Profile" })
+  })
 }
 </script>
 
@@ -42,6 +49,7 @@ const openProfile = () => {
       </div>
     </div>
   </div>
+  <Curtain ref="curtainRef"></Curtain>
 </template>
 
 <style scoped>
