@@ -2,6 +2,7 @@
 import { inject, reactive, ref, watch, computed } from 'vue'
 import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
+import { numberWithCommas } from '@/utils/commonFunctions'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
@@ -151,13 +152,6 @@ const handleClickPyroxene = () => {
 const increasePyroxene = () => {
   userStore.pyroxene += 1200
   pyroxeneTimes.value += 1
-}
-
-/**
- * 数字增加千位分隔符
- */
-const numberWithCommas = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
 /**
