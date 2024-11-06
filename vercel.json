@@ -15,5 +15,8 @@
       "source": "/client/v4/:path*",
       "destination": "https://api.cloudflare.com/client/v4/:path*"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
