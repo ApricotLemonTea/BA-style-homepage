@@ -10,16 +10,19 @@ import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 import App from './App.vue'
 import router from '@/router'
 import { registerSW } from 'virtual:pwa-register'
+import { createPinia } from 'pinia'
 
 import { css } from './assets/font/Natsuzemi-Maru-Gothic.ttf';
 // import { css as css2 } from './assets/font/BlueakaBeta2GBK-Bold.ttf';
 // console.log(css.family, css.weight);
 // console.log(css2.family, css2.weight);
 
+const pinia = createPinia()
 const app = createApp(App)
 app.use(ArcoVue)
 app.use(ArcoVueIcon)
 app.use(router)
+app.use(pinia)
 
 app.mount('#app')
 
