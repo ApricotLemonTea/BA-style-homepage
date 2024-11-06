@@ -104,13 +104,13 @@ const checkWindowSize = () => {
 
     <div id="level-ref"></div>
     <transition name="up">
-      <Level v-if="!l2dOnly" :exp="exp" :level="level" :next-exp="nextExp" :total="sumPV"></Level>
+      <Level v-if="!l2dOnly"></Level>
     </transition>
 
     <div id="ap-ref"></div>
     <div id="credit-ref"></div>
     <div id="pyroxene-ref"></div>
-    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D" :level="level"></Toolbox>
+    <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D"></Toolbox>
 
     <div id="contact-ref"></div>
     <transition name="left">
