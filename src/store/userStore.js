@@ -21,5 +21,13 @@ export const useUserStore = defineStore("userStore", {
     maxAp() {
       return 60 + this.level * 2
     },
+  },
+  actions: {
+    /**
+     * 生成随机的八位数以内的信用点
+     */
+    randomCredit() {
+      this.credit = Math.floor(Math.random() * 99999999)
+    }
   }
 })

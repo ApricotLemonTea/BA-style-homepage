@@ -154,13 +154,6 @@ const increasePyroxene = () => {
 }
 
 /**
- * 生成随机的八位数以内的信用点
- */
-const generateCredit = () => {
-  userStore.credit = Math.floor(Math.random() * 99999999)
-}
-
-/**
  * 数字增加千位分隔符
  */
 const numberWithCommas = (num) => {
@@ -199,7 +192,7 @@ const openUrl = inject("openUrl")
     </a-tooltip>
 
     <!--信用点-->
-    <div @click="generateCredit"
+    <div @click="userStore.randomCredit()"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
