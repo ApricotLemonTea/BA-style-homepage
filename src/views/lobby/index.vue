@@ -2,12 +2,12 @@
 import { onMounted, provide, ref } from 'vue'
 
 import Cursor from '@/components/Cursor.vue'
-import Footer from '@/views/home/components/Footer.vue'
-import Level from '@/views/home/components/Level.vue'
-import Toolbox from '@/views/home/components/Toolbox.vue'
-import Contact from '@/views/home/components/Contact.vue'
-import Task from '@/views/home/components/Task.vue'
-import Loading from '@/views/home/components/Loading.vue'
+import Footer from '@/views/lobby/components/Footer.vue'
+import Level from '@/views/lobby/components/Level.vue'
+import Toolbox from '@/views/lobby/components/Toolbox.vue'
+import Contact from '@/views/lobby/components/Contact.vue'
+import Task from '@/views/lobby/components/Task.vue'
+import Loading from '@/views/lobby/components/Loading.vue'
 // import Background from '@/components/Background.vue'
 
 const loading = ref(true)

@@ -1,9 +1,13 @@
 const routes = [
   {
     path: "/",
-    name: "Home",
+    redirect: { name: "Lobby"}
+  },
+  {
+    path: "/lobby",
+    name: "Lobby",
     components: {
-      main: ()=> import("@/views/home/index.vue")
+      main: ()=> import("@/views/lobby/index.vue")
     }
   },
 ]
