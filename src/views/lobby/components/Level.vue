@@ -36,7 +36,7 @@ const openProfile = () => {
           <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
             {{ isLevelMax ? userStore.exp + ' / ' + 'MAX'
                           : userStore.exp + ' / ' + userStore.nextExp }}
-            <span style="margin-left: 20px">（{{userStore.total}}）</span>
+            <span style="margin-left: 20px">（{{userStore.totalVisitor}}）</span>
           </p>
         </div>
       </div>
