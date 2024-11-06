@@ -9,9 +9,17 @@ export const useUserStore = defineStore("userStore", {
     pyroxene: 24000,
   }),
   getters: {
-    exp: (total) => calculateLevelAndNextExp(total).exp,
-    level: (total) => calculateLevelAndNextExp(total).level,
-    nextExp: (total) => calculateLevelAndNextExp(total).nextExp,
-    maxAp: (level) => 60 + level * 2,
+    exp(state) {
+      return calculateLevelAndNextExp(state.total).exp
+    },
+    level(state) {
+      return calculateLevelAndNextExp(state.total).level
+    },
+    nextExp(state) {
+      return calculateLevelAndNextExp(state.total).nextExp
+    },
+    maxAp() {
+      return 60 + this.level * 2
+    },
   }
 })

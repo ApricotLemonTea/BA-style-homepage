@@ -21,6 +21,9 @@ import getAccessAnalytics from '@/utils/cloudflareAnalytics'
 import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 import { Modal } from '@arco-design/web-vue'
 
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
+
 NProgress.start()
 
 const load = setInterval(() => {
@@ -67,6 +70,7 @@ onMounted(async () => {
 
   // 统计页面page view总和
   sumPV.value = await getAccessAnalytics()
+  userStore.total = sumPV.value
 
   // 计算当前等级和下一级所需经验
   exp.value = calculateLevelAndNextExp(sumPV.value).exp
