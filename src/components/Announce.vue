@@ -24,7 +24,6 @@ defineExpose({ open })
         </p>
       </div>
     </div>
-
   </a-modal>
 </template>
 
