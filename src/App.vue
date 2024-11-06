@@ -13,6 +13,7 @@ import Loading from '@/components/Loading.vue'
 const loading = ref(true)
 const percent = ref(1)
 const l2dOnly = ref(false)
+const showBackground = import.meta.env.VITE_SHOW_BACKGROUND
 
 import NProgress from 'nprogress'
 
@@ -104,7 +105,7 @@ const checkWindowSize = () => {
   <div id="background"></div>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img :src="imgSrc" class="background-img" alt="メモロビイラスト">
+    <img v-if="showBackground === 'true'" :src="imgSrc" class="background-img" alt="メモロビイラスト">
 
     <div id="level-ref"></div>
     <transition name="up">
