@@ -2,9 +2,9 @@
 // import { Icon } from '@arco-design/web-vue'
 // import config from '/_config.json'
 import { ref } from 'vue'
-import PatchNote from '@/components/PatchNote.vue'
-import Mission from '@/components/Mission.vue'
-import Announce from '@/components/Announce.vue'
+import PatchNote from '@/views/home/components/PatchNote.vue'
+import Mission from '@/views/home/components/Mission.vue'
+import Announce from '@/views/home/components/Announce.vue'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
