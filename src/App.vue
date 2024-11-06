@@ -4,7 +4,8 @@ import Cursor from '@/components/Cursor.vue'
 
 <template>
   <main>
-    <RouterView></RouterView>
+    <RouterView name="topBar"></RouterView>
+    <RouterView name="main"></RouterView>
   </main>
   <Cursor></Cursor>
 </template>
