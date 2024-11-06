@@ -1,27 +1,16 @@
 <script setup>
 import { ref } from 'vue'
 import config from '/_config.json'
-
-const curtain = ref(false)
-const bg = ref(false)
+import Curtain from '@/components/Curtain.vue'
 
 const props = defineProps(['l2dOnly'])
 
-const skip = () => {
-  bg.value = true
-  setTimeout(() => {
-    curtain.value = true
-    setTimeout(() => {
-      window.open(config.task.href)
-    }, 1000)
-    setTimeout(
-      () => {
-        curtain.value = false
-        bg.value = false
-      },
-      Math.floor(Math.random() * 2 + 4) * 500
-    )
-  }, 1000)
+const curtainRef = ref()
+
+const openPortfolio = () => {
+  curtainRef.value.skip(() => {
+    window.open(config.task.href)
+  })
 }
 </script>
 
@@ -32,20 +21,12 @@ const skip = () => {
         v-if="!props.l2dOnly"
         :name="config.task.name"
         class="task css-cursor-hover-enabled"
-        @click="skip"
+        @click="openPortfolio"
       ></div>
     </a-popover>
-
-  </transition>
-  <transition name="curtain">
-    <video v-if="bg" autoplay src="/transfrom.webm" class="bg"></video>
   </transition>
 
-  <transition name="curtain">
-    <div v-if="curtain" class="curtain">
-      <img src="/shitim/Tran_Shitim_Icon.png" alt="" />
-    </div>
-  </transition>
+  <Curtain ref="curtainRef"></Curtain>
 </template>
 
 <style scoped>
