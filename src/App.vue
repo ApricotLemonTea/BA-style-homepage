@@ -1,5 +1,5 @@
 <script setup>
-import Cursor from '@/views/home/components/Cursor.vue'
+import Cursor from '@/components/Cursor.vue'
 </script>
 
 <template>
@@ -10,5 +10,4 @@ import Cursor from '@/views/home/components/Cursor.vue'
 </template>
 
 <style scoped>
-
 </style>

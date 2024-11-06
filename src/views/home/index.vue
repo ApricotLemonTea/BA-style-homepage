@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, provide, ref } from 'vue'
 
-import Cursor from '@/views/home/components/Cursor.vue'
+import Cursor from '@/components/Cursor.vue'
 import Footer from '@/views/home/components/Footer.vue'
 import Level from '@/views/home/components/Level.vue'
 import Toolbox from '@/views/home/components/Toolbox.vue'
