@@ -1,13 +1,13 @@
 {
-  "title": "Homepage - 杏仁レモンティー",
+  "title": "Home - 杏仁レモンティー",
   "description": "杏仁レモンティーのブルアカロビー風ホームページ",
   "favicon": "/favicon144.png",
   "author": "杏仁レモンティー",
   "keywords": "杏仁レモンティー,ホームページ",
   "ICP": "",
   "manifest": {
-    "name": "Homepage - 杏仁レモンティー",
-    "short_name": "Homepage - 杏仁レモンティー",
+    "name": "Home - 杏仁レモンティー",
+    "short_name": "Home - 杏仁レモンティー",
     "description": "杏仁レモンティーのブルアカロビー風ホームページ",
     "theme_color": "#9370DB",
     "start_url": "/",
