@@ -10,7 +10,7 @@ import Task from '@/views/lobby/components/Task.vue'
 import Loading from '@/views/lobby/components/Loading.vue'
 // import Background from '@/components/Background.vue'
 
-const loading = ref(true)
+const loading = ref(false)
 const percent = ref(1)
 const l2dOnly = ref(false)
 const showBackground = import.meta.env.VITE_SHOW_BACKGROUND
@@ -24,19 +24,25 @@ import { Modal } from '@arco-design/web-vue'
 import { useUserStore } from '@/store/userStore'
 const userStore = useUserStore()
 
-NProgress.start()
+// 只在第一次打开网站时显示加载动画
+if (userStore.isFirstOpen){
+  NProgress.start()
+  loading.value = true
 
-const load = setInterval(() => {
-  percent.value = NProgress.status
-  if (document.readyState === 'complete' && window.l2d_complete === true) {
-    NProgress.done()
-    percent.value = 1
-    setTimeout(() => {
-      loading.value = false
-    }, 2000)
-    clearInterval(load)
-  }
-}, 1)
+  const load = setInterval(() => {
+    percent.value = NProgress.status
+
+    if (document.readyState === 'complete' && window.l2d_complete === true) {
+      NProgress.done()
+      percent.value = 1
+      setTimeout(() => {
+        loading.value = false
+        userStore.isFirstOpen = false
+      }, 2000)
+      clearInterval(load)
+    }
+  }, 1)
+}
 
 const switchL2D = () => {
   l2dOnly.value = !l2dOnly.value

@@ -3,6 +3,7 @@ import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 
 export const useUserStore = defineStore("userStore", {
   state: () => ({
+    isFirstOpen: true,
     total: 0,
     ap: 0,
     credit: Math.floor(Math.random() * 99999999),
