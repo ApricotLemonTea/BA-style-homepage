@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, provide, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import Cursor from '@/components/Cursor.vue'
 import Footer from '@/views/lobby/components/Footer.vue'
@@ -18,7 +18,6 @@ const showBackground = import.meta.env.VITE_SHOW_BACKGROUND
 import NProgress from 'nprogress'
 
 import getAccessAnalytics from '@/utils/cloudflareAnalytics'
-import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 import { Modal } from '@arco-design/web-vue'
 
 import { useUserStore } from '@/store/userStore'
@@ -51,9 +50,6 @@ const switchL2D = () => {
 const imgSrc = ref("/l2d/hp_bg.png?t=" + new Date().toString())
 
 const sumPV = ref(0)
-const exp = ref(0)
-const level = ref(0)
-const nextExp = ref(0)
 
 onMounted(async () => {
   // 控制台打印颜文字
@@ -65,14 +61,9 @@ onMounted(async () => {
   // 判断浏览器宽度是否适合显示
   checkWindowSize()
 
-  // 统计页面page view总和
+  // 统计页面page view总和并存储到store中
   sumPV.value = await getAccessAnalytics()
   userStore.total = sumPV.value
-
-  // 计算当前等级和下一级所需经验
-  exp.value = calculateLevelAndNextExp(sumPV.value).exp
-  level.value = calculateLevelAndNextExp(sumPV.value).level
-  nextExp.value = calculateLevelAndNextExp(sumPV.value).nextExp
 })
 
 const showGuide = ref(false)
