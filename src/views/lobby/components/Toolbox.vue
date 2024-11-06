@@ -141,9 +141,9 @@ const increasePyroxene = () => {
       <div
         class="toolbox"
         :style="{
-        transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
-        transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
-      }"
+          transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
+          transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
+        }"
       >
         <img src="/img/ap.png" alt="" />
         <span>{{ tweenedAp.number.toFixed(0) + ' / ' + userStore.maxAp }}</span>
@@ -276,10 +276,6 @@ const increasePyroxene = () => {
 </template>
 
 <style scoped>
-ba-tooltip {
-  border-radius: 100px;
-}
-
 .toolbox-box {
   position: absolute;
   right: 20px;
