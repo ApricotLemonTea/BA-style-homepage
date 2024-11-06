@@ -8,11 +8,11 @@ const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 const userStore = useUserStore()
 
-const apTooltipVisible = ref(false)
+const apTooltipVisible = ref(userStore.apTooltipVisible)
 const increasePyroxeneDialogVisible = ref(false)
 const exceedPyroxeneDialogVisible = ref(false)
 const increaseApDialogVisible = ref(false)
-const exeedApDialogVisible = ref(false)
+const exceedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
 // AP
@@ -75,32 +75,9 @@ window.matchMedia('(hover: none)').addListener((e) => {
 })
 
 /* 自动回复AP的倒计时 */
-const countdown = ref(9)
+const countdown = ref(userStore.apRecoverCountdown)
 /* ap气泡文字的显示倒计时 */
-const apTooltipCountdown = ref(0)
-
-/**
- * 每十秒回复一点体力
- * 根据apTooltipCountdown控制tooltip显示
- */
-setInterval(() => {
-  // 倒计时
-  if (userStore.ap < userStore.maxAp) {
-    countdown.value -= 1
-  }
-  if (apTooltipCountdown.value >= 0){
-    apTooltipCountdown.value -= 1
-  }
-
-  // 时间到了之后的重置
-  if (countdown.value < 0){
-    userStore.ap += 1
-    countdown.value = 9
-  }
-  if (apTooltipCountdown.value < 0){
-    apTooltipVisible.value = false
-  }
-}, 1000)
+const apTooltipCountdown = ref(userStore.apTooltipCountdown)
 
 /**
  * 点击体力按钮的事件<br/>
@@ -108,11 +85,11 @@ setInterval(() => {
  */
 const handleClickAp = () => {
   // 防止重复点击及重复显示
-  if (apTooltipVisible.value || increaseApDialogVisible.value || exeedApDialogVisible.value) {
+  if (apTooltipVisible.value || increaseApDialogVisible.value || exceedApDialogVisible.value) {
     return
   }
-  apTooltipVisible.value = true
-  apTooltipCountdown.value = 3
+  userStore.apTooltipVisible = true
+  userStore.apTooltipCountdown = 3
 }
 
 /**
@@ -122,7 +99,7 @@ const handleClickApIncrease = () => {
   if (userStore.ap < 999){
     increaseApDialogVisible.value = true
   } else {
-    exeedApDialogVisible.value = true
+    exceedApDialogVisible.value = true
   }
 }
 /**
@@ -259,7 +236,7 @@ const increasePyroxene = () => {
       <div class="modal-text">しかも無料！</div>
     </div>
   </a-modal>
-  <a-modal v-model:visible="exeedApDialogVisible"
+  <a-modal v-model:visible="exceedApDialogVisible"
            ok-text="わかった" hide-cancel>
     <template #title>
       AP購入？
