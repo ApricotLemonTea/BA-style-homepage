@@ -88,7 +88,8 @@ const startTourGuide = () => {
  * 判断浏览器的宽度，不适配时弹出提示
  */
 const checkWindowSize = () => {
-  if (window.innerWidth < 1200){
+  // 只在第一次打开网站时弹出提示
+  if (window.innerWidth < 1200 && userStore.isFirstOpen){
     Modal.open({
       title: "メッセージ",
       content: "PCでの閲覧を推奨します、スマホは今後対応します。",
