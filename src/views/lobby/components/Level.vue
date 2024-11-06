@@ -1,23 +1,17 @@
 <script setup>
-import { Notification } from '@arco-design/web-vue'
 import config from '/_config.json'
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
 const props = defineProps(["exp", "level", "nextExp", "total"])
+const router = useRouter()
 
 const isLevelMax = computed(() => {
   return props.total >= 294784
 })
 
 const openProfile = () => {
-  // TODO 新增一个个人信息页面
-  Notification.warning({
-    id: 'id',
-    title: "TODO：プロフィール画面を追加",
-    position: "topLeft",
-    duration: 4000,
-    closable: true
-  })
+  router.push({ name: "Profile" })
 }
 </script>
 

@@ -10,6 +10,14 @@ const routes = [
       main: ()=> import("@/views/lobby/index.vue")
     }
   },
+  {
+    path: "/profile",
+    name: "Profile",
+    components: {
+      topBar: ()=> import("@/components/TopBar.vue"),
+      main: ()=> import("@/views/profile/index.vue")
+    }
+  }
 ]
 
 export default routes
