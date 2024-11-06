@@ -36,5 +36,51 @@ defineExpose({ skip })
 </template>
 
 <style scoped>
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
 
+.curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/shitim/Event_Main_Stage_Bg.png') center;
+  background-size: cover;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.curtain img {
+  width: 500px;
+  height: auto;
+}
+
+.curtain-enter-from {
+  opacity: 0;
+}
+
+.curtain-enter-to {
+  opacity: 1;
+}
+
+.curtain-leave-to {
+  transform: scaleY(0%);
+}
+
+.curtain-leave-from {
+  transform: scaleY(100%);
+}
+
+.curtain-leave-active,
+.curtain-enter-active {
+  transition:
+    opacity 0.1s ease-in-out,
+    transform 0.25s ease-in-out;
+}
 </style>
