@@ -33,7 +33,7 @@ onMounted(async () => {
   checkWindowSize()
 
   // 统计页面page view总和并存储到store中
-  userStore.total = await getAccessAnalytics()
+  userStore.totalVisitor = await getAccessAnalytics()
   // 初始化当前ap
   userStore.initAp()
   // 开启自动回复AP的倒计时

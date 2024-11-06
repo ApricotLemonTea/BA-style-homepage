@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 import Cursor from '@/components/Cursor.vue'
 import Footer from '@/views/lobby/components/Footer.vue'
