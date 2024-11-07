@@ -66,7 +66,9 @@ const routerNavigate = (routerCase) => {
       <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 
-    <div class="other-button" @click="routerNavigate('lobby')"></div>
+    <div class="other-button" @click="routerNavigate('lobby')">
+      <img src="/public/img/home.png" alt="" style="height: 100%; margin: 0 auto">
+    </div>
   </div>
 
   <Curtain ref="curtainRef"></Curtain>
@@ -116,9 +118,9 @@ const routerNavigate = (routerCase) => {
   }
 
   .other-button {
-    background-color: pink;
-    height: 100%;
+    height: 38px;
     aspect-ratio: 1;
+    margin-top: 7px;
   }
 }
 .top-bar img {

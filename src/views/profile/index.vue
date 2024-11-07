@@ -32,7 +32,7 @@
 
   .button-block {
     height: 70vh;
-    margin-left: 7vw;
+    margin-left: 5vw;
 
     .button {
       background-color: white;
