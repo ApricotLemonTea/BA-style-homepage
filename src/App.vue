@@ -46,9 +46,11 @@ onMounted(async () => {
   <main>
     <RouterView name="topBar"></RouterView>
 
-    <Transition name="fold" mode="in-out">
-      <RouterView name="main"></RouterView>
-    </Transition>
+    <RouterView v-slot="{ Component }">
+      <transition name="fold">
+        <component :is="Component" />
+      </transition>
+    </RouterView>
   </main>
   <Cursor></Cursor>
 </template>
