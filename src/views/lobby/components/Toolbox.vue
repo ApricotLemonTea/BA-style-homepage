@@ -1,52 +1,50 @@
 <script setup>
-import { inject, reactive, ref, watch } from 'vue'
+import { reactive, ref, watch, computed } from 'vue'
+import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
+import { numberWithCommas, openUrl } from '@/utils/commonFunctions'
 
 const emit = defineEmits(['switch'])
-const props = defineProps(['l2dOnly', 'level'])
+const props = defineProps(['l2dOnly'])
+const userStore = useUserStore()
 
-const apTooltipVisible = ref(false)
+const apTooltipVisible = computed(() => {
+  return userStore.apTooltipVisible
+})
 const increasePyroxeneDialogVisible = ref(false)
 const exceedPyroxeneDialogVisible = ref(false)
 const increaseApDialogVisible = ref(false)
-const exeedApDialogVisible = ref(false)
+const exceedApDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
-const max_ap = 60 + props.level * 2
-// ap初始值根据今天经过的时间减少
-const ap = ref(
-  max_ap -
-    Math.trunc(
-      max_ap *
-        ((new Date().getTime() -
-          new Date(
-            `${new Date().getFullYear()}-${
-              new Date().getMonth() + 1
-            }-${new Date().getDate()} 00:00:00`
-          )) /
-          86400000)
-    )
-)
+// AP
+const ap = computed(() => {
+  return userStore.ap
+})
 const tweenedAp = reactive({
-  number: ap.value
+  number: userStore.ap
 })
 watch(ap, (n) => {
   gsap.to(tweenedAp, { duration: 0.5, number: Number(n) || 0 })
 })
 
 // 信用点
-const credit = ref(Math.floor(Math.random() * 99999999))
+const credit = computed(() => {
+  return userStore.credit
+})
 const tweenedCredit = reactive({
-  number: credit.value
+  number: userStore.credit
 })
 watch(credit, (n) => {
   gsap.to(tweenedCredit, { duration: 0.5, number: Number(n) || 0 })
 })
 
 // 青辉石
-const pyroxene = ref(24000)
+const pyroxene = computed(() => {
+  return userStore.pyroxene
+})
 const tweenedPyroxene = reactive({
-  number: pyroxene.value
+  number: userStore.pyroxene
 })
 const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
 watch(pyroxene, (n) => {
@@ -78,31 +76,10 @@ window.matchMedia('(hover: none)').addListener((e) => {
   hover.value = e.matches
 })
 
-const countdown = ref(9)
-const apTooltipCountdown = ref(0)
-
-/**
- * 每十秒回复一点体力
- * 根据apTooltipCountdown控制tooltip显示
- */
-setInterval(() => {
-  // 倒计时
-  if (ap.value < max_ap) {
-    countdown.value -= 1
-  }
-  if (apTooltipCountdown.value >= 0){
-    apTooltipCountdown.value -= 1
-  }
-
-  // 时间到了之后的重置
-  if (countdown.value < 0){
-    ap.value += 1
-    countdown.value = 9
-  }
-  if (apTooltipCountdown.value < 0){
-    apTooltipVisible.value = false
-  }
-}, 1000)
+/* 自动回复AP的倒计时 */
+const apRecoverCountdown = computed(() => {
+  return userStore.apRecoverCountdown
+})
 
 /**
  * 点击体力按钮的事件<br/>
@@ -110,28 +87,28 @@ setInterval(() => {
  */
 const handleClickAp = () => {
   // 防止重复点击及重复显示
-  if (apTooltipVisible.value || increaseApDialogVisible.value || exeedApDialogVisible.value) {
+  if (apTooltipVisible.value || increaseApDialogVisible.value || exceedApDialogVisible.value) {
     return
   }
-  apTooltipVisible.value = true
-  apTooltipCountdown.value = 3
+  userStore.apTooltipVisible = true
+  userStore.apTooltipCountdown = 3
 }
 
 /**
  * 点击体力加号的事件
  */
 const handleClickApIncrease = () => {
-  if (ap.value < 999){
+  if (userStore.ap < 999){
     increaseApDialogVisible.value = true
   } else {
-    exeedApDialogVisible.value = true
+    exceedApDialogVisible.value = true
   }
 }
 /**
  * 体力增加到999
  */
 const increaseAp = () => {
-  ap.value = 999
+  userStore.ap = 999
 }
 
 /**
@@ -149,29 +126,9 @@ const handleClickPyroxene = () => {
  * 青辉石+1200
  */
 const increasePyroxene = () => {
-  pyroxene.value += 1200
+  userStore.pyroxene += 1200
   pyroxeneTimes.value += 1
 }
-
-/**
- * 生成随机的八位数信用点
- */
-const generateCredit = () => {
-  credit.value = Math.floor(Math.random() * 99999999)
-}
-
-/**
- * 数字增加千位分隔符
- */
-const numberWithCommas = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
-
-/**
- * App.vue提供的打开url的方法
- * @type {function}
- */
-const openUrl = inject("openUrl")
 </script>
 
 <template>
@@ -184,22 +141,22 @@ const openUrl = inject("openUrl")
       <div
         class="toolbox"
         :style="{
-        transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
-        transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
-      }"
+          transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
+          transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
+        }"
       >
         <img src="/img/ap.png" alt="" />
-        <span>{{ tweenedAp.number.toFixed(0) + ' / ' + max_ap }}</span>
+        <span>{{ tweenedAp.number.toFixed(0) + ' / ' + userStore.maxAp }}</span>
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
-        <p v-if="ap < max_ap">次の回復まであと<span style="color: #60c7ff">{{countdown}}秒</span>。</p>
+        <p v-if="userStore.ap < userStore.maxAp">次の回復まであと <span style="color: #60c7ff">{{apRecoverCountdown}} 秒</span>。</p>
         <p v-else>自動回復の上限に到達しました。</p>
       </template>
     </a-tooltip>
 
     <!--信用点-->
-    <div @click="generateCredit"
+    <div @click="userStore.randomCredit()"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
@@ -281,7 +238,7 @@ const openUrl = inject("openUrl")
       <div class="modal-text">しかも無料！</div>
     </div>
   </a-modal>
-  <a-modal v-model:visible="exeedApDialogVisible"
+  <a-modal v-model:visible="exceedApDialogVisible"
            ok-text="わかった" hide-cancel>
     <template #title>
       AP購入？
@@ -319,10 +276,6 @@ const openUrl = inject("openUrl")
 </template>
 
 <style scoped>
-ba-tooltip {
-  border-radius: 100px;
-}
-
 .toolbox-box {
   position: absolute;
   right: 20px;

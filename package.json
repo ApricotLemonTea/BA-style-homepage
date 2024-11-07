@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite --host",
-    "workplace": "vite --mode workplace",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
@@ -21,6 +20,7 @@
     "got": "^14.4.3",
     "gsap": "^3.12.5",
     "nprogress": "^0.2.0",
+    "pinia": "^2.2.6",
     "pixi-spine": "^4.0.4",
     "pixi.js": "^7.3.2",
     "rollup-plugin-copy": "^3.5.0",

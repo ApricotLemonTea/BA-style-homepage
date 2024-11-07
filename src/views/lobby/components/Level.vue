@@ -1,22 +1,25 @@
 <script setup>
-import { Notification } from '@arco-design/web-vue'
 import config from '/_config.json'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '@/store/userStore'
+import Curtain from '@/components/Curtain.vue'
 
-const props = defineProps(["exp", "level", "nextExp", "total"])
+const router = useRouter()
+const userStore = useUserStore()
 
 const isLevelMax = computed(() => {
-  return props.total >= 294784
+  return userStore.total >= 294784
 })
 
+const curtainRef = ref()
+/**
+ * 跳转到个人信息页面
+ */
 const openProfile = () => {
-  // TODO 新增一个个人信息页面
-  Notification.warning({
-    id: 'id',
-    title: "TODO：プロフィール画面を追加",
-    position: "topLeft",
-    duration: 4000,
-    closable: true
+  userStore.apTooltipVisible = false
+  curtainRef.value.skip(() => {
+    router.push({ name: "Profile" })
   })
 }
 </script>
@@ -26,27 +29,28 @@ const openProfile = () => {
     <div class="container">
       <div class="level css-cursor-hover-enabled">
         <span>Lv.</span>
-        <p>{{ props.level }}</p>
+        <p>{{ userStore.level }}</p>
       </div>
       <div class="right">
         <span class="name">{{ config.author }}</span>
         <div>
           <a-progress
-            :percent="props.exp / props.nextExp"
+            :percent="userStore.exp / userStore.nextExp"
             :show-text="false"
             :color="isLevelMax ? '#ffe433' : '#89d5fd'"
             trackColor="#535E67"
           >
           </a-progress>
           <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
-            {{ isLevelMax ? props.exp + ' / ' + 'MAX'
-                          : props.exp + ' / ' + props.nextExp }}
-            <span style="margin-left: 20px">（{{props.total}}）</span>
+            {{ isLevelMax ? userStore.exp + ' / ' + 'MAX'
+                          : userStore.exp + ' / ' + userStore.nextExp }}
+            <span style="margin-left: 20px">（{{userStore.totalVisitor}}）</span>
           </p>
         </div>
       </div>
     </div>
   </div>
+  <Curtain ref="curtainRef"></Curtain>
 </template>
 
 <style scoped>

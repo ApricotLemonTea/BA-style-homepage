@@ -1,0 +1,132 @@
+<script setup>
+import { ref } from "vue"
+import TopBar from '../../components/TopBar.vue'
+
+const tabIndex = ref("profile")
+const switchTab = (index) => {
+  tabIndex.value = index
+}
+
+const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
+</script>
+
+<template>
+  <div>
+    <TopBar></TopBar>
+
+    <div class="profile-container">
+      <div class="id-card" v-show="tabIndex === 'profile'">
+        <div class="name-block blue-text-color">
+          <p>杏仁レモンティー</p>
+        </div>
+        <div class="detail-block blue-text-color">
+          <p>絵が少し描ける一般人です。</p>
+          <p>好きなものなんでもやります。</p>
+          <p>中文 / 日本語 / English OK。</p>
+        </div>
+      </div>
+      <div class="oc-card" v-show="tabIndex === 'OC'">
+        <img :src="ocImgSrc" alt="" class="oc-card-img">
+      </div>
+
+      <div class="button-block blue-text-color">
+        <div :class="tabIndex === 'profile' ? 'button wider-border' : 'button'"
+             @click="switchTab('profile')">
+          <p class="button-text">プロフィール</p>
+        </div>
+        <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
+             @click="switchTab('OC')">
+          <p class="button-text">オリキャラ設定</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.profile-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .oc-card {
+    background-color: white;
+    width: 60vw;
+    height: 70vh;
+    margin-left: 7vw;
+    display: flex;
+
+    .oc-card-img {
+      height: 100%;
+      aspect-ratio: auto;
+      margin: 0 auto;
+    }
+  }
+
+  .id-card {
+    background-color: white;
+    width: 60vw;
+    height: 70vh;
+    margin-left: 7vw;
+    display: flex;
+    flex-direction: column;
+    background-image: url("/profile/pf-bg.png");
+    background-size: cover;
+
+    .name-block {
+      width: 25vw;
+      height: 10vh;
+      margin: 7vh 5vw 0 auto;
+      display: flex;
+      border-bottom: 5px solid #ffed6f;
+    }
+    .name-block p {
+      margin: auto;
+      font-size: 4.5vh;
+    }
+
+    .detail-block {
+      width: 25vw;
+      height: 30vh;
+      margin: 33vh 4.5vw 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .detail-block p {
+      margin-top: 12px;
+      padding: 0 0 0 4vw;
+      font-size: 2.5vh;
+    }
+  }
+
+  .button-block {
+    height: 70vh;
+    margin-left: 5vw;
+
+    .button {
+      background-color: white;
+      width: 20vw;
+      height: 8vh;
+      margin-top: 3vh;
+      border-radius: 10px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      font-size: 3.5vh;
+      box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+      border: 1px solid #9ec6e8;
+
+      .button-text {
+        margin-left: 20px;
+      }
+    }
+    .button:active {
+      transform: scale(0.95);
+    }
+    .wider-border {
+      border: 3px solid #718b9e;
+    }
+  }
+}
+</style>
