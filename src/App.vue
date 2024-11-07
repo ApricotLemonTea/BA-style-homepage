@@ -42,6 +42,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <div id="background"></div>
   <main>
     <RouterView name="topBar"></RouterView>
     <RouterView name="main"></RouterView>
@@ -50,4 +51,19 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+#background {
+  background-image: url('/shitim/Event_Main_Stage_Bg.png');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 </style>

@@ -60,7 +60,6 @@ const startTourGuide = () => {
   <transition name="loading">
     <Loading v-if="loading" :percent="percent"></Loading>
   </transition>
-  <div id="background"></div>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
     <img v-if="showBackground === 'true'" :src="imgSrc" class="background-img" alt="メモロビイラスト">
@@ -301,21 +300,5 @@ main {
 .down-enter-active,
 .left-enter-active {
   transition: transform 0.3s ease-out;
-}
-
-#background {
-  background-image: url('/shitim/Event_Main_Stage_Bg.png');
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 </style>
