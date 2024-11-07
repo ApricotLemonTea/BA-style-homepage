@@ -11,31 +11,33 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
 </script>
 
 <template>
-  <TopBar></TopBar>
+  <div>
+    <TopBar></TopBar>
 
-  <div class="profile-container">
-    <div class="id-card" v-show="tabIndex === 'profile'">
-      <div class="name-block blue-text-color">
-        <p>杏仁レモンティー</p>
+    <div class="profile-container">
+      <div class="id-card" v-show="tabIndex === 'profile'">
+        <div class="name-block blue-text-color">
+          <p>杏仁レモンティー</p>
+        </div>
+        <div class="detail-block blue-text-color">
+          <p>絵が少し描ける一般人です。</p>
+          <p>好きなものなんでもやります。</p>
+          <p>中文 / 日本語 / English OK。</p>
+        </div>
       </div>
-      <div class="detail-block blue-text-color">
-        <p>絵が少し描ける一般人です。</p>
-        <p>好きなものなんでもやります。</p>
-        <p>中文 / 日本語 / English OK。</p>
+      <div class="oc-card" v-show="tabIndex === 'OC'">
+        <img :src="ocImgSrc" alt="" class="oc-card-img">
       </div>
-    </div>
-    <div class="oc-card" v-show="tabIndex === 'OC'">
-      <img :src="ocImgSrc" alt="" class="oc-card-img">
-    </div>
 
-    <div class="button-block blue-text-color">
-      <div :class="tabIndex === 'profile' ? 'button wider-border' : 'button'"
-           @click="switchTab('profile')">
-        <p class="button-text">プロフィール</p>
-      </div>
-      <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
-           @click="switchTab('OC')">
-        <p class="button-text">オリキャラ設定</p>
+      <div class="button-block blue-text-color">
+        <div :class="tabIndex === 'profile' ? 'button wider-border' : 'button'"
+             @click="switchTab('profile')">
+          <p class="button-text">プロフィール</p>
+        </div>
+        <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
+             @click="switchTab('OC')">
+          <p class="button-text">オリキャラ設定</p>
+        </div>
       </div>
     </div>
   </div>
@@ -127,6 +129,5 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
       border: 3px solid #718b9e;
     }
   }
-
 }
 </style>

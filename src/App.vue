@@ -44,11 +44,9 @@ onMounted(async () => {
 <template>
   <div id="background"></div>
   <main>
-    <RouterView v-slot="{ Component }">
-      <transition name="view-animation">
-        <component :is="Component" />
-      </transition>
-    </RouterView>
+    <transition name="view-animation" mode="out-in">
+      <RouterView />
+    </transition>
   </main>
   <Cursor></Cursor>
 </template>
@@ -72,24 +70,27 @@ onMounted(async () => {
 
 /* 从页面下方进入的动画 */
 .view-animation-enter-from {
-  transform: translateY(300px); /* 展开状态 */
+  opacity: 0; /* 初始状态：完全透明 */
 }
 .view-animation-enter-to {
-  transform: translateY(0); /* 合拢状态 */
+  opacity: 1; /* 最终状态：完全不透明 */
 }
 .view-animation-enter-active {
-  transition: transform 0.25s; /* 动画持续时间 */
-  transform-origin: bottom; /* 从中心展开或收缩 */
+  transition: opacity 0.5s; /* 淡入 */
 }
-/* 离开动画（从上下合拢） */
+
+/* 离开动画 */
 .view-animation-leave-from {
-  transform: translateY(0); /* 展开状态 */
+  opacity: 1; /* 初始状态：完全不透明 */
+  transform: translateY(0); /* 初始位置：正常位置 */
 }
 .view-animation-leave-to {
-  transform: translateY(-3000px); /* 合拢状态 */
+  opacity: 0; /* 最终状态：完全透明 */
+  transform: translateY(-1000px); /* 最终位置：向上偏移 */
 }
 .view-animation-leave-active {
-  transition: transform 0.4s ease-in-out; /* 动画持续时间 */
-  transform-origin: bottom; /* 从中心展开或收缩 */
+  transition: opacity 0.5s, transform 0.5s ease-in-out; /* 淡出并同时做位置过渡 */
+  transform-origin: bottom;
 }
+
 </style>
