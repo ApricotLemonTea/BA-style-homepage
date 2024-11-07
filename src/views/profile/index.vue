@@ -36,7 +36,7 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
         </div>
         <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
              @click="switchTab('OC')">
-          <p class="button-text">オリキャラ設定</p>
+          <p class="button-text">オリキャラ設定画</p>
         </div>
       </div>
     </div>
