@@ -22,7 +22,7 @@ const pyroxene = computed(() => {
 
 const curtainRef = ref()
 /**
- * curtain过场动画后切换路由
+ * 播放curtain过场动画随后切换路由
  * @param { string } routerCase 需要如何切换路由: <br>
  *  "-1":回到上一步, "lobby": 回到大厅
  */
