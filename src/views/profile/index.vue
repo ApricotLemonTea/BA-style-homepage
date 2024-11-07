@@ -83,7 +83,7 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
     }
     .name-block p {
       margin: auto;
-      font-size: 3.5vh;
+      font-size: 4.5vh;
     }
 
     .detail-block {

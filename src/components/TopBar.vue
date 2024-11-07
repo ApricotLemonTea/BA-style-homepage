@@ -101,24 +101,21 @@ const routerNavigate = (routerCase) => {
     justify-content: center;
     align-items: center;
     padding: 0 10px 0 20px;
-    font-size: 25px;
+    font-size: 28px;
     border-bottom: 5px solid #ffed6f;
   }
   .status-block {
     width: 200px;
     display: flex;
+    justify-content: center;
     align-items: center;
     padding-right: 10px;
     font-size: 25px;
 
-    .plus-icon {
-      height: 70%;
-    }
-
     .divider {
       height: 60%;
       transform: rotate(15deg);
-      margin-left: auto;
+      margin-left: 40px;
     }
   }
 
