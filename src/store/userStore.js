@@ -12,6 +12,7 @@ export const useUserStore = defineStore("userStore", {
 
     apRecoverCountdown: 9,
     apTooltipCountdown: 0,
+
     apTooltipVisible: false
   }),
   getters: {
@@ -47,11 +48,12 @@ export const useUserStore = defineStore("userStore", {
     },
 
     /**
-     * 开始自动恢复AP的倒计时
+     * 启动全局的每秒倒计时 <br/>
+     *
+     * 1. 每10s恢复一点体力
+     * 2. AP恢复的提示气泡文字显示3s后关闭
      */
-    startApInterval() {
-       // 每十秒回复一点体力
-       // 根据apTooltipCountdown控制tooltip显示
+    startGlobalInterval() {
       setInterval(() => {
         // 倒计时
         if (this.ap < this.maxAp) {

@@ -37,7 +37,7 @@ onMounted(async () => {
   // 初始化当前ap
   userStore.initAp()
   // 开启自动回复AP的倒计时
-  userStore.startApInterval()
+  userStore.startGlobalInterval()
 })
 </script>
 
