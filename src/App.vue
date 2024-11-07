@@ -44,7 +44,11 @@ onMounted(async () => {
 <template>
   <div id="background"></div>
   <main>
-    <RouterView name="topBar"></RouterView>
+    <RouterView name="topBar" v-slot="{ Component }">
+      <transition name="up">
+        <component :is="Component"></component>
+      </transition>
+    </RouterView>
 
     <RouterView v-slot="{ Component }">
       <transition name="fold">
@@ -72,17 +76,39 @@ onMounted(async () => {
   overflow: hidden;
 }
 
-/* 进入动画（从上下合拢到展开） */
-.fold-enter-active, .fold-leave-active {
+/* 离开动画（从上下合拢） */
+.fold-leave-from {
+  transform: scaleY(1); /* 展开状态 */
+}
+.fold-leave-to {
+  transform: scaleY(0); /* 合拢状态 */
+}
+.fold-leave-active {
   transition: transform 0.25s ease-in-out; /* 动画持续时间 */
   transform-origin: center; /* 从中心展开或收缩 */
 }
-
-.fold-enter, .fold-leave-to {
-  transform: scaleY(0); /* 合拢状态 */
+/* 从页面下方进入的动画 */
+.fold-enter-from {
+  transform: translateY(300px); /* 展开状态 */
+}
+.fold-enter-to {
+  transform: translateY(0); /* 合拢状态 */
+}
+.fold-enter-active {
+  transition: transform 0.25s; /* 动画持续时间 */
+  transform-origin: bottom; /* 从中心展开或收缩 */
 }
 
-.fold-enter-to, .fold-leave {
-  transform: scaleY(1); /* 展开状态 */
+.up-leave-to,
+.up-enter-from {
+  transform: translateY(300px);
+}
+.up-leave-from,
+.up-enter-to {
+  transform: translateY(0);
+}
+.up-enter-active, .up-leave-active {
+  transition: transform 5s ease-in-out; /* 动画持续时间 */
+  transform-origin: top;
 }
 </style>
