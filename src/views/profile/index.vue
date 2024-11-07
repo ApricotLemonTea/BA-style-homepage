@@ -32,7 +32,7 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
       </div>
       <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
            @click="switchTab('OC')">
-        <p class="button-text">オリキャラ</p>
+        <p class="button-text">オリキャラ設定</p>
       </div>
     </div>
   </div>
@@ -72,25 +72,27 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
 
     .name-block {
       width: 25vw;
-      height: 7vh;
-      margin: 10vh 5vw 0 auto;
+      height: 10vh;
+      margin: 7vh 5vw 0 auto;
       display: flex;
       border-bottom: 5px solid #ffed6f;
     }
     .name-block p {
       margin: auto;
-      font-size: 40px;
+      font-size: 3.5vh;
     }
 
     .detail-block {
       width: 25vw;
       height: 30vh;
-      margin: 33vh 5vw 0 auto;
+      margin: 33vh 4.5vw 0 auto;
+      display: flex;
+      flex-direction: column;
     }
     .detail-block p {
       margin-top: 12px;
-      padding: 0 3vw;
-      font-size: 25px;
+      padding: 0 0 0 4vw;
+      font-size: 2.5vh;
     }
   }
 
