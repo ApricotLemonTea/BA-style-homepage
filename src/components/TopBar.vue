@@ -76,6 +76,7 @@ const routerNavigate = (routerCase) => {
 
 <style scoped>
 .top-bar {
+  z-index: 99;
   width: 90vw;
   height: 50px;
   margin: 0 auto;
