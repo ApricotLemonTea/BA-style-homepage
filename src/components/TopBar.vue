@@ -2,6 +2,7 @@
 import { useUserStore } from '@/store/userStore'
 import { computed } from 'vue'
 import { numberWithCommas } from '@/utils/commonFunctions'
+import router from '@/router'
 
 const userStore = useUserStore()
 
@@ -31,7 +32,7 @@ const pyroxene = computed(() => {
       <img src="/img/ap.png" alt="" />
       <p style="white-space: nowrap">{{ ap }} / {{ maxAp }}</p>
       <img src="/img/plus.png" alt="" class="plus-icon" />
-      <a-divider direction="vertical" :size="2" :margin="3" class="divider"></a-divider>
+      <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 
     <div class="status-block" style="padding-left: 10px">
@@ -44,45 +45,44 @@ const pyroxene = computed(() => {
       <img src="/img/pyroxene.png" alt="" />
       <p>{{ numberWithCommas(pyroxene) }}</p>
       <img src="/img/plus.png" alt="" class="plus-icon" />
-      <a-divider direction="vertical" :size="2" :margin="3" class="divider"></a-divider>
+      <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 
-    <div class="other-button"></div>
-
-    <div class="other-button"></div>
+    <div class="other-button" @click="()=>{router.push('/')}"></div>
   </div>
 </template>
 
 <style scoped>
 .top-bar {
   width: 90vw;
-  height: 30px;
+  height: 50px;
   margin: 0 auto;
+  padding: 0 30px;
   background-color: white;
   border-radius: 0 0 10px 10px;
   display: flex;
 
   .back-button {
     background-color: #ffd8c3;
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
+    height: 166%;
+    aspect-ratio: 1;
   }
   .page-title {
     width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 5px 0 15px;
-    font-size: 20px;
+    padding: 0 10px 0 20px;
+    font-size: 25px;
     border-bottom: 5px solid #ffed6f;
   }
   .status-block {
-    width: 130px;
+    width: 200px;
     display: flex;
     justify-content: end;
     align-items: center;
     padding-right: 10px;
+    font-size: 25px;
 
     .plus-icon {
       height: 70%;
@@ -96,8 +96,9 @@ const pyroxene = computed(() => {
   }
 
   .other-button {
-    background-color: #c3ebff;
-    width: 30px;
+    background-color: pink;
+    height: 100%;
+    aspect-ratio: 1;
   }
 }
 .top-bar img {
