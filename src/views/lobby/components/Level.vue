@@ -17,6 +17,7 @@ const curtainRef = ref()
  * 跳转到个人信息页面
  */
 const openProfile = () => {
+  userStore.apTooltipVisible = false
   curtainRef.value.skip(() => {
     router.push({ name: "Profile" })
   })
