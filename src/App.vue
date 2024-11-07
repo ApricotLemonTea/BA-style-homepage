@@ -45,7 +45,10 @@ onMounted(async () => {
   <div id="background"></div>
   <main>
     <RouterView name="topBar"></RouterView>
-    <RouterView name="main"></RouterView>
+
+    <Transition name="fold" mode="in-out">
+      <RouterView name="main"></RouterView>
+    </Transition>
   </main>
   <Cursor></Cursor>
 </template>
@@ -65,5 +68,19 @@ onMounted(async () => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+/* 进入动画（从上下合拢到展开） */
+.fold-enter-active, .fold-leave-active {
+  transition: transform 0.25s ease-in-out; /* 动画持续时间 */
+  transform-origin: center; /* 从中心展开或收缩 */
+}
+
+.fold-enter, .fold-leave-to {
+  transform: scaleY(0); /* 合拢状态 */
+}
+
+.fold-enter-to, .fold-leave {
+  transform: scaleY(1); /* 展开状态 */
 }
 </style>
