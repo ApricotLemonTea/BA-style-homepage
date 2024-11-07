@@ -91,6 +91,14 @@ const routerNavigate = (routerCase) => {
     height: 166%;
     aspect-ratio: 1;
   }
+  .back-button img {
+    border-radius: 50%;
+    box-shadow: 3px 3px 7px rgba(49, 123, 146, 0.2);
+  }
+  .back-button:active {
+    transform: scale(0.9);
+  }
+
   .page-title {
     width: auto;
     display: flex;
@@ -122,6 +130,9 @@ const routerNavigate = (routerCase) => {
     height: 38px;
     aspect-ratio: 1;
     margin-top: 7px;
+  }
+  .other-button:active {
+    transform: scale(0.9);
   }
 }
 .top-bar img {
