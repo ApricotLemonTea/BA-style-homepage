@@ -3,8 +3,10 @@ import { useUserStore } from '@/store/userStore'
 import { computed } from 'vue'
 import { numberWithCommas } from '@/utils/commonFunctions'
 import router from '@/router'
+import { useRoute } from 'vue-router'
 
 const userStore = useUserStore()
+const route = useRoute()
 
 const ap = computed(() => {
   return userStore.ap
@@ -43,7 +45,7 @@ const routerNavigate = (routerCase) => {
     </div>
 
     <div class="page-title">
-      <p>プロフィール</p>
+      <p>{{ route.meta.topBarTitle }}</p>
     </div>
 
     <div class="status-block" style="margin-left: auto">
