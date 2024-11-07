@@ -42,7 +42,9 @@ const routerNavigate = (routerCase) => {
 
 <template>
   <div class="top-bar blue-text-color">
-    <div class="back-button" @click="routerNavigate('-1')"></div>
+    <div class="back-button" @click="routerNavigate('-1')">
+      <img src="/public/img/back.png" alt="" style="height: 100%; margin: 0 auto">
+    </div>
 
     <div class="page-title">
       <p>プロフィール</p>
@@ -86,7 +88,6 @@ const routerNavigate = (routerCase) => {
   display: flex;
 
   .back-button {
-    background-color: #ffd8c3;
     height: 166%;
     aspect-ratio: 1;
   }
