@@ -20,23 +20,20 @@ const pyroxene = computed(() => {
   return userStore.pyroxene
 })
 
-const curtainRef = ref()
 /**
  * 播放curtain过场动画随后切换路由
  * @param { string } routerCase 需要如何切换路由: <br>
  *  "-1":回到上一步, "lobby": 回到大厅
  */
 const routerNavigate = (routerCase) => {
-  curtainRef.value.skip(() => {
-    switch (routerCase){
-      case "-1":
-        router.go(-1)
-        break
-      case "lobby":
-        router.push("/")
-        break
-    }
-  })
+  switch (routerCase){
+    case "-1":
+      router.go(-1)
+      break
+    case "lobby":
+      router.push("/")
+      break
+  }
 }
 </script>
 
@@ -72,8 +69,6 @@ const routerNavigate = (routerCase) => {
       <img src="/img/home.png" alt="" style="height: 100%; margin: 0 auto">
     </div>
   </div>
-
-  <Curtain ref="curtainRef"></Curtain>
 </template>
 
 <style scoped>

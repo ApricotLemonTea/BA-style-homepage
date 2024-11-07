@@ -85,13 +85,13 @@ onMounted(async () => {
 }
 /* 离开动画（从上下合拢） */
 .view-animation-leave-from {
-  transform: scaleY(1); /* 展开状态 */
+  transform: translateY(0); /* 展开状态 */
 }
 .view-animation-leave-to {
-  transform: scaleY(0); /* 合拢状态 */
+  transform: translateY(-3000px); /* 合拢状态 */
 }
 .view-animation-leave-active {
-  transition: transform 0.25s ease-in-out; /* 动画持续时间 */
-  transform-origin: center; /* 从中心展开或收缩 */
+  transition: transform 0.4s ease-in-out; /* 动画持续时间 */
+  transform-origin: bottom; /* 从中心展开或收缩 */
 }
 </style>
