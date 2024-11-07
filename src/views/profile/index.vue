@@ -6,13 +6,14 @@ const switchTab = (index) => {
   tabIndex.value = index
 }
 
+const profileImgSrc = ref("/profile/pf-bg.png?t=" + new Date().getTime().toString())
 const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
 </script>
 
 <template>
   <div class="profile-container">
     <div class="id-card" v-show="tabIndex === 'profile'">
-      <img src="" alt="" class="id-card-img">
+      <img :src="profileImgSrc" alt="" class="id-card-img">
     </div>
     <div class="id-card" v-show="tabIndex === 'OC'">
       <img :src="ocImgSrc" alt="" class="id-card-img">
