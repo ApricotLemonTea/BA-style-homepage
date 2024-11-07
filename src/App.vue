@@ -44,8 +44,6 @@ onMounted(async () => {
 <template>
   <div id="background"></div>
   <main>
-    <RouterView name="topBar"></RouterView>
-
     <RouterView v-slot="{ Component }">
       <transition name="view-animation">
         <component :is="Component" />

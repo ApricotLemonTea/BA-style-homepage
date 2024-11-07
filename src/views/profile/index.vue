@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue"
+import TopBar from '../../components/TopBar.vue'
 
 const tabIndex = ref("profile")
 const switchTab = (index) => {
@@ -10,6 +11,8 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
 </script>
 
 <template>
+  <TopBar></TopBar>
+
   <div class="profile-container">
     <div class="id-card" v-show="tabIndex === 'profile'">
       <div class="name-block blue-text-color">
