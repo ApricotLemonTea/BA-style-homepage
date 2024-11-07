@@ -51,11 +51,10 @@ const routerNavigate = (routerCase) => {
     <div class="status-block" style="margin-left: auto">
       <img src="/img/ap.png" alt="" />
       <p style="white-space: nowrap">{{ ap }} / {{ maxAp }}</p>
-      <img src="/img/plus.png" alt="" class="plus-icon" />
       <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 
-    <div class="status-block" style="padding-left: 10px">
+    <div class="status-block">
       <img src="/img/gold.png" alt="" />
       <p>{{ numberWithCommas(credit) }}</p>
       <a-divider direction="vertical" :size="2" class="divider"></a-divider>
@@ -64,7 +63,6 @@ const routerNavigate = (routerCase) => {
     <div class="status-block">
       <img src="/img/pyroxene.png" alt="" />
       <p>{{ numberWithCommas(pyroxene) }}</p>
-      <img src="/img/plus.png" alt="" class="plus-icon" />
       <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 
@@ -102,7 +100,6 @@ const routerNavigate = (routerCase) => {
   .status-block {
     width: 200px;
     display: flex;
-    justify-content: end;
     align-items: center;
     padding-right: 10px;
     font-size: 25px;
