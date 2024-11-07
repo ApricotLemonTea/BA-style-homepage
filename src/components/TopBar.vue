@@ -43,7 +43,7 @@ const routerNavigate = (routerCase) => {
 <template>
   <div class="top-bar blue-text-color">
     <div class="back-button" @click="routerNavigate('-1')">
-      <img src="/public/img/back.png" alt="" style="height: 100%; margin: 0 auto">
+      <img src="/img/back.png" alt="" style="height: 100%; margin: 0 auto">
     </div>
 
     <div class="page-title">
@@ -69,7 +69,7 @@ const routerNavigate = (routerCase) => {
     </div>
 
     <div class="other-button" @click="routerNavigate('lobby')">
-      <img src="/public/img/home.png" alt="" style="height: 100%; margin: 0 auto">
+      <img src="/img/home.png" alt="" style="height: 100%; margin: 0 auto">
     </div>
   </div>
 
