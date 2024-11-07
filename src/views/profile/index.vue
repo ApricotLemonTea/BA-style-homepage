@@ -40,6 +40,8 @@
       justify-content: center;
       align-items: center;
       font-size: 3.5vh;
+      box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+      border: 1px solid #b6c0c8;
     }
     .button:active {
       transform: scale(0.95);
