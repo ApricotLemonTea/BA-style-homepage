@@ -1,9 +1,8 @@
 <script setup>
 import { useUserStore } from '@/store/userStore'
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { numberWithCommas } from '@/utils/commonFunctions'
 import router from '@/router'
-import Curtain from '@/components/Curtain.vue'
 
 const userStore = useUserStore()
 

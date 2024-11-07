@@ -89,7 +89,7 @@ onMounted(async () => {
   transform: translateY(-1000px); /* 最终位置：向上偏移 */
 }
 .view-animation-leave-active {
-  transition: opacity 0.5s, transform 0.5s ease-in-out; /* 淡出并同时做位置过渡 */
+  transition: opacity 0.25s, transform 0.25s ease-in-out; /* 淡出并同时做位置过渡 */
   transform-origin: bottom;
 }
 

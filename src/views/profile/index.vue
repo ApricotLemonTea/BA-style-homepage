@@ -56,7 +56,6 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
     height: 70vh;
     margin-left: 7vw;
     display: flex;
-    flex-direction: column;
 
     .oc-card-img {
       height: 100%;

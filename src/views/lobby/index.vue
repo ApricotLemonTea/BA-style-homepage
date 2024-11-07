@@ -96,19 +96,20 @@ const startTourGuide = () => {
 
       <el-tour-step target="#level-ref">
         <template #header>
-          <h3 class="blue-text-color">経験値とレベル</h3>
+          <h3 class="blue-text-color">プロフィールと経験値とレベル</h3>
         </template>
         <template #default>
+          <p class="blue-text-color mt-md-ml-10">クリックするとプロフィール画面に移動します。</p>
           <p class="blue-text-color mt-md-ml-10">サイトの訪問数が増えると経験値が上がって、レベルもアップします。</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#contact-ref">
         <template #header>
-          <h3 class="blue-text-color">サイト内リンク</h3>
+          <h3 class="blue-text-color">サイト情報</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">当サイトをもっと知ることができます。</p>
+          <p class="blue-text-color mt-md-ml-10">当サイトに関する情報です。</p>
         </template>
       </el-tour-step>
 
