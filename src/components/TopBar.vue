@@ -1,8 +1,9 @@
 <script setup>
 import { useUserStore } from '@/store/userStore'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { numberWithCommas } from '@/utils/commonFunctions'
 import router from '@/router'
+import Curtain from '@/components/Curtain.vue'
 
 const userStore = useUserStore()
 
@@ -18,11 +19,30 @@ const credit = computed(() => {
 const pyroxene = computed(() => {
   return userStore.pyroxene
 })
+
+const curtainRef = ref()
+/**
+ * curtain过场动画后切换路由
+ * @param { string } routerCase 需要如何切换路由: <br>
+ *  "-1":回到上一步, "lobby": 回到大厅
+ */
+const routerNavigate = (routerCase) => {
+  curtainRef.value.skip(() => {
+    switch (routerCase){
+      case "-1":
+        router.go(-1)
+        break
+      case "lobby":
+        router.push("/")
+        break
+    }
+  })
+}
 </script>
 
 <template>
   <div class="top-bar blue-text-color">
-    <div class="back-button"></div>
+    <div class="back-button" @click="routerNavigate('-1')"></div>
 
     <div class="page-title">
       <p>プロフィール</p>
@@ -48,8 +68,10 @@ const pyroxene = computed(() => {
       <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 
-    <div class="other-button" @click="()=>{router.push('/')}"></div>
+    <div class="other-button" @click="routerNavigate('lobby')"></div>
   </div>
+
+  <Curtain ref="curtainRef"></Curtain>
 </template>
 
 <style scoped>
