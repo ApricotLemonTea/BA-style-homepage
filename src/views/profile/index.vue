@@ -6,17 +6,23 @@ const switchTab = (index) => {
   tabIndex.value = index
 }
 
-const profileImgSrc = ref("/profile/pf-bg.png?t=" + new Date().getTime().toString())
 const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
 </script>
 
 <template>
   <div class="profile-container">
     <div class="id-card" v-show="tabIndex === 'profile'">
-      <img :src="profileImgSrc" alt="" class="id-card-img">
+      <div class="name-block blue-text-color">
+        <p>杏仁レモンティー</p>
+      </div>
+      <div class="detail-block blue-text-color">
+        <p>絵が少し描ける一般人です。</p>
+        <p>好きなものなんでもやります。</p>
+        <p>中文 / 日本語 / English OK。</p>
+      </div>
     </div>
-    <div class="id-card" v-show="tabIndex === 'OC'">
-      <img :src="ocImgSrc" alt="" class="id-card-img">
+    <div class="oc-card" v-show="tabIndex === 'OC'">
+      <img :src="ocImgSrc" alt="" class="oc-card-img">
     </div>
 
     <div class="button-block blue-text-color">
@@ -39,17 +45,52 @@ const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
   display: flex;
   align-items: center;
 
+  .oc-card {
+    background-color: white;
+    width: 60vw;
+    height: 70vh;
+    margin-left: 7vw;
+    display: flex;
+    flex-direction: column;
+
+    .oc-card-img {
+      height: 100%;
+      aspect-ratio: auto;
+      margin: 0 auto;
+    }
+  }
+
   .id-card {
     background-color: white;
     width: 60vw;
     height: 70vh;
     margin-left: 7vw;
     display: flex;
+    flex-direction: column;
+    background-image: url("/profile/pf-bg.png");
+    background-size: cover;
 
-    .id-card-img {
-      height: 100%;
-      aspect-ratio: auto;
-      margin: 0 auto;
+    .name-block {
+      width: 25vw;
+      height: 7vh;
+      margin: 10vh 5vw 0 auto;
+      display: flex;
+      border-bottom: 5px solid #ffed6f;
+    }
+    .name-block p {
+      margin: auto;
+      font-size: 40px;
+    }
+
+    .detail-block {
+      width: 25vw;
+      height: 30vh;
+      margin: 33vh 5vw 0 auto;
+    }
+    .detail-block p {
+      margin-top: 12px;
+      padding: 0 3vw;
+      font-size: 25px;
     }
   }
 
