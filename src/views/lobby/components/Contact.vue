@@ -46,6 +46,23 @@ const openAnnounce = () => {
 
 <template>
   <div class="contact-box">
+    <a-badge :count="hasNewAnnounce" :offset="[-25, -10]"
+             dot :dot-style="{width: '13px', height: '13px'}">
+      <a-popover position="top">
+        <div class="contact css-cursor-hover-enabled"
+             @click="openAnnounce">
+          <img src="/img/announce.png" alt="" />
+          <span style="white-space: nowrap; margin-top: 9px">お知らせ</span>
+        </div>
+        <template #title>
+          <h3 class="blue-text-color">お知らせ</h3>
+        </template>
+        <template #content>
+          <p class="blue-text-color">重要な情報はここに書きます</p>
+        </template>
+      </a-popover>
+    </a-badge>
+
     <a-popover position="top">
       <div class="contact css-cursor-hover-enabled"
            @click="$emit('start-guide')">
@@ -57,24 +74,6 @@ const openAnnounce = () => {
       </template>
       <template #content>
         <p class="blue-text-color">当サイトの紹介を始めます</p>
-      </template>
-    </a-popover>
-
-    <a-popover position="top">
-      <a-badge :count="hasNewAnnounce" :offset="[-20, 0]"
-               dot :dot-style="{width: '13px', height: '13px'}">
-        <div class="contact css-cursor-hover-enabled"
-             @click="openAnnounce">
-          <img src="/img/announce.png" alt="" />
-          <span style="white-space: nowrap;">お知らせ</span>
-        </div>
-      </a-badge>
-
-      <template #title>
-        <h3 class="blue-text-color">お知らせ</h3>
-      </template>
-      <template #content>
-        <p class="blue-text-color">重要な情報はここに書きます</p>
       </template>
     </a-popover>
 
@@ -143,7 +142,7 @@ const openAnnounce = () => {
 }
 
 .contact span {
-  margin: 5px 0 0;
+  margin: 7px 0 0;
   font-size: 20px;
   color: #003153;
   font-weight: 800;
