@@ -13,7 +13,7 @@ import Loading from '@/views/lobby/components/Loading.vue'
 const loading = ref(false)
 const percent = ref(1)
 const l2dOnly = ref(false)
-const showBackground = import.meta.env.VITE_SHOW_BACKGROUND
+const envShowBackground = import.meta.env.VITE_SHOW_BACKGROUND
 
 import NProgress from 'nprogress'
 
@@ -62,7 +62,7 @@ const startTourGuide = () => {
   </transition>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img v-if="showBackground === 'true'" :src="imgSrc" class="background-img" alt="メモロビイラスト">
+    <img v-if="envShowBackground === 'true'" :src="imgSrc" class="background-img" alt="メモロビイラスト">
 
     <div id="level-ref"></div>
     <transition name="up">

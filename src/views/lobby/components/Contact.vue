@@ -16,6 +16,10 @@ const announceRef = ref()
 
 defineEmits(["start-guide"])
 
+const viewedAnnounceDate = ref(localStorage.getItem("viewed-announce-date"))
+const recentAnnounceDate = ref("2024-11-08")
+const hasNewAnnounce = ref(viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1)
+
 /**
  * 打开patch note页面
  */
@@ -34,6 +38,8 @@ const openMission = () => {
  * 打开announce页面
  */
 const openAnnounce = () => {
+  localStorage.setItem("viewed-announce-date", recentAnnounceDate.value)
+  hasNewAnnounce.value = 0
   announceRef.value.open()
 }
 </script>
@@ -55,11 +61,15 @@ const openAnnounce = () => {
     </a-popover>
 
     <a-popover position="top">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openAnnounce">
-        <img src="/img/announce.png" alt="" />
-        <span style="white-space: nowrap;">お知らせ</span>
-      </div>
+      <a-badge :count="hasNewAnnounce" :offset="[-20, 0]"
+               dot :dot-style="{width: '13px', height: '13px'}">
+        <div class="contact css-cursor-hover-enabled"
+             @click="openAnnounce">
+          <img src="/img/announce.png" alt="" />
+          <span style="white-space: nowrap;">お知らせ</span>
+        </div>
+      </a-badge>
+
       <template #title>
         <h3 class="blue-text-color">お知らせ</h3>
       </template>

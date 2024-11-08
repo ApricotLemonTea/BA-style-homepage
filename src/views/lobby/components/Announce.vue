@@ -20,7 +20,21 @@ defineExpose({ open })
     <div class="announce-container">
       <div class="announce-text-block">
         <p class="announce-text">
-          何もありません
+          □■□■□■□■□■□■□■□■□■□■□■□■□■
+        </p>
+        <br/>
+        <p class="announce-text">
+          ◎貴方のサークル「杏仁茶館」は、
+        </p>
+        <p class="announce-text">
+          日曜日 東地区 “Ｊ”ブロック－51a
+        </p>
+        <p class="announce-text">
+          に配置されました。
+        </p>
+        <br/>
+        <p class="announce-text">
+          □■□■□■□■□■□■□■□■□■□■□■□■□■
         </p>
       </div>
     </div>
@@ -30,14 +44,18 @@ defineExpose({ open })
 <style>
 .announce-container {
   height: 30vh;
-  width: auto;
-  min-width: 40vw;
+  width: 40vw;
   color: #003153;
+  display: flex;
 }
 
 .announce-text-block {
   text-align: center;
-  padding: 0 7vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .announce-text {
