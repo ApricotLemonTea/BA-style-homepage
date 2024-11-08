@@ -43,7 +43,7 @@ defineExpose({ open })
 
 .patch-note-text-block {
   text-align: left;
-  padding: 0 7vw;
+  padding: 0 5vw;
 }
 
 .patch-note-text {
