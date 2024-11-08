@@ -7,6 +7,8 @@ const switchTab = (index) => {
   tabIndex.value = index
 }
 
+const envShowBackground = import.meta.env.VITE_SHOW_BACKGROUND
+
 const bgImgSrc = ref("/profile/pf-bg.png?t=" + new Date().getTime().toString())
 const ocImgSrc = ref("/profile/aio.png?t=" + new Date().getTime().toString())
 const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
@@ -19,13 +21,13 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
     <div class="profile-container">
       <div v-show="tabIndex === 'profile'"
            class="id-card"
-           :style="{ backgroundImage: `url(${bgImgSrc})` }"
+           :style="envShowBackground === 'true' ? { backgroundImage: `url(${bgImgSrc})` } : ''"
       >
         <div class="name-block blue-text-color">
           <p>杏仁レモンティー</p>
         </div>
         <div class="sign-block">
-          <img :src="signImgSrc" alt="" class="sign-img">
+          <img v-if="envShowBackground === 'true'" :src="signImgSrc" alt="" class="sign-img">
         </div>
         <div class="detail-block blue-text-color">
           <p>絵が少し描ける一般人です。</p>
@@ -35,7 +37,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       </div>
 
       <div v-show="tabIndex === 'OC'" class="oc-card" >
-        <img :src="ocImgSrc" alt="" class="oc-card-img">
+        <img v-if="envShowBackground === 'true'" :src="ocImgSrc" alt="" class="oc-card-img">
       </div>
 
       <div class="button-block blue-text-color">
