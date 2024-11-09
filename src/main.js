@@ -3,7 +3,7 @@ import '@arco-design/web-vue/dist/arco.css'
 
 import 'pixi-spine' // Do this once at the very start of your code. This registers the loader!
 
-import { createApp } from 'vue'
+import { createApp, h } from 'vue'
 import { Modal } from '@arco-design/web-vue'
 import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
@@ -31,7 +31,9 @@ if ('serviceWorker' in navigator) {
     onNeedRefresh() {
       Modal.open({
         title: 'メッセージ',
-        content: 'アップデートがあります、ページを再起動してください',
+        content: () => [
+          h("p", { class: "blue-text-color" }, "アップデートがあります、ページを再起動してください"),
+        ],
         okText: 'はい',
         hideCancel: true,
         onOk: () => {

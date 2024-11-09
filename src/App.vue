@@ -1,9 +1,10 @@
 <script setup>
-import { onMounted } from 'vue'
+import { h, onMounted } from 'vue'
 import { useUserStore } from './store/userStore'
 import Cursor from '@/components/Cursor.vue'
 import getAccessAnalytics from './utils/cloudflareAnalytics'
 import { Modal } from '@arco-design/web-vue'
+import { openUrl } from './utils/commonFunctions'
 
 const userStore = useUserStore()
 
@@ -15,9 +16,14 @@ const checkWindowSize = () => {
   if (window.innerWidth < 1200 && userStore.isFirstOpen){
     Modal.open({
       title: "メッセージ",
-      content: "PCでの閲覧を推奨します、スマホは今後対応します。",
+      content: () => [
+        h("p", { class: "blue-text-color" }, "PCでの閲覧を推奨します、スマホは今後対応します。"),
+        h("br", {}, ""),
+        h("p", { class: "blue-text-color" }, "旧リンクまとめサイトのlit.linkに移動しますか？"),
+      ],
       okText: "はい",
-      hideCancel: true
+      cancelText: "いいえ",
+      onOk: () => { openUrl("https://lit.link/ApricotLemonTea", "_self") }
     })
   }
 }
