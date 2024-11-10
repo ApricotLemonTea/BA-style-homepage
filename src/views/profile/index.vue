@@ -150,7 +150,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       transform: scale(0.95);
     }
     .wider-border {
-      border: 3px solid #718b9e;
+      border: 3px solid #003153;
     }
   }
 }
