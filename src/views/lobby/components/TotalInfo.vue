@@ -89,6 +89,7 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
             </div>
           </div>
 
+          <!--その他-->
           <div v-show="tabList[selectedTabIndex] === 'その他'"
                class="total-info-content-block">
             <p style="font-size: 2.5vh; margin: 10vh auto">予備用のタブです、まだ何もありません。</p>
