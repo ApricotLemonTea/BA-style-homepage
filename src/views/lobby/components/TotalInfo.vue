@@ -1,11 +1,15 @@
 <script setup>
 import { ref } from 'vue'
+import patchNote from '@/notes/patch-note.json'
 
 const dialogVisible = ref(false)
 const open = () => {
   dialogVisible.value = true
 }
 defineExpose({ open })
+
+const selectedTabIndex = ref(0)
+const selectedTitleIndex = ref(0)
 </script>
 
 <template>
@@ -23,6 +27,7 @@ defineExpose({ open })
     <template #default>
       <div class="total-info-container">
         <div class="total-info-inner-container">
+          <!--顶部的tab bar-->
           <div class="total-info-tab-bar">
             <div class="total-info-tab-button">
               お知らせ
@@ -36,11 +41,14 @@ defineExpose({ open })
           </div>
 
           <div class="total-info-content-block">
+            <!--左侧标题栏-->
             <div class="total-info-content-title-block">
-              <div class="total-info-content-title">
-                お知らせタイトル
+              <div v-for="(item, index) in patchNote.patchNoteList" :key="index"
+                   :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'">
+                {{ item.title }}
               </div>
             </div>
+            <!--正文内容-->
             <div class="total-info-content">
               aaabbbccc
             </div>
@@ -109,16 +117,21 @@ defineExpose({ open })
         display: flex;
 
         .total-info-content-title-block {
-          background-color: #e1f5f8;
+          background-color: #f5f7f9;
           height: 100%;
           width: 30%;
 
           .total-info-content-title {
-            background-color: #d5dfdb;
+            //background-color: #dbe6eb;
+            background-color: #f5f7f9;
             height: 15%;
             display: flex;
             align-items: center;
             font-size: 2.3vh;
+            padding-left: 1vw;
+          }
+          .title-selected {
+            background-color: #dbe6eb;
           }
         }
         .total-info-content {
@@ -126,6 +139,7 @@ defineExpose({ open })
           height: 100%;
           width: 70%;
           font-size: 3vh;
+          padding: 2vh 2vw;
         }
       }
     }
