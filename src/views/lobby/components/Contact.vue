@@ -4,6 +4,7 @@
 import { ref } from 'vue'
 import Mission from '@/views/lobby/components/Mission.vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
+import announcement from '@/notes/announcement.json'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -16,7 +17,7 @@ const totalInfoRef = ref()
 defineEmits(["start-guide"])
 
 const viewedAnnounceDate = ref(localStorage.getItem("viewed-announce-date"))
-const recentAnnounceDate = ref("2024-11-08")
+const recentAnnounceDate = ref(announcement.announcementList[0].time)
 const hasNewAnnounce = ref(viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1)
 
 /**
