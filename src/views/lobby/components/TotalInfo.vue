@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import patchNote from '@/notes/patch-note.json'
+import announcement from '@/notes/announcement.json'
 
 const dialogVisible = ref(false)
 const open = () => {
@@ -36,12 +37,37 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
           <div class="total-info-tab-bar">
             <div v-for="(item, index) in tabList" :key="index"
                  :class="selectedTabIndex === index ? 'total-info-tab-button tab-selected' : 'total-info-tab-button'"
-                 @click="()=>{ selectedTabIndex = index }"
+                 @click="()=>{ selectedTabIndex = index; selectedTitleIndex = 0 }"
             >
               {{ item }}
             </div>
           </div>
 
+          <!--お知らせ-->
+          <div v-show="tabList[selectedTabIndex] === 'お知らせ'"
+               class="total-info-content-block">
+            <!--左侧标题栏-->
+            <div class="total-info-content-title-block">
+              <div v-for="(item, index) in announcement.announcementList" :key="index"
+                   :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
+                   @click="()=>{selectedTitleIndex = index}"
+              >
+                {{ item.title }}
+              </div>
+            </div>
+            <!--正文内容-->
+            <div v-for="(item, index) in announcement.announcementList"  :key="index"
+                 v-show="selectedTitleIndex === index"
+                 class="total-info-content">
+              <p v-for="contentItem in item.contents" :key="contentItem" style="margin-bottom: 3vh">
+                {{ contentItem }}
+              </p>
+              <br>
+              <p style="text-align: right;">{{ item.time }}</p>
+            </div>
+          </div>
+
+          <!--パッチノート-->
           <div v-show="tabList[selectedTabIndex] === 'パッチノート'"
                class="total-info-content-block">
             <!--左侧标题栏-->
