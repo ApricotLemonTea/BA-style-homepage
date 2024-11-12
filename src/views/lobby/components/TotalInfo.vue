@@ -165,6 +165,7 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
         .total-info-content-title-block {
           background-color: #f5f7f9;
           height: 100%;
+          overflow-y: auto;
           width: 30%;
           margin-left: 1px;
 
