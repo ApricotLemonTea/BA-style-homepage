@@ -2,9 +2,8 @@
 // import { Icon } from '@arco-design/web-vue'
 // import config from '/_config.json'
 import { ref } from 'vue'
-import PatchNote from '@/views/lobby/components/PatchNote.vue'
 import Mission from '@/views/lobby/components/Mission.vue'
-import Announce from '@/views/lobby/components/Announce.vue'
+import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -12,20 +11,13 @@ import Announce from '@/views/lobby/components/Announce.vue'
 
 const patchNoteRef = ref()
 const missionRef = ref()
-const announceRef = ref()
+const totalInfoRef = ref()
 
 defineEmits(["start-guide"])
 
 const viewedAnnounceDate = ref(localStorage.getItem("viewed-announce-date"))
 const recentAnnounceDate = ref("2024-11-08")
 const hasNewAnnounce = ref(viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1)
-
-/**
- * 打开patch note页面
- */
-const openPatchNote = () => {
-  patchNoteRef.value.open()
-}
 
 /**
  * 打开mission页面
@@ -40,7 +32,7 @@ const openMission = () => {
 const openAnnounce = () => {
   localStorage.setItem("viewed-announce-date", recentAnnounceDate.value)
   hasNewAnnounce.value = 0
-  announceRef.value.open()
+  totalInfoRef.value.open()
 }
 </script>
 
@@ -55,10 +47,10 @@ const openAnnounce = () => {
           <span style="white-space: nowrap; margin-top: 9px">お知らせ</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">お知らせ</h3>
+          <h3 class="blue-text-color">お知らせとパッチノート</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">重要な情報はここに書きます</p>
+          <p class="blue-text-color">重要な情報とサイトの更新履歴はここに書きます</p>
         </template>
       </a-popover>
     </a-badge>
@@ -74,20 +66,6 @@ const openAnnounce = () => {
       </template>
       <template #content>
         <p class="blue-text-color">当サイトの紹介を始めます</p>
-      </template>
-    </a-popover>
-
-    <a-popover position="bottom">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openPatchNote">
-        <img src="/img/patchNote.png" alt="" />
-        <span style="white-space: nowrap;">パッチノート</span>
-      </div>
-      <template #title>
-        <h3 class="blue-text-color">パッチノート</h3>
-      </template>
-      <template #content>
-        <p class="blue-text-color">サイトの更新履歴です</p>
       </template>
     </a-popover>
 
@@ -113,7 +91,7 @@ const openAnnounce = () => {
 
   <PatchNote ref="patchNoteRef"></PatchNote>
   <Mission ref="missionRef"></Mission>
-  <Announce ref="announceRef"></Announce>
+  <TotalInfo ref="totalInfoRef"></TotalInfo>
 </template>
 
 <style scoped>
