@@ -47,10 +47,10 @@ const openAnnounce = () => {
           <span style="white-space: nowrap; margin-top: 9px">お知らせ</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">お知らせ</h3>
+          <h3 class="blue-text-color">お知らせとパッチノート</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">重要な情報はここに書きます</p>
+          <p class="blue-text-color">重要な情報とサイトの更新履歴はここに書きます</p>
         </template>
       </a-popover>
     </a-badge>
