@@ -5,6 +5,7 @@ import { ref } from 'vue'
 import PatchNote from '@/views/lobby/components/PatchNote.vue'
 import Mission from '@/views/lobby/components/Mission.vue'
 import Announce from '@/views/lobby/components/Announce.vue'
+import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -13,6 +14,7 @@ import Announce from '@/views/lobby/components/Announce.vue'
 const patchNoteRef = ref()
 const missionRef = ref()
 const announceRef = ref()
+const totalInfoRef = ref()
 
 defineEmits(["start-guide"])
 
@@ -40,7 +42,7 @@ const openMission = () => {
 const openAnnounce = () => {
   localStorage.setItem("viewed-announce-date", recentAnnounceDate.value)
   hasNewAnnounce.value = 0
-  announceRef.value.open()
+  totalInfoRef.value.open()
 }
 </script>
 
@@ -114,6 +116,7 @@ const openAnnounce = () => {
   <PatchNote ref="patchNoteRef"></PatchNote>
   <Mission ref="missionRef"></Mission>
   <Announce ref="announceRef"></Announce>
+  <TotalInfo ref="totalInfoRef"></TotalInfo>
 </template>
 
 <style scoped>
