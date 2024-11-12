@@ -4,12 +4,16 @@ import patchNote from '@/notes/patch-note.json'
 
 const dialogVisible = ref(false)
 const open = () => {
+  selectedTabIndex.value = 0
+  selectedTitleIndex.value = 0
   dialogVisible.value = true
 }
 defineExpose({ open })
 
 const selectedTabIndex = ref(0)
 const selectedTitleIndex = ref(0)
+
+const tabList = ["お知らせ", "パッチノート", "その他"]
 </script>
 
 <template>
@@ -29,18 +33,16 @@ const selectedTitleIndex = ref(0)
         <div class="total-info-inner-container">
           <!--顶部的tab bar-->
           <div class="total-info-tab-bar">
-            <div class="total-info-tab-button">
-              お知らせ
-            </div>
-            <div class="total-info-tab-button" style="background-color: #9ec6e8">
-              パッチノート
-            </div>
-            <div class="total-info-tab-button">
-              その他
+            <div v-for="(item, index) in tabList" :key="index"
+                 :class="selectedTabIndex === index ? 'total-info-tab-button tab-selected' : 'total-info-tab-button'"
+                 @click="()=>{ selectedTabIndex = index }"
+            >
+              {{ item }}
             </div>
           </div>
 
-          <div class="total-info-content-block">
+          <div v-show="tabList[selectedTabIndex] === 'パッチノート'"
+               class="total-info-content-block">
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
               <div v-for="(item, index) in patchNote.patchNoteList" :key="index"
@@ -108,13 +110,17 @@ const selectedTitleIndex = ref(0)
         display: flex;
 
         .total-info-tab-button {
-          background-color: #40708b;
+          background-color: #677890;
+          color: #c1cce1;
           width: 33.33333%;
           height: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
           font-size: 2.5vh;
+        }
+        .tab-selected {
+          background-color: #40708b;
           color: white;
         }
       }
