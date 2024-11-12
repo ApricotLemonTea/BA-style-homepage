@@ -44,13 +44,19 @@ const selectedTitleIndex = ref(0)
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
               <div v-for="(item, index) in patchNote.patchNoteList" :key="index"
-                   :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'">
+                   :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
+                   @click="()=>{selectedTitleIndex = index}"
+              >
                 {{ item.title }}
               </div>
             </div>
             <!--正文内容-->
-            <div class="total-info-content">
-              aaabbbccc
+            <div v-for="(item, index) in patchNote.patchNoteList"  :key="index"
+                 v-show="selectedTitleIndex === index"
+                 class="total-info-content">
+              <p v-for="contentItem in item.contents" :key="contentItem" style="margin-bottom: 3vh">
+                ・{{ contentItem }}
+              </p>
             </div>
           </div>
         </div>
@@ -90,7 +96,9 @@ const selectedTitleIndex = ref(0)
 
     .total-info-inner-container {
       //background-color: #86a071;
-      border: #7b9eb5 solid 1px;
+      border-bottom: #7b9eb5 solid 1px;
+      box-shadow: inset -1px 0 0 #7b9eb5, inset 1px 0 0 #7b9eb5;
+      z-index: 50;
       margin: 0 1vw 1vw 1vw;
       height: 55vh;
 
@@ -120,6 +128,7 @@ const selectedTitleIndex = ref(0)
           background-color: #f5f7f9;
           height: 100%;
           width: 30%;
+          margin-left: 1px;
 
           .total-info-content-title {
             //background-color: #dbe6eb;
@@ -138,8 +147,8 @@ const selectedTitleIndex = ref(0)
           //background-color: #c18cff;
           height: 100%;
           width: 70%;
-          font-size: 3vh;
-          padding: 2vh 2vw;
+          font-size: 2.5vh;
+          padding: 4vh 2vw 2vh;
         }
       }
     }
