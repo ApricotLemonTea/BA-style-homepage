@@ -24,7 +24,8 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
     <template #title>
       <div class="total-info-header-block">
         <p class="title-text">ApricotLemonTea News</p>
-        <IconClose class="close-button" size="4vh"/>
+        <IconClose @click="()=>{ dialogVisible = false }"
+                   class="close-button" size="4vh"/>
       </div>
     </template>
 
