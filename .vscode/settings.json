@@ -7,6 +7,5 @@
     "i18n-ally.namespace": true,
     "i18n-ally.pathMatcher": "{locale}.js",
     "i18n-ally.sourceLanguage": "ja",
-    "i18n-ally.displayLanguage": "ja",
-    "i18n-ally.keystyle": "flat"
+    "i18n-ally.displayLanguage": "ja"
 }

@@ -1,8 +1,8 @@
 export default {
-  hello: "こんにちは",
+  hello: 'こんにちは',
 
   contact: {
-    announcement: "お知らせ",
+    announcement: 'お知らせ',
     announcementAndPatchNote: 'お知らせとパッチノート'
   }
 }
