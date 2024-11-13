@@ -1,0 +1,8 @@
+{
+    "i18n-ally.localesPaths": [
+        "src/locale"
+    ],
+    "i18n-ally.enabledParsers": ["json", "js"],
+    "i18n-ally.sourceLanguage": "ja",
+    "i18n-ally.displayLanguage": "ja"
+}

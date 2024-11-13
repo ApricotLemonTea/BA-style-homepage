@@ -5,11 +5,13 @@ import { ref } from 'vue'
 import Mission from '@/views/lobby/components/Mission.vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
 import announcement from '@/notes/announcement.json'
+import { useI18n } from "vue-i18n"
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
 // })
 
+const { t } = useI18n()
 const patchNoteRef = ref()
 const missionRef = ref()
 const totalInfoRef = ref()
@@ -45,10 +47,10 @@ const openAnnounce = () => {
         <div class="contact css-cursor-hover-enabled"
              @click="openAnnounce">
           <img src="/img/announce.png" alt="" />
-          <span style="white-space: nowrap; margin-top: 9px">お知らせ</span>
+          <span style="white-space: nowrap; margin-top: 9px">{{ t("contact.announcement") }}</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">お知らせとパッチノート</h3>
+          <h3 class="blue-text-color">{{ t("contact.announcementAndPatchNote") }}</h3>
         </template>
         <template #content>
           <p class="blue-text-color">重要な情報とサイトの更新履歴はここに書きます</p>
