@@ -22,7 +22,7 @@ const pyroxene = computed(() => {
 })
 
 /**
- * 播放curtain过场动画随后切换路由
+ * 回到上一步或回到大厅
  * @param { string } routerCase 需要如何切换路由: <br>
  *  "-1":回到上一步, "lobby": 回到大厅
  */
