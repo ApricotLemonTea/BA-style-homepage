@@ -4,6 +4,7 @@ import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
 import { numberWithCommas, openUrl } from '@/utils/commonFunctions'
 import { useI18n } from "vue-i18n"
+import i18n from '@/locale'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
@@ -58,6 +59,7 @@ const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
 
 const about = () => {
+  i18n.global.locale === 'ja' ? i18n.global.locale = 'zh' : i18n.global.locale = 'ja'
   aboutDialogVisible.value = true
 }
 
