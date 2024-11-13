@@ -189,7 +189,7 @@ const increasePyroxene = () => {
         transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
       }"
     >
-      <icon-settings class="css-cursor-hover-enabled" />
+      <icon-language class="css-cursor-hover-enabled" />
     </a>
 
     <!--打开about的按钮-->
