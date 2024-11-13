@@ -59,11 +59,6 @@ const img = ref('/img/max.png')
 const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
 
-const about = () => {
-  // i18n.global.locale === 'ja' ? i18n.global.locale = 'zh' : i18n.global.locale = 'ja'
-  aboutDialogVisible.value = true
-}
-
 const change = () => {
   img.value = img.value === '/img/min.png' ? '/img/max.png' : '/img/min.png'
   emit('switch')
@@ -200,7 +195,7 @@ const increasePyroxene = () => {
     <!--打开about的按钮-->
     <a
       class="about toolbox"
-      @click="about"
+      @click="()=>{ aboutDialogVisible = true }"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
         transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
