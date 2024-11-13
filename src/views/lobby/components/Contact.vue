@@ -91,8 +91,7 @@ const openAnnounce = () => {
       </template>
     </a-popover>
   </div>
-
-  <PatchNote ref="patchNoteRef"></PatchNote>
+  
   <Mission ref="missionRef"></Mission>
   <TotalInfo ref="totalInfoRef"></TotalInfo>
 </template>
