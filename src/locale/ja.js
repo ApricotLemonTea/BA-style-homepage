@@ -1,3 +1,3 @@
-export const message = {
+export default {
   hello: "こんにちは"
 }

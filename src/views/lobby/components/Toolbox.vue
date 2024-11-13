@@ -3,10 +3,12 @@ import { reactive, ref, watch, computed } from 'vue'
 import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
 import { numberWithCommas, openUrl } from '@/utils/commonFunctions'
+import { useI18n } from "vue-i18n"
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
 const userStore = useUserStore()
+const { t } = useI18n()
 
 const apTooltipVisible = computed(() => {
   return userStore.apTooltipVisible
@@ -256,6 +258,7 @@ const increasePyroxene = () => {
       About
     </template>
     <div style="color: #003153">
+      <p>{{ t('hello') }}</p>
       <p>当サイトは杏仁レモンティーの個人ホームページです。</p>
       <p>ブルーアーカイブのロビー仕様に作っています（非公式）。</p>
       <br />
