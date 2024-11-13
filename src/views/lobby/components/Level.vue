@@ -9,7 +9,7 @@ const router = useRouter()
 const userStore = useUserStore()
 
 const isLevelMax = computed(() => {
-  return userStore.total >= 294784
+  return userStore.totalVisitor >= 294784
 })
 
 const curtainRef = ref()
@@ -42,9 +42,9 @@ const openProfile = () => {
           >
           </a-progress>
           <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
-            {{ isLevelMax ? userStore.exp + ' / ' + 'MAX'
+            {{ isLevelMax ? 'MAX'
                           : userStore.exp + ' / ' + userStore.nextExp }}
-            <span style="margin-left: 20px">（{{userStore.totalVisitor}}）</span>
+            <span style="margin-left: 10px">（{{userStore.totalVisitor}}）</span>
           </p>
         </div>
       </div>
@@ -55,7 +55,7 @@ const openProfile = () => {
 
 <style scoped>
 .level-box {
-  width: 300px;
+  min-width: 300px;
   height: 96px;
   background: linear-gradient(120deg, #003153, #2265bb 15%, #003153 70%, #003153);
   position: absolute;
