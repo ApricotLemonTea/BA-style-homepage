@@ -262,7 +262,7 @@ const increasePyroxene = () => {
   </a-modal>
 
   <a-modal v-model:visible="localeDialogVisible"
-           ok-text="OK" hide-cancel>
+           :footer="false">
     <template #title>
       Language
     </template>
@@ -270,8 +270,12 @@ const increasePyroxene = () => {
       <a-radio-group v-model="i18n.global.locale"
                      direction="vertical"
       >
-        <a-radio value="ja" class="modal-text">日本語</a-radio>
-        <a-radio value="zh" class="modal-text">中文</a-radio>
+        <a-radio value="ja">
+          <p class="modal-text">日本語</p>
+        </a-radio>
+        <a-radio value="zh">
+          <p class="modal-text">中文</p>
+        </a-radio>
       </a-radio-group>
     </div>
   </a-modal>
