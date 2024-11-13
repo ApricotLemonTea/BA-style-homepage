@@ -18,6 +18,7 @@ const increasePyroxeneDialogVisible = ref(false)
 const exceedPyroxeneDialogVisible = ref(false)
 const increaseApDialogVisible = ref(false)
 const exceedApDialogVisible = ref(false)
+const localeDialogVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
 // AP
@@ -59,7 +60,7 @@ const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
 
 const about = () => {
-  i18n.global.locale === 'ja' ? i18n.global.locale = 'zh' : i18n.global.locale = 'ja'
+  // i18n.global.locale === 'ja' ? i18n.global.locale = 'zh' : i18n.global.locale = 'ja'
   aboutDialogVisible.value = true
 }
 
@@ -184,6 +185,18 @@ const increasePyroxene = () => {
       <img src="/img/plus.png" alt="" class="plus-icon" />
     </div>
 
+    <!--切换语言的按钮-->
+    <a
+      class="about toolbox"
+      @click="()=>{ localeDialogVisible = true }"
+      :style="{
+        transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
+        transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
+      }"
+    >
+      <icon-settings class="css-cursor-hover-enabled" />
+    </a>
+
     <!--打开about的按钮-->
     <a
       class="about toolbox"
@@ -250,6 +263,21 @@ const increasePyroxene = () => {
     <div>
       <div class="modal-text">もうAP最大だよ、</div>
       <div class="modal-text">また今度来てね</div>
+    </div>
+  </a-modal>
+
+  <a-modal v-model:visible="localeDialogVisible"
+           ok-text="OK" hide-cancel>
+    <template #title>
+      Language
+    </template>
+    <div>
+      <a-radio-group v-model="i18n.global.locale"
+                     direction="vertical"
+      >
+        <a-radio value="ja" class="modal-text">日本語</a-radio>
+        <a-radio value="zh" class="modal-text">中文</a-radio>
+      </a-radio-group>
     </div>
   </a-modal>
 
