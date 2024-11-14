@@ -18,7 +18,7 @@ const increasePyroxeneDialogVisible = ref(false)
 const exceedPyroxeneDialogVisible = ref(false)
 const increaseApDialogVisible = ref(false)
 const exceedApDialogVisible = ref(false)
-const localeDialogVisible = ref(false)
+const localePopupVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
 // AP
@@ -181,16 +181,33 @@ const increasePyroxene = () => {
     </div>
 
     <!--切换语言的按钮-->
-    <a
-      class="about toolbox"
-      @click="()=>{ localeDialogVisible = true }"
-      :style="{
+    <a-popover :popup-visible="localePopupVisible">
+      <a
+        @click="()=>{ localePopupVisible = !localePopupVisible }"
+        class="about toolbox"
+        :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
         transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
       }"
-    >
-      <icon-language class="css-cursor-hover-enabled" />
-    </a>
+      >
+        <icon-language class="css-cursor-hover-enabled" />
+      </a>
+      <template #content>
+        <div>
+          <a-radio-group v-model="i18n.global.locale"
+                         @click="()=>{ localePopupVisible = false }"
+                         direction="vertical"
+          >
+            <a-radio value="ja">
+              <p class="modal-text">日本語</p>
+            </a-radio>
+            <a-radio value="zh">
+              <p class="modal-text">中文</p>
+            </a-radio>
+          </a-radio-group>
+        </div>
+      </template>
+    </a-popover>
 
     <!--打开about的按钮-->
     <a
@@ -258,25 +275,6 @@ const increasePyroxene = () => {
     <div>
       <div class="modal-text">もうAP最大だよ、</div>
       <div class="modal-text">また今度来てね</div>
-    </div>
-  </a-modal>
-
-  <a-modal v-model:visible="localeDialogVisible"
-           :footer="false">
-    <template #title>
-      Language
-    </template>
-    <div>
-      <a-radio-group v-model="i18n.global.locale"
-                     direction="vertical"
-      >
-        <a-radio value="ja">
-          <p class="modal-text">日本語</p>
-        </a-radio>
-        <a-radio value="zh">
-          <p class="modal-text">中文</p>
-        </a-radio>
-      </a-radio-group>
     </div>
   </a-modal>
 
