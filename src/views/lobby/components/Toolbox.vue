@@ -296,13 +296,13 @@ const increasePyroxene = () => {
       <p>Originally made by
         <span @click="openUrl('https://github.com/sf-yuzifu/homepage')"
               class="css-cursor-hover-enabled"
-              style="color: #5196ff">小鱼yuzifu</span>
+              style="color: #3987ff">小鱼yuzifu</span>
       </p>
-      <p>Font using
-        <span @click="openUrl('https://booth.pm/ja/items/4525676')"
-              class="css-cursor-hover-enabled"
-              style="color: #5196ff">夏蝉丸ゴシック</span>
-      </p>
+      <!--<p>Font using-->
+      <!--  <span @click="openUrl('https://booth.pm/ja/items/4525676')"-->
+      <!--        class="css-cursor-hover-enabled"-->
+      <!--        style="color: #3987ff">夏蝉丸ゴシック</span>-->
+      <!--</p>-->
     </div>
   </a-modal>
 </template>

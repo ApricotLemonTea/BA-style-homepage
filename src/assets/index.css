@@ -8,9 +8,8 @@
 body {
   background-color: #fff;
   overflow: hidden;
-  font-family: Natsuzemi-Maru-Gothic, Inter, '-apple-system', BlinkMacSystemFont, 'PingFang SC',
-    'Hiragino Sans GB', 'noto sans', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
-    sans-serif !important;
+  font-family: Natsuzemi-Maru-Gothic, BlueakaBeta2GBK, Inter, '-apple-system', BlinkMacSystemFont, 'PingFang SC',
+    'Hiragino Sans GB', 'noto sans', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 a {
