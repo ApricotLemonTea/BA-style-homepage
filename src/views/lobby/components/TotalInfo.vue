@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import patchNote from '@/notes/patch-note.json'
 import announcement from '@/notes/announcement.json'
+
+const { t } = useI18n()
 
 const dialogVisible = ref(false)
 const open = () => {
@@ -14,7 +17,7 @@ defineExpose({ open })
 const selectedTabIndex = ref(0)
 const selectedTitleIndex = ref(0)
 
-const tabList = ["お知らせ", "パッチノート", "その他"]
+const tabList = [t("totalInfo.お知らせ"), t("totalInfo.パッチノート"), t("totalInfo.その他")]
 </script>
 
 <template>
@@ -44,7 +47,7 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
           </div>
 
           <!--お知らせ-->
-          <div v-show="tabList[selectedTabIndex] === 'お知らせ'"
+          <div v-show="tabList[selectedTabIndex] === t('totalInfo.お知らせ')"
                class="total-info-content-block">
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
@@ -68,7 +71,7 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
           </div>
 
           <!--パッチノート-->
-          <div v-show="tabList[selectedTabIndex] === 'パッチノート'"
+          <div v-show="tabList[selectedTabIndex] === t('totalInfo.パッチノート')"
                class="total-info-content-block">
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
@@ -90,7 +93,7 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
           </div>
 
           <!--その他-->
-          <div v-show="tabList[selectedTabIndex] === 'その他'"
+          <div v-show="tabList[selectedTabIndex] === t('totalInfo.その他')"
                class="total-info-content-block">
             <p style="font-size: 2.5vh; margin: 10vh auto">予備用のタブです、まだ何もありません。</p>
           </div>
@@ -185,10 +188,11 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
         }
         .total-info-content {
           //background-color: #c18cff;
-          height: 100%;
+          max-height: 100%;
           width: 70%;
           font-size: 2.5vh;
           padding: 4vh 2vw 2vh;
+          overflow-y: auto;
         }
       }
     }
