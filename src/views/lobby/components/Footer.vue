@@ -7,7 +7,6 @@ import { Message } from '@arco-design/web-vue'
 import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
 import { useI18n } from "vue-i18n"
-
 const { t } = useI18n()
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont

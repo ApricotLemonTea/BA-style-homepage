@@ -1,12 +1,14 @@
 <script setup>
-import config from '/_config.json'
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/store/userStore'
+import { useI18n } from "vue-i18n"
+
 import Curtain from '@/components/Curtain.vue'
 
 const router = useRouter()
 const userStore = useUserStore()
+const { t } = useI18n()
 
 const isLevelMax = computed(() => {
   return userStore.totalVisitor >= 294784
@@ -32,7 +34,7 @@ const openProfile = () => {
         <p>{{ userStore.level }}</p>
       </div>
       <div class="right">
-        <span class="name">{{ config.author }}</span>
+        <span class="name">{{ t("杏仁レモンティー") }}</span>
         <div>
           <a-progress
             :percent="userStore.exp / userStore.nextExp"
