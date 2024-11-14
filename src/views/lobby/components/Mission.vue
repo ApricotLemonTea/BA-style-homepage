@@ -1,10 +1,24 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from "vue-i18n"
-import mission from '/src/notes/mission.json'
+import i18n from "@/locale"
+import missionJa from '/src/notes/mission/missionJa.json'
+import missionZh from '/src/notes/mission/missionZh.json'
 
 const { t } = useI18n()
 const dialogVisible = ref(false)
+
+const mission = computed(() => {
+  switch (i18n.global.locale){
+    case "ja":
+      return missionJa
+    case "zh":
+      return missionZh
+
+    default:
+      return missionJa
+  }
+})
 
 const open = () => {
   dialogVisible.value = true
