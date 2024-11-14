@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import patchNoteJa from '@/notes/patchNote/patchNoteJa.json'
 import patchNoteZh from '@/notes/patchNote/patchNoteZh.json'
+import patchNoteEn from '@/notes/patchNote/patchNoteEn.json'
 import announcementJa from '@/notes/announcement/announcementJa.json'
 import announcementZh from '@/notes/announcement/announcementZh.json'
 import announcementEn from '@/notes/announcement/announcementEn.json'
@@ -30,6 +31,8 @@ const patchNote = computed(() => {
       return patchNoteJa
     case "zh":
       return patchNoteZh
+    case "en":
+      return patchNoteEn
 
     default:
       return patchNoteJa
