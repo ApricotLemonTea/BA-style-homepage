@@ -4,7 +4,9 @@ import { computed } from 'vue'
 import { numberWithCommas } from '@/utils/commonFunctions'
 import router from '@/router'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const userStore = useUserStore()
 const route = useRoute()
 
@@ -45,7 +47,7 @@ const routerNavigate = (routerCase) => {
     </div>
 
     <div class="page-title">
-      <p>{{ route.meta.topBarTitle }}</p>
+      <p>{{ t("topBarTitle." + route.meta.topBarTitle) }}</p>
     </div>
 
     <div class="status-block" style="margin-left: auto">
