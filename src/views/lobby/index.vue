@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 import Cursor from '@/components/Cursor.vue'
 import Footer from '@/views/lobby/components/Footer.vue'
@@ -62,7 +64,7 @@ const startTourGuide = () => {
   </transition>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img v-if="envShowBackground === 'true'" :src="imgSrc" class="background-img" alt="メモロビイラスト">
+    <img v-if="envShowBackground === 'true'" :src="imgSrc" class="background-img" alt="">
 
     <div id="level-ref"></div>
     <transition name="up">
@@ -96,65 +98,65 @@ const startTourGuide = () => {
 
       <el-tour-step target="#level-ref">
         <template #header>
-          <h3 class="blue-text-color">プロフィールと経験値とレベル</h3>
+          <h3 class="blue-text-color">{{ t("guide.プロフィールと経験値とレベル") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">クリックするとプロフィール画面に移動します。</p>
-          <p class="blue-text-color mt-md-ml-10">サイトの訪問数が増えると経験値が上がって、レベルもアップします。</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.クリックするとプロフィール画面に移動します。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.サイトの訪問数が増えると経験値が上がって、レベルもアップします。") }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#contact-ref">
         <template #header>
-          <h3 class="blue-text-color">サイト情報</h3>
+          <h3 class="blue-text-color">{{ t("guide.サイト情報") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">当サイトに関する情報です。</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.当サイトに関する情報です。") }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#ap-ref">
         <template #header>
-          <h3 class="blue-text-color">AP</h3>
+          <h3 class="blue-text-color">{{ t("guide.AP") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">10秒ごとに1AP自動回復します、チャージもできます。</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.10秒ごとに1AP自動回復します、チャージもできます。") }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#credit-ref">
         <template #header>
-          <h3 class="blue-text-color">クレジット</h3>
+          <h3 class="blue-text-color">{{ t("guide.クレジット") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">クリックすることでギャンブル(?)できます。</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.クリックすることでギャンブル(?)できます。") }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#pyroxene-ref">
         <template #header>
-          <h3 class="blue-text-color">青輝石</h3>
+          <h3 class="blue-text-color">{{ t("guide.青輝石") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">青輝石無料配布中、しかし上限があります。</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.青輝石無料配布中、しかし上限があります。") }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#task-ref" placement="top-end">
         <template #header>
-          <h3 class="blue-text-color">外部リンク</h3>
+          <h3 class="blue-text-color">{{ t("guide.外部リンク") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。") }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#footer-ref" placement="top">
         <template #header>
-          <h3 class="blue-text-color">外部リンクその他</h3>
+          <h3 class="blue-text-color">{{ t("guide.外部リンクその他") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">杏仁レモンティーのSNSなどの外部リンクです。</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.杏仁レモンティーのSNSなどの外部リンクです。") }}</p>
         </template>
       </el-tour-step>
     </el-tour>
