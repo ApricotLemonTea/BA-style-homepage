@@ -4,7 +4,7 @@
 import { ref } from 'vue'
 import Mission from '@/views/lobby/components/Mission.vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
-import announcement from '@/notes/announcement.json'
+import announcement from '@/notes/announcement/announcementJa.json'
 import { useI18n } from "vue-i18n"
 
 // const IconFont = Icon.addFromIconFontCn({

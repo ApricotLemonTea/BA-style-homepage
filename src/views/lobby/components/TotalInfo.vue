@@ -1,10 +1,24 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import patchNote from '@/notes/patch-note.json'
-import announcement from '@/notes/announcement.json'
+import announcementJa from '@/notes/announcement/announcementJa.json'
+import announcementZh from '@/notes/announcement/announcementZh.json'
+import i18n from '@/locale'
 
 const { t } = useI18n()
+
+const announcement = computed(() => {
+  switch (i18n.global.locale){
+    case "ja":
+      return announcementJa
+    case "zh":
+      return announcementZh
+
+    default:
+      return announcementJa
+  }
+})
 
 const dialogVisible = ref(false)
 const open = () => {
@@ -17,7 +31,9 @@ defineExpose({ open })
 const selectedTabIndex = ref(0)
 const selectedTitleIndex = ref(0)
 
-const tabList = [t("totalInfo.お知らせ"), t("totalInfo.パッチノート"), t("totalInfo.その他")]
+const tabList = computed(() => {
+  return [t("totalInfo.お知らせ"), t("totalInfo.パッチノート"), t("totalInfo.その他")]
+})
 </script>
 
 <template>
