@@ -33,11 +33,11 @@ if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
       Modal.open({
-        title: 'メッセージ',
+        title: "Message",
         content: () => [
-          h("p", { class: "blue-text-color" }, "アップデートがあります、ページを再起動してください"),
+          h("p", { class: "blue-text-color" }, "The website has been updated, please reload the page"),
         ],
-        okText: 'はい',
+        okText: "OK",
         hideCancel: true,
         onOk: () => {
           updateSW(true)
