@@ -3,7 +3,7 @@ import ja from './ja.json'
 import zh from './zh.json'
 
 const i18n = createI18n({
-  locale: 'ja',
+  locale: localStorage.getItem("locale") ? localStorage.getItem("locale") : 'ja',
   fallbackLocale: 'ja',
   messages: {
     ja,

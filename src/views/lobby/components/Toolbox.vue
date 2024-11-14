@@ -128,6 +128,13 @@ const increasePyroxene = () => {
   userStore.pyroxene += 1200
   pyroxeneTimes.value += 1
 }
+
+/**
+ * 变更语言后将选择的语言存储到storage中
+ */
+watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
+  localStorage.setItem("locale", newLanguage)
+})
 </script>
 
 <template>
