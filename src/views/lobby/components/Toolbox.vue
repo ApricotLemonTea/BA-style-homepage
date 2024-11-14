@@ -287,7 +287,7 @@ const increasePyroxene = () => {
       About
     </template>
     <div style="color: #003153">
-      <p>{{ t('hello') }}</p>
+      <p>{{ t("こんにちは") }}</p>
       <p>当サイトは杏仁レモンティーの個人ホームページです。</p>
       <p>ブルーアーカイブのロビー仕様に作っています（非公式）。</p>
       <br />

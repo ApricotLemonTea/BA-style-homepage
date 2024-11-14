@@ -47,13 +47,13 @@ const openAnnounce = () => {
         <div class="contact css-cursor-hover-enabled"
              @click="openAnnounce">
           <img src="/img/announce.png" alt="" />
-          <span style="white-space: nowrap; margin-top: 9px">{{ t("contact.announcement") }}</span>
+          <span style="white-space: nowrap; margin-top: 9px">{{ t("contact.お知らせ") }}</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">{{ t("contact.announcementAndPatchNote") }}</h3>
+          <h3 class="blue-text-color">{{ t("contact.お知らせとパッチノート") }}</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">重要な情報とサイトの更新履歴はここに書きます</p>
+          <p class="blue-text-color">{{ t("contact.重要な情報とサイトの更新履歴はここに書きます") }}</p>
         </template>
       </a-popover>
     </a-badge>
