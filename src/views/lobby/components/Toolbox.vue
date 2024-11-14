@@ -18,7 +18,6 @@ const increasePyroxeneDialogVisible = ref(false)
 const exceedPyroxeneDialogVisible = ref(false)
 const increaseApDialogVisible = ref(false)
 const exceedApDialogVisible = ref(false)
-const localePopupVisible = ref(false)
 const aboutDialogVisible = ref(false)
 
 // AP
@@ -181,9 +180,8 @@ const increasePyroxene = () => {
     </div>
 
     <!--切换语言的按钮-->
-    <a-popover :popup-visible="localePopupVisible">
+    <a-popover>
       <a
-        @click="()=>{ localePopupVisible = !localePopupVisible }"
         class="about toolbox"
         :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
@@ -195,7 +193,6 @@ const increasePyroxene = () => {
       <template #content>
         <div>
           <a-radio-group v-model="i18n.global.locale"
-                         @click="()=>{ localePopupVisible = false }"
                          direction="vertical"
           >
             <a-radio value="ja">
