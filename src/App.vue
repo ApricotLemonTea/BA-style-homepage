@@ -5,7 +5,9 @@ import Cursor from '@/components/Cursor.vue'
 import getAccessAnalytics from './utils/cloudflareAnalytics'
 import { Modal } from '@arco-design/web-vue'
 import { openUrl } from './utils/commonFunctions'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const userStore = useUserStore()
 
 /**
@@ -15,14 +17,14 @@ const checkWindowSize = () => {
   // 只在第一次打开网站时弹出提示
   if (window.innerWidth < 1200 && userStore.isFirstOpen){
     Modal.open({
-      title: "メッセージ",
+      title: t("notice.メッセージ"),
       content: () => [
-        h("p", { class: "blue-text-color" }, "PCでの閲覧を推奨します、スマホは今後対応します。"),
+        h("p", { class: "blue-text-color" }, t("notice.PCでの閲覧を推奨します、スマホは今後対応します。")),
         h("br", {}, ""),
-        h("p", { class: "blue-text-color" }, "旧リンクまとめサイトのlit.linkに移動しますか？"),
+        h("p", { class: "blue-text-color" }, t("notice.旧リンクまとめサイトのLit Linkに移動しますか？")),
       ],
-      okText: "はい",
-      cancelText: "いいえ",
+      okText: t("はい"),
+      cancelText: t("いいえ"),
       onOk: () => { openUrl("https://lit.link/ApricotLemonTea", "_self") }
     })
   }
