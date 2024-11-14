@@ -1,0 +1,99 @@
+{
+  "杏仁レモンティー": "ApricotLemonTea",
+  "はい": "OK",
+  "いいえ": "Cancel",
+  "閉じる": "Close",
+
+  "topBarTitle": {
+    "プロフィール": "Profile"
+  },
+
+  "notice": {
+    "メッセージ": "Message",
+    "PCでの閲覧を推奨します、スマホは今後対応します。": "This site is recommended viewing on a PC, mobile support will come soon.",
+    "旧リンクまとめサイトのLit Linkに移動しますか？": "Would you like to move to the previous link summary site, Lit Link?"
+  },
+
+  "contact": {
+    "お知らせ": "Announcements",
+    "お知らせとパッチノート": "Announcements and Patch Notes",
+    "重要な情報とサイトの更新履歴はここに書きます": "Important information and update history of this site will be written here",
+    "ガイド": "Guide",
+    "当サイトの紹介を始めます": "Starting the introduction of this site",
+    "ミッション": "Mission",
+    "今後実装したい機能です": "Features which are wished to implement in the future",
+    "（実装日時は未定）": "(Implementation date is undecided)",
+    "（実装できるかどうかも未定）": "(Uncertain whether it can be implemented or not)",
+    "（期待しないでください）": "(Please do not expect much)"
+  },
+  "footer": {
+    "メールアドレスをコピーしました": "Email address copied",
+    "主にここで喋ってます": "Mainly talking here",
+    "たまに見てます": "Occasionally checking",
+    "アクリルグッズ屋": "Acrylic Goods Store",
+    "依頼募集中": "Currently accepting commissions",
+    "気が向いたら記事も書きます": "Might write articles if inclined",
+    "パブリックのレポジトリです": "This is a public repository",
+    "(クリックでコピーできます)": "(Click to copy)",
+    "ご要望、ご感想などはこちらに": "Send your requests and feedback here"
+  },
+  "mission": {
+    "ミッション": "Mission"
+  },
+  "task": {
+    "イラスト": "Illust",
+    "ポートフォリオです": "This is a portfolio"
+  },
+  "toolbox": {
+    "次の回復まであと": "Time until next recovery",
+    "秒。": "seconds.",
+    "自動回復の上限に到達しました。": "Reached the auto-recovery limit.",
+    "いいね！": "Fine!",
+    "いらない": "No thx",
+    "わかった": "Got it",
+    "青輝石購入？": "Purchase Pyroxenes?",
+    "青輝石1200個、": "1200 Pyroxenes,",
+    "無料でもらえる！": "Free to claim!",
+    "もう一天井分もらったよ、": "You’ve already received another ceiling limit reward,",
+    "また今度来てね": "Please come again next time",
+    "AP購入？": "Purchase AP?",
+    "AP最大まで回復、": "Full AP recovery,",
+    "しかも無料！": "And it's free!",
+    "もうAP最大だよ、": "AP is already at max,",
+    "about": {
+      "当サイトは杏仁レモンティーの個人ホームページです。": "This site is a personal homepage of ApricotLemonTea.",
+      "ブルーアーカイブのロビー仕様に作っています（非公式）。": "Built to mimic the Blue Archive lobby (unofficial)."
+    }
+  },
+  "totalInfo": {
+    "お知らせ": "Announcements",
+    "パッチノート": "Patch Notes",
+    "その他": "Others",
+    "予備用のタブです、まだ何もありません。": "This is a placeholder tab, nothing here yet."
+  },
+  "guide": {
+    "プロフィールと経験値とレベル": "Profile, Experience Points, and Level",
+    "クリックするとプロフィール画面に移動します。": "Click to move to the profile page.",
+    "サイトの訪問数が増えると経験値が上がって、レベルもアップします。": "Experience points increase and level up with more site visits.",
+    "サイト情報": "Site Information",
+    "当サイトに関する情報です。": "Information about this site.",
+    "10秒ごとに1AP自動回復します、チャージもできます。": "1 AP automatically recovers every 10 seconds; you can also recharge.",
+    "AP": "AP",
+    "クレジット": "Credits",
+    "クリックすることでギャンブル(?)できます。": "Click to gamble(?).",
+    "青輝石": "Pyroxenes",
+    "青輝石無料配布中、しかし上限があります。": "Pyroxenes are distributed for free, but there is a limit.",
+    "言語切替": "Language Switch",
+    "他の言語に切り替えられます。": "Switch to another language.",
+    "外部リンク": "External Link",
+    "Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。": "Move to the Xfolio, which is like ApricotLemonTea's portfolio.",
+    "外部リンクその他": "Other External Links",
+    "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea’s SNS and more."
+  },
+  "profile": {
+    "絵が少し描ける一般人です。": "A regular person who can draw a little bit.",
+    "好きなものなんでもやります。": "Will do anything I like.",
+    "プロフィール": "Profile",
+    "オリキャラ設定画": "OC Concept Art"
+  }
+}

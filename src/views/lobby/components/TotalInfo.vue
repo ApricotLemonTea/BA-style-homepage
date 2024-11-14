@@ -5,6 +5,7 @@ import patchNoteJa from '@/notes/patchNote/patchNoteJa.json'
 import patchNoteZh from '@/notes/patchNote/patchNoteZh.json'
 import announcementJa from '@/notes/announcement/announcementJa.json'
 import announcementZh from '@/notes/announcement/announcementZh.json'
+import announcementEn from '@/notes/announcement/announcementEn.json'
 import i18n from '@/locale'
 
 const { t } = useI18n()
@@ -15,6 +16,8 @@ const announcement = computed(() => {
       return announcementJa
     case "zh":
       return announcementZh
+    case "en":
+      return announcementEn
 
     default:
       return announcementJa
