@@ -57,7 +57,7 @@ const openProfile = () => {
 
 <style scoped>
 .level-box {
-  min-width: 310px;
+  min-width: 330px;
   height: 96px;
   background: linear-gradient(120deg, #003153, #2265bb 15%, #003153 70%, #003153);
   position: absolute;
