@@ -198,8 +198,8 @@ const increasePyroxene = () => {
             <a-radio value="ja">
               <p class="modal-text">日本語</p>
             </a-radio>
-            <a-radio value="zh">
-              <p class="modal-text">中文</p>
+            <a-radio value="zh" style="margin-top: 10px">
+              <p class="modal-text">简体中文</p>
             </a-radio>
           </a-radio-group>
         </div>
