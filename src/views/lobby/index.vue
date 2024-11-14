@@ -184,7 +184,7 @@ const startTourGuide = () => {
   position: fixed;
   top: 30px;
   left: 0;
-  width: 350px;
+  width: 370px;
   height: 120px;
 }
 #contact-ref {
