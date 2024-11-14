@@ -1,7 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import patchNote from '@/notes/patch-note.json'
+import patchNoteJa from '@/notes/patchNote/patchNoteJa.json'
+import patchNoteZh from '@/notes/patchNote/patchNoteZh.json'
 import announcementJa from '@/notes/announcement/announcementJa.json'
 import announcementZh from '@/notes/announcement/announcementZh.json'
 import i18n from '@/locale'
@@ -17,6 +18,18 @@ const announcement = computed(() => {
 
     default:
       return announcementJa
+  }
+})
+
+const patchNote = computed(() => {
+  switch (i18n.global.locale){
+    case "ja":
+      return patchNoteJa
+    case "zh":
+      return patchNoteZh
+
+    default:
+      return patchNoteJa
   }
 })
 
