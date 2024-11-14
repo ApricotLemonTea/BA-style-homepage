@@ -203,12 +203,12 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
                          direction="vertical"
           >
             <a-radio value="ja">
-              <p class="modal-text">日本語</p>
+              <p class="modal-text" style="width: 150px">日本語</p>
             </a-radio>
-            <a-radio value="zh" style="margin-top: 10px">
+            <a-radio value="zh" style="margin-top: 10px; width: 150px">
               <p class="modal-text">简体中文</p>
             </a-radio>
-            <a-radio value="en" style="margin-top: 10px">
+            <a-radio value="en" style="margin-top: 10px; width: 150px">
               <p class="modal-text">English</p>
             </a-radio>
           </a-radio-group>
