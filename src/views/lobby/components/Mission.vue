@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from "vue-i18n"
 import mission from '/src/notes/mission.json'
 
+const { t } = useI18n()
 const dialogVisible = ref(false)
 
 const open = () => {
@@ -13,8 +15,8 @@ defineExpose({ open })
 <template>
   <a-modal v-model:visible="dialogVisible"
            width="auto"
-           title="ミッション"
-           ok-text="閉じる"
+           :title="t('mission.ミッション')"
+           :ok-text="t('閉じる')"
            hide-cancel
            modal-animation-name="no-slide-zoom-modal"
   >
