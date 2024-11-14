@@ -61,31 +61,31 @@ const openAnnounce = () => {
       <div class="contact css-cursor-hover-enabled"
            @click="$emit('start-guide')">
         <img src="/img/guide.png" alt="" />
-        <span style="white-space: nowrap;">ガイド</span>
+        <span style="white-space: nowrap;">{{ t("contact.ガイド") }}</span>
       </div>
       <template #title>
-        <h3 class="blue-text-color">ガイド</h3>
+        <h3 class="blue-text-color">{{ t("contact.ガイド") }}</h3>
       </template>
       <template #content>
-        <p class="blue-text-color">当サイトの紹介を始めます</p>
+        <p class="blue-text-color">{{ t("contact.当サイトの紹介を始めます") }}</p>
       </template>
     </a-popover>
 
-    <a-popover title="ミッション" position="bottom">
+    <a-popover position="bottom">
       <div class="contact css-cursor-hover-enabled"
            @click="openMission">
         <img src="/img/mission.png" alt="" />
-        <span style="white-space: nowrap;">ミッション</span>
+        <span style="white-space: nowrap;">{{ t("contact.ミッション") }}</span>
       </div>
       <template #title>
-        <h3 class="blue-text-color">ミッション</h3>
+        <h3 class="blue-text-color">{{ t("contact.ミッション") }}</h3>
       </template>
       <template #content>
         <div class="blue-text-color">
-          <p>今後実装したい機能です</p>
-          <p>（実装日時は未定）</p>
-          <p>（実装できるかどうかも未定）</p>
-          <p>（期待しないでください）</p>
+          <p>{{ t("contact.今後実装したい機能です") }}</p>
+          <p>{{ t("contact.（実装日時は未定）") }}</p>
+          <p>{{ t("contact.（実装できるかどうかも未定）") }}</p>
+          <p>{{ t("contact.（期待しないでください）") }}</p>
         </div>
       </template>
     </a-popover>
