@@ -6,7 +6,8 @@ import { openUrl } from '@/utils/commonFunctions'
 import { Message } from '@arco-design/web-vue'
 import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
-
+import { useI18n } from "vue-i18n"
+const { t } = useI18n()
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
 // })
@@ -27,7 +28,7 @@ const copyMailAddress = async () => {
   try {
     await toClipboard("apricotlemontea@gmail.com")
     Message.success({
-      content: "メールアドレスをコピーしました",
+      content: t("footer.メールアドレスをコピーしました"),
       position: "bottom"
     })
   } catch (e) {
@@ -49,7 +50,7 @@ const copyMailAddress = async () => {
           <h3 class="blue-text-color">Twitter</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">主にここで喋ってます</p>
+          <p class="blue-text-color">{{ t("footer.主にここで喋ってます") }}</p>
         </template>
       </a-popover>
 
@@ -63,7 +64,7 @@ const copyMailAddress = async () => {
           <h3 class="blue-text-color">Misskey</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">たまに見てます</p>
+          <p class="blue-text-color">{{ t("footer.たまに見てます") }}</p>
         </template>
       </a-popover>
 
@@ -77,7 +78,7 @@ const copyMailAddress = async () => {
           <h3 class="blue-text-color">BOOTH</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">アクリルグッズ屋</p>
+          <p class="blue-text-color">{{ t("footer.アクリルグッズ屋") }}</p>
         </template>
       </a-popover>
 
@@ -91,7 +92,7 @@ const copyMailAddress = async () => {
           <h3 class="blue-text-color">Skeb</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">依頼募集中</p>
+          <p class="blue-text-color">{{ t("footer.依頼募集中") }}</p>
         </template>
       </a-popover>
 
@@ -105,7 +106,7 @@ const copyMailAddress = async () => {
           <h3 class="blue-text-color">pixivFANBOX</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">気が向いたら記事も書きます</p>
+          <p class="blue-text-color">{{ t("footer.気が向いたら記事も書きます") }}</p>
         </template>
       </a-popover>
 
@@ -119,7 +120,7 @@ const copyMailAddress = async () => {
           <h3 class="blue-text-color">GitHub</h3>
         </template>
         <template #content>
-          <p  class="blue-text-color">パブリックのレポジトリです</p>
+          <p  class="blue-text-color">{{ t("footer.パブリックのレポジトリです") }}</p>
         </template>
       </a-popover>
 
@@ -135,7 +136,7 @@ const copyMailAddress = async () => {
         <template #content>
           <div class="blue-text-color">
             <p style="font-size: 18px">apricotlemontea@gmail.com</p>
-            <p>(クリックでコピーできます)</p>
+            <p>{{ t("footer.(クリックでコピーできます)") }}</p>
           </div>
         </template>
       </a-popover>
@@ -150,7 +151,7 @@ const copyMailAddress = async () => {
           <h3 class="blue-text-color">Wavebox</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">ご要望、ご感想などはこちらに</p>
+          <p class="blue-text-color">{{ t("footer.ご要望、ご感想などはこちらに") }}</p>
         </template>
       </a-popover>
     </div>

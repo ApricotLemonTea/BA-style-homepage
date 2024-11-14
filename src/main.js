@@ -9,11 +9,13 @@ import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 import App from './App.vue'
 import router from '@/router'
+import i18n from '@/locale'
 import { registerSW } from 'virtual:pwa-register'
 import { createPinia } from 'pinia'
 
-import { css } from './assets/font/Natsuzemi-Maru-Gothic.ttf';
-// import { css as css2 } from './assets/font/BlueakaBeta2GBK-Bold.ttf';
+import { css as cssJa } from './assets/font/Natsuzemi-Maru-Gothic.ttf';
+import { css as cssZh } from './assets/font/BlueakaBeta2GBK-DemiBold.ttf';
+import { css as cssZh2 } from './assets/font/BlueakaBeta2GBK-Bold.ttf';
 // console.log(css.family, css.weight);
 // console.log(css2.family, css2.weight);
 
@@ -23,6 +25,7 @@ app.use(ArcoVue)
 app.use(ArcoVueIcon)
 app.use(router)
 app.use(pinia)
+app.use(i18n)
 
 app.mount('#app')
 
@@ -30,11 +33,11 @@ if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
       Modal.open({
-        title: 'メッセージ',
+        title: "Message",
         content: () => [
-          h("p", { class: "blue-text-color" }, "アップデートがあります、ページを再起動してください"),
+          h("p", { class: "blue-text-color" }, "The website has been updated, please reload the page"),
         ],
-        okText: 'はい',
+        okText: "OK",
         hideCancel: true,
         onOk: () => {
           updateSW(true)

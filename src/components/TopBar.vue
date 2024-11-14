@@ -4,7 +4,9 @@ import { computed } from 'vue'
 import { numberWithCommas } from '@/utils/commonFunctions'
 import router from '@/router'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const userStore = useUserStore()
 const route = useRoute()
 
@@ -22,7 +24,7 @@ const pyroxene = computed(() => {
 })
 
 /**
- * 播放curtain过场动画随后切换路由
+ * 回到上一步或回到大厅
  * @param { string } routerCase 需要如何切换路由: <br>
  *  "-1":回到上一步, "lobby": 回到大厅
  */
@@ -45,7 +47,7 @@ const routerNavigate = (routerCase) => {
     </div>
 
     <div class="page-title">
-      <p>{{ route.meta.topBarTitle }}</p>
+      <p>{{ t("topBarTitle." + route.meta.topBarTitle) }}</p>
     </div>
 
     <div class="status-block" style="margin-left: auto">

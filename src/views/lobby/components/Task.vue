@@ -1,28 +1,35 @@
 <script setup>
 import { ref } from 'vue'
-import config from '/_config.json'
+import { useI18n } from 'vue-i18n'
 import Curtain from '@/components/Curtain.vue'
 
+const { t } = useI18n()
 const props = defineProps(['l2dOnly'])
 
 const curtainRef = ref()
 
 const openPortfolio = () => {
   curtainRef.value.skip(() => {
-    window.open(config.task.href)
+    window.open("https://xfolio.jp/portfolio/ApricotLemonTea")
   })
 }
 </script>
 
 <template>
   <transition name="down2">
-    <a-popover title="Xfolio" content="ポートフォリオです">
+    <a-popover>
       <div
         v-if="!props.l2dOnly"
-        :name="config.task.name"
+        :name="t('task.イラスト')"
         class="task css-cursor-hover-enabled"
         @click="openPortfolio"
       ></div>
+      <template #title>
+        <p>Xfolio</p>
+      </template>
+      <template #content>
+        {{ t("task.ポートフォリオです") }}
+      </template>
     </a-popover>
   </transition>
 

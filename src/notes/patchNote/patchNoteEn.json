@@ -1,0 +1,64 @@
+{
+  "patchNoteList": [
+    {
+      "title": "2024-11-14",
+      "contents": [
+        "Feature added to switch languages",
+        "Changed the font to support multiple languages."
+      ]
+    },
+    {
+      "title": "2024-11-12",
+      "contents": [
+        "The announcement page has been updated to integrate patch notes and announcements into the same page."
+      ]
+    },
+    {
+      "title": "2024-11-08 (Temporary Update)",
+      "contents": [
+        "Added announcement for Comiket selection.",
+        "Improved message content for viewing on non-recommended devices."
+      ]
+    },
+    {
+      "title": "2024-11-07",
+      "contents": [
+        "Profile screen added. (Click the level icon in the upper left to access it)"
+      ]
+    },
+    {
+      "title": "2024-11-05",
+      "contents": [
+        "Changed experience display method (total visit count remains unchanged).",
+        "Added guide function for site introduction.",
+        "Added buttons for Missions and Announcements.",
+        "Added content to the Missions section.",
+        "Updated icons and positions of some buttons.",
+        "Added message for viewing on non-recommended devices."
+      ]
+    },
+    {
+      "title": "2024-11-03",
+      "contents": [
+        "Feature added to calculate experience based on site visit count.",
+        "Added link to pixivFANBOX.",
+        "Adjusted some text."
+      ]
+    },
+    {
+      "title": "2024-11-02",
+      "contents": [
+        "Added functionality to charge up to 999 AP.",
+        "Added temporary background illustration.",
+        "Added pop-up descriptions when hovering over icons.",
+        "Adjusted some text."
+      ]
+    },
+    {
+      "title": "2024-11-01",
+      "contents": [
+        "Beta version released."
+      ]
+    }
+  ]
+}

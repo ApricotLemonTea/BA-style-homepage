@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from "vue"
 import TopBar from '../../components/TopBar.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const tabIndex = ref("profile")
 const switchTab = (index) => {
@@ -24,14 +27,14 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
            :style="envShowBackground === 'true' ? { backgroundImage: `url(${bgImgSrc})` } : ''"
       >
         <div class="name-block blue-text-color">
-          <p>杏仁レモンティー</p>
+          <p>{{ t("杏仁レモンティー") }}</p>
         </div>
         <div class="sign-block">
           <img v-if="envShowBackground === 'true'" :src="signImgSrc" alt="" class="sign-img">
         </div>
         <div class="detail-block blue-text-color">
-          <p>絵が少し描ける一般人です。</p>
-          <p>好きなものなんでもやります。</p>
+          <p>{{ t("profile.絵が少し描ける一般人です。") }}</p>
+          <p>{{ t("profile.好きなものなんでもやります。") }}</p>
           <p>中文 / 日本語 / English OK。</p>
         </div>
       </div>
@@ -43,11 +46,11 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       <div class="button-block blue-text-color">
         <div :class="tabIndex === 'profile' ? 'button wider-border' : 'button'"
              @click="switchTab('profile')">
-          <p class="button-text">プロフィール</p>
+          <p class="button-text">{{ t("profile.プロフィール") }}</p>
         </div>
         <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
              @click="switchTab('OC')">
-          <p class="button-text">オリキャラ設定画</p>
+          <p class="button-text">{{ t("profile.オリキャラ設定画") }}</p>
         </div>
       </div>
     </div>

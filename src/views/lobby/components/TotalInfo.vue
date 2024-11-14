@@ -1,7 +1,43 @@
 <script setup>
-import { ref } from 'vue'
-import patchNote from '@/notes/patch-note.json'
-import announcement from '@/notes/announcement.json'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import patchNoteJa from '@/notes/patchNote/patchNoteJa.json'
+import patchNoteZh from '@/notes/patchNote/patchNoteZh.json'
+import patchNoteEn from '@/notes/patchNote/patchNoteEn.json'
+import announcementJa from '@/notes/announcement/announcementJa.json'
+import announcementZh from '@/notes/announcement/announcementZh.json'
+import announcementEn from '@/notes/announcement/announcementEn.json'
+import i18n from '@/locale'
+
+const { t } = useI18n()
+
+const announcement = computed(() => {
+  switch (i18n.global.locale){
+    case "ja":
+      return announcementJa
+    case "zh":
+      return announcementZh
+    case "en":
+      return announcementEn
+
+    default:
+      return announcementJa
+  }
+})
+
+const patchNote = computed(() => {
+  switch (i18n.global.locale){
+    case "ja":
+      return patchNoteJa
+    case "zh":
+      return patchNoteZh
+    case "en":
+      return patchNoteEn
+
+    default:
+      return patchNoteJa
+  }
+})
 
 const dialogVisible = ref(false)
 const open = () => {
@@ -14,7 +50,9 @@ defineExpose({ open })
 const selectedTabIndex = ref(0)
 const selectedTitleIndex = ref(0)
 
-const tabList = ["お知らせ", "パッチノート", "その他"]
+const tabList = computed(() => {
+  return [t("totalInfo.お知らせ"), t("totalInfo.パッチノート"), t("totalInfo.その他")]
+})
 </script>
 
 <template>
@@ -44,7 +82,7 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
           </div>
 
           <!--お知らせ-->
-          <div v-show="tabList[selectedTabIndex] === 'お知らせ'"
+          <div v-show="tabList[selectedTabIndex] === t('totalInfo.お知らせ')"
                class="total-info-content-block">
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
@@ -68,7 +106,7 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
           </div>
 
           <!--パッチノート-->
-          <div v-show="tabList[selectedTabIndex] === 'パッチノート'"
+          <div v-show="tabList[selectedTabIndex] === t('totalInfo.パッチノート')"
                class="total-info-content-block">
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
@@ -90,9 +128,9 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
           </div>
 
           <!--その他-->
-          <div v-show="tabList[selectedTabIndex] === 'その他'"
+          <div v-show="tabList[selectedTabIndex] === t('totalInfo.その他')"
                class="total-info-content-block">
-            <p style="font-size: 2.5vh; margin: 10vh auto">予備用のタブです、まだ何もありません。</p>
+            <p style="font-size: 2.5vh; margin: 10vh auto">{{ t("totalInfo.予備用のタブです、まだ何もありません。") }}</p>
           </div>
         </div>
       </div>
@@ -185,10 +223,11 @@ const tabList = ["お知らせ", "パッチノート", "その他"]
         }
         .total-info-content {
           //background-color: #c18cff;
-          height: 100%;
+          max-height: 100%;
           width: 70%;
           font-size: 2.5vh;
           padding: 4vh 2vw 2vh;
+          overflow-y: auto;
         }
       }
     }

@@ -1,15 +1,17 @@
 <script setup>
-import config from '/_config.json'
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/store/userStore'
+import { useI18n } from "vue-i18n"
+
 import Curtain from '@/components/Curtain.vue'
 
 const router = useRouter()
 const userStore = useUserStore()
+const { t } = useI18n()
 
 const isLevelMax = computed(() => {
-  return userStore.total >= 294784
+  return userStore.totalVisitor >= 294784
 })
 
 const curtainRef = ref()
@@ -32,7 +34,7 @@ const openProfile = () => {
         <p>{{ userStore.level }}</p>
       </div>
       <div class="right">
-        <span class="name">{{ config.author }}</span>
+        <span class="name">{{ t("杏仁レモンティー") }}</span>
         <div>
           <a-progress
             :percent="userStore.exp / userStore.nextExp"
@@ -42,9 +44,9 @@ const openProfile = () => {
           >
           </a-progress>
           <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
-            {{ isLevelMax ? userStore.exp + ' / ' + 'MAX'
+            {{ isLevelMax ? 'MAX'
                           : userStore.exp + ' / ' + userStore.nextExp }}
-            <span style="margin-left: 20px">（{{userStore.totalVisitor}}）</span>
+            <span style="margin-left: 10px">（{{userStore.totalVisitor}}）</span>
           </p>
         </div>
       </div>
@@ -55,7 +57,7 @@ const openProfile = () => {
 
 <style scoped>
 .level-box {
-  width: 300px;
+  min-width: 300px;
   height: 96px;
   background: linear-gradient(120deg, #003153, #2265bb 15%, #003153 70%, #003153);
   position: absolute;
