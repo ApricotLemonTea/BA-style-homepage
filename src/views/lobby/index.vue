@@ -74,6 +74,7 @@ const startTourGuide = () => {
     <div id="ap-ref"></div>
     <div id="credit-ref"></div>
     <div id="pyroxene-ref"></div>
+    <div id="locale-ref"></div>
     <Toolbox :l2dOnly="l2dOnly" @switch="switchL2D"></Toolbox>
 
     <div id="contact-ref"></div>
@@ -142,6 +143,15 @@ const startTourGuide = () => {
         </template>
       </el-tour-step>
 
+      <el-tour-step target="#locale-ref">
+        <template #header>
+          <h3 class="blue-text-color">{{ t("guide.言語切替") }}</h3>
+        </template>
+        <template #default>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.他の言語に切り替えられます。") }}</p>
+        </template>
+      </el-tour-step>
+
       <el-tour-step target="#task-ref" placement="top-end">
         <template #header>
           <h3 class="blue-text-color">{{ t("guide.外部リンク") }}</h3>
@@ -174,7 +184,7 @@ const startTourGuide = () => {
   position: fixed;
   top: 30px;
   left: 0;
-  width: 330px;
+  width: 350px;
   height: 120px;
 }
 #contact-ref {
@@ -187,22 +197,29 @@ const startTourGuide = () => {
 #ap-ref {
   position: fixed;
   top: 20px;
-  right: 605px;
-  width: 230px;
+  right: 700px;
+  width: 240px;
   height: 90px;
 }
 #credit-ref {
   position: fixed;
   top: 20px;
-  right: 366px;
-  width: 230px;
+  right: 460px;
+  width: 240px;
   height: 90px;
 }
 #pyroxene-ref {
   position: fixed;
   top: 20px;
-  right: 127px;
-  width: 230px;
+  right: 220px;
+  width: 240px;
+  height: 90px;
+}
+#locale-ref {
+  position: fixed;
+  top: 20px;
+  right: 120px;
+  width: 100px;
   height: 90px;
 }
 #task-ref {
