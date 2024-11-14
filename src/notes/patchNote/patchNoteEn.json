@@ -1,6 +1,13 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-11-14",
+      "contents": [
+        "Feature added to switch languages",
+        "Changed the font to support multiple languages."
+      ]
+    },
+    {
       "title": "2024-11-12",
       "contents": [
         "The announcement page has been updated to integrate patch notes and announcements into the same page."
