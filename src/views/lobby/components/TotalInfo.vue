@@ -124,7 +124,7 @@ const tabList = computed(() => {
           <!--その他-->
           <div v-show="tabList[selectedTabIndex] === t('totalInfo.その他')"
                class="total-info-content-block">
-            <p style="font-size: 2.5vh; margin: 10vh auto">予備用のタブです、まだ何もありません。</p>
+            <p style="font-size: 2.5vh; margin: 10vh auto">{{ t("totalInfo.予備用のタブです、まだ何もありません。") }}</p>
           </div>
         </div>
       </div>
