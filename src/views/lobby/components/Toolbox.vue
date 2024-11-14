@@ -156,8 +156,8 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
-        <p v-if="userStore.ap < userStore.maxAp">次の回復まであと <span style="color: #60c7ff">{{apRecoverCountdown}} 秒</span>。</p>
-        <p v-else>自動回復の上限に到達しました。</p>
+        <p v-if="userStore.ap < userStore.maxAp">{{ t("toolbox.次の回復まであと") }} <span style="color: #60c7ff">{{ apRecoverCountdown }}</span> {{ t("toolbox.秒。") }}</p>
+        <p v-else>{{ t("toolbox.自動回復の上限に到達しました。") }}</p>
       </template>
     </a-tooltip>
 
@@ -241,44 +241,44 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
   </div>
 
   <a-modal v-model:visible="increasePyroxeneDialogVisible" @ok="increasePyroxene"
-           ok-text="いいね！" cancel-text="いらない">
+           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')">
     <template #title>
-      青輝石購入？
+      {{ t("toolbox.青輝石購入？") }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">青輝石1200個、</div>
-      <div class="modal-text">無料でもらえる！</div>
+      <div class="modal-text">{{ t("toolbox.青輝石1200個、") }}</div>
+      <div class="modal-text">{{ t("toolbox.無料でもらえる！") }}</div>
     </div>
   </a-modal>
   <a-modal v-model:visible="exceedPyroxeneDialogVisible"
-           ok-text="わかった" hide-cancel>
+           :ok-text="t('toolbox.わかった')" hide-cancel>
     <template #title>
-      青輝石購入？
+      {{ t("toolbox.青輝石購入？") }}
     </template>
     <div>
-      <div class="modal-text">もう一天井分もらったよ、</div>
-      <div class="modal-text">また今度来てね</div>
+      <div class="modal-text">{{ t("toolbox.もう一天井分もらったよ、") }}</div>
+      <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
     </div>
   </a-modal>
 
   <a-modal v-model:visible="increaseApDialogVisible" @ok="increaseAp"
-           ok-text="いいね！" cancel-text="いらない">
+           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')">
     <template #title>
-      AP購入？
+      {{ t("toolbox.AP購入？") }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">AP最大まで回復、</div>
-      <div class="modal-text">しかも無料！</div>
+      <div class="modal-text">{{ t("toolbox.AP最大まで回復、") }}</div>
+      <div class="modal-text">{{ t("toolbox.しかも無料！") }}</div>
     </div>
   </a-modal>
   <a-modal v-model:visible="exceedApDialogVisible"
-           ok-text="わかった" hide-cancel>
+           :ok-text="t('toolbox.わかった')" hide-cancel>
     <template #title>
-      AP購入？
+      {{ t("toolbox.AP購入？") }}
     </template>
     <div>
-      <div class="modal-text">もうAP最大だよ、</div>
-      <div class="modal-text">また今度来てね</div>
+      <div class="modal-text">{{ t("toolbox.もうAP最大だよ、") }}</div>
+      <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
     </div>
   </a-modal>
 
@@ -289,11 +289,10 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
       About
     </template>
     <div style="color: #003153">
-      <p>{{ t("こんにちは") }}</p>
-      <p>当サイトは杏仁レモンティーの個人ホームページです。</p>
-      <p>ブルーアーカイブのロビー仕様に作っています（非公式）。</p>
+      <p>{{ t("toolbox.about.当サイトは杏仁レモンティーの個人ホームページです。") }}</p>
+      <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています（非公式）。") }}</p>
       <br />
-      <p>Copyright © 2024 杏仁レモンティー All Rights Reserved.</p>
+      <p>Copyright © 2024 <span>{{ t("杏仁レモンティー") }}</span> All Rights Reserved.</p>
       <br />
       <p>Originally made by
         <span @click="openUrl('https://github.com/sf-yuzifu/homepage')"
