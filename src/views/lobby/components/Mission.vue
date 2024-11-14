@@ -4,6 +4,7 @@ import { useI18n } from "vue-i18n"
 import i18n from "@/locale"
 import missionJa from '/src/notes/mission/missionJa.json'
 import missionZh from '/src/notes/mission/missionZh.json'
+import missionEn from '/src/notes/mission/missionEn.json'
 
 const { t } = useI18n()
 const dialogVisible = ref(false)
@@ -14,6 +15,8 @@ const mission = computed(() => {
       return missionJa
     case "zh":
       return missionZh
+    case "en":
+      return missionEn
 
     default:
       return missionJa
