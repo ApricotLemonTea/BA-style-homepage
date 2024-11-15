@@ -4,7 +4,6 @@ import zh from './zh.json'
 import en from './en.json'
 
 const i18n = createI18n({
-  legacy: false,
   locale: localStorage.getItem("locale") ? localStorage.getItem("locale") : 'ja',
   fallbackLocale: 'ja',
   messages: {
