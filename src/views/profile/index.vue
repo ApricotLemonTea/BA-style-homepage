@@ -99,6 +99,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
     .name-block p {
       margin: auto;
       font-size: 4.5vh;
+      font-weight: bold;
     }
 
     .sign-block {
@@ -147,6 +148,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
 
       .button-text {
         margin-left: 20px;
+        font-weight: bold;
       }
     }
     .button:active {

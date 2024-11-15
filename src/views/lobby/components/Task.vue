@@ -25,10 +25,10 @@ const openPortfolio = () => {
         @click="openPortfolio"
       ></div>
       <template #title>
-        <p>Xfolio</p>
+        <h3 class="blue-text-color">Xfolio</h3>
       </template>
       <template #content>
-        {{ t("task.ポートフォリオです") }}
+        <p class="blue-text-color">{{ t("task.ポートフォリオです") }}</p>
       </template>
     </a-popover>
   </transition>

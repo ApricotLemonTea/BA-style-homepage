@@ -104,6 +104,7 @@ const routerNavigate = (routerCase) => {
     align-items: center;
     padding: 0 10px 0 20px;
     font-size: 28px;
+    font-weight: bold;
     border-bottom: 5px solid #ffed6f;
   }
   .status-block {
