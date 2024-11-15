@@ -154,6 +154,7 @@ const tabList = computed(() => {
     .title-text {
       color: white;
       font-size: 4vh;
+      font-weight: bold;
       margin-left: 1vw;
       transform: skewx(-10deg)
     }
