@@ -30,12 +30,12 @@
     "メールアドレスをコピーしました": "Email address copied",
     "主にここで喋ってます": "Mainly talking here",
     "たまに見てます": "Occasionally checking",
-    "アクリルグッズ屋": "Acrylic Goods Store",
+    "アクリルグッズ屋": "Acrylic goods store",
     "依頼募集中": "Currently accepting commissions",
     "気が向いたら記事も書きます": "Might write articles if inclined",
-    "パブリックのレポジトリです": "This is a public repository",
+    "パブリックのレポジトリです": "The public repository of this site",
     "(クリックでコピーできます)": "(Click to copy)",
-    "ご要望、ご感想などはこちらに": "Send your requests and feedback here"
+    "ご要望、ご感想などはこちらに": "Send your requests or feedback here"
   },
   "mission": {
     "ミッション": "Mission"
@@ -45,7 +45,7 @@
     "ポートフォリオです": "This is a portfolio"
   },
   "toolbox": {
-    "次の回復まであと": "Time until next recovery",
+    "次の回復まであと": "Time until next recovery:",
     "秒。": "seconds.",
     "自動回復の上限に到達しました。": "Reached the auto-recovery limit.",
     "いいね！": "Fine!",
