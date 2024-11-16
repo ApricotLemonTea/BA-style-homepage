@@ -54,6 +54,7 @@ a {
   position: relative;
   flex: unset !important;
   font-size: 20px;
+  font-weight: bold;
   color: #003153;
 }
 
