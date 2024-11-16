@@ -32,14 +32,13 @@ app.mount('#app')
 if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
-      console.log("i18n.global.locale", i18n.global.locale)
       if (i18n.global.locale === 'ja'){
         Modal.open({
-          title: "ja",
+          title: "メッセージ",
           content: () => [
-            h("p", { class: "blue-text-color" }, "ja"),
+            h("p", { class: "blue-text-color" }, "アップデートがあります、ページを再起動してください。"),
           ],
-          okText: "OK",
+          okText: "はい",
           hideCancel: true,
           onOk: () => {
             updateSW(true)
@@ -48,11 +47,11 @@ if ('serviceWorker' in navigator) {
       }
       if (i18n.global.locale === 'zh'){
         Modal.open({
-          title: "zh",
+          title: "提示",
           content: () => [
-            h("p", { class: "blue-text-color" }, "zh"),
+            h("p", { class: "blue-text-color" }, "网站有更新，请刷新页面。"),
           ],
-          okText: "OK",
+          okText: "确定",
           hideCancel: true,
           onOk: () => {
             updateSW(true)
@@ -61,9 +60,9 @@ if ('serviceWorker' in navigator) {
       }
       if (i18n.global.locale === 'en'){
         Modal.open({
-          title: "en",
+          title: "Message",
           content: () => [
-            h("p", { class: "blue-text-color" }, "en"),
+            h("p", { class: "blue-text-color" }, "The website has been updated, please reload the page."),
           ],
           okText: "OK",
           hideCancel: true,
