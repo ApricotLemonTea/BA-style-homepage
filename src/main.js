@@ -32,6 +32,20 @@ app.mount('#app')
 if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
+      if (i18n.global.locale === 'ja'){
+        Modal.open({
+          title: "aaa",
+          content: () => [
+            h("p", { class: "blue-text-color" }, "aaa"),
+          ],
+          okText: "OK",
+          hideCancel: true,
+          onOk: () => {
+            updateSW(true)
+          }
+        })
+      }
+
       Modal.open({
         title: "Message",
         content: () => [
