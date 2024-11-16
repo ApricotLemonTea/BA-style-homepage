@@ -32,17 +32,45 @@ app.mount('#app')
 if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
-      Modal.open({
-        title: "Message",
-        content: () => [
-          h("p", { class: "blue-text-color" }, "The website has been updated, please reload the page"),
-        ],
-        okText: "OK",
-        hideCancel: true,
-        onOk: () => {
-          updateSW(true)
-        }
-      })
+      if (i18n.global.locale === 'ja'){
+        Modal.open({
+          title: "メッセージ",
+          content: () => [
+            h("p", { class: "blue-text-color" }, "アップデートがあります、ページを再起動してください。"),
+          ],
+          okText: "はい",
+          hideCancel: true,
+          onOk: () => {
+            updateSW(true)
+          }
+        })
+      }
+      if (i18n.global.locale === 'zh'){
+        Modal.open({
+          title: "提示",
+          content: () => [
+            h("p", { class: "blue-text-color" }, "网站有更新，请刷新页面。"),
+          ],
+          okText: "确定",
+          hideCancel: true,
+          onOk: () => {
+            updateSW(true)
+          }
+        })
+      }
+      if (i18n.global.locale === 'en'){
+        Modal.open({
+          title: "Message",
+          content: () => [
+            h("p", { class: "blue-text-color" }, "The website has been updated, please reload the page."),
+          ],
+          okText: "OK",
+          hideCancel: true,
+          onOk: () => {
+            updateSW(true)
+          }
+        })
+      }
     }
   })
 }
