@@ -190,6 +190,7 @@ const tabList = computed(() => {
           justify-content: center;
           align-items: center;
           font-size: 2.5vh;
+          font-weight: bold;
         }
         .tab-selected {
           background-color: #40708b;
@@ -216,6 +217,7 @@ const tabList = computed(() => {
             display: flex;
             align-items: center;
             font-size: 2.3vh;
+            font-weight: bold;
             padding-left: 1vw;
           }
           .title-selected {

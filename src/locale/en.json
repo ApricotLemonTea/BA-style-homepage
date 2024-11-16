@@ -15,12 +15,12 @@
   },
 
   "contact": {
-    "お知らせ": "Announcements",
+    "お知らせ": "Notice",
     "お知らせとパッチノート": "Announcements and Patch Notes",
     "重要な情報とサイトの更新履歴はここに書きます": "Important information and update history of this site will be written here",
     "ガイド": "Guide",
     "当サイトの紹介を始めます": "Starting the introduction of this site",
-    "ミッション": "Mission",
+    "ミッション": "Tasks",
     "今後実装したい機能です": "Features which are wished to implement in the future",
     "（実装日時は未定）": "(Implementation date is undecided)",
     "（実装できるかどうかも未定）": "(Uncertain whether it can be implemented or not)",
@@ -38,10 +38,10 @@
     "ご要望、ご感想などはこちらに": "Send your requests or feedback here"
   },
   "mission": {
-    "ミッション": "Mission"
+    "ミッション": "Tasks"
   },
   "task": {
-    "イラスト": "Illust",
+    "イラスト": "Illusts",
     "ポートフォリオです": "This is a portfolio"
   },
   "toolbox": {
