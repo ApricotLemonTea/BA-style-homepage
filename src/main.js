@@ -77,23 +77,26 @@ if ('serviceWorker' in navigator) {
 
 window.l2d_complete = false
 
-setInterval(() => {
-  document.querySelectorAll('a[href]:not(.tag)').forEach((link) => {
-    link.classList.add('tag')
-    link.addEventListener('click', async (e) => {
-      const url = link.getAttribute('href')
-      e.preventDefault()
-      document.querySelector('#curtain').style.display = 'block'
-      setTimeout(() => {
-        let a = document.createElement('a')
-        a.href = url
-        a.target = '_blank'
-        a.click()
-      }, 900)
-      setTimeout(() => (document.querySelector('#curtain').style.display = ''), 3000)
-    })
-  })
-}, 1000)
+/**
+ * a标签跳转页面时的黑幕动画
+ */
+// setInterval(() => {
+//   document.querySelectorAll('a[href]:not(.tag)').forEach((link) => {
+//     link.classList.add('tag')
+//     link.addEventListener('click', async (e) => {
+//       const url = link.getAttribute('href')
+//       e.preventDefault()
+//       document.querySelector('#curtain').style.display = 'block'
+//       setTimeout(() => {
+//         let a = document.createElement('a')
+//         a.href = url
+//         a.target = '_blank'
+//         a.click()
+//       }, 900)
+//       setTimeout(() => (document.querySelector('#curtain').style.display = ''), 3000)
+//     })
+//   })
+// }, 1000)
 
 import * as PIXI from 'pixi.js'
 import { sound } from '@pixi/sound'
