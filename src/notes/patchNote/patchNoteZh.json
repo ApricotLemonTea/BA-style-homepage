@@ -1,6 +1,12 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-11-17",
+      "contents": [
+        "增加了circle cut（摊位图？）和Web Catalog的链接到C105出摊的通知中。"
+      ]
+    },
+    {
       "title": "2024-11-16",
       "contents": [
         "修改了网站有更新时的提示信息文本。"

@@ -1,6 +1,12 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-11-17",
+      "contents": [
+        "Added C105 circle cut and Web Catalog link in the announcement."
+      ]
+    },
+    {
       "title": "2024-11-16",
       "contents": [
         "Updated text in the message which appears when the site is updated."
