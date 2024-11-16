@@ -34,9 +34,9 @@ if ('serviceWorker' in navigator) {
     onNeedRefresh() {
       if (i18n.global.locale === 'ja'){
         Modal.open({
-          title: "aaa",
+          title: "ja",
           content: () => [
-            h("p", { class: "blue-text-color" }, "aaa"),
+            h("p", { class: "blue-text-color" }, "ja"),
           ],
           okText: "OK",
           hideCancel: true,
@@ -47,9 +47,9 @@ if ('serviceWorker' in navigator) {
       }
       if (i18n.global.locale === 'zh'){
         Modal.open({
-          title: "bbb",
+          title: "zh",
           content: () => [
-            h("p", { class: "blue-text-color" }, "bbb"),
+            h("p", { class: "blue-text-color" }, "zh"),
           ],
           okText: "OK",
           hideCancel: true,
@@ -58,17 +58,19 @@ if ('serviceWorker' in navigator) {
           }
         })
       }
-      Modal.open({
-        title: "Message",
-        content: () => [
-          h("p", { class: "blue-text-color" }, "The website has been updated, please reload the page"),
-        ],
-        okText: "OK",
-        hideCancel: true,
-        onOk: () => {
-          updateSW(true)
-        }
-      })
+      if (i18n.global.locale === 'en'){
+        Modal.open({
+          title: "en",
+          content: () => [
+            h("p", { class: "blue-text-color" }, "en"),
+          ],
+          okText: "OK",
+          hideCancel: true,
+          onOk: () => {
+            updateSW(true)
+          }
+        })
+      }
     }
   })
 }
