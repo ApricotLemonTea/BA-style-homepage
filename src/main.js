@@ -45,7 +45,19 @@ if ('serviceWorker' in navigator) {
           }
         })
       }
-
+      if (i18n.global.locale === 'zh'){
+        Modal.open({
+          title: "bbb",
+          content: () => [
+            h("p", { class: "blue-text-color" }, "bbb"),
+          ],
+          okText: "OK",
+          hideCancel: true,
+          onOk: () => {
+            updateSW(true)
+          }
+        })
+      }
       Modal.open({
         title: "Message",
         content: () => [
