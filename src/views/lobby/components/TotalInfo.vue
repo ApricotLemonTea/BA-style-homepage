@@ -97,9 +97,11 @@ const tabList = computed(() => {
             <div v-for="(item, index) in announcement.announcementList"  :key="index"
                  v-show="selectedTitleIndex === index"
                  class="total-info-content">
-              <p v-for="contentItem in item.contents" :key="contentItem" style="margin-bottom: 3vh">
-                {{ contentItem }}
-              </p>
+              <div v-for="contentItem in item.contents" :key="contentItem"
+                 v-html="contentItem"
+                 style="margin-bottom: 3vh"
+              >
+              </div>
               <br>
               <p style="text-align: right;">{{ item.time }}</p>
             </div>
