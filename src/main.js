@@ -32,6 +32,7 @@ app.mount('#app')
 if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
+      console.log("i18n.global.locale", i18n.global.locale)
       if (i18n.global.locale === 'ja'){
         Modal.open({
           title: "ja",
