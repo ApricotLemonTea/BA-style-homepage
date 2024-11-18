@@ -11,7 +11,7 @@
   "notice": {
     "メッセージ": "Message",
     "PCでの閲覧を推奨します、スマホは今後対応します。": "This site is recommended viewing on a PC, mobile support will come soon.",
-    "旧リンクまとめサイトのLit Linkに移動しますか？": "Would you like to move to the previous link summary site, Lit Link?"
+    "旧リンクまとめサイトのLit Linkに移動しますか？": "Would you like to move to the previous link summary site Lit Link?"
   },
 
   "contact": {
@@ -53,8 +53,8 @@
     "わかった": "Got it",
     "青輝石購入？": "Purchase Pyroxenes?",
     "青輝石1200個、": "1200 Pyroxenes,",
-    "無料でもらえる！": "Free to claim!",
-    "もう一天井分もらったよ、": "You’ve already received another ceiling limit reward,",
+    "一日一回無料！": "Free to claim once a day!",
+    "今日の分はもらったよ、": "You've already received today,",
     "また今度来てね": "Please come again next time",
     "AP購入？": "Purchase AP?",
     "AP最大まで回復、": "Full AP recovery,",
@@ -88,7 +88,7 @@
     "外部リンク": "External Link",
     "Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。": "Move to the Xfolio, which is like ApricotLemonTea's portfolio.",
     "外部リンクその他": "Other External Links",
-    "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea’s SNS and more."
+    "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea's SNS and more."
   },
   "profile": {
     "絵が少し描ける一般人です。": "A regular person who can draw a little bit.",

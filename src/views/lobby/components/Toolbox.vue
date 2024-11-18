@@ -258,7 +258,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </template>
     <div style="margin: 0 20px">
       <div class="modal-text">{{ t("toolbox.青輝石1200個、") }}</div>
-      <div class="modal-text">{{ t("toolbox.無料でもらえる！") }}</div>
+      <div class="modal-text">{{ t("toolbox.一日一回無料！") }}</div>
     </div>
   </a-modal>
   <a-modal v-model:visible="exceedPyroxeneDialogVisible"
@@ -267,7 +267,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
       {{ t("toolbox.青輝石購入？") }}
     </template>
     <div>
-      <div class="modal-text">{{ t("toolbox.もう一天井分もらったよ、") }}</div>
+      <div class="modal-text">{{ t("toolbox.今日の分はもらったよ、") }}</div>
       <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
     </div>
   </a-modal>
