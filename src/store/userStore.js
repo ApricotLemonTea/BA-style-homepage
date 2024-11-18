@@ -8,7 +8,7 @@ export const useUserStore = defineStore("userStore", {
 
     ap: 0,
     credit: Math.floor(Math.random() * 99999999),
-    pyroxene: 24000,
+    pyroxene:  localStorage.getItem("pyroxene") ? Number(localStorage.getItem("pyroxene")) : 24000,
 
     apRecoverCountdown: 9,
     apTooltipCountdown: 0,

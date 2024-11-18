@@ -127,6 +127,8 @@ const handleClickPyroxene = () => {
 const increasePyroxene = () => {
   userStore.pyroxene += 1200
   pyroxeneTimes.value += 1
+  // 将增加后的青辉石存储到storage
+  localStorage.setItem("pyroxene", userStore.pyroxene)
 }
 
 /**
