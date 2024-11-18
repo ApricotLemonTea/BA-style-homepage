@@ -50,7 +50,6 @@ const pyroxene = computed(() => {
 const tweenedPyroxene = reactive({
   number: userStore.pyroxene
 })
-const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
 watch(pyroxene, (n) => {
   gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
 })
@@ -155,7 +154,6 @@ const handleClickPyroxene = () => {
  */
 const increasePyroxene = () => {
   userStore.pyroxene += 1200
-  pyroxeneTimes.value += 1
   // 将领取日期（今天）存储到storage
   localStorage.setItem("login-date", nowDate.value)
   // 将增加后的青辉石存储到storage
