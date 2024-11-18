@@ -2,7 +2,7 @@
 import { reactive, ref, watch, computed } from 'vue'
 import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
-import { numberWithCommas, openUrl } from '@/utils/commonFunctions'
+import { getFormattedDate, numberWithCommas, openUrl } from '@/utils/commonFunctions'
 import { useI18n } from "vue-i18n"
 import i18n from '@/locale'
 
@@ -110,14 +110,18 @@ const increaseAp = () => {
   userStore.ap = 999
 }
 
+const loginDate = computed(() => {
+  return localStorage.getItem("login-date")
+})
+const nowDate = ref(getFormattedDate(new Date()))
 /**
  * 点击青辉石打开弹窗
  */
 const handleClickPyroxene = () => {
-  if (pyroxeneTimes.value <= 20){
+  if (loginDate.value !== nowDate.value){
     increasePyroxeneDialogVisible.value = true
   } else {
-    // 超过一井后不能再拿
+    // 每天只能拿一次
     exceedPyroxeneDialogVisible.value = true
   }
 }
@@ -127,6 +131,8 @@ const handleClickPyroxene = () => {
 const increasePyroxene = () => {
   userStore.pyroxene += 1200
   pyroxeneTimes.value += 1
+  // 将领取日期（今天）存储到storage
+  localStorage.setItem("login-date", nowDate.value)
   // 将增加后的青辉石存储到storage
   localStorage.setItem("pyroxene", userStore.pyroxene)
 }
@@ -134,7 +140,7 @@ const increasePyroxene = () => {
 /**
  * 变更语言后将选择的语言存储到storage中
  */
-watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
+watch(() => i18n.global.locale, (newLanguage) => {
   localStorage.setItem("locale", newLanguage)
 })
 </script>
