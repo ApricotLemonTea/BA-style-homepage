@@ -123,13 +123,6 @@ const handleClickCredit = () => {
     })
     return
   }
-  if (userStore.credit >= 99999999){
-    Message.success({
-      content: h("h3", {}, t("toolbox.コングラチュレーション？")),
-      position: "top"
-    })
-    return
-  }
 
   if (userStore.ap > 0){
     userStore.randomCredit()

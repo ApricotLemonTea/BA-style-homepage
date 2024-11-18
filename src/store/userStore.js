@@ -48,7 +48,7 @@ export const useUserStore = defineStore("userStore", {
     randomCredit() {
       this.credit = Math.min(
         Math.floor(Math.random() * Math.min(this.credit * 2, 99999999)),
-        99999999
+        99999998
       )
     },
 
