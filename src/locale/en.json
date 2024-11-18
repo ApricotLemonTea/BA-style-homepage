@@ -10,7 +10,8 @@
 
   "notice": {
     "メッセージ": "Message",
-    "PCでの閲覧を推奨します、スマホは今後対応します。": "This site is recommended viewing on a PC, mobile support will come soon.",
+    "PCでの閲覧を推奨します、スマホは今後対応します。": "This site is recommended viewing on PC, mobile support will come soon.",
+    "このまま進むとレイアウトが正しく表示できない場合があります。": "If you accessed on this device, the page layout may not display correctly.",
     "旧リンクまとめサイトのLit Linkに移動しますか？": "Would you like to move to the previous link summary site Lit Link?"
   },
 
