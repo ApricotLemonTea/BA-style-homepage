@@ -41,10 +41,12 @@ export const useUserStore = defineStore("userStore", {
     },
 
     /**
-     * 生成随机的八位数以内的信用点
+     * 生成随机的信用点<br/>
+     * 有赢有输<br/>
+     * 赌到最后只会越来越少
      */
     randomCredit() {
-      this.credit = Math.floor(Math.random() * 99999999)
+      this.credit = Math.floor(Math.random() * Math.min(this.credit * 2, 99999999))
     },
 
     /**

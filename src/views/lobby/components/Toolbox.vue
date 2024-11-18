@@ -110,6 +110,15 @@ const increaseAp = () => {
   userStore.ap = 999
 }
 
+/**
+ * 点击信用点的事件：
+ * 随机生成信用点数量，同时AP -10
+ */
+const handleClickCredit = () => {
+  userStore.randomCredit()
+  userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
+}
+
 const loginDate = computed(() => {
   return localStorage.getItem("login-date")
 })
@@ -170,7 +179,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </a-tooltip>
 
     <!--信用点-->
-    <div @click="userStore.randomCredit()"
+    <div @click="handleClickCredit"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
