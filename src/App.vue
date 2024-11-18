@@ -31,7 +31,7 @@ const checkWindowSize = () => {
 }
 
 onMounted(async () => {
-  // 控制台打印颜文字
+  // 控制台打印(｀・ω・´)b
   for (let i = 1; i <= 5; i++) {
     console.warn("(｀・ω・´)b")
     console.error("(｀・ω・´)b")
