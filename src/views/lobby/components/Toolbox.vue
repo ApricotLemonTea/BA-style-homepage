@@ -116,6 +116,21 @@ const increaseAp = () => {
  * 随机生成信用点数量，同时AP -10
  */
 const handleClickCredit = () => {
+  if (userStore.credit === 0){
+    Message.error({
+      content: h("h3", {}, t("toolbox.もうお財布空っぽですよ、ギャンブルやめよう")),
+      position: "top"
+    })
+    return
+  }
+  if (userStore.credit >= 99999999){
+    Message.success({
+      content: h("h3", {}, t("toolbox.コングラチュレーション？")),
+      position: "top"
+    })
+    return
+  }
+
   if (userStore.ap > 0){
     userStore.randomCredit()
     userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
