@@ -191,9 +191,9 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
       <a
         class="about toolbox"
         :style="{
-        transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
-        transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
-      }"
+          transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
+          transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
+        }"
       >
         <icon-language class="css-cursor-hover-enabled" />
       </a>
