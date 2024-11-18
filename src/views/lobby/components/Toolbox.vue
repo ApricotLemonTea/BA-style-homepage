@@ -1,10 +1,11 @@
 <script setup>
-import { reactive, ref, watch, computed } from 'vue'
+import { reactive, ref, watch, computed, h } from 'vue'
 import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
 import { getFormattedDate, numberWithCommas, openUrl } from '@/utils/commonFunctions'
 import { useI18n } from "vue-i18n"
 import i18n from '@/locale'
+import { Message } from '@arco-design/web-vue'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
@@ -115,8 +116,15 @@ const increaseAp = () => {
  * 随机生成信用点数量，同时AP -10
  */
 const handleClickCredit = () => {
-  userStore.randomCredit()
-  userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
+  if (userStore.ap > 0){
+    userStore.randomCredit()
+    userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
+  } else {
+    Message.error({
+      content: h("h3", {}, t("toolbox.APが足りません")),
+      position: "top"
+    })
+  }
 }
 
 const loginDate = computed(() => {
