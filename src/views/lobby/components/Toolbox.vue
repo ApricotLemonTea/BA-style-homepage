@@ -289,7 +289,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
       {{ t("toolbox.青輝石購入？") }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">{{ t("toolbox.青輝石1200個、") }}</div>
+      <div class="modal-text">{{ t("toolbox.青輝石1200個") }}</div>
       <div class="modal-text">{{ t("toolbox.一日一回無料！") }}</div>
     </div>
   </a-modal>
@@ -299,7 +299,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
       {{ t("toolbox.青輝石購入？") }}
     </template>
     <div>
-      <div class="modal-text">{{ t("toolbox.今日の分はもらったよ、") }}</div>
+      <div class="modal-text">{{ t("toolbox.今日の分はもらったよ") }}</div>
       <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
     </div>
   </a-modal>
@@ -310,7 +310,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
       {{ t("toolbox.AP購入？") }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">{{ t("toolbox.AP最大まで回復、") }}</div>
+      <div class="modal-text">{{ t("toolbox.AP最大まで回復") }}</div>
       <div class="modal-text">{{ t("toolbox.しかも無料！") }}</div>
     </div>
   </a-modal>
@@ -320,7 +320,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
       {{ t("toolbox.AP購入？") }}
     </template>
     <div>
-      <div class="modal-text">{{ t("toolbox.もうAP最大だよ、") }}</div>
+      <div class="modal-text">{{ t("toolbox.もうAP最大だよ") }}</div>
       <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
     </div>
   </a-modal>
