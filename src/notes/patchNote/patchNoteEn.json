@@ -1,6 +1,15 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-11-18",
+      "contents": [
+        "The free claim for Pyroxene is now limited to once a day.",
+        "The amount of Pyroxene will no longer be reset after refreshing the page.",
+        "The initial value of credit points is fixed at 50,000,000, and gambling will cost AP for each click now.",
+        "The guide text has been updated to reflect the above changes."
+      ]
+    },
+    {
       "title": "2024-11-17",
       "contents": [
         "Added C105 circle cut and Web Catalog link in the announcement."
