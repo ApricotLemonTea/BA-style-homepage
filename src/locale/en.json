@@ -11,7 +11,7 @@
   "notice": {
     "メッセージ": "Message",
     "PCでの閲覧を推奨します、スマホは今後対応します。": "This site is recommended viewing on a PC, mobile support will come soon.",
-    "旧リンクまとめサイトのLit Linkに移動しますか？": "Would you like to move to the previous link summary site, Lit Link?"
+    "旧リンクまとめサイトのLit Linkに移動しますか？": "Would you like to move to the previous link summary site Lit Link?"
   },
 
   "contact": {
@@ -52,16 +52,18 @@
     "いらない": "No thx",
     "わかった": "Got it",
     "青輝石購入？": "Purchase Pyroxenes?",
-    "青輝石1200個、": "1200 Pyroxenes,",
-    "無料でもらえる！": "Free to claim!",
-    "もう一天井分もらったよ、": "You’ve already received another ceiling limit reward,",
+    "青輝石1200個": "1200 Pyroxenes",
+    "一日一回無料！": "Free to claim once a day!",
+    "今日の分はもらったよ": "You've already received today",
     "また今度来てね": "Please come again next time",
     "AP購入？": "Purchase AP?",
-    "AP最大まで回復、": "Full AP recovery,",
+    "AP最大まで回復": "Full AP recovery",
     "しかも無料！": "And it's free!",
-    "もうAP最大だよ、": "AP is already at max,",
+    "もうAP最大だよ": "AP is already at max",
+    "APが足りません": "AP is not enough",
+    "もうお財布空っぽですよ、ギャンブルやめよう": "You lost all your money! Stop the gamble!",
     "about": {
-      "当サイトは杏仁レモンティーの個人ホームページです。": "This site is a personal homepage of ApricotLemonTea.",
+      "当サイトは杏仁レモンティーの個人ホームページです。": "This site is a personal homepage made and operated by ApricotLemonTea.",
       "ブルーアーカイブのロビー仕様に作っています（非公式）。": "Built to mimic the Blue Archive lobby (unofficial)."
     }
   },
@@ -81,14 +83,15 @@
     "AP": "AP",
     "クレジット": "Credits",
     "クリックすることでギャンブル(?)できます。": "Click to gamble(?).",
+    "一回10APを消費します。": "Cost 10 AP each time.",
     "青輝石": "Pyroxenes",
-    "青輝石無料配布中、しかし上限があります。": "Pyroxenes are distributed for free, but there is a limit.",
+    "青輝石一日一回無料配布。（ログインボーナス！）": "Pyroxenes are distributed for free once a day. (Login bonus!)",
     "言語切替": "Language Switch",
     "他の言語に切り替えられます。": "Switch to another language.",
     "外部リンク": "External Link",
     "Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。": "Move to the Xfolio, which is like ApricotLemonTea's portfolio.",
     "外部リンクその他": "Other External Links",
-    "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea’s SNS and more."
+    "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea's SNS and more."
   },
   "profile": {
     "絵が少し描ける一般人です。": "A regular person who can draw a little bit.",

@@ -15,3 +15,14 @@ export const numberWithCommas = (num) => {
 export const openUrl = (url, target = "_blank") => {
   window.open(url, target)
 }
+
+/**
+ * 将Date转换为yyyy-MM-DD格式的字符串
+ * @returns {string}
+ */
+export const getFormattedDate = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份从0开始，需要加1
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}

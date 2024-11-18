@@ -131,6 +131,7 @@ const startTourGuide = () => {
         </template>
         <template #default>
           <p class="blue-text-color mt-md-ml-10">{{ t("guide.クリックすることでギャンブル(?)できます。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.一回10APを消費します。") }}</p>
         </template>
       </el-tour-step>
 
@@ -139,7 +140,7 @@ const startTourGuide = () => {
           <h3 class="blue-text-color">{{ t("guide.青輝石") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.青輝石無料配布中、しかし上限があります。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.青輝石一日一回無料配布。（ログインボーナス！）") }}</p>
         </template>
       </el-tour-step>
 

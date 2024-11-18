@@ -1,10 +1,11 @@
 <script setup>
-import { reactive, ref, watch, computed } from 'vue'
+import { reactive, ref, watch, computed, h } from 'vue'
 import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
-import { numberWithCommas, openUrl } from '@/utils/commonFunctions'
+import { getFormattedDate, numberWithCommas, openUrl } from '@/utils/commonFunctions'
 import { useI18n } from "vue-i18n"
 import i18n from '@/locale'
+import { Message } from '@arco-design/web-vue'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
@@ -49,7 +50,6 @@ const pyroxene = computed(() => {
 const tweenedPyroxene = reactive({
   number: userStore.pyroxene
 })
-const pyroxeneTimes = ref(1) // 记录青辉石的领取次数
 watch(pyroxene, (n) => {
   gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
 })
@@ -111,13 +111,41 @@ const increaseAp = () => {
 }
 
 /**
+ * 点击信用点的事件：
+ * 随机生成信用点数量，同时AP -10
+ */
+const handleClickCredit = () => {
+  if (userStore.credit === 0){
+    Message.error({
+      content: h("h3", {}, t("toolbox.もうお財布空っぽですよ、ギャンブルやめよう")),
+      position: "top"
+    })
+    return
+  }
+
+  if (userStore.ap > 0){
+    userStore.randomCredit()
+    userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
+  } else {
+    Message.error({
+      content: h("h3", {}, t("toolbox.APが足りません")),
+      position: "top"
+    })
+  }
+}
+
+const loginDate = computed(() => {
+  return localStorage.getItem("login-date")
+})
+const nowDate = ref(getFormattedDate(new Date()))
+/**
  * 点击青辉石打开弹窗
  */
 const handleClickPyroxene = () => {
-  if (pyroxeneTimes.value <= 20){
+  if (loginDate.value !== nowDate.value){
     increasePyroxeneDialogVisible.value = true
   } else {
-    // 超过一井后不能再拿
+    // 每天只能拿一次
     exceedPyroxeneDialogVisible.value = true
   }
 }
@@ -126,13 +154,16 @@ const handleClickPyroxene = () => {
  */
 const increasePyroxene = () => {
   userStore.pyroxene += 1200
-  pyroxeneTimes.value += 1
+  // 将领取日期（今天）存储到storage
+  localStorage.setItem("login-date", nowDate.value)
+  // 将增加后的青辉石存储到storage
+  localStorage.setItem("pyroxene", userStore.pyroxene)
 }
 
 /**
  * 变更语言后将选择的语言存储到storage中
  */
-watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
+watch(() => i18n.global.locale, (newLanguage) => {
   localStorage.setItem("locale", newLanguage)
 })
 </script>
@@ -162,7 +193,7 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
     </a-tooltip>
 
     <!--信用点-->
-    <div @click="userStore.randomCredit()"
+    <div @click="handleClickCredit"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
@@ -191,9 +222,9 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
       <a
         class="about toolbox"
         :style="{
-        transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
-        transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
-      }"
+          transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
+          transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
+        }"
       >
         <icon-language class="css-cursor-hover-enabled" />
       </a>
@@ -249,8 +280,8 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
       {{ t("toolbox.青輝石購入？") }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">{{ t("toolbox.青輝石1200個、") }}</div>
-      <div class="modal-text">{{ t("toolbox.無料でもらえる！") }}</div>
+      <div class="modal-text">{{ t("toolbox.青輝石1200個") }}</div>
+      <div class="modal-text">{{ t("toolbox.一日一回無料！") }}</div>
     </div>
   </a-modal>
   <a-modal v-model:visible="exceedPyroxeneDialogVisible"
@@ -259,7 +290,7 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
       {{ t("toolbox.青輝石購入？") }}
     </template>
     <div>
-      <div class="modal-text">{{ t("toolbox.もう一天井分もらったよ、") }}</div>
+      <div class="modal-text">{{ t("toolbox.今日の分はもらったよ") }}</div>
       <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
     </div>
   </a-modal>
@@ -270,7 +301,7 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
       {{ t("toolbox.AP購入？") }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">{{ t("toolbox.AP最大まで回復、") }}</div>
+      <div class="modal-text">{{ t("toolbox.AP最大まで回復") }}</div>
       <div class="modal-text">{{ t("toolbox.しかも無料！") }}</div>
     </div>
   </a-modal>
@@ -280,7 +311,7 @@ watch(() => i18n.global.locale, (newLanguage, oldLanguage) => {
       {{ t("toolbox.AP購入？") }}
     </template>
     <div>
-      <div class="modal-text">{{ t("toolbox.もうAP最大だよ、") }}</div>
+      <div class="modal-text">{{ t("toolbox.もうAP最大だよ") }}</div>
       <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
     </div>
   </a-modal>
