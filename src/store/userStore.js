@@ -7,7 +7,7 @@ export const useUserStore = defineStore("userStore", {
     totalVisitor: 0,
 
     ap: 0,
-    credit: Math.floor(Math.random() * 99999999),
+    credit: 50000000,
     pyroxene:  localStorage.getItem("pyroxene") ? Number(localStorage.getItem("pyroxene")) : 24000,
 
     apRecoverCountdown: 9,
@@ -46,7 +46,10 @@ export const useUserStore = defineStore("userStore", {
      * 赌到最后只会越来越少
      */
     randomCredit() {
-      this.credit = Math.floor(Math.random() * Math.min(this.credit * 2, 99999999))
+      this.credit = Math.min(
+        Math.floor(Math.random() * Math.min(this.credit * 2, 99999999)),
+        99999999
+      )
     },
 
     /**
