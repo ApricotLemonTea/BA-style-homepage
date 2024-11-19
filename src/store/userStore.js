@@ -4,7 +4,7 @@ import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 export const useUserStore = defineStore("userStore", {
   state: () => ({
     isFirstOpen: true,
-    totalVisitor: 0,
+    totalAccess: 0,
 
     ap: 0,
     credit: 50000000,
@@ -17,13 +17,13 @@ export const useUserStore = defineStore("userStore", {
   }),
   getters: {
     exp(state) {
-      return calculateLevelAndNextExp(state.totalVisitor).exp
+      return calculateLevelAndNextExp(state.totalAccess).exp
     },
     level(state) {
-      return calculateLevelAndNextExp(state.totalVisitor).level
+      return calculateLevelAndNextExp(state.totalAccess).level
     },
     nextExp(state) {
-      return calculateLevelAndNextExp(state.totalVisitor).nextExp
+      return calculateLevelAndNextExp(state.totalAccess).nextExp
     },
     maxAp() {
       return 60 + this.level * 2

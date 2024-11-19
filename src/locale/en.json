@@ -1,5 +1,6 @@
 {
   "杏仁レモンティー": "ApricotLemonTea",
+  
   "はい": "OK",
   "いいえ": "Cancel",
   "閉じる": "Close",
@@ -25,7 +26,10 @@
     "今後実装したい機能です": "Features which are wished to implement in the future",
     "（実装日時は未定）": "(Implementation date is undecided)",
     "（実装できるかどうかも未定）": "(Uncertain whether it can be implemented or not)",
-    "（期待しないでください）": "(Please do not expect much)"
+    "（期待しないでください）": "(Please do not expect much)",
+    "モモトーク": "MomoTalk",
+    "モモトークエディター": "MomoTalk Editor",
+    "モモトーク風のチャット作成ツールです。": "A web chat generator, styled from Blue Archive MomoTalk."
   },
   "footer": {
     "メールアドレスをコピーしました": "Email address copied",
@@ -77,9 +81,10 @@
   "guide": {
     "プロフィールと経験値とレベル": "Profile, Experience Points, and Level",
     "クリックするとプロフィール画面に移動します。": "Click to move to the profile page.",
-    "サイトの訪問数が増えると経験値が上がって、レベルもアップします。": "Experience points increase and level up with more site visits.",
-    "サイト情報": "Site Information",
-    "当サイトに関する情報です。": "Information about this site.",
+    "サイトの訪問数が増えると経験値が上がって、レベルもアップします。": "Experience points increase and level up with more site visits (requests).",
+    "ゲーム内機能のコーナー": "Features in the game",
+    "ゲーム内の機能を再現しようとするコーナーです。": "This section is dedicated to replicating features from the game.",
+    "もちろん実際の内容はゲームと異なります。": "Of course, the actual content will be different from the game.",
     "10秒ごとに1AP自動回復します、チャージもできます。": "1 AP automatically recovers every 10 seconds; you can also recharge.",
     "AP": "AP",
     "クレジット": "Credits",

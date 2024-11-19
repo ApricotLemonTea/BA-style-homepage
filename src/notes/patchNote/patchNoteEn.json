@@ -1,6 +1,15 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-11-19",
+      "contents": [
+        "Changed the data source for website traffic statistics from Page Views to Requests.",
+        "After this update, the experience points on the top left will increase significantly.",
+        "Feature added: MomoTalk Editor.",
+        "(An external project, not made by me.)"
+      ]
+    },
+    {
       "title": "2024-11-18",
       "contents": [
         "The free claim for Pyroxene is now limited to once a day.",

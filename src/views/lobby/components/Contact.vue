@@ -6,6 +6,8 @@ import Mission from '@/views/lobby/components/Mission.vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
 import announcement from '@/notes/announcement/announcementJa.json'
 import { useI18n } from "vue-i18n"
+import { openUrl } from '@/utils/commonFunctions'
+import i18n from '@/locale'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -86,6 +88,48 @@ const openAnnounce = () => {
           <p>{{ t("contact.（実装日時は未定）") }}</p>
           <p>{{ t("contact.（実装できるかどうかも未定）") }}</p>
           <p>{{ t("contact.（期待しないでください）") }}</p>
+        </div>
+      </template>
+    </a-popover>
+
+    <a-popover position="bottom">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openUrl('https://u1805.github.io/momotalk/')">
+        <img src="/img/momotalk.png" alt="" />
+        <span style="white-space: nowrap;">{{ t("contact.モモトーク") }}</span>
+      </div>
+      <template #title>
+        <h3 class="blue-text-color">{{ t("contact.モモトークエディター") }}</h3>
+      </template>
+      <template #content>
+        <div class="blue-text-color">
+          <p>{{ t("contact.モモトーク風のチャット作成ツールです。") }}</p>
+          <!--日语使用说明-->
+          <p v-show="i18n.global.locale === 'ja'">使い方は
+            <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-jp.md')"
+                  class="css-cursor-hover-enabled"
+                  style="color: #3987ff">こちら</span>
+          </p>
+          <!--中文使用说明-->
+          <p v-show="i18n.global.locale === 'zh'">
+            <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-zh_cn.md')"
+                  class="css-cursor-hover-enabled"
+                  style="color: #3987ff">点击这里</span>
+            查看食用说明
+          </p>
+          <!--英语使用说明-->
+          <p v-show="i18n.global.locale === 'en'">
+            <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use.md')"
+                  class="css-cursor-hover-enabled"
+                  style="color: #3987ff">Click here</span>
+            to learn how to use
+          </p>
+          <br />
+          <p>Made by
+            <span @click="openUrl('https://github.com/U1805/momotalk')"
+                  class="css-cursor-hover-enabled"
+                  style="color: #3987ff">U1805</span>
+          </p>
         </div>
       </template>
     </a-popover>

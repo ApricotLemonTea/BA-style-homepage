@@ -11,7 +11,7 @@ const userStore = useUserStore()
 const { t } = useI18n()
 
 const isLevelMax = computed(() => {
-  return userStore.totalVisitor >= 294784
+  return userStore.totalAccess >= 294784
 })
 
 const curtainRef = ref()
@@ -46,7 +46,7 @@ const openProfile = () => {
           <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
             {{ isLevelMax ? 'MAX'
                           : userStore.exp + ' / ' + userStore.nextExp }}
-            <span style="margin-left: 10px">（{{userStore.totalVisitor}}）</span>
+            <span style="margin-left: 10px">（{{userStore.totalAccess}}）</span>
           </p>
         </div>
       </div>
