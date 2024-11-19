@@ -78,7 +78,7 @@
   "guide": {
     "プロフィールと経験値とレベル": "Profile, Experience Points, and Level",
     "クリックするとプロフィール画面に移動します。": "Click to move to the profile page.",
-    "サイトの訪問数が増えると経験値が上がって、レベルもアップします。": "Experience points increase and level up with more site visits.",
+    "サイトの訪問数が増えると経験値が上がって、レベルもアップします。": "Experience points increase and level up with more site visits (requests).",
     "サイト情報": "Site Information",
     "当サイトに関する情報です。": "Information about this site.",
     "10秒ごとに1AP自動回復します、チャージもできます。": "1 AP automatically recovers every 10 seconds; you can also recharge.",
