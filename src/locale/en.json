@@ -26,7 +26,10 @@
     "今後実装したい機能です": "Features which are wished to implement in the future",
     "（実装日時は未定）": "(Implementation date is undecided)",
     "（実装できるかどうかも未定）": "(Uncertain whether it can be implemented or not)",
-    "（期待しないでください）": "(Please do not expect much)"
+    "（期待しないでください）": "(Please do not expect much)",
+    "モモトーク": "Momotalk",
+    "モモトークエディター": "Momotalk Editor",
+    "モモトーク風のチャット作成ツールです。": "A web chat generator, styled from Blue Archive Momotalk."
   },
   "footer": {
     "メールアドレスをコピーしました": "Email address copied",
