@@ -28,7 +28,7 @@ async function getAccessAnalytics() {
 
   let result = 0
   for (const item of res.data.data.viewer.zones[0].httpRequests1dGroups){
-    result += item.sum.pageViews
+    result += item.sum.requests
   }
 
   return result
