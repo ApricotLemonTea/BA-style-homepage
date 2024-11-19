@@ -109,10 +109,11 @@ const startTourGuide = () => {
 
       <el-tour-step target="#contact-ref">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.サイト情報") }}</h3>
+          <h3 class="blue-text-color">{{ t("guide.ゲーム内機能のコーナー") }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.当サイトに関する情報です。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.ゲーム内の機能を再現しようとするコーナーです。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t("guide.もちろん実際の内容はゲームと異なります。") }}</p>
         </template>
       </el-tour-step>
 
