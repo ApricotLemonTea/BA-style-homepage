@@ -61,39 +61,6 @@ const openAnnounce = () => {
 
     <a-popover position="top">
       <div class="contact css-cursor-hover-enabled"
-           @click="$emit('start-guide')">
-        <img src="/img/guide.png" alt="" />
-        <span style="white-space: nowrap;">{{ t("contact.ガイド") }}</span>
-      </div>
-      <template #title>
-        <h3 class="blue-text-color">{{ t("contact.ガイド") }}</h3>
-      </template>
-      <template #content>
-        <p class="blue-text-color">{{ t("contact.当サイトの紹介を始めます") }}</p>
-      </template>
-    </a-popover>
-
-    <a-popover position="bottom">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openMission">
-        <img src="/img/mission.png" alt="" />
-        <span style="white-space: nowrap;">{{ t("contact.ミッション") }}</span>
-      </div>
-      <template #title>
-        <h3 class="blue-text-color">{{ t("contact.ミッション") }}</h3>
-      </template>
-      <template #content>
-        <div class="blue-text-color">
-          <p>{{ t("contact.今後実装したい機能です") }}</p>
-          <p>{{ t("contact.（実装日時は未定）") }}</p>
-          <p>{{ t("contact.（実装できるかどうかも未定）") }}</p>
-          <p>{{ t("contact.（期待しないでください）") }}</p>
-        </div>
-      </template>
-    </a-popover>
-
-    <a-popover position="bottom">
-      <div class="contact css-cursor-hover-enabled"
            @click="openUrl('https://u1805.github.io/momotalk/')">
         <img src="/img/momotalk.png" alt="" />
         <span style="white-space: nowrap;">{{ t("contact.モモトーク") }}</span>
@@ -131,6 +98,39 @@ const openAnnounce = () => {
                   style="color: #3987ff">U1805</span>
           </p>
         </div>
+      </template>
+    </a-popover>
+
+    <a-popover position="bottom">
+      <div class="contact css-cursor-hover-enabled"
+           @click="openMission">
+        <img src="/img/mission.png" alt="" />
+        <span style="white-space: nowrap;">{{ t("contact.ミッション") }}</span>
+      </div>
+      <template #title>
+        <h3 class="blue-text-color">{{ t("contact.ミッション") }}</h3>
+      </template>
+      <template #content>
+        <div class="blue-text-color">
+          <p>{{ t("contact.今後実装したい機能です") }}</p>
+          <p>{{ t("contact.（実装日時は未定）") }}</p>
+          <p>{{ t("contact.（実装できるかどうかも未定）") }}</p>
+          <p>{{ t("contact.（期待しないでください）") }}</p>
+        </div>
+      </template>
+    </a-popover>
+
+    <a-popover position="bottom">
+      <div class="contact css-cursor-hover-enabled"
+           @click="$emit('start-guide')">
+        <img src="/img/guide.png" alt="" />
+        <span style="white-space: nowrap;">{{ t("contact.ガイド") }}</span>
+      </div>
+      <template #title>
+        <h3 class="blue-text-color">{{ t("contact.ガイド") }}</h3>
+      </template>
+      <template #content>
+        <p class="blue-text-color">{{ t("contact.当サイトの紹介を始めます") }}</p>
       </template>
     </a-popover>
   </div>
