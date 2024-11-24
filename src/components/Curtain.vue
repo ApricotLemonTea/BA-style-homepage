@@ -1,8 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const curtain = ref(false)
 const bg = ref(false)
+
+const images = [
+  '/shitim/Event_Main_Stage_Bg_Purple.png',
+  '/shitim/Event_Main_Stage_Bg.png'
+]
+const curtainStyle = computed(() => {
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  return {
+    backgroundImage: `url(${randomImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  }
+})
 
 const skip = (action) => {
   bg.value = true
@@ -29,7 +42,7 @@ defineExpose({ skip })
   </transition>
 
   <transition name="curtain">
-    <div v-if="curtain" class="curtain">
+    <div v-if="curtain" class="curtain" :style="curtainStyle">
       <img src="/shitim/Tran_Shitim_Icon.png" alt="" />
     </div>
   </transition>
@@ -49,8 +62,8 @@ defineExpose({ skip })
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/shitim/Event_Main_Stage_Bg.png') center;
-  background-size: cover;
+  //background: url('/shitim/Event_Main_Stage_Bg.png') center;
+  //background-size: cover;
   z-index: 10;
   display: flex;
   align-items: center;
