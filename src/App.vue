@@ -38,6 +38,9 @@ onMounted(async () => {
     console.error("(｀・ω・´)b")
   }
 
+  // 切换背景图
+  userStore.changeBackground()
+
   // 判断浏览器宽度是否适合显示
   checkWindowSize()
 
@@ -51,7 +54,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div id="background"></div>
+  <div id="background" :style="userStore.curtainStyle"></div>
   <main>
     <transition name="view-animation" mode="out-in">
       <RouterView />
@@ -62,9 +65,6 @@ onMounted(async () => {
 
 <style scoped>
 #background {
-  background-image: url('/shitim/Event_Main_Stage_Bg.png');
-  background-position: center;
-  background-size: cover;
   width: 100%;
   height: 100%;
   position: absolute;

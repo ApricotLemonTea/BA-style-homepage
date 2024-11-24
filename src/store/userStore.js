@@ -6,6 +6,12 @@ export const useUserStore = defineStore("userStore", {
     isFirstOpen: true,
     totalAccess: 0,
 
+    curtainStyle: {
+      backgroundImage: `url('/shitim/Event_Main_Stage_Bg.png')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    },
+
     ap: 0,
     credit: 50000000,
     pyroxene:  localStorage.getItem("pyroxene") ? Number(localStorage.getItem("pyroxene")) : 24000,
@@ -27,9 +33,21 @@ export const useUserStore = defineStore("userStore", {
     },
     maxAp() {
       return 60 + this.level * 2
-    },
+    }
   },
   actions: {
+    /**
+     * 切换背景图（蓝 / 紫）
+     */
+    changeBackground() {
+      const images = [
+        '/shitim/Event_Main_Stage_Bg_Purple.png',
+        '/shitim/Event_Main_Stage_Bg.png'
+      ]
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      this.curtainStyle.backgroundImage = `url(${randomImage})`;
+    },
+
     /**
      * 初始化AP <br/>
      * ap初始值根据今天经过的时间减少

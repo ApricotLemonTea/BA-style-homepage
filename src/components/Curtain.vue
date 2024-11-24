@@ -1,10 +1,16 @@
 <script setup>
 import { ref } from 'vue'
+import { useUserStore } from '../store/userStore'
+
+const userStore = useUserStore()
 
 const curtain = ref(false)
 const bg = ref(false)
 
 const skip = (action) => {
+  // 切换背景图
+  userStore.changeBackground()
+
   bg.value = true
   setTimeout(() => {
     curtain.value = true
@@ -29,7 +35,7 @@ defineExpose({ skip })
   </transition>
 
   <transition name="curtain">
-    <div v-if="curtain" class="curtain">
+    <div v-if="curtain" class="curtain" :style="userStore.curtainStyle">
       <img src="/shitim/Tran_Shitim_Icon.png" alt="" />
     </div>
   </transition>
@@ -49,8 +55,6 @@ defineExpose({ skip })
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/shitim/Event_Main_Stage_Bg.png') center;
-  background-size: cover;
   z-index: 10;
   display: flex;
   align-items: center;

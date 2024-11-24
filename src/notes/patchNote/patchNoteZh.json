@@ -1,6 +1,12 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-11-24",
+      "contents": [
+        "过场动画的背景色现在会随机变成蓝色或紫色。"
+      ]
+    },
+    {
       "title": "2024-11-19",
       "contents": [
         "网站访问量的统计数据源由Page Views数改为Requests数。",
