@@ -1,6 +1,12 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-11-24",
+      "contents": [
+        "The background color will randomly become blue or purple when switch the page."
+      ]
+    },
+    {
       "title": "2024-11-19",
       "contents": [
         "Changed the data source for website traffic statistics from Page Views to Requests.",
