@@ -38,7 +38,7 @@ onMounted(async () => {
     console.error("(｀・ω・´)b")
   }
 
-  // 切换背景图颜色
+  // 切换背景图
   userStore.changeBackground()
 
   // 判断浏览器宽度是否适合显示

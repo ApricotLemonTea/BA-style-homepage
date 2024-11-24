@@ -8,7 +8,7 @@ const curtain = ref(false)
 const bg = ref(false)
 
 const skip = (action) => {
-  // 切换背景图颜色
+  // 切换背景图
   userStore.changeBackground()
 
   bg.value = true

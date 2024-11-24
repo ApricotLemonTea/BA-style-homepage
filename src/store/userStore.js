@@ -37,7 +37,7 @@ export const useUserStore = defineStore("userStore", {
   },
   actions: {
     /**
-     * 切换背景图颜色（蓝 / 紫）
+     * 切换背景图（蓝 / 紫）
      */
     changeBackground() {
       const images = [
