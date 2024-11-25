@@ -40,6 +40,9 @@ if ('serviceWorker' in navigator) {
           ],
           okText: "はい",
           hideCancel: true,
+          closable: false,
+          maskClosable: false,
+          escToClose: false,
           onOk: () => {
             updateSW(true)
           }
@@ -53,6 +56,9 @@ if ('serviceWorker' in navigator) {
           ],
           okText: "确定",
           hideCancel: true,
+          closable: false,
+          maskClosable: false,
+          escToClose: false,
           onOk: () => {
             updateSW(true)
           }
@@ -66,6 +72,9 @@ if ('serviceWorker' in navigator) {
           ],
           okText: "OK",
           hideCancel: true,
+          closable: false,
+          maskClosable: false,
+          escToClose: false,
           onOk: () => {
             updateSW(true)
           }
