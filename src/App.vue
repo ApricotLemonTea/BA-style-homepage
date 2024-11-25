@@ -44,7 +44,7 @@ onMounted(async () => {
   // 判断浏览器宽度是否适合显示
   checkWindowSize()
 
-  // 统计页面page view总和并存储到store中
+  // 统计页面访问量总和并存储到store中
   userStore.totalAccess = await getAccessAnalytics()
   // 初始化当前ap
   userStore.initAp()
