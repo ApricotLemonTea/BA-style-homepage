@@ -49,13 +49,6 @@ const switchL2D = () => {
 const imgSrc = ref("/l2d/hp_bg.png?t=" + new Date().toString())
 
 const showGuide = ref(false)
-
-/**
- * 开始漫游引导
- */
-const startTourGuide = () => {
-  showGuide.value = true
-}
 </script>
 
 <template>
@@ -79,7 +72,7 @@ const startTourGuide = () => {
 
     <div id="contact-ref"></div>
     <transition name="left">
-      <Contact v-if="!l2dOnly" @start-guide="startTourGuide"></Contact>
+      <Contact v-if="!l2dOnly" @start-guide="()=>{ showGuide = true }"></Contact>
     </transition>
 
     <div id="task-ref"></div>
