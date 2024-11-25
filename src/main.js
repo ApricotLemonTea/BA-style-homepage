@@ -99,19 +99,19 @@ window.l2d_complete = false
 // }, 1000)
 
 import * as PIXI from 'pixi.js'
-import { sound } from '@pixi/sound'
+// import { sound } from '@pixi/sound'
 
 // 这里是学生的l2d载入位置，想要修改自己喜欢的学生可以改这里
 import hina_swimsuit from '/l2d/hina_swimsuit/CH0063_home.skel?url'
-import hina_bgm from '/l2d/hina_swimsuit/Theme_21.mp3'
+// import hina_bgm from '/l2d/hina_swimsuit/Theme_21.mp3'
 import aris from '/l2d/aris/Aris_home.skel?url'
-import aris_bgm from '/l2d/aris/Someday_-sometime.mp3'
+// import aris_bgm from '/l2d/aris/Someday_-sometime.mp3'
 /*
  * students 是学生l2d的位置
  * l2dBGM 是学生背景音乐的位置
  * */
 const students = [hina_swimsuit, aris]
-const l2dBGM = [hina_bgm, aris_bgm]
+// const l2dBGM = [hina_bgm, aris_bgm]
 /*——————————————————————————————————————————————————*/
 export let studentsL2D = []
 export let bgmName = []
@@ -121,13 +121,13 @@ export let bgmName = []
   for (let i of students) {
     studentsL2D.push(await PIXI.Assets.load(i))
   }
-  for (let i of l2dBGM) {
-    sound.add(i.split('/').pop().split('.')[0], {
-      url: i,
-      loop: true
-    })
-    bgmName.push(i.split('/').pop().split('.')[0])
-  }
+  // for (let i of l2dBGM) {
+  //   sound.add(i.split('/').pop().split('.')[0], {
+  //     url: i,
+  //     loop: true
+  //   })
+  //   bgmName.push(i.split('/').pop().split('.')[0])
+  // }
 
   window.l2d_complete = true
 })()
