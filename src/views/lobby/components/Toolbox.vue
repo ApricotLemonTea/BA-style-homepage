@@ -324,7 +324,8 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </template>
     <div style="color: #003153">
       <p>{{ t("toolbox.about.当サイトは杏仁レモンティーの個人ホームページです。") }}</p>
-      <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています（非公式）。") }}</p>
+      <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています。") }}</p>
+      <p>{{ t("toolbox.about.（当サイトはブルアカ公式とは一切関係ありません）") }}</p>
       <br />
       <p>Copyright © 2024 <span>{{ t("杏仁レモンティー") }}</span> All Rights Reserved.</p>
       <br />
