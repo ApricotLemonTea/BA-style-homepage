@@ -1,6 +1,13 @@
 {
   "patchNoteList": [
     {
+      "title": "2024-12-12",
+      "contents": [
+        "Added link to Melonbooks.",
+        "Adjusted the position of some external link buttons"
+      ]
+    },
+    {
       "title": "2024-11-24",
       "contents": [
         "The background color will randomly become blue or purple when switch the page."
