@@ -57,9 +57,24 @@ const copyMailAddress = async () => {
               <span>Twitter</span>
             </div>
             <div class="button-item">
+              <img src="/img/x.png" alt=""
+                   @click="openUrl('https://twitter.com/A_LemonTea')"/>
+              <span>X (Sub)</span>
+            </div>
+            <div class="button-item">
               <img src="/img/misskey.png" alt=""
                    @click="openUrl('https://misskey.io/@ApricotLemonTea')"/>
               <span>Misskey</span>
+            </div>
+            <div class="button-item">
+              <img src="/img/bluesky.png" alt=""
+                   @click="openUrl('https://bsky.app/profile/apricotlemontea.com')"/>
+              <span>Bluesky</span>
+            </div>
+            <div class="button-item">
+              <img src="/img/weibo.png" alt=""
+                   @click="openUrl('https://m.weibo.cn/profile/7850690980')"/>
+              <span>微博</span>
             </div>
           </div>
         </template>
