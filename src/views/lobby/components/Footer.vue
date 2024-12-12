@@ -44,27 +44,24 @@ const copyMailAddress = async () => {
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://twitter.com/ApricotLemonTea')">
           <img src="/img/twitter.png" alt="" />
-          <span>Twitter</span>
+          <span>SNS</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">Twitter</h3>
+          <h3 class="blue-text-color">SNS</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">{{ t("footer.主にここで喋ってます") }}</p>
-        </template>
-      </a-popover>
-
-      <a-popover>
-        <div class="project css-cursor-hover-enabled"
-             @click="openUrl('https://misskey.io/@ApricotLemonTea')">
-          <img src="/img/misskey.png" alt="" />
-          <span>Misskey</span>
-        </div>
-        <template #title>
-          <h3 class="blue-text-color">Misskey</h3>
-        </template>
-        <template #content>
-          <p class="blue-text-color">{{ t("footer.たまに見てます") }}</p>
+          <div class="button-list">
+            <div class="button-item" style="margin-left: 0">
+              <img src="/img/twitter.png" alt=""
+                   @click="openUrl('https://twitter.com/ApricotLemonTea')"/>
+              <span>Twitter</span>
+            </div>
+            <div class="button-item">
+              <img src="/img/misskey.png" alt=""
+                   @click="openUrl('https://misskey.io/@ApricotLemonTea')"/>
+              <span>Misskey</span>
+            </div>
+          </div>
         </template>
       </a-popover>
 
@@ -240,7 +237,7 @@ const copyMailAddress = async () => {
   transition: transform 0.05s;
 }
 
-.project:active {
+.project img:active {
   transform: scale(0.9);
 }
 
@@ -259,6 +256,29 @@ const copyMailAddress = async () => {
   width: 64px;
   height: 64px;
   border-radius: 22%;
+}
+
+.button-list {
+  display: flex;
+
+  .button-item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .button-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 22%;
+  }
+  .button-item img:active {
+    transform: scale(0.9);
+  }
+  .button-item span {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 830px) {
