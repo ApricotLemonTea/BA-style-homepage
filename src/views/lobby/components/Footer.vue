@@ -69,10 +69,10 @@ const copyMailAddress = async () => {
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://apricotlemontea.booth.pm')">
           <img src="/img/booth.png" alt="" />
-          <span>通販</span>
+          <span>Shop</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">通販ショップ</h3>
+          <h3 class="blue-text-color">Online Shop</h3>
         </template>
         <template #content>
           <div class="button-list">
@@ -276,7 +276,7 @@ const copyMailAddress = async () => {
   .button-item {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    margin-left: 30px;
   }
 
   .button-item img {

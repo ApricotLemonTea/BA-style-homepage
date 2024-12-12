@@ -330,7 +330,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
       <p>Copyright © 2024 <span>{{ t("杏仁レモンティー") }}</span> All Rights Reserved.</p>
       <br />
       <p>Originally made by
-        <span @click="openUrl('https://github.com/sf-yuzifu/homepage')"
+        <span @click="openUrl('https://github.com/sf-yuzifu')"
               class="css-cursor-hover-enabled"
               style="color: #3987ff">小鱼yuzifu</span>
       </p>
