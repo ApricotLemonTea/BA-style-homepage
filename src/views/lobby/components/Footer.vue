@@ -69,13 +69,25 @@ const copyMailAddress = async () => {
         <div class="project css-cursor-hover-enabled"
              @click="openUrl('https://apricotlemontea.booth.pm')">
           <img src="/img/booth.png" alt="" />
-          <span>BOOTH</span>
+          <span>通販</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">BOOTH</h3>
+          <h3 class="blue-text-color">通販ショップ</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">{{ t("footer.アクリルグッズ屋") }}</p>
+          <div class="button-list">
+            <div class="button-item" style="margin-left: 0">
+              <img src="/img/booth.png" alt=""
+                   @click="openUrl('https://apricotlemontea.booth.pm')"/>
+              <span>BOOTH</span>
+            </div>
+            <div class="button-item">
+              <img src="/img/melonbooks.png" alt=""
+                   style="width: auto"
+                   @click="openUrl('https://www.melonbooks.co.jp/circle/index.php?circle_id=129456')"/>
+              <span>Melonbooks</span>
+            </div>
+          </div>
         </template>
       </a-popover>
 
