@@ -179,7 +179,7 @@ const showGuide = ref(false)
   position: fixed;
   top: 30px;
   left: 0;
-  width: 420px;
+  width: 380px;
   height: 120px;
 }
 #contact-ref {

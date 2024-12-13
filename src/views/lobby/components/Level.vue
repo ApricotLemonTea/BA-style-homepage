@@ -46,7 +46,7 @@ const openProfile = () => {
           <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
             {{ isLevelMax ? 'MAX'
                           : userStore.exp + ' / ' + userStore.nextExp }}
-            <span style="margin-left: 10px">（{{userStore.totalAccess}}）</span>
+            <span v-if="isLevelMax" style="margin-left: 10px">（{{userStore.totalAccess}}）</span>
           </p>
         </div>
       </div>
