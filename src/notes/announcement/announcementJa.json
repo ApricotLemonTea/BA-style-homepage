@@ -1,14 +1,27 @@
 {
   "announcementList": [
     {
-      "title": "冬コミ当選しました",
+      "title": "C105冬コミ頒布物のご紹介",
+      "contents": [
+        "冬コミに頒布する予定のグッズは画像通りの５点になります：",
+        "<img src='/announcement/c105_goods.jpg' alt='' style='height: 300px;'></img>",
+        "詳細の紹介記事は<a href='https://apricotlemontea.fanbox.cc/posts/9035741' target='_blank' style='color: #3987ff'>FANBOX</a>をご覧ください。",
+        "通販の予約注文も受け付けております：",
+        "・イラスト本は<a href='https://www.melonbooks.co.jp/circle/index.php?circle_id=129456' target='_blank' style='color: #3987ff'>メロンブックス</a>にて",
+        "・アクリルグッズは<a href='https://apricotlemontea.booth.pm/' target='_blank' style='color: #3987ff'>BOOTH</a>にて",
+        "よろしくお願いします。(｀・ω・´)b"
+      ],
+      "time": "2024-12-14"
+    },
+    {
+      "title": "C105冬コミ当選しました",
       "contents": [
         "「◎貴方のサークル「杏仁茶館」は、日曜日 東地区 “Ｊ”ブロック－51aに配置されました。」",
         "<img src='/announcement/c105_circle_cut.png' alt='' style='height: 300px;'></img>",
         "クリックで<a href='https://webcatalog-free.circle.ms/Circle/20014085' target='_blank' style='color: #3987ff'>Webカタログ</a>に移動します。",
         "というわけで冬コミ出ます、原稿をやるため当サイトの機能更新はしばらくゆっくりめになります。",
         "お知らせ内容などは随時更新します。",
-        "よろしくお願いします。b"
+        "よろしくお願いします。(｀・ω・´)b"
       ],
       "time": "2024-11-08"
     }

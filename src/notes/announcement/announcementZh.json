@@ -1,14 +1,26 @@
 {
   "announcementList": [
     {
+      "title": "C105贩售物品介绍",
+      "contents": [
+        "C105上贩售的物品如照片所示共五种：",
+        "<img src='/announcement/c105_goods.jpg' alt='' style='height: 300px;'></img>",
+        "详细介绍请移步<a href='https://apricotlemontea.fanbox.cc/posts/9035741' target='_blank' style='color: #3987ff'>FANBOX</a>（只写了日语不好意思）",
+        "也可以在通贩平台上下单：",
+        "・画册在<a href='https://www.melonbooks.co.jp/circle/index.php?circle_id=129456' target='_blank' style='color: #3987ff'>Melonbooks</a>",
+        "・亚克力小玩意在<a href='https://apricotlemontea.booth.pm/' target='_blank' style='color: #3987ff'>BOOTH</a>",
+        "记得到时来玩。(｀・ω・´)b"
+      ],
+      "time": "2024-12-14"
+    },
+    {
       "title": "C105出摊",
       "contents": [
-        "「◎貴方のサークル「杏仁茶館」は、日曜日 東地区 “Ｊ”ブロック－51aに配置されました。」",
-        "<img src='/announcement/c105_circle_cut.png' alt='' style='height: 300px;'></img>",
         "点击跳转到<a href='https://webcatalog-free.circle.ms/Circle/20014085' target='_blank' style='color: #3987ff'> Web Catalog </a>",
+        "<img src='/announcement/c105_circle_cut.png' alt='' style='height: 300px;'></img>",
         "要去C105出摊了。因为之后主要在画稿，所以本站的新功能开发会暂时缓一缓。",
         "通知的内容会随时更新。",
-        "欢迎到时来玩。b"
+        "欢迎到时来玩。(｀・ω・´)b"
       ],
       "time": "2024-11-08"
     }
