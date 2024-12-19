@@ -123,9 +123,11 @@ const tabList = computed(() => {
             <div v-for="(item, index) in patchNote.patchNoteList"  :key="index"
                  v-show="selectedTitleIndex === index"
                  class="total-info-content">
-              <p v-for="contentItem in item.contents" :key="contentItem" style="margin-bottom: 3vh">
-                ・{{ contentItem }}
-              </p>
+              <ul style="margin: 0 30px">
+                <li v-for="contentItem in item.contents" :key="contentItem"
+                    v-html="contentItem"
+                    style="margin-bottom: 3vh"></li>
+              </ul>
             </div>
           </div>
 
