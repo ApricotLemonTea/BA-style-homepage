@@ -9,7 +9,7 @@ export const numberWithCommas = (num) => {
 
 /**
  * 打开url
- * @param { String } url 要打开的目标地址
+ * @param { string } url 要打开的目标地址
  * @param { string } target 打开方式，默认为新建标签页打开
  */
 export const openUrl = (url, target = "_blank") => {
@@ -18,7 +18,7 @@ export const openUrl = (url, target = "_blank") => {
 
 /**
  * 将Date转换为yyyy-MM-DD格式的字符串
- * @returns {string}
+ * @returns { string }
  */
 export const getFormattedDate = (date) => {
   const year = date.getFullYear();
