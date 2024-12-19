@@ -209,3 +209,7 @@ a {
   height: max(100vh, 100vw * (1440 / 2560));
   width: max(100vh / (1440 / 2560), 100vw);
 }
+
+.link:hover {
+  text-decoration: underline;
+}

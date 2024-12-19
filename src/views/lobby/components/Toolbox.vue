@@ -331,7 +331,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
       <br />
       <p>Originally made by
         <span @click="openUrl('https://github.com/sf-yuzifu')"
-              class="css-cursor-hover-enabled"
+              class="css-cursor-hover-enabled link"
               style="color: #3987ff">小鱼yuzifu</span>
       </p>
       <!--<p>Font using-->
