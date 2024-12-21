@@ -18,7 +18,7 @@
       "contents": [
         "Changed the data source for website traffic statistics from Page Views to Requests.",
         "After this update, the experience points on the top left will increase significantly.",
-        "Feature added: MomoTalk Editor.<br>(An external project, not made by me.)"
+        "Feature added: MomoTalk Editor.<br/>(An external project, not made by me.)"
       ]
     },
     {
@@ -58,7 +58,7 @@
     {
       "title": "2024-11-07",
       "contents": [
-        "Profile screen added. (Click the level icon in the upper left to access it)"
+        "Profile page added.<br/>(Click the level icon in the upper left to access it)"
       ]
     },
     {
