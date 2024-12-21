@@ -1,6 +1,19 @@
 {
   "announcementList": [
     {
+      "title": "C105 menu",
+      "contents": [
+        "Here's the C105 menu：",
+        "<img src='/announcement/c105_shinagaki.jpg' alt='' style='height: 300px;'></img>",
+        "Click here to see the <a href='https://x.com/ApricotLemonTea/status/1870559541634764935' target='_blank' style='color: #3987ff'>tweet</a>",
+        "I printed a lot this time so it may not been sold out too early.",
+        "If you can't come, you can also buy these on online shop：",
+        "・The illust books are on <a href='https://www.melonbooks.co.jp/circle/index.php?circle_id=129456' target='_blank' style='color: #3987ff'>Melonbooks</a>",
+        "・The acrylic goods are on <a href='https://apricotlemontea.booth.pm/' target='_blank' style='color: #3987ff'>BOOTH</a>"
+      ],
+      "time": "2024-12-22"
+    },
+    {
       "title": "C105 goods introduction",
       "contents": [
         "The goods which will be sold at C105 are as below：",

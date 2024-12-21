@@ -74,27 +74,27 @@ const openAnnounce = () => {
           <!--日语使用说明-->
           <p v-show="i18n.global.locale === 'ja'">使い方は
             <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-jp.md')"
-                  class="css-cursor-hover-enabled"
+                  class="css-cursor-hover-enabled link"
                   style="color: #3987ff">こちら</span>
           </p>
           <!--中文使用说明-->
           <p v-show="i18n.global.locale === 'zh'">
             <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-zh_cn.md')"
-                  class="css-cursor-hover-enabled"
+                  class="css-cursor-hover-enabled link"
                   style="color: #3987ff">点击这里</span>
             查看食用说明
           </p>
           <!--英语使用说明-->
           <p v-show="i18n.global.locale === 'en'">
             <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use.md')"
-                  class="css-cursor-hover-enabled"
+                  class="css-cursor-hover-enabled link"
                   style="color: #3987ff">Click here</span>
             to learn how to use
           </p>
           <br />
           <p>Made by
             <span @click="openUrl('https://github.com/U1805/momotalk')"
-                  class="css-cursor-hover-enabled"
+                  class="css-cursor-hover-enabled link"
                   style="color: #3987ff">U1805</span>
           </p>
         </div>

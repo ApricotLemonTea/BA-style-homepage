@@ -1,7 +1,20 @@
 {
   "announcementList": [
     {
-      "title": "C105冬コミ頒布物のご紹介",
+      "title": "C105品書き",
+      "contents": [
+        "冬コミの品書きです：",
+        "<img src='/announcement/c105_shinagaki.jpg' alt='' style='height: 300px;'></img>",
+        "品書きのツイートは<a href='https://x.com/ApricotLemonTea/status/1870559541634764935' target='_blank' style='color: #3987ff'>こちら</a>。",
+        "今回の数はそれなりに用意してるので、来る予定のある方はたぶん急がなくても大丈夫です。",
+        "現地来れない方は通販でも買えます：",
+        "・イラスト本は<a href='https://www.melonbooks.co.jp/circle/index.php?circle_id=129456' target='_blank' style='color: #3987ff'>メロンブックス</a>にて",
+        "・アクリルグッズは<a href='https://apricotlemontea.booth.pm/' target='_blank' style='color: #3987ff'>BOOTH</a>にて"
+      ],
+      "time": "2024-12-22"
+    },
+    {
+      "title": "C105頒布物のご紹介",
       "contents": [
         "冬コミに頒布する予定のグッズは画像通りの５点になります：",
         "<img src='/announcement/c105_goods.jpg' alt='' style='height: 300px;'></img>",
@@ -14,7 +27,7 @@
       "time": "2024-12-14"
     },
     {
-      "title": "C105冬コミ当選しました",
+      "title": "C105当選しました",
       "contents": [
         "「◎貴方のサークル「杏仁茶館」は、日曜日 東地区 “Ｊ”ブロック－51aに配置されました。」",
         "<img src='/announcement/c105_circle_cut.png' alt='' style='height: 300px;'></img>",
