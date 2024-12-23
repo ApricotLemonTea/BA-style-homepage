@@ -1,6 +1,10 @@
 <script setup>
 import TopBar from '@/components/TopBar.vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { getFormattedDate } from '@/utils/commonFunctions'
+import { useUserStore } from '@/store/userStore'
+
+const userStore = useUserStore()
 
 const tabList = ref(["aaa", "bbb", "ccc"])
 const selectedIndex = ref(0)
@@ -11,6 +15,27 @@ const firstTabStyle = {
 }
 const endTabStyle = {
   'border-top-right-radius': '15px'
+}
+
+// 每日登录逻辑（复制自Toolbox.vue）
+const loginDate = ref(localStorage.getItem("login-date"))
+const nowDate = ref(getFormattedDate(new Date()))
+
+const increasePyroxene = () => {
+  console.log(loginDate.value, nowDate.value)
+
+  if (loginDate.value === nowDate.value){
+    return
+  }
+
+  userStore.pyroxene += 1200
+  // 将领取日期（今天）存储到storage
+  localStorage.setItem("login-date", nowDate.value)
+  // 将增加后的青辉石存储到storage
+  localStorage.setItem("pyroxene", userStore.pyroxene)
+
+  // 更新loginDate
+  loginDate.value = localStorage.getItem("login-date")
 }
 </script>
 
@@ -37,9 +62,9 @@ const endTabStyle = {
     </div>
 
     <div class="login-bonus-block">
-      <div class="login-text">デイリーログイン（0 / 1）</div>
+      <div class="login-text">デイリーログイン（{{ loginDate == nowDate ? 1 : 0 }} / 1）</div>
       <a-progress
-        :percent="0.7"
+        :percent="loginDate == nowDate ? 1 : 0"
         :show-text="false"
         :stroke-width="15"
         track-color="#343c42ff"
@@ -48,7 +73,7 @@ const endTabStyle = {
       />
     </div>
 
-    <div class="yellow-button">受取</div>
+    <div class="yellow-button" @click="increasePyroxene">受取</div>
   </div>
 </template>
 
