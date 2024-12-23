@@ -1,6 +1,6 @@
 <script setup>
 import TopBar from '@/components/TopBar.vue'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { getFormattedDate } from '@/utils/commonFunctions'
 import { useUserStore } from '@/store/userStore'
 
@@ -100,7 +100,7 @@ const increasePyroxene = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 30px;
+      font-size: 2vw;
       margin-left: 0.3%;
       border-radius: 5px;
     }
@@ -136,6 +136,7 @@ const increasePyroxene = () => {
   bottom: 4vh;
   right: 21vw;
   border-radius: 10px;
+  box-shadow: 2px 2px 5px #bec9d8;
   display: flex;
   flex-direction: column;
 
@@ -146,12 +147,12 @@ const increasePyroxene = () => {
 }
 
 .progress-bar {
-  width: 92%;
+  width: 92.5%;
   margin: 0 3% 0 3%;
 }
 
 .yellow-button {
-  background-color: #faf27c;
+  background-color: #fdf76c;
   width: 10vw;
   height: 8vh;
   position: fixed;
