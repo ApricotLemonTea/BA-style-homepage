@@ -1,10 +1,11 @@
 <script setup>
 
+import TopBar from '@/components/TopBar.vue'
 </script>
 
 <template>
   <div>
-    mission page
+    <TopBar></TopBar>
   </div>
 </template>
 
