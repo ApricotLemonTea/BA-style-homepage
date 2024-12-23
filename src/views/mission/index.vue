@@ -47,6 +47,8 @@ const endTabStyle = {
         class="progress-bar"
       />
     </div>
+
+    <div class="yellow-button">受取</div>
   </div>
 </template>
 
@@ -103,24 +105,42 @@ const endTabStyle = {
 
 .login-bonus-block {
   background-color: #ffffff;
-  width: 60vw;
+  width: 45vw;
   height: 10vh;
   position: fixed;
   bottom: 4vh;
-  right: 6vw;
+  right: 21vw;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
 
   .login-text {
-    font-size: 25px;
-    margin: 1.5% 0 0 5%;
+    font-size: 1.3vw;
+    margin: 2% 5% 1% 5%;
   }
 }
 
 .progress-bar {
-  height: 2vh;
-  width: 70%;
-  margin: 1% 0 0 3%;
+  width: 92%;
+  margin: 0 3% 0 3%;
+}
+
+.yellow-button {
+  background-color: #faf27c;
+  width: 10vw;
+  height: 8vh;
+  position: fixed;
+  bottom: 5vh;
+  right: 8vw;
+  transform: skew(-10deg);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #bec9d8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+}
+.yellow-button:active {
+  transform: scale(0.93) skew(-10deg);
 }
 </style>
