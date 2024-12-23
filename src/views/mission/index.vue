@@ -1,5 +1,8 @@
 <script setup>
 import TopBar from '@/components/TopBar.vue'
+import { ref } from 'vue'
+
+const tabList = ref(["実装予定機能", "実績", "aaa"])
 </script>
 
 <template>
@@ -7,7 +10,14 @@ import TopBar from '@/components/TopBar.vue'
     <TopBar></TopBar>
 
     <div class="mission-container">
-      <div class="mission-tab"></div>
+      <div class="mission-tab-block">
+        <div v-for="(item, index) in tabList" :key="index"
+             class="mission-tab-item"
+             :style="index == 0 ? { 'margin-left' : 0 } : ''"
+        >
+          {{ item }}
+        </div>
+      </div>
 
       <div class="mission-item-container">
         <div class="mission-item"></div>
@@ -21,22 +31,36 @@ import TopBar from '@/components/TopBar.vue'
 
 <style scoped>
 .mission-container {
-  background-color: #9ec6e8;
+  //background-color: #9ec6e8;
   width: 60vw;
   height: 70vh;
   position: fixed;
-  top: 14vh;
+  top: 10vh;
   right: 6vw;
   display: flex;
   flex-direction: column;
 
-  .mission-tab {
-    background-color: #7db9b4;
+  .mission-tab-block {
     width: 100%;
     height: 12%;
+    display: flex;
+    overflow: hidden;
+
+    .mission-tab-item {
+      background-color: white;
+      height: 100%;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      margin-left: 0.3%;
+      border-radius: 6px;
+    }
   }
+
   .mission-item-container {
-    background-color: #b8f1c9;
+    //background-color: #757575;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -44,10 +68,10 @@ import TopBar from '@/components/TopBar.vue'
 
     .mission-item {
       background-color: pink;
-      width: 90%;
+      width: 97%;
       height: 25%;
       border-radius: 12px;
-      margin-top: 15px;
+      margin-top: 2%;
     }
   }
 }
@@ -57,7 +81,7 @@ import TopBar from '@/components/TopBar.vue'
   width: 60vw;
   height: 10vh;
   position: fixed;
-  bottom: 2vh;
+  bottom: 4vh;
   right: 6vw;
   display: flex;
   flex-direction: column;
