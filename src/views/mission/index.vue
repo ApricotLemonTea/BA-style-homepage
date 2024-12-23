@@ -21,7 +21,7 @@ const endTabStyle = {
     <div class="mission-container">
       <div class="mission-tab-block">
         <div v-for="(item, index) in tabList" :key="index"
-             @click="() => { selectedIndex = index}"
+             @click="() => { selectedIndex = index }"
              :class="selectedIndex == index ? 'mission-tab-item selected' : 'mission-tab-item'"
              :style="index == 0 ? firstTabStyle
                                 : index == tabList.length - 1 ? endTabStyle : ''"
@@ -32,11 +32,21 @@ const endTabStyle = {
 
       <div class="mission-item-container">
         <div class="mission-item"></div>
-        <div class="mission-item" style="background-color: #f3e8ba"></div>
+        <div class="mission-item"></div>
       </div>
     </div>
 
-    <div class="login-bonus-block"></div>
+    <div class="login-bonus-block">
+      <div class="login-text">デイリーログイン（0 / 1）</div>
+      <a-progress
+        :percent="0.7"
+        :show-text="false"
+        :stroke-width="15"
+        track-color="#343c42ff"
+        color="#00bfffff"
+        class="progress-bar"
+      />
+    </div>
   </div>
 </template>
 
@@ -82,7 +92,7 @@ const endTabStyle = {
     align-items: center;
 
     .mission-item {
-      background-color: pink;
+      background-color: #ffffff;
       width: 97%;
       height: 25%;
       border-radius: 12px;
@@ -92,13 +102,25 @@ const endTabStyle = {
 }
 
 .login-bonus-block {
-  background-color: #9ec6e8;
+  background-color: #ffffff;
   width: 60vw;
   height: 10vh;
   position: fixed;
   bottom: 4vh;
   right: 6vw;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+
+  .login-text {
+    font-size: 25px;
+    margin: 1.5% 0 0 5%;
+  }
+}
+
+.progress-bar {
+  height: 2vh;
+  width: 70%;
+  margin: 1% 0 0 3%;
 }
 </style>
