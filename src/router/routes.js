@@ -15,6 +15,15 @@ const routes = [
       title: "Profile - 杏仁レモンティー",
       topBarTitle: "プロフィール"
     }
+  },
+  {
+    path: "/mission",
+    name: "Mission",
+    component: () => import("@/views/mission/index.vue"),
+    meta: {
+      title: "Mission - 杏仁レモンティー",
+      topBarTitle: "ミッション"
+    }
   }
 ]
 

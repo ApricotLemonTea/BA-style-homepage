@@ -8,6 +8,7 @@ import announcement from '@/notes/announcement/announcementJa.json'
 import { useI18n } from "vue-i18n"
 import { openUrl } from '@/utils/commonFunctions'
 import i18n from '@/locale'
+import router from '@/router'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -27,7 +28,8 @@ const hasNewAnnounce = ref(viewedAnnounceDate.value === recentAnnounceDate.value
  * 打开mission页面
  */
 const openMission = () => {
-  missionRef.value.open()
+  // missionRef.value.open()
+  router.push("/mission")
 }
 
 /**
