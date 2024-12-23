@@ -59,7 +59,7 @@ const routerNavigate = (routerCase) => {
     <div class="status-block">
       <img src="/img/gold.png" alt="" />
       <p>{{ numberWithCommas(credit) }}</p>
-      <a-divider direction="vertical" :size="2" class="divider"></a-divider>
+      <a-divider direction="vertical" :size="2" class="divider" style="margin-left: 20px"></a-divider>
     </div>
 
     <div class="status-block">
