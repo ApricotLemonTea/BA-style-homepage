@@ -2,7 +2,16 @@
 import TopBar from '@/components/TopBar.vue'
 import { ref } from 'vue'
 
-const tabList = ref(["実装予定機能", "実績", "aaa"])
+const tabList = ref(["aaa", "bbb", "ccc"])
+const selectedIndex = ref(0)
+
+const firstTabStyle = {
+  'margin-left' : 0,
+  'border-top-left-radius': '15px'
+}
+const endTabStyle = {
+  'border-top-right-radius': '15px'
+}
 </script>
 
 <template>
@@ -12,8 +21,10 @@ const tabList = ref(["実装予定機能", "実績", "aaa"])
     <div class="mission-container">
       <div class="mission-tab-block">
         <div v-for="(item, index) in tabList" :key="index"
-             class="mission-tab-item"
-             :style="index == 0 ? { 'margin-left' : 0 } : ''"
+             @click="() => { selectedIndex = index}"
+             :class="selectedIndex == index ? 'mission-tab-item selected' : 'mission-tab-item'"
+             :style="index == 0 ? firstTabStyle
+                                : index == tabList.length - 1 ? endTabStyle : ''"
         >
           {{ item }}
         </div>
@@ -31,9 +42,8 @@ const tabList = ref(["実装予定機能", "実績", "aaa"])
 
 <style scoped>
 .mission-container {
-  //background-color: #9ec6e8;
   width: 60vw;
-  height: 70vh;
+  height: 72vh;
   position: fixed;
   top: 10vh;
   right: 6vw;
@@ -55,12 +65,17 @@ const tabList = ref(["実装予定機能", "実績", "aaa"])
       align-items: center;
       font-size: 30px;
       margin-left: 0.3%;
-      border-radius: 6px;
+      border-radius: 5px;
+    }
+    .selected {
+      background-color: #2f4766ff;
+      color: #fada0aff;
     }
   }
 
   .mission-item-container {
-    //background-color: #757575;
+    background-color: #75757525;
+    border-radius: 5px 5px 15px 15px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
