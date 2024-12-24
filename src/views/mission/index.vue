@@ -96,7 +96,7 @@ const increasePyroxene = () => {
 
     <div :class="loginDate == nowDate ? 'yellow-button disabled' : 'yellow-button'"
          @click="increasePyroxene">
-      受取
+      {{ t("mission.受取") }}
     </div>
   </div>
 </template>
