@@ -2,7 +2,6 @@
 // import { Icon } from '@arco-design/web-vue'
 // import config from '/_config.json'
 import { ref } from 'vue'
-import Mission from '@/views/lobby/components/Mission.vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
 import announcement from '@/notes/announcement/announcementJa.json'
 import { useI18n } from "vue-i18n"
@@ -15,7 +14,6 @@ import router from '@/router'
 // })
 
 const { t } = useI18n()
-const missionRef = ref()
 const totalInfoRef = ref()
 
 defineEmits(["start-guide"])
@@ -28,7 +26,6 @@ const hasNewAnnounce = ref(viewedAnnounceDate.value === recentAnnounceDate.value
  * 打开mission页面
  */
 const openMission = () => {
-  // missionRef.value.open()
   router.push("/mission")
 }
 
@@ -136,8 +133,7 @@ const openAnnounce = () => {
       </template>
     </a-popover>
   </div>
-  
-  <Mission ref="missionRef"></Mission>
+
   <TotalInfo ref="totalInfoRef"></TotalInfo>
 </template>
 
