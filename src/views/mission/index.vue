@@ -29,7 +29,12 @@ const mission = computed(() => {
   }
 })
 
-const tabList = ref([t("mission.missionTag.すべて"), t("mission.missionTag.イベント"), t("mission.missionTag.実績"), "TODO"])
+const tabList = ref([
+  t("mission.missionTag.すべて"),
+  t("mission.missionTag.イベント"),
+  t("mission.missionTag.実績"),
+  "TODO"
+])
 const selectedIndex = ref(0)
 
 const firstTabStyle = {
