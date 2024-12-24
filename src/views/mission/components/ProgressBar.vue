@@ -1,0 +1,18 @@
+<script setup>
+  const props = defineProps(["percent"])
+</script>
+
+<template>
+  <a-progress
+    :percent="props.percent"
+    :show-text="false"
+    :stroke-width="15"
+    track-color="#343c42ff"
+    color="#00bfffff"
+    class="progress-bar"
+  />
+</template>
+
+<style scoped>
+
+</style>

@@ -3,6 +3,7 @@ import TopBar from '@/components/TopBar.vue'
 import { ref } from 'vue'
 import { getFormattedDate } from '@/utils/commonFunctions'
 import { useUserStore } from '@/store/userStore'
+import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 
 const userStore = useUserStore()
 
@@ -69,14 +70,7 @@ const increasePyroxene = () => {
           <div class="mission-times-block">
             <div class="mission-times">
               <span>次数：0 / 1</span>
-              <a-progress
-                :percent="0.7"
-                :show-text="false"
-                :stroke-width="15"
-                track-color="#343c42ff"
-                color="#00bfffff"
-                class="progress-bar"
-              />
+              <ProgressBar :percent="0.7"/>
             </div>
           </div>
         </div>
@@ -86,14 +80,7 @@ const increasePyroxene = () => {
 
     <div class="login-bonus-block">
       <div class="login-text">デイリーログイン（{{ loginDate == nowDate ? 1 : 0 }} / 1）</div>
-      <a-progress
-        :percent="loginDate == nowDate ? 1 : 0"
-        :show-text="false"
-        :stroke-width="15"
-        track-color="#343c42ff"
-        color="#00bfffff"
-        class="progress-bar"
-      />
+      <ProgressBar :percent="loginDate == nowDate ? 1 : 0" />
     </div>
 
     <div :class="loginDate == nowDate ? 'yellow-button disabled' : 'yellow-button'"
