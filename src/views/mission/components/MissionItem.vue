@@ -39,7 +39,7 @@ const missionTags = [
     </div>
     <div class="mission-times-block">
       <div class="mission-times">
-        <span>次数：{{ props.times }} / 1</span>
+        <span>{{ t("mission.回数") }}：{{ props.times }} / 1</span>
         <ProgressBar :percent="props.times"/>
       </div>
     </div>
