@@ -16,6 +16,11 @@ const firstTabStyle = {
 const endTabStyle = {
   'border-top-right-radius': '15px'
 }
+const missionTagColors = {
+  "実績": {
+    "background-color": "#e08700ff",
+  }
+}
 
 // 每日登录逻辑（复制自Toolbox.vue）
 const loginDate = ref(localStorage.getItem("login-date"))
@@ -43,7 +48,7 @@ const increasePyroxene = () => {
   <div>
     <TopBar></TopBar>
 
-    <div class="mission-container">
+    <div class="mission-container blue-text-color">
       <div class="mission-tab-block">
         <div v-for="(item, index) in tabList" :key="index"
              @click="() => { selectedIndex = index }"
@@ -56,7 +61,25 @@ const increasePyroxene = () => {
       </div>
 
       <div class="mission-item-container">
-        <div class="mission-item"></div>
+        <div class="mission-item">
+          <div class="mission-item-title-block">
+            <div class="mission-tag" :style="missionTagColors['実績']">実績</div>
+            <div class="mission-title">titleaaa</div>
+          </div>
+          <div class="mission-times-block">
+            <div class="mission-times">
+              <span>次数：0 / 1</span>
+              <a-progress
+                :percent="0.7"
+                :show-text="false"
+                :stroke-width="15"
+                track-color="#343c42ff"
+                color="#00bfffff"
+                class="progress-bar"
+              />
+            </div>
+          </div>
+        </div>
         <div class="mission-item"></div>
       </div>
     </div>
@@ -125,6 +148,49 @@ const increasePyroxene = () => {
       height: 25%;
       border-radius: 12px;
       margin-top: 2%;
+      display: flex;
+      flex-direction: column;
+
+      .mission-item-title-block {
+        width: 95%;
+        height: 40%;
+        margin: 0.3vh auto 0;
+        display: flex;
+        align-items: center;
+        border-bottom: 0.2vh solid #bfc4c7ff;
+
+        .mission-tag {
+          width: 10%;
+          height: 70%;
+          border-radius: 5px;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.3vw;
+        }
+        .mission-title {
+          font-size: 1.5vw;
+          margin-left: 3%;
+        }
+      }
+
+      .mission-times-block {
+        flex-grow: 1;
+        display: flex;
+
+        .mission-times {
+          width: 60%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+        }
+        .mission-times span {
+          margin: 0 5% 1.2%;
+          font-size: 1.2vw;
+        }
+      }
     }
   }
 }
