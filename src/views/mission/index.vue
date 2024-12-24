@@ -84,7 +84,7 @@ const increasePyroxene = () => {
       <!--mission内容-->
       <div class="mission-item-container">
         <template v-for="item in mission.missionList" :key="item">
-          <MissionItem v-if="selectedIndex == 0 ? true : item.tagIndex == selectedIndex"
+          <MissionItem v-show="selectedIndex == 0 ? true : item.tagIndex == selectedIndex"
                        :tagIndex="item.tagIndex" :title="item.title" :times="item.times"
           />
         </template>
