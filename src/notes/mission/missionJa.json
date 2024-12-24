@@ -1,9 +1,19 @@
 {
   "missionList": [
-    "動けるLive2Dメモロビ",
-    "ガチャシミュレーター",
-    "ローディング画面のデフォルメイラスト",
-    "ミッション画面をゲーム内仕様に改修",
-    "スマホ閲覧対応"
+    {
+      "tagIndex": 0,
+      "title": "English mission title 0",
+      "times": 0
+    },
+    {
+      "tagIndex": 1,
+      "title": "English mission title 1",
+      "times": 1
+    },
+    {
+      "tagIndex": 2,
+      "title": "English mission title 2",
+      "times": 2
+    }
   ]
 }

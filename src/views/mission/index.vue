@@ -1,14 +1,33 @@
 <script setup>
 import TopBar from '@/components/TopBar.vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { getFormattedDate } from '@/utils/commonFunctions'
 import { useUserStore } from '@/store/userStore'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import MissionItem from '@/views/mission/components/MissionItem.vue'
 import { useI18n } from 'vue-i18n'
+import missionJa from '/src/notes/mission/missionJa.json'
+import missionZh from '/src/notes/mission/missionZh.json'
+import missionEn from '/src/notes/mission/missionEn.json'
+import i18n from '@/locale'
+
 const { t } = useI18n()
 
 const userStore = useUserStore()
+
+const mission = computed(() => {
+  switch (i18n.global.locale){
+    case "ja":
+      return missionJa
+    case "zh":
+      return missionZh
+    case "en":
+      return missionEn
+
+    default:
+      return missionJa
+  }
+})
 
 const tabList = ref([t("mission.missionTag.イベント"), t("mission.missionTag.実績"), "TODO"])
 const selectedIndex = ref(0)
@@ -21,6 +40,7 @@ const endTabStyle = {
   'border-top-right-radius': '15px'
 }
 
+// *********************************
 // 每日登录逻辑（复制自Toolbox.vue）
 const loginDate = ref(localStorage.getItem("login-date"))
 const nowDate = ref(getFormattedDate(new Date()))
@@ -41,6 +61,7 @@ const increasePyroxene = () => {
   // 更新loginDate
   loginDate.value = localStorage.getItem("login-date")
 }
+// *********************************
 </script>
 
 <template>
@@ -48,6 +69,7 @@ const increasePyroxene = () => {
     <TopBar></TopBar>
 
     <div class="mission-container blue-text-color">
+      <!--tab切换-->
       <div class="mission-tab-block">
         <div v-for="(item, index) in tabList" :key="index"
              @click="() => { selectedIndex = index }"
@@ -59,8 +81,11 @@ const increasePyroxene = () => {
         </div>
       </div>
 
+      <!--mission内容-->
       <div class="mission-item-container">
-        <MissionItem :tagIndex="0" :title="'titleaaaa'" :times="0"/>
+        <MissionItem v-for="item in mission.missionList" :key="item"
+          :tagIndex="item.tagIndex" :title="item.title" :times="item.times"
+        />
       </div>
     </div>
 
@@ -111,11 +136,13 @@ const increasePyroxene = () => {
 
   .mission-item-container {
     background-color: #75757525;
-    border-radius: 5px 5px 15px 15px;
+    border-radius: 5px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 1%;
+    overflow-y: auto;
   }
 }
 

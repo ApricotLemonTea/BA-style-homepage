@@ -49,7 +49,7 @@ const missionTags = [
 .mission-item {
   background-color: #ffffff;
   width: 97%;
-  height: 25%;
+  min-height: 25%;
   border-radius: 12px;
   margin-top: 2%;
   display: flex;

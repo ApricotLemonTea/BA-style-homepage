@@ -1,9 +1,29 @@
 {
   "missionList": [
-    "Animated Live2D Memorial Lobby",
-    "Gacha Simulator",
-    "Chibi Illustrations for Loading Screen",
-    "Revamp Mission Screen to Match In-Game Style",
-    "Mobile Viewing Support"
+    {
+      "tagIndex": 0,
+      "title": "English mission title 0",
+      "times": 0
+    },
+    {
+      "tagIndex": 1,
+      "title": "English mission title 1",
+      "times": 1
+    },
+    {
+      "tagIndex": 1,
+      "title": "English mission title 2",
+      "times": 2
+    },
+    {
+      "tagIndex": 1,
+      "title": "English mission title 2",
+      "times": 2
+    },
+    {
+      "tagIndex": 1,
+      "title": "English mission title 2",
+      "times": 2
+    }
   ]
 }
