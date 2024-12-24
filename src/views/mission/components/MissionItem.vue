@@ -6,6 +6,7 @@ const { t } = useI18n()
 const props = defineProps(["tagIndex", "title", "times"])
 
 const missionTags = [
+  {},
   {
     label: t("mission.missionTag.イベント"),
     style: {

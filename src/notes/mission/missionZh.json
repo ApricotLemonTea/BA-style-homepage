@@ -1,7 +1,7 @@
 {
   "missionList": [
     {
-      "tagIndex": 0,
+      "tagIndex": 1,
       "title": "English mission title 0",
       "times": 0
     },
@@ -16,12 +16,12 @@
       "times": 2
     },
     {
-      "tagIndex": 1,
+      "tagIndex": 2,
       "title": "English mission title 2",
       "times": 2
     },
     {
-      "tagIndex": 1,
+      "tagIndex": 3,
       "title": "English mission title 2",
       "times": 2
     }
