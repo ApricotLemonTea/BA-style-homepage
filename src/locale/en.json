@@ -48,6 +48,7 @@
   "mission": {
     "ミッション": "Tasks",
     "missionTag": {
+      "すべて": "All",
       "イベント": "Event",
       "実績": "Achieve"
     },

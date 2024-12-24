@@ -29,7 +29,7 @@ const mission = computed(() => {
   }
 })
 
-const tabList = ref([t("mission.missionTag.イベント"), t("mission.missionTag.実績"), "TODO"])
+const tabList = ref([t("mission.missionTag.すべて"), t("mission.missionTag.イベント"), t("mission.missionTag.実績"), "TODO"])
 const selectedIndex = ref(0)
 
 const firstTabStyle = {
@@ -120,7 +120,7 @@ const increasePyroxene = () => {
     .mission-tab-item {
       background-color: white;
       height: 100%;
-      width: 50%;
+      width: 25%;
       display: flex;
       justify-content: center;
       align-items: center;
