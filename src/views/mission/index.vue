@@ -73,7 +73,8 @@ const increasePyroxene = () => {
       />
     </div>
 
-    <div class="yellow-button" @click="increasePyroxene">受取</div>
+    <div :class="loginDate == nowDate ? 'yellow-button disabled' : 'yellow-button'"
+         @click="increasePyroxene">受取</div>
   </div>
 </template>
 
@@ -134,7 +135,7 @@ const increasePyroxene = () => {
   height: 10vh;
   position: fixed;
   bottom: 4vh;
-  right: 21vw;
+  right: 20.5vw;
   border-radius: 10px;
   box-shadow: 2px 2px 5px #bec9d8;
   display: flex;
@@ -152,12 +153,12 @@ const increasePyroxene = () => {
 }
 
 .yellow-button {
-  background-color: #fdf76c;
-  width: 10vw;
+  background-color: #fdf16c;
+  width: 11vw;
   height: 8vh;
   position: fixed;
   bottom: 5vh;
-  right: 8vw;
+  right: 7.5vw;
   transform: skew(-10deg);
   border-radius: 10px;
   box-shadow: 5px 5px 5px #bec9d8;
@@ -168,5 +169,12 @@ const increasePyroxene = () => {
 }
 .yellow-button:active {
   transform: scale(0.93) skew(-10deg);
+}
+.disabled {
+  background-color: #dedee0ff;
+  color: #9c9c9cff;
+}
+.disabled:active {
+  transform: scale(1) skew(-10deg);
 }
 </style>
