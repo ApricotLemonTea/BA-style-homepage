@@ -1,6 +1,8 @@
 <script setup>
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 
+const props = defineProps(["tag", "title", "times"])
+
 const missionTagColors = {
   "実績": {
     "background-color": "#e08700ff",
@@ -11,13 +13,16 @@ const missionTagColors = {
 <template>
   <div class="mission-item">
     <div class="mission-item-title-block">
-      <div class="mission-tag" :style="missionTagColors['実績']">実績</div>
-      <div class="mission-title">titleaaa</div>
+      <div class="mission-tag"
+           :style="missionTagColors[props.tag] ? missionTagColors[props.tag] : ''">
+        {{ props.tag }}
+      </div>
+      <div class="mission-title">{{ props.title }}</div>
     </div>
     <div class="mission-times-block">
       <div class="mission-times">
-        <span>次数：0 / 1</span>
-        <ProgressBar :percent="0.7"/>
+        <span>次数：{{ props.times }} / 1</span>
+        <ProgressBar :percent="props.times"/>
       </div>
     </div>
   </div>
@@ -42,6 +47,7 @@ const missionTagColors = {
     border-bottom: 0.2vh solid #bfc4c7ff;
 
     .mission-tag {
+      background-color: #389fe8ff;
       min-width: 10%;
       height: 70%;
       border-radius: 5px;

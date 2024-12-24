@@ -58,7 +58,7 @@ const increasePyroxene = () => {
       </div>
 
       <div class="mission-item-container">
-        <MissionItem></MissionItem>
+        <MissionItem :tag="'イベント'" :title="'titleaaaa'" :times="0"/>
       </div>
     </div>
 
