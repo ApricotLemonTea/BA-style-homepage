@@ -14,5 +14,8 @@
 </template>
 
 <style scoped>
-
+.progress-bar {
+  width: 92.5%;
+  margin: 0 3% 0 3%;
+}
 </style>
