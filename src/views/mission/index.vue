@@ -124,7 +124,7 @@ const increasePyroxene = () => {
 
   .mission-tab-block {
     width: 100%;
-    height: 12%;
+    height: 10%;
     display: flex;
     overflow: hidden;
 
@@ -135,7 +135,7 @@ const increasePyroxene = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2vw;
+      font-size: 1.7vw;
       margin-left: 0.3%;
       border-radius: 5px;
     }
