@@ -8,7 +8,7 @@ import MissionItem from '@/views/mission/components/MissionItem.vue'
 
 const userStore = useUserStore()
 
-const tabList = ref(["aaa", "bbb", "ccc"])
+const tabList = ref(["イベント", "実績", "TODO"])
 const selectedIndex = ref(0)
 
 const firstTabStyle = {
@@ -58,7 +58,7 @@ const increasePyroxene = () => {
       </div>
 
       <div class="mission-item-container">
-        <MissionItem :tag="'イベント'" :title="'titleaaaa'" :times="0"/>
+        <MissionItem :tagIndex="0" :title="'titleaaaa'" :times="0"/>
       </div>
     </div>
 

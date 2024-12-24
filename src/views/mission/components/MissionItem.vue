@@ -1,21 +1,36 @@
 <script setup>
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 
-const props = defineProps(["tag", "title", "times"])
+const props = defineProps(["tagIndex", "title", "times"])
 
-const missionTagColors = {
-  "実績": {
-    "background-color": "#e08700ff",
+const missionTags = [
+  {
+    label: "イベント",
+    style: {
+      "background-color": "#49d553"
+    }
+  },
+  {
+    label: "実績",
+    style: {
+      "background-color": "#e08700ff"
+    }
+  },
+  {
+    label: "TODO",
+    style: {
+      "background-color": "#389fe8ff"
+    }
   }
-}
+]
 </script>
 
 <template>
   <div class="mission-item">
     <div class="mission-item-title-block">
       <div class="mission-tag"
-           :style="missionTagColors[props.tag] ? missionTagColors[props.tag] : ''">
-        {{ props.tag }}
+           :style="missionTags[props.tagIndex] != null ? missionTags[props.tagIndex].style : ''">
+        {{ missionTags[props.tagIndex].label }}
       </div>
       <div class="mission-title">{{ props.title }}</div>
     </div>
