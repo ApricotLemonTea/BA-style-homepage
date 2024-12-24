@@ -32,6 +32,7 @@
     "モモトークエディター": "MomoTalk Editor",
     "モモトーク風のチャット作成ツールです。": "A web chat generator, styled from Blue Archive MomoTalk."
   },
+
   "footer": {
     "メールアドレスをコピーしました": "Email address copied",
     "主にここで喋ってます": "Mainly talking here",
@@ -43,13 +44,21 @@
     "(クリックでコピーできます)": "(Click to copy)",
     "ご要望、ご感想などはこちらに": "Send your requests or feedback here"
   },
+
   "mission": {
-    "ミッション": "Tasks"
+    "ミッション": "Tasks",
+    "missionTag": {
+      "イベント": "Event",
+      "実績": "Achieve"
+    },
+    "デイリーログイン": "Daily Login"
   },
+
   "task": {
     "イラスト": "Illusts",
     "ポートフォリオです": "This is a portfolio"
   },
+
   "toolbox": {
     "次の回復まであと": "Time until next recovery:",
     "秒。": "seconds.",
@@ -74,12 +83,14 @@
       "（当サイトはブルアカ公式とは一切関係ありません）": "(This site has nothing to do with Blue Archive official)"
     }
   },
+
   "totalInfo": {
     "お知らせ": "Announcements",
     "パッチノート": "Patch Notes",
     "その他": "Others",
     "予備用のタブです、まだ何もありません。": "This is a placeholder tab, nothing here yet."
   },
+
   "guide": {
     "プロフィールと経験値とレベル": "Profile, Experience Points, and Level",
     "クリックするとプロフィール画面に移動します。": "Click to move to the profile page.",
@@ -101,6 +112,7 @@
     "外部リンクその他": "Other External Links",
     "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea's SNS and more."
   },
+
   "profile": {
     "絵が少し描ける一般人です。": "A regular person who can draw a little bit.",
     "好きなものなんでもやります。": "Will do anything I like.",

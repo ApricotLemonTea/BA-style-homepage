@@ -1,17 +1,19 @@
 <script setup>
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const props = defineProps(["tagIndex", "title", "times"])
 
 const missionTags = [
   {
-    label: "イベント",
+    label: t("mission.missionTag.イベント"),
     style: {
       "background-color": "#49d553"
     }
   },
   {
-    label: "実績",
+    label: t("mission.missionTag.実績"),
     style: {
       "background-color": "#e08700ff"
     }

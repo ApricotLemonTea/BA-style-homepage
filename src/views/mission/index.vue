@@ -5,10 +5,12 @@ import { getFormattedDate } from '@/utils/commonFunctions'
 import { useUserStore } from '@/store/userStore'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import MissionItem from '@/views/mission/components/MissionItem.vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const userStore = useUserStore()
 
-const tabList = ref(["イベント", "実績", "TODO"])
+const tabList = ref([t("mission.missionTag.イベント"), t("mission.missionTag.実績"), "TODO"])
 const selectedIndex = ref(0)
 
 const firstTabStyle = {
@@ -63,7 +65,7 @@ const increasePyroxene = () => {
     </div>
 
     <div class="login-bonus-block">
-      <div class="login-text">デイリーログイン（{{ loginDate == nowDate ? 1 : 0 }} / 1）</div>
+      <div class="login-text">{{ t("mission.デイリーログイン")}}（{{ loginDate == nowDate ? 1 : 0 }} / 1）</div>
       <ProgressBar :percent="loginDate == nowDate ? 1 : 0" />
     </div>
 
