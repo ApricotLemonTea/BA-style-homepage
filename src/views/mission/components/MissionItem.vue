@@ -42,9 +42,10 @@ const missionTagColors = {
     border-bottom: 0.2vh solid #bfc4c7ff;
 
     .mission-tag {
-      width: 10%;
+      min-width: 10%;
       height: 70%;
       border-radius: 5px;
+      padding: 0 1%;
       color: white;
       display: flex;
       justify-content: center;

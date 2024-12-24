@@ -18,11 +18,6 @@ const firstTabStyle = {
 const endTabStyle = {
   'border-top-right-radius': '15px'
 }
-const missionTagColors = {
-  "実績": {
-    "background-color": "#e08700ff",
-  }
-}
 
 // 每日登录逻辑（复制自Toolbox.vue）
 const loginDate = ref(localStorage.getItem("login-date"))
