@@ -6,9 +6,6 @@ import { useUserStore } from '@/store/userStore'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import MissionItem from '@/views/mission/components/MissionItem.vue'
 import { useI18n } from 'vue-i18n'
-import missionJa from '/src/notes/mission/missionJa.json'
-import missionZh from '/src/notes/mission/missionZh.json'
-import missionEn from '/src/notes/mission/missionEn.json'
 import i18n from '@/locale'
 import { useTagList } from '@/views/mission/tagList'
 import { loadExcelData } from '@/utils/loadExcelData'
@@ -17,14 +14,18 @@ const { t } = useI18n()
 
 const userStore = useUserStore()
 
-const mission = computed(() => {
+const missionJa = ref()
+const missionZh = ref()
+const missionEn = ref()
+
+const missionList = computed(() => {
   switch (i18n.global.locale){
     case "ja":
-      return missionJa
+      return missionJa.value
     case "zh":
-      return missionZh
+      return missionZh.value
     case "en":
-      return missionEn
+      return missionEn.value
 
     default:
       return missionJa
@@ -35,8 +36,9 @@ const tagList = useTagList(t)
 const selectedIndex = ref(0)
 
 onMounted(async () => {
-  const data = await loadExcelData("/database/mission.xlsx", 0)
-  console.log(data)
+  missionJa.value = await loadExcelData("/database/mission.xlsx", 0)
+  missionZh.value = await loadExcelData("/database/mission.xlsx", 1)
+  missionEn.value = await loadExcelData("/database/mission.xlsx", 2)
 })
 
 // *********************************
@@ -85,7 +87,7 @@ const increasePyroxene = () => {
 
       <!--mission内容-->
       <div class="mission-item-container">
-        <template v-for="item in mission.missionList" :key="item">
+        <template v-for="item in missionList" :key="item">
           <MissionItem v-show="selectedIndex == 0 ? true
                                                   : item.tagIndex == selectedIndex"
                        :tagIndex="item.tagIndex"
