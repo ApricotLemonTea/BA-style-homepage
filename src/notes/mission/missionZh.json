@@ -3,28 +3,21 @@
   "missionList": [
     {
       "tagIndex": 1,
-      "title": "English mission title 0",
-      "times": 0
+      "title": "Comic Market 105",
+      "times": 0,
+      "completeDate": ""
     },
     {
       "tagIndex": 1,
-      "title": "English mission title 1",
-      "times": 1
-    },
-    {
-      "tagIndex": 2,
-      "title": "English mission title 2",
-      "times": 2
-    },
-    {
-      "tagIndex": 2,
-      "title": "English mission title 2",
-      "times": 2
+      "title": "Comic Market 104",
+      "times": 1,
+      "completeDate": "2024-8-11"
     },
     {
       "tagIndex": 3,
-      "title": "English mission title 2",
-      "times": 2
+      "title": "任务界面重做成游戏内的样式",
+      "times": 0,
+      "completeDate": ""
     }
   ]
 }
