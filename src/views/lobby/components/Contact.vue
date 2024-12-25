@@ -1,13 +1,13 @@
 <script setup>
 // import { Icon } from '@arco-design/web-vue'
 // import config from '/_config.json'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
-import announcement from '@/notes/announcement/announcementJa.json'
 import { useI18n } from "vue-i18n"
 import { openUrl } from '@/utils/commonFunctions'
 import i18n from '@/locale'
 import router from '@/router'
+import { loadExcelData } from '@/utils/loadExcelData'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -18,9 +18,17 @@ const totalInfoRef = ref()
 
 defineEmits(["start-guide"])
 
-const viewedAnnounceDate = ref(localStorage.getItem("viewed-announce-date"))
-const recentAnnounceDate = ref(announcement.announcementList[0].time)
-const hasNewAnnounce = ref(viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1)
+const announcement = ref()
+const recentAnnounceDate = ref()
+const viewedAnnounceDate = ref()
+const hasNewAnnounce = ref()
+
+onMounted(async () => {
+  announcement.value = await loadExcelData("/data/announcement.xlsx", 0)
+  recentAnnounceDate.value = announcement.value[0].time
+  viewedAnnounceDate.value = localStorage.getItem("viewed-announce-date")
+  hasNewAnnounce.value = viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1
+})
 
 /**
  * 打开mission页面
