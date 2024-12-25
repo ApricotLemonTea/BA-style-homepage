@@ -35,7 +35,7 @@ const tagList = useTagList(t)
 const selectedIndex = ref(0)
 
 onMounted(async () => {
-  const data = await loadExcelData("/database/mission.xlsx", 1)
+  const data = await loadExcelData("/database/mission.xlsx", 0)
   console.log(data)
 })
 
