@@ -1,9 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-// import patchNoteJa from '@/notes/patchNote/patchNoteJa.json'
-// import patchNoteZh from '@/notes/patchNote/patchNoteZh.json'
-// import patchNoteEn from '@/notes/patchNote/patchNoteEn.json'
 import i18n from '@/locale'
 import { loadExcelData } from '@/utils/loadExcelData'
 
