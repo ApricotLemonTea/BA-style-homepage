@@ -10,6 +10,7 @@ import missionJa from '/src/notes/mission/missionJa.json'
 import missionZh from '/src/notes/mission/missionZh.json'
 import missionEn from '/src/notes/mission/missionEn.json'
 import i18n from '@/locale'
+import { useTagList } from '@/views/mission/tagList'
 
 const { t } = useI18n()
 
@@ -29,34 +30,7 @@ const mission = computed(() => {
   }
 })
 
-const tabList = ref([
-  t("mission.missionTag.すべて"),
-  t("mission.missionTag.イベント"),
-  t("mission.missionTag.実績"),
-  t("mission.missionTag.開発")
-])
-const tabSelectedStyle = ref([
-  {
-    // 全体
-    "background-color": "#2f4766ff",
-    "color": "#fada0aff"
-  },
-  {
-    // イベント
-    "background-color": "#eb5792ff",
-    "color": "#ffffff"
-  },
-  {
-    // 実績
-    "background-color": "#e08700ff",
-    "color": "#ffffff"
-  },
-  {
-    // 開発
-    "background-color": "#389fe8ff",
-    "color": "#ffffff"
-  }
-])
+const tagList = useTagList(t)
 const selectedIndex = ref(0)
 
 // *********************************
@@ -90,31 +64,30 @@ const increasePyroxene = () => {
     <div class="mission-container blue-text-color">
       <!--tab切换-->
       <div class="mission-tab-block">
-        <div v-for="(item, index) in tabList" :key="index"
+        <div v-for="(item, index) in tagList" :key="index"
              @click="() => { selectedIndex = index }"
              :class="[
                'mission-tab-item',
                index == 0 ? 'first-tab' : '',
-               index == tabList.length - 1 ? 'end-tab' : ''
+               index == tagList.length - 1 ? 'end-tab' : ''
              ]"
-             :style="index == selectedIndex ? tabSelectedStyle[selectedIndex] : ''"
+             :style="index == selectedIndex ? item.style : ''"
         >
-          {{ item }}
+          {{ item.label }}
         </div>
       </div>
 
       <!--mission内容-->
       <div class="mission-item-container">
         <template v-for="item in mission.missionList" :key="item">
-          <MissionItem v-show="selectedIndex == 0 ? true : item.tagIndex == selectedIndex"
-                       :tagIndex="item.tagIndex" :title="item.title"
-                       :times="item.times" :completeDate="item.completeDate"
+          <MissionItem v-show="selectedIndex == 0 ? true
+                                                  : item.tagIndex == selectedIndex"
+                       :tagIndex="item.tagIndex"
+                       :title="item.title"
+                       :times="item.times"
+                       :completeDate="item.completeDate"
           />
         </template>
-
-        <!--<MissionItem v-for="item in mission.missionList" :key="item"-->
-        <!--  :tagIndex="item.tagIndex" :title="item.title" :times="item.times"-->
-        <!--/>-->
       </div>
     </div>
 
@@ -122,9 +95,12 @@ const increasePyroxene = () => {
       <div class="login-text">{{ t("mission.デイリーログイン")}}（{{ loginDate == nowDate ? 1 : 0 }} / 1）</div>
       <ProgressBar :percent="loginDate == nowDate ? 1 : 0" />
     </div>
-
-    <div :class="loginDate == nowDate ? 'yellow-button disabled' : 'yellow-button'"
-         @click="increasePyroxene">
+    <div @click="increasePyroxene"
+         :class="[
+           'yellow-button',
+           loginDate == nowDate ? 'disabled' : ''
+         ]"
+    >
       {{ t("mission.受取") }}
     </div>
   </div>

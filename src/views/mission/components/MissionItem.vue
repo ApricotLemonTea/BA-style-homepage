@@ -1,39 +1,20 @@
 <script setup>
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import { useI18n } from 'vue-i18n'
+import { useTagList } from '@/views/mission/tagList'
 const { t } = useI18n()
 
 const props = defineProps(["tagIndex", "title", "times", "completeDate"])
 
-const missionTags = [
-  {}, // 占位用的空对象，对应「全体」的tab
-  {
-    label: t("mission.missionTag.イベント"),
-    style: {
-      "background-color": "#eb5792ff"
-    }
-  },
-  {
-    label: t("mission.missionTag.実績"),
-    style: {
-      "background-color": "#e08700ff"
-    }
-  },
-  {
-    label: t("mission.missionTag.開発"),
-    style: {
-      "background-color": "#389fe8ff"
-    }
-  }
-]
+const tagList = useTagList(t)
 </script>
 
 <template>
   <div class="mission-item">
     <div class="mission-item-title-block">
       <div class="mission-tag"
-           :style="missionTags[props.tagIndex] != null ? missionTags[props.tagIndex].style : ''">
-        {{ missionTags[props.tagIndex].label }}
+           :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''">
+        {{ tagList[props.tagIndex].label }}
       </div>
       <div class="mission-title">{{ props.title }}</div>
     </div>
