@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx'
  * 读取excel文件中的内容返回json数据
  * @param { string } filePath excel文件路径
  * @param { number } sheetIndex 要读取的工作表的index
- * @returns { Promise<string> } json化的excel数据
+ * @returns { Promise<unknown[]> } json化的excel数据
  */
 export async function loadExcelData(filePath, sheetIndex) {
   try {
