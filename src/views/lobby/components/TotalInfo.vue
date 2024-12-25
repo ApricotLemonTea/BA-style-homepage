@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import patchNoteJa from '@/notes/patchNote/patchNoteJa.json'
 import patchNoteZh from '@/notes/patchNote/patchNoteZh.json'
@@ -8,8 +8,17 @@ import announcementJa from '@/notes/announcement/announcementJa.json'
 import announcementZh from '@/notes/announcement/announcementZh.json'
 import announcementEn from '@/notes/announcement/announcementEn.json'
 import i18n from '@/locale'
+import { loadExcelData } from '@/utils/loadExcelData'
 
 const { t } = useI18n()
+
+onMounted(async () => {
+  let data = await loadExcelData("/data/announcement.xlsx", 0)
+  for (let item of data) {
+    item.contents = item.contents.split("\r\n")
+  }
+  console.log(data)
+})
 
 const announcement = computed(() => {
   switch (i18n.global.locale){
