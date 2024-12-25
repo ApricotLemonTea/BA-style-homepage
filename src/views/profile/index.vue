@@ -94,7 +94,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       height: 10vh;
       margin: 7vh 5vw 0 auto;
       display: flex;
-      border-bottom: 5px solid #ffed6f;
+      border-bottom: 0.5vh solid #ffed6f;
     }
     .name-block p {
       margin: auto;
@@ -123,7 +123,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       flex-direction: column;
     }
     .detail-block p {
-      margin-top: 12px;
+      margin-top: 1vh;
       padding: 0 0 0 4vw;
       font-size: 2.5vh;
     }
@@ -138,16 +138,15 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       width: 20vw;
       height: 8vh;
       margin-top: 3vh;
-      border-radius: 10px;
+      border-radius: 1.5vh;
       display: flex;
       justify-content: start;
       align-items: center;
       font-size: 3.5vh;
       box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
-      border: 1px solid #9ec6e8;
 
       .button-text {
-        margin-left: 20px;
+        margin-left: 10%;
         font-weight: bold;
       }
     }
@@ -155,7 +154,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       transform: scale(0.95);
     }
     .wider-border {
-      border: 3px solid #003153;
+      border: 0.3vh solid #003153;
     }
   }
 }
