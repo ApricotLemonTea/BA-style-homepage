@@ -1,5 +1,11 @@
 import * as XLSX from 'xlsx'
 
+/**
+ * 读取excel文件中的内容返回json数据
+ * @param { string } filePath excel文件路径
+ * @param { number } sheetIndex 要读取的工作表的index
+ * @returns { Promise<string> } json化的excel数据
+ */
 export async function loadExcelData(filePath, sheetIndex) {
   try {
     // 使用 fetch 从 public 目录中加载 Excel 文件
