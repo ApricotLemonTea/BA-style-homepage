@@ -1,6 +1,6 @@
 <script setup>
 import TopBar from '@/components/TopBar.vue'
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { getFormattedDate } from '@/utils/commonFunctions'
 import { useUserStore } from '@/store/userStore'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
@@ -11,6 +11,7 @@ import missionZh from '/src/notes/mission/missionZh.json'
 import missionEn from '/src/notes/mission/missionEn.json'
 import i18n from '@/locale'
 import { useTagList } from '@/views/mission/tagList'
+import { loadExcelData } from '@/utils/loadExcelData'
 
 const { t } = useI18n()
 
@@ -32,6 +33,11 @@ const mission = computed(() => {
 
 const tagList = useTagList(t)
 const selectedIndex = ref(0)
+
+onMounted(async () => {
+  const data = await loadExcelData("/database/mission.xlsx", 1)
+  console.log(data)
+})
 
 // *********************************
 // 每日登录逻辑（复制自Toolbox.vue）
