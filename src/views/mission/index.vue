@@ -33,22 +33,26 @@ const tabList = ref([
   t("mission.missionTag.すべて"),
   t("mission.missionTag.イベント"),
   t("mission.missionTag.実績"),
-  t("mission.missionTag.新機能")
+  t("mission.missionTag.開発")
 ])
 const tabSelectedStyle = ref([
   {
+    // 全体
     "background-color": "#2f4766ff",
     "color": "#fada0aff"
   },
   {
+    // イベント
     "background-color": "#eb5792ff",
     "color": "#ffffff"
   },
   {
+    // 実績
     "background-color": "#e08700ff",
     "color": "#ffffff"
   },
   {
+    // 開発
     "background-color": "#389fe8ff",
     "color": "#ffffff"
   }

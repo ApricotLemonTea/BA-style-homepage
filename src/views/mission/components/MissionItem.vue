@@ -20,7 +20,7 @@ const missionTags = [
     }
   },
   {
-    label: t("mission.missionTag.新機能"),
+    label: t("mission.missionTag.開発"),
     style: {
       "background-color": "#389fe8ff"
     }
