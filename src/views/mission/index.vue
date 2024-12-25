@@ -28,7 +28,7 @@ const missionList = computed(() => {
       return missionEn.value
 
     default:
-      return missionJa
+      return missionJa.value
   }
 })
 
