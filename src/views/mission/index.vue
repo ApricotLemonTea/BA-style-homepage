@@ -37,14 +37,6 @@ const tabList = ref([
 ])
 const selectedIndex = ref(0)
 
-const firstTabStyle = {
-  'margin-left' : 0,
-  'border-top-left-radius': '15px'
-}
-const endTabStyle = {
-  'border-top-right-radius': '15px'
-}
-
 // *********************************
 // 每日登录逻辑（复制自Toolbox.vue）
 const loginDate = ref(localStorage.getItem("login-date"))
@@ -78,9 +70,12 @@ const increasePyroxene = () => {
       <div class="mission-tab-block">
         <div v-for="(item, index) in tabList" :key="index"
              @click="() => { selectedIndex = index }"
-             :class="selectedIndex == index ? 'mission-tab-item selected' : 'mission-tab-item'"
-             :style="index == 0 ? firstTabStyle
-                                : index == tabList.length - 1 ? endTabStyle : ''"
+             :class="[
+               'mission-tab-item',
+               index == selectedIndex ? 'selected' : '',
+               index == 0 ? 'first-tab' : '',
+               index == tabList.length - 1 ? 'end-tab' : ''
+             ]"
         >
           {{ item }}
         </div>
@@ -142,6 +137,13 @@ const increasePyroxene = () => {
     .selected {
       background-color: #2f4766ff;
       color: #fada0aff;
+    }
+    .first-tab {
+      margin-left: 0;
+      border-top-left-radius: 15px;
+    }
+    .end-tab {
+      border-top-right-radius: 15px;
     }
   }
 
