@@ -68,7 +68,7 @@ const routerNavigate = (routerCase) => {
     <div class="status-block">
       <img src="/img/gold.png" alt="" />
       <p>{{ numberWithCommas(credit) }}</p>
-      <a-divider direction="vertical" :size="2" class="divider" style="margin-left: 20px"></a-divider>
+      <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 
     <div class="status-block">
@@ -87,7 +87,7 @@ const routerNavigate = (routerCase) => {
 .top-bar {
   z-index: 99;
   width: 90vw;
-  height: 50px;
+  height: 5vh;
   margin: 0 auto;
   padding: 0 30px;
   background-color: white;
@@ -111,30 +111,30 @@ const routerNavigate = (routerCase) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 10px 0 20px;
-    font-size: 28px;
+    padding: 0 1vw 0 1.5vw;
+    font-size: 3vh;
     font-weight: bold;
-    border-bottom: 5px solid #ffed6f;
+    border-bottom: 0.52vh solid #ffed6f;
   }
   .status-block {
-    width: 200px;
+    width: 12%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 10px;
-    font-size: 25px;
+    padding-right: 1%;
+    font-size: 2.7vh;
 
     .divider {
       height: 60%;
       transform: rotate(15deg);
-      margin-left: 40px;
+      margin-left: 10%;
     }
   }
 
   .other-button {
-    height: 38px;
+    height: 80%;
     aspect-ratio: 1;
-    margin-top: 7px;
+    margin-top: 0.5vh;
   }
   .other-button:active {
     transform: scale(0.9);
@@ -142,6 +142,6 @@ const routerNavigate = (routerCase) => {
 }
 .top-bar img {
   height: 70%;
-  margin: 0 8px 0 10px;
+  margin: 0 5% 0 10%;
 }
 </style>
