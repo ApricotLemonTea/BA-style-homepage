@@ -139,7 +139,7 @@ const increasePyroxene = () => {
       align-items: center;
       font-size: 1.7vw;
       margin-left: 0.3%;
-      border-radius: 5px;
+      border-radius: 0.6vh;
     }
     .selected {
       background-color: #2f4766ff;
@@ -147,16 +147,16 @@ const increasePyroxene = () => {
     }
     .first-tab {
       margin-left: 0;
-      border-top-left-radius: 15px;
+      border-top-left-radius: 1.7vh;
     }
     .end-tab {
-      border-top-right-radius: 15px;
+      border-top-right-radius: 1.7vh;
     }
   }
 
   .mission-item-container {
     background-color: #75757525;
-    border-radius: 5px;
+    border-radius: 0.7vh;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -173,7 +173,7 @@ const increasePyroxene = () => {
   position: fixed;
   bottom: 4vh;
   right: 20.5vw;
-  border-radius: 10px;
+  border-radius: 1.5vh;
   box-shadow: 2px 2px 5px #bec9d8;
   display: flex;
   flex-direction: column;
@@ -192,7 +192,7 @@ const increasePyroxene = () => {
   bottom: 5vh;
   right: 7.5vw;
   transform: skew(-10deg);
-  border-radius: 10px;
+  border-radius: 1.2vh;
   box-shadow: 5px 5px 5px #bec9d8;
   display: flex;
   justify-content: center;

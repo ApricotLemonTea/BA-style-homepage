@@ -33,7 +33,7 @@ const tagList = useTagList(t)
   background-color: #ffffff;
   width: 97%;
   min-height: 25%;
-  border-radius: 12px;
+  border-radius: 1.1vh;
   margin-top: 2%;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ const tagList = useTagList(t)
       background-color: #389fe8ff;
       min-width: 10%;
       height: 70%;
-      border-radius: 5px;
+      border-radius: 0.7vh;
       padding: 0 1%;
       color: white;
       display: flex;
