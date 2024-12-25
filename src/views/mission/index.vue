@@ -116,7 +116,7 @@ const increasePyroxene = () => {
 
 <style scoped>
 .mission-container {
-  width: 60vw;
+  width: 55vw;
   height: 72vh;
   position: fixed;
   top: 10vh;
@@ -168,7 +168,7 @@ const increasePyroxene = () => {
 
 .login-bonus-block {
   background-color: #ffffff;
-  width: 45vw;
+  width: 40vw;
   height: 10vh;
   position: fixed;
   bottom: 4vh;
