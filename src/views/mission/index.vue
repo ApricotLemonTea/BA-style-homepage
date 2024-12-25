@@ -18,7 +18,7 @@ const missionJa = ref()
 const missionZh = ref()
 const missionEn = ref()
 
-const missionList = computed(() => {
+const mission = computed(() => {
   switch (i18n.global.locale){
     case "ja":
       return missionJa.value
@@ -87,7 +87,7 @@ const increasePyroxene = () => {
 
       <!--mission内容-->
       <div class="mission-item-container">
-        <template v-for="item in missionList" :key="item">
+        <template v-for="item in mission" :key="item">
           <MissionItem v-show="selectedIndex == 0 ? true
                                                   : item.tagIndex == selectedIndex"
                        :tagIndex="item.tagIndex"
