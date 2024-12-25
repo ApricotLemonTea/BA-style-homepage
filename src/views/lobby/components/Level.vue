@@ -43,10 +43,9 @@ const openProfile = () => {
             trackColor="#535E67"
           >
           </a-progress>
-          <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE' }">
-            {{ isLevelMax ? 'MAX'
-                          : userStore.exp + ' / ' + userStore.nextExp }}
-            <span v-if="isLevelMax" style="margin-left: 10px">（{{userStore.totalAccess}}）</span>
+          <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE', 'margin-top': '0.5vh' }">
+            <span v-if="!isLevelMax">{{ userStore.exp + ' / ' + userStore.nextExp }}</span>
+            <span v-if="isLevelMax">{{ userStore.totalAccess + ' / ' + 'MAX' }}</span>
           </p>
         </div>
       </div>
