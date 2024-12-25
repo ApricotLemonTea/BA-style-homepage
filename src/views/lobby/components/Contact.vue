@@ -119,7 +119,7 @@ const openAnnounce = () => {
       </template>
       <template #content>
         <div class="blue-text-color">
-          <p>{{ t("contact.やったことやることいろいろ") }}</p>
+          <p>{{ t("contact.やることやったこといろいろ") }}</p>
         </div>
       </template>
     </a-popover>
