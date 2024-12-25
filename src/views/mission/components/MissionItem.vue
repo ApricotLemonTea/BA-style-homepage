@@ -6,7 +6,7 @@ const { t } = useI18n()
 const props = defineProps(["tagIndex", "title", "times", "completeDate"])
 
 const missionTags = [
-  {},
+  {}, // 占位用的空对象，对应「全体」的tab
   {
     label: t("mission.missionTag.イベント"),
     style: {
