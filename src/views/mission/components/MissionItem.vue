@@ -3,7 +3,7 @@ import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
-const props = defineProps(["tagIndex", "title", "times"])
+const props = defineProps(["tagIndex", "title", "times", "completeDate"])
 
 const missionTags = [
   {},
@@ -42,6 +42,7 @@ const missionTags = [
         <span>{{ t("mission.回数") }}：{{ props.times }} / 1</span>
         <ProgressBar :percent="props.times"/>
       </div>
+      <div class="mission-complete-date">{{ props.completeDate }}</div>
     </div>
   </div>
 </template>
@@ -96,6 +97,14 @@ const missionTags = [
     .mission-times span {
       margin: 0 5% 1.2%;
       font-size: 1.2vw;
+    }
+    .mission-complete-date {
+      flex-grow: 1;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+      font-size: 1.2vw;
+      padding: 0 2vw 1.5vh 0;
     }
   }
 }
