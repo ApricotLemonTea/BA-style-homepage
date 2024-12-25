@@ -119,10 +119,7 @@ const openAnnounce = () => {
       </template>
       <template #content>
         <div class="blue-text-color">
-          <p>{{ t("contact.今後実装したい機能です") }}</p>
-          <p>{{ t("contact.（実装日時は未定）") }}</p>
-          <p>{{ t("contact.（実装できるかどうかも未定）") }}</p>
-          <p>{{ t("contact.（期待しないでください）") }}</p>
+          <p>{{ t("contact.やったことやることいろいろ") }}</p>
         </div>
       </template>
     </a-popover>
