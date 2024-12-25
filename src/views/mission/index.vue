@@ -33,7 +33,7 @@ const tabList = ref([
   t("mission.missionTag.すべて"),
   t("mission.missionTag.イベント"),
   t("mission.missionTag.実績"),
-  "TODO"
+  t("mission.missionTag.新機能")
 ])
 const tabSelectedStyle = ref([
   {

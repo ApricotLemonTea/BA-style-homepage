@@ -20,7 +20,7 @@ const missionTags = [
     }
   },
   {
-    label: "TODO",
+    label: t("mission.missionTag.新機能"),
     style: {
       "background-color": "#389fe8ff"
     }
