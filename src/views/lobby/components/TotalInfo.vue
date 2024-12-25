@@ -1,41 +1,72 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import patchNoteJa from '@/notes/patchNote/patchNoteJa.json'
-import patchNoteZh from '@/notes/patchNote/patchNoteZh.json'
-import patchNoteEn from '@/notes/patchNote/patchNoteEn.json'
-import announcementJa from '@/notes/announcement/announcementJa.json'
-import announcementZh from '@/notes/announcement/announcementZh.json'
-import announcementEn from '@/notes/announcement/announcementEn.json'
 import i18n from '@/locale'
+import { loadExcelData } from '@/utils/loadExcelData'
 
 const { t } = useI18n()
+
+const announcementJa = ref()
+const announcementZh = ref()
+const announcementEn = ref()
+
+const patchNoteJa = ref()
+const patchNoteZh = ref()
+const patchNoteEn = ref()
+
+onMounted(async () => {
+  announcementJa.value = await loadExcelData("/data/announcement.xlsx", 0)
+  for (let item of announcementJa.value) {
+    item.contents = item.contents.split("\r\n")
+  }
+  announcementZh.value = await loadExcelData("/data/announcement.xlsx", 1)
+  for (let item of announcementZh.value) {
+    item.contents = item.contents.split("\r\n")
+  }
+  announcementEn.value = await loadExcelData("/data/announcement.xlsx", 2)
+  for (let item of announcementEn.value) {
+    item.contents = item.contents.split("\r\n")
+  }
+
+  patchNoteJa.value = await loadExcelData("/data/patchNote.xlsx", 0)
+  for (let item of patchNoteJa.value) {
+    item.contents = item.contents.split("\r\n")
+  }
+  patchNoteZh.value = await loadExcelData("/data/patchNote.xlsx", 1)
+  for (let item of patchNoteZh.value) {
+    item.contents = item.contents.split("\r\n")
+  }
+  patchNoteEn.value = await loadExcelData("/data/patchNote.xlsx", 2)
+  for (let item of patchNoteEn.value) {
+    item.contents = item.contents.split("\r\n")
+  }
+})
 
 const announcement = computed(() => {
   switch (i18n.global.locale){
     case "ja":
-      return announcementJa
+      return announcementJa.value
     case "zh":
-      return announcementZh
+      return announcementZh.value
     case "en":
-      return announcementEn
+      return announcementEn.value
 
     default:
-      return announcementJa
+      return announcementJa.value
   }
 })
 
 const patchNote = computed(() => {
   switch (i18n.global.locale){
     case "ja":
-      return patchNoteJa
+      return patchNoteJa.value
     case "zh":
-      return patchNoteZh
+      return patchNoteZh.value
     case "en":
-      return patchNoteEn
+      return patchNoteEn.value
 
     default:
-      return patchNoteJa
+      return patchNoteJa.value
   }
 })
 
@@ -86,7 +117,7 @@ const tabList = computed(() => {
                class="total-info-content-block">
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
-              <div v-for="(item, index) in announcement.announcementList" :key="index"
+              <div v-for="(item, index) in announcement" :key="index"
                    :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
                    @click="()=>{selectedTitleIndex = index}"
               >
@@ -94,7 +125,7 @@ const tabList = computed(() => {
               </div>
             </div>
             <!--正文内容-->
-            <div v-for="(item, index) in announcement.announcementList"  :key="index"
+            <div v-for="(item, index) in announcement"  :key="index"
                  v-show="selectedTitleIndex === index"
                  class="total-info-content">
               <div v-for="contentItem in item.contents" :key="contentItem"
@@ -112,7 +143,7 @@ const tabList = computed(() => {
                class="total-info-content-block">
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
-              <div v-for="(item, index) in patchNote.patchNoteList" :key="index"
+              <div v-for="(item, index) in patchNote" :key="index"
                    :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
                    @click="()=>{selectedTitleIndex = index}"
               >
@@ -120,7 +151,7 @@ const tabList = computed(() => {
               </div>
             </div>
             <!--正文内容-->
-            <div v-for="(item, index) in patchNote.patchNoteList"  :key="index"
+            <div v-for="(item, index) in patchNote"  :key="index"
                  v-show="selectedTitleIndex === index"
                  class="total-info-content">
               <ul style="margin: 0 30px">

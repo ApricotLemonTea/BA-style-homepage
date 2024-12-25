@@ -1,33 +1,40 @@
 <script setup>
 // import { Icon } from '@arco-design/web-vue'
 // import config from '/_config.json'
-import { ref } from 'vue'
-import Mission from '@/views/lobby/components/Mission.vue'
+import { ref, onMounted } from 'vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
-import announcement from '@/notes/announcement/announcementJa.json'
 import { useI18n } from "vue-i18n"
 import { openUrl } from '@/utils/commonFunctions'
 import i18n from '@/locale'
+import router from '@/router'
+import { loadExcelData } from '@/utils/loadExcelData'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
 // })
 
 const { t } = useI18n()
-const missionRef = ref()
 const totalInfoRef = ref()
 
 defineEmits(["start-guide"])
 
-const viewedAnnounceDate = ref(localStorage.getItem("viewed-announce-date"))
-const recentAnnounceDate = ref(announcement.announcementList[0].time)
-const hasNewAnnounce = ref(viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1)
+const announcement = ref()
+const recentAnnounceDate = ref()
+const viewedAnnounceDate = ref()
+const hasNewAnnounce = ref()
+
+onMounted(async () => {
+  announcement.value = await loadExcelData("/data/announcement.xlsx", 0)
+  recentAnnounceDate.value = announcement.value[0].time
+  viewedAnnounceDate.value = localStorage.getItem("viewed-announce-date")
+  hasNewAnnounce.value = viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1
+})
 
 /**
  * 打开mission页面
  */
 const openMission = () => {
-  missionRef.value.open()
+  router.push("/mission")
 }
 
 /**
@@ -112,10 +119,7 @@ const openAnnounce = () => {
       </template>
       <template #content>
         <div class="blue-text-color">
-          <p>{{ t("contact.今後実装したい機能です") }}</p>
-          <p>{{ t("contact.（実装日時は未定）") }}</p>
-          <p>{{ t("contact.（実装できるかどうかも未定）") }}</p>
-          <p>{{ t("contact.（期待しないでください）") }}</p>
+          <p>{{ t("contact.やることやったこといろいろ") }}</p>
         </div>
       </template>
     </a-popover>
@@ -134,8 +138,7 @@ const openAnnounce = () => {
       </template>
     </a-popover>
   </div>
-  
-  <Mission ref="missionRef"></Mission>
+
   <TotalInfo ref="totalInfoRef"></TotalInfo>
 </template>
 

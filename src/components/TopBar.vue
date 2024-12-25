@@ -1,10 +1,11 @@
 <script setup>
 import { useUserStore } from '@/store/userStore'
-import { computed } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import { numberWithCommas } from '@/utils/commonFunctions'
 import router from '@/router'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import gsap from 'gsap'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -16,11 +17,19 @@ const ap = computed(() => {
 const maxAp = computed(() => {
   return userStore.maxAp
 })
+
 const credit = computed(() => {
   return userStore.credit
 })
+
 const pyroxene = computed(() => {
   return userStore.pyroxene
+})
+const tweenedPyroxene = reactive({
+  number: userStore.pyroxene
+})
+watch(pyroxene, (n) => {
+  gsap.to(tweenedPyroxene, { duration: 0.5, number: Number(n) || 0 })
 })
 
 /**
@@ -64,7 +73,7 @@ const routerNavigate = (routerCase) => {
 
     <div class="status-block">
       <img src="/img/pyroxene.png" alt="" />
-      <p>{{ numberWithCommas(pyroxene) }}</p>
+      <p>{{ numberWithCommas(tweenedPyroxene.number.toFixed(0)) }}</p>
       <a-divider direction="vertical" :size="2" class="divider"></a-divider>
     </div>
 

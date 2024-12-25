@@ -6,7 +6,8 @@
   "閉じる": "Close",
 
   "topBarTitle": {
-    "プロフィール": "Profile"
+    "プロフィール": "Profile",
+    "ミッション": "Tasks"
   },
 
   "notice": {
@@ -23,14 +24,12 @@
     "ガイド": "Guide",
     "当サイトの紹介を始めます": "Starting the introduction of this site",
     "ミッション": "Tasks",
-    "今後実装したい機能です": "Features which are wished to implement in the future",
-    "（実装日時は未定）": "(Implementation date is undecided)",
-    "（実装できるかどうかも未定）": "(Uncertain whether it can be implemented or not)",
-    "（期待しないでください）": "(Please do not expect much)",
+    "やることやったこといろいろ": "What I will do and what I have done",
     "モモトーク": "MomoTalk",
     "モモトークエディター": "MomoTalk Editor",
     "モモトーク風のチャット作成ツールです。": "A web chat generator, styled from Blue Archive MomoTalk."
   },
+
   "footer": {
     "メールアドレスをコピーしました": "Email address copied",
     "主にここで喋ってます": "Mainly talking here",
@@ -42,13 +41,25 @@
     "(クリックでコピーできます)": "(Click to copy)",
     "ご要望、ご感想などはこちらに": "Send your requests or feedback here"
   },
+
   "mission": {
-    "ミッション": "Tasks"
+    "ミッション": "Tasks",
+    "missionTag": {
+      "全体": "All",
+      "イベント": "Event",
+      "実績": "Achieve",
+      "開発": "Feature"
+    },
+    "デイリーログイン": "Daily Login",
+    "受取": "Receive",
+    "回数": "Times"
   },
+
   "task": {
     "イラスト": "Illusts",
     "ポートフォリオです": "This is a portfolio"
   },
+
   "toolbox": {
     "次の回復まであと": "Time until next recovery:",
     "秒。": "seconds.",
@@ -73,12 +84,14 @@
       "（当サイトはブルアカ公式とは一切関係ありません）": "(This site has nothing to do with Blue Archive official)"
     }
   },
+
   "totalInfo": {
     "お知らせ": "Announcements",
     "パッチノート": "Patch Notes",
     "その他": "Others",
     "予備用のタブです、まだ何もありません。": "This is a placeholder tab, nothing here yet."
   },
+
   "guide": {
     "プロフィールと経験値とレベル": "Profile, Experience Points, and Level",
     "クリックするとプロフィール画面に移動します。": "Click to move to the profile page.",
@@ -100,6 +113,7 @@
     "外部リンクその他": "Other External Links",
     "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea's SNS and more."
   },
+
   "profile": {
     "絵が少し描ける一般人です。": "A regular person who can draw a little bit.",
     "好きなものなんでもやります。": "Will do anything I like.",
