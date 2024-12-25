@@ -67,7 +67,7 @@ onMounted(async () => {
 #background {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
@@ -91,15 +91,12 @@ onMounted(async () => {
 /* 离开动画 */
 .view-animation-leave-from {
   opacity: 1; /* 初始状态：完全不透明 */
-  transform: translateY(0); /* 初始位置：正常位置 */
 }
 .view-animation-leave-to {
   opacity: 0; /* 最终状态：完全透明 */
-  transform: translateY(-1000px); /* 最终位置：向上偏移 */
 }
 .view-animation-leave-active {
-  transition: opacity 0.25s, transform 0.25s ease-in-out; /* 淡出并同时做位置过渡 */
-  transform-origin: bottom;
+  transition: opacity 0.5s;
 }
 
 </style>
