@@ -22,11 +22,11 @@ onMounted(async () => {
     item.contents = item.contents.split("\r\n")
   }
   announcementZh.value = await loadExcelData("/data/announcement.xlsx", 1)
-  for (let item of announcementJa.value) {
+  for (let item of announcementZh.value) {
     item.contents = item.contents.split("\r\n")
   }
   announcementEn.value = await loadExcelData("/data/announcement.xlsx", 2)
-  for (let item of announcementJa.value) {
+  for (let item of announcementEn.value) {
     item.contents = item.contents.split("\r\n")
   }
 })
