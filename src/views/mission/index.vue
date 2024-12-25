@@ -35,6 +35,24 @@ const tabList = ref([
   t("mission.missionTag.実績"),
   "TODO"
 ])
+const tabSelectedStyle = ref([
+  {
+    "background-color": "#2f4766ff",
+    "color": "#fada0aff"
+  },
+  {
+    "background-color": "#eb5792ff",
+    "color": "#ffffff"
+  },
+  {
+    "background-color": "#e08700ff",
+    "color": "#ffffff"
+  },
+  {
+    "background-color": "#389fe8ff",
+    "color": "#ffffff"
+  }
+])
 const selectedIndex = ref(0)
 
 // *********************************
@@ -72,10 +90,10 @@ const increasePyroxene = () => {
              @click="() => { selectedIndex = index }"
              :class="[
                'mission-tab-item',
-               index == selectedIndex ? 'selected' : '',
                index == 0 ? 'first-tab' : '',
                index == tabList.length - 1 ? 'end-tab' : ''
              ]"
+             :style="index == selectedIndex ? tabSelectedStyle[selectedIndex] : ''"
         >
           {{ item }}
         </div>

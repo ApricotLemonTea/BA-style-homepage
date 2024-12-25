@@ -10,7 +10,7 @@ const missionTags = [
   {
     label: t("mission.missionTag.イベント"),
     style: {
-      "background-color": "#49d553"
+      "background-color": "#eb5792ff"
     }
   },
   {
