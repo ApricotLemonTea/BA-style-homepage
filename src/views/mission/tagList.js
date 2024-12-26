@@ -1,3 +1,7 @@
+/**
+ * 获取mission用的tag list
+ * @param t 传入i18n的t方法
+ */
 export function useTagList(t) {
   return [
     {

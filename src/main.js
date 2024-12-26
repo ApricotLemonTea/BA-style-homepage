@@ -29,6 +29,9 @@ app.use(i18n)
 
 app.mount('#app')
 
+/**
+ * 页面需要更新时的弹窗提示
+ */
 if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
