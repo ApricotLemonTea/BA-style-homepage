@@ -148,6 +148,7 @@ const openPurchaseCreditDialog = () => {
     ],
     okText: t("はい"),
     cancelText: t("いいえ"),
+    maskClosable: false,
     onBeforeOk: () => {
       if (userStore.pyroxene < 1200){
         Message.error({
