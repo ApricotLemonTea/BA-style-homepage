@@ -100,6 +100,7 @@ a {
 }
 
 .arco-btn-secondary {
+  width: 120px;
   background: #daeef5 !important;
   color: #003153 !important;
   filter: drop-shadow(0px 1px 2px #0004);
@@ -109,6 +110,7 @@ a {
 }
 
 .arco-btn-primary {
+  width: 120px;
   background: #77deff !important;
   color: #003153 !important;
   filter: drop-shadow(0px 1px 2px #0004);
