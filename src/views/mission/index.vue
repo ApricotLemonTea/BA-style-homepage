@@ -35,9 +35,9 @@ const tagList = useTagList(t)
 const selectedIndex = ref(0)
 
 onMounted(async () => {
-  missionJa.value = await loadExcelData("/data/mission.xlsx", 0)
-  missionZh.value = await loadExcelData("/data/mission.xlsx", 1)
-  missionEn.value = await loadExcelData("/data/mission.xlsx", 2)
+  missionJa.value = await loadExcelData("/data/mission.xlsx?t=" + new Date().toString(), 0)
+  missionZh.value = await loadExcelData("/data/mission.xlsx?t=" + new Date().toString(), 1)
+  missionEn.value = await loadExcelData("/data/mission.xlsx?t=" + new Date().toString(), 2)
 })
 
 // *********************************
