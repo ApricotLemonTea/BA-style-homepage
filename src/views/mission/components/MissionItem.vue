@@ -2,18 +2,38 @@
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import { useI18n } from 'vue-i18n'
 import { useTagList } from '@/views/mission/tagList'
+import { openUrl } from '@/utils/commonFunctions'
 const { t } = useI18n()
 
-const props = defineProps(["tagIndex", "title", "times", "maxTimes", "completeDate"])
+const props = defineProps([
+  "tagIndex",
+  "title",
+  "times",
+  "maxTimes",
+  "completeDate",
+  "detailUrl"
+])
 
 const tagList = useTagList(t)
+
+/**
+ * 跳转到该任务的详细信息链接
+ */
+const goToDetail = () => {
+  if (props.tagIndex === 3) {
+    return
+  }
+  openUrl(props.detailUrl)
+}
 </script>
 
 <template>
-  <div :class="[
+  <div @click="goToDetail"
+       :class="[
           'mission-item',
           props.tagIndex !== 3 ? 'actionable' : ''
-  ]">
+       ]"
+  >
     <div class="mission-item-title-block">
       <div class="mission-tag"
            :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''">

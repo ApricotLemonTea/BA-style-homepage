@@ -94,6 +94,7 @@ const increasePyroxene = () => {
                        :title="item.title"
                        :times="item.times"
                        :maxTimes="item.maxTimes"
+                       :detailUrl="item.detailUrl"
                        :completeDate="item.completeDate"
           />
         </template>
