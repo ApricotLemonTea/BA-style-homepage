@@ -170,7 +170,7 @@ const increasePyroxene = () => {
     flex-direction: column;
     align-items: center;
     padding-bottom: 1%;
-    overflow-y: auto;
+    overflow-y: scroll;
   }
 }
 
