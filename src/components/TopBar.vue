@@ -124,6 +124,10 @@ const routerNavigate = (routerCase) => {
     padding-right: 1%;
     font-size: 2.7vh;
 
+    p {
+      width: 100%;
+    }
+
     .divider {
       height: 60%;
       transform: rotate(15deg);
