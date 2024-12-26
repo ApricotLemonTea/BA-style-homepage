@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import { getFormattedDate, numberWithCommas, openUrl } from '@/utils/commonFunctions'
 import { useI18n } from "vue-i18n"
 import i18n from '@/locale'
-import { Message } from '@arco-design/web-vue'
+import { Message, Modal } from '@arco-design/web-vue'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
@@ -75,6 +75,7 @@ window.matchMedia('(hover: none)').addListener((e) => {
   hover.value = e.matches
 })
 
+// **********体力**********
 /* 自动回复AP的倒计时 */
 const apRecoverCountdown = computed(() => {
   return userStore.apRecoverCountdown
@@ -109,31 +110,65 @@ const handleClickApIncrease = () => {
 const increaseAp = () => {
   userStore.ap = 999
 }
+// ********************
 
+// **********信用点**********
 /**
  * 点击信用点的事件：
  * 随机生成信用点数量，同时AP -10
  */
 const handleClickCredit = () => {
   if (userStore.credit === 0){
+    // 打开弹窗询问是否要花费青辉石购买信用点
+    openPurchaseCreditDialog()
+
+    return
+  }
+  if (userStore.ap <= 0){
     Message.error({
-      content: h("h3", {}, t("toolbox.もうお財布空っぽですよ、ギャンブルやめよう")),
+      content: h("h3", {}, t("toolbox.APが足りません")),
       position: "top"
     })
     return
   }
 
-  if (userStore.ap > 0){
-    userStore.randomCredit()
-    userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
-  } else {
-    Message.error({
-      content: h("h3", {}, t("toolbox.APが足りません")),
-      position: "top"
-    })
-  }
+  userStore.randomCredit()
+  userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
 }
 
+/**
+ * 打开弹窗询问是否要花费青辉石购买信用点
+ */
+const openPurchaseCreditDialog = () => {
+  Modal.open({
+    title: t("toolbox.お金がない！"),
+    content: () => [
+      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, t("toolbox.もうお財布空っぽですよ")),
+      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, t("toolbox.1200青輝石でクレジットを購入しますか？")),
+    ],
+    okText: t("はい"),
+    cancelText: t("いいえ"),
+    maskClosable: false,
+    onBeforeOk: () => {
+      if (userStore.pyroxene < 1200){
+        Message.error({
+          content: h("h3", {}, t("toolbox.青輝石もない！")),
+          position: "top"
+        })
+        return false
+      } else {
+        return true
+      }
+    },
+    onOk: () => {
+      userStore.pyroxene -= 1200
+      userStore.credit = 50000000
+    }
+  })
+}
+// ********************
+
+// **********青辉石**********
 const loginDate = computed(() => {
   return localStorage.getItem("login-date")
 })
@@ -156,9 +191,8 @@ const increasePyroxene = () => {
   userStore.pyroxene += 1200
   // 将领取日期（今天）存储到storage
   localStorage.setItem("login-date", nowDate.value)
-  // 将增加后的青辉石存储到storage
-  localStorage.setItem("pyroxene", userStore.pyroxene)
 }
+// ********************
 
 /**
  * 变更语言后将选择的语言存储到storage中
