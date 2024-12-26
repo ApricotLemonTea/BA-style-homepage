@@ -69,6 +69,7 @@ const increasePyroxene = () => {
   <div>
     <TopBar></TopBar>
 
+    <!--任务内容区域-->
     <div class="mission-container blue-text-color">
       <!--tab切换-->
       <div class="mission-tab-block">
@@ -84,8 +85,7 @@ const increasePyroxene = () => {
           {{ item.label }}
         </div>
       </div>
-
-      <!--mission内容-->
+      <!--所有mission项目-->
       <div class="mission-item-container">
         <template v-for="item in mission" :key="item">
           <MissionItem v-show="selectedIndex == 0 ? true
@@ -101,6 +101,7 @@ const increasePyroxene = () => {
       </div>
     </div>
 
+    <!--底部每日登录区域-->
     <div class="login-bonus-block">
       <div class="login-text">{{ t("mission.デイリーログイン")}}（{{ loginDate == nowDate ? 1 : 0 }} / 1）</div>
       <ProgressBar :percent="loginDate == nowDate ? 1 : 0" />
@@ -112,6 +113,11 @@ const increasePyroxene = () => {
          ]"
     >
       {{ t("mission.受取") }}
+    </div>
+
+    <!--说明文字区域-->
+    <div class="info-message-block blue-text-color">
+      <span>「開発」タグ以外のミッションはクリックすると詳細情報を確認できます</span>
     </div>
   </div>
 </template>
@@ -210,5 +216,22 @@ const increasePyroxene = () => {
 }
 .disabled:active {
   transform: scale(1) skew(-10deg);
+}
+
+.info-message-block {
+  background-color: rgba(250, 252, 255, 0.89);
+  width: 30vw;
+  height: 10vh;
+  position: fixed;
+  left: 4vw;
+  bottom: 13vh;
+  border-radius: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info-message-block span {
+  margin: 0 10%;
+  font-size: 1.2vw;
 }
 </style>
