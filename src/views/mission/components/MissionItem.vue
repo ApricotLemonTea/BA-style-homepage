@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import { useI18n } from 'vue-i18n'
 import { useTagList } from '@/views/mission/tagList'
@@ -13,14 +14,16 @@ const props = defineProps([
   "completeDate",
   "detailUrl"
 ])
-
 const tagList = useTagList(t)
+const isFeatureTag = computed(() => {
+  return props.tagIndex === 2
+})
 
 /**
  * 跳转到该任务的详细信息链接
  */
 const goToDetail = () => {
-  if (props.tagIndex === 3) {
+  if (isFeatureTag.value) {
     return
   }
   openUrl(props.detailUrl)
@@ -31,7 +34,7 @@ const goToDetail = () => {
   <div @click="goToDetail"
        :class="[
           'mission-item',
-          props.tagIndex !== 3 ? 'actionable' : ''
+          !isFeatureTag ? 'actionable' : ''
        ]"
   >
     <div class="mission-item-title-block">

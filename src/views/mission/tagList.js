@@ -19,18 +19,18 @@ export function useTagList(t) {
       }
     },
     {
-      label: t("mission.missionTag.実績"),
-      style: {
-        "background-color": "#e08700ff",
-        "color": "#ffffff"
-      }
-    },
-    {
       label: t("mission.missionTag.開発"),
       style: {
         "background-color": "#389fe8ff",
         "color": "#ffffff"
       }
-    }
+    },
+    // {
+    //   label: t("mission.missionTag.実績"),
+    //   style: {
+    //     "background-color": "#e08700ff",
+    //     "color": "#ffffff"
+    //   }
+    // }
   ];
 }

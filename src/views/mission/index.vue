@@ -134,14 +134,14 @@ const increasePyroxene = () => {
 
   .mission-tab-block {
     width: 100%;
-    height: 10%;
+    min-height: 10%;
     display: flex;
     overflow: hidden;
 
     .mission-tab-item {
       background-color: white;
       height: 100%;
-      width: 25%;
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
