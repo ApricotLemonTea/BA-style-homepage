@@ -11,7 +11,6 @@ import { useTagList } from '@/views/mission/tagList'
 import { loadExcelData } from '@/utils/loadExcelData'
 
 const { t } = useI18n()
-
 const userStore = useUserStore()
 
 const missionJa = ref()
@@ -77,10 +76,10 @@ const increasePyroxene = () => {
              @click="() => { selectedIndex = index }"
              :class="[
                'mission-tab-item',
-               index == 0 ? 'first-tab' : '',
-               index == tagList.length - 1 ? 'end-tab' : ''
+               index === 0 ? 'first-tab' : '',
+               index === tagList.length - 1 ? 'end-tab' : ''
              ]"
-             :style="index == selectedIndex ? item.style : ''"
+             :style="index === selectedIndex ? item.style : ''"
         >
           {{ item.label }}
         </div>
@@ -88,8 +87,8 @@ const increasePyroxene = () => {
       <!--所有mission项目-->
       <div class="mission-item-container">
         <template v-for="item in mission" :key="item">
-          <MissionItem v-show="selectedIndex == 0 ? true
-                                                  : item.tagIndex == selectedIndex"
+          <MissionItem v-show="selectedIndex === 0 ? true
+                                                  : item.tagIndex === selectedIndex"
                        :tagIndex="item.tagIndex"
                        :title="item.title"
                        :times="item.times"
@@ -103,13 +102,13 @@ const increasePyroxene = () => {
 
     <!--底部每日登录区域-->
     <div class="login-bonus-block">
-      <div class="login-text">{{ t("mission.デイリーログイン")}}（{{ loginDate == nowDate ? 1 : 0 }} / 1）</div>
-      <ProgressBar :percent="loginDate == nowDate ? 1 : 0" />
+      <div class="login-text">{{ t("mission.デイリーログイン") }}（{{ loginDate === nowDate ? 1 : 0 }} / 1）</div>
+      <ProgressBar :percent="loginDate === nowDate ? 1 : 0" />
     </div>
     <div @click="increasePyroxene"
          :class="[
            'yellow-button',
-           loginDate == nowDate ? 'disabled' : ''
+           loginDate === nowDate ? 'disabled' : ''
          ]"
     >
       {{ t("mission.受取") }}
