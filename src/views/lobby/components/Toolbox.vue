@@ -75,6 +75,7 @@ window.matchMedia('(hover: none)').addListener((e) => {
   hover.value = e.matches
 })
 
+// **********体力**********
 /* 自动回复AP的倒计时 */
 const apRecoverCountdown = computed(() => {
   return userStore.apRecoverCountdown
@@ -109,7 +110,9 @@ const handleClickApIncrease = () => {
 const increaseAp = () => {
   userStore.ap = 999
 }
+// ********************
 
+// **********信用点**********
 /**
  * 点击信用点的事件：
  * 随机生成信用点数量，同时AP -10
@@ -134,7 +137,9 @@ const handleClickCredit = () => {
   userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
   localStorage.setItem("credit", userStore.credit)
 }
+// ********************
 
+// **********青辉石**********
 const loginDate = computed(() => {
   return localStorage.getItem("login-date")
 })
@@ -160,6 +165,7 @@ const increasePyroxene = () => {
   // 将增加后的青辉石存储到storage
   localStorage.setItem("pyroxene", userStore.pyroxene)
 }
+// ********************
 
 /**
  * 变更语言后将选择的语言存储到storage中
