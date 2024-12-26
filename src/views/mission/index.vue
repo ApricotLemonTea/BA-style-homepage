@@ -93,6 +93,7 @@ const increasePyroxene = () => {
                        :tagIndex="item.tagIndex"
                        :title="item.title"
                        :times="item.times"
+                       :maxTimes="item.maxTimes"
                        :completeDate="item.completeDate"
           />
         </template>

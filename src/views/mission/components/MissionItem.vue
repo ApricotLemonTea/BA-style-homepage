@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useTagList } from '@/views/mission/tagList'
 const { t } = useI18n()
 
-const props = defineProps(["tagIndex", "title", "times", "completeDate"])
+const props = defineProps(["tagIndex", "title", "times", "maxTimes", "completeDate"])
 
 const tagList = useTagList(t)
 </script>
@@ -20,8 +20,8 @@ const tagList = useTagList(t)
     </div>
     <div class="mission-times-block">
       <div class="mission-times">
-        <span>{{ props.times }} / 1</span>
-        <ProgressBar :percent="props.times"/>
+        <span>{{ props.times }} / {{ props.maxTimes }}</span>
+        <ProgressBar :percent="props.times / props.maxTimes"/>
       </div>
       <div class="mission-complete-date">{{ props.completeDate }}</div>
     </div>

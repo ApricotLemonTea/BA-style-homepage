@@ -1,4 +1,5 @@
 <script setup>
+  // percent取值范围 0 ~ 1
   const props = defineProps(["percent"])
 </script>
 
