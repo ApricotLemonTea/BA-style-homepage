@@ -1,16 +1,42 @@
 <script setup>
+import { computed } from 'vue'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import { useI18n } from 'vue-i18n'
 import { useTagList } from '@/views/mission/tagList'
+import { openUrl } from '@/utils/commonFunctions'
 const { t } = useI18n()
 
-const props = defineProps(["tagIndex", "title", "times", "completeDate"])
-
+const props = defineProps([
+  "tagIndex",
+  "title",
+  "times",
+  "maxTimes",
+  "completeDate",
+  "detailUrl"
+])
 const tagList = useTagList(t)
+const isFeatureTag = computed(() => {
+  return props.tagIndex === 2
+})
+
+/**
+ * 跳转到该任务的详细信息链接
+ */
+const goToDetail = () => {
+  if (isFeatureTag.value) {
+    return
+  }
+  openUrl(props.detailUrl)
+}
 </script>
 
 <template>
-  <div class="mission-item">
+  <div @click="goToDetail"
+       :class="[
+          'mission-item',
+          !isFeatureTag ? 'actionable' : ''
+       ]"
+  >
     <div class="mission-item-title-block">
       <div class="mission-tag"
            :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''">
@@ -20,8 +46,8 @@ const tagList = useTagList(t)
     </div>
     <div class="mission-times-block">
       <div class="mission-times">
-        <span>{{ props.times }} / 1</span>
-        <ProgressBar :percent="props.times"/>
+        <span>{{ props.times }} / {{ props.maxTimes }}</span>
+        <ProgressBar :percent="props.times / props.maxTimes"/>
       </div>
       <div class="mission-complete-date">{{ props.completeDate }}</div>
     </div>
@@ -88,5 +114,8 @@ const tagList = useTagList(t)
       padding: 0 2vw 1.5vh 0;
     }
   }
+}
+.actionable:active {
+  transform: scale(0.97);
 }
 </style>
