@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import { getFormattedDate, numberWithCommas, openUrl } from '@/utils/commonFunctions'
 import { useI18n } from "vue-i18n"
 import i18n from '@/locale'
-import { Message } from '@arco-design/web-vue'
+import { Message, Modal } from '@arco-design/web-vue'
 
 const emit = defineEmits(['switch'])
 const props = defineProps(['l2dOnly'])
@@ -119,10 +119,9 @@ const increaseAp = () => {
  */
 const handleClickCredit = () => {
   if (userStore.credit === 0){
-    Message.error({
-      content: h("h3", {}, t("toolbox.もうお財布空っぽですよ、ギャンブルやめよう")),
-      position: "top"
-    })
+    // 打开弹窗询问是否要花费青辉石购买信用点
+    openPurchaseCreditDialog()
+
     return
   }
   if (userStore.ap <= 0){
@@ -135,6 +134,25 @@ const handleClickCredit = () => {
 
   userStore.randomCredit()
   userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
+}
+
+/**
+ * 打开弹窗询问是否要花费青辉石购买信用点
+ */
+const openPurchaseCreditDialog = () => {
+  Modal.open({
+    title: "お金がない！",
+    content: () => [
+      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, "もうお財布空っぽですよ"),
+      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, "1200青輝石でクレジットポイントを購入しますか？"),
+    ],
+    okText: t("はい"),
+    cancelText: t("いいえ"),
+    onOk: () => {
+      userStore.pyroxene -= 1200
+      userStore.credit = 50000000
+    }
+  })
 }
 // ********************
 
