@@ -10,7 +10,10 @@ const tagList = useTagList(t)
 </script>
 
 <template>
-  <div class="mission-item">
+  <div :class="[
+          'mission-item',
+          props.tagIndex !== 3 ? 'actionable' : ''
+  ]">
     <div class="mission-item-title-block">
       <div class="mission-tag"
            :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''">
@@ -88,5 +91,8 @@ const tagList = useTagList(t)
       padding: 0 2vw 1.5vh 0;
     }
   }
+}
+.actionable:active {
+  transform: scale(0.97);
 }
 </style>
