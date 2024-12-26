@@ -52,7 +52,8 @@
     },
     "デイリーログイン": "Daily Login",
     "受取": "Receive",
-    "回数": "Times"
+    "回数": "Times",
+    "「開発」タグ以外のミッションはクリックすると詳細情報を確認できます": "The tasks (except the 'Feature' tag) can be clicked to view more details"
   },
 
   "task": {

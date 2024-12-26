@@ -117,7 +117,7 @@ const increasePyroxene = () => {
 
     <!--说明文字区域-->
     <div class="info-message-block blue-text-color">
-      <span>「開発」タグ以外のミッションはクリックすると詳細情報を確認できます</span>
+      <span>{{ t("mission.「開発」タグ以外のミッションはクリックすると詳細情報を確認できます") }}</span>
     </div>
   </div>
 </template>
