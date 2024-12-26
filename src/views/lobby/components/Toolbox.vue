@@ -148,6 +148,17 @@ const openPurchaseCreditDialog = () => {
     ],
     okText: t("はい"),
     cancelText: t("いいえ"),
+    onBeforeOk: () => {
+      if (userStore.pyroxene < 1200){
+        Message.error({
+          content: h("h3", {}, "青輝石もない！"),
+          position: "top"
+        })
+        return false
+      } else {
+        return true
+      }
+    },
     onOk: () => {
       userStore.pyroxene -= 1200
       userStore.credit = 50000000
