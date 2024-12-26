@@ -1,5 +1,5 @@
 <script setup>
-import { h, onMounted } from 'vue'
+import { h, onMounted, watch, computed } from 'vue'
 import { useUserStore } from './store/userStore'
 import Cursor from '@/components/Cursor.vue'
 import getAccessAnalytics from './utils/cloudflareAnalytics'
@@ -50,6 +50,26 @@ onMounted(async () => {
   userStore.initAp()
   // 开启自动回复AP的倒计时
   userStore.startGlobalInterval()
+})
+
+/**
+ * 全局监听信用点数量变化，并存储到storage中
+ */
+const credit = computed(() => {
+  return userStore.credit
+})
+watch(credit, (newCredit) => {
+  localStorage.setItem("credit", (newCredit || 0).toString())
+})
+
+/**
+ * 全局监听青辉石数量变化
+ */
+const pyroxene = computed(() => {
+  return userStore.pyroxene
+})
+watch(pyroxene, (newPyroxene) => {
+  localStorage.setItem("pyroxene", (newPyroxene || 0).toString())
 })
 </script>
 

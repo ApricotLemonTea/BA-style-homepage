@@ -55,10 +55,8 @@ const increasePyroxene = () => {
   userStore.pyroxene += 1200
   // 将领取日期（今天）存储到storage
   localStorage.setItem("login-date", nowDate.value)
-  // 将增加后的青辉石存储到storage
-  localStorage.setItem("pyroxene", userStore.pyroxene)
 
-  // 更新loginDate
+  // 更新本页面的loginDate
   loginDate.value = localStorage.getItem("login-date")
 }
 // *********************************

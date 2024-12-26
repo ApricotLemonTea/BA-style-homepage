@@ -135,7 +135,6 @@ const handleClickCredit = () => {
 
   userStore.randomCredit()
   userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
-  localStorage.setItem("credit", userStore.credit)
 }
 // ********************
 
@@ -162,8 +161,6 @@ const increasePyroxene = () => {
   userStore.pyroxene += 1200
   // 将领取日期（今天）存储到storage
   localStorage.setItem("login-date", nowDate.value)
-  // 将增加后的青辉石存储到storage
-  localStorage.setItem("pyroxene", userStore.pyroxene)
 }
 // ********************
 
