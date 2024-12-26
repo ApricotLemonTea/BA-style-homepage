@@ -1,8 +1,6 @@
 <script setup>
   import { ref } from 'vue'
-
-  // percent取值范围 0 ~ 1
-  const props = defineProps(["percent"])
+  const props = defineProps(["percent"]) // percent取值范围 0 ~ 1
   const progressBarWidth = ref(Math.min(props.percent * 100, 100))
 </script>
 
