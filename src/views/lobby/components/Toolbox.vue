@@ -144,7 +144,7 @@ const openPurchaseCreditDialog = () => {
     title: t("toolbox.お金がない！"),
     content: () => [
       h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, t("toolbox.もうお財布空っぽですよ")),
-      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, t("toolbox.1200青輝石でクレジットポイントを購入しますか？")),
+      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, t("toolbox.1200青輝石でクレジットを購入しますか？")),
     ],
     okText: t("はい"),
     cancelText: t("いいえ"),
