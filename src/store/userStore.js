@@ -13,7 +13,7 @@ export const useUserStore = defineStore("userStore", {
     },
 
     ap: 0,
-    credit: 50000000,
+    credit: localStorage.getItem("credit") ? Number(localStorage.getItem("credit")) : 50000000,
     pyroxene:  localStorage.getItem("pyroxene") ? Number(localStorage.getItem("pyroxene")) : 24000,
 
     apRecoverCountdown: 9,

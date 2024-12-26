@@ -122,16 +122,17 @@ const handleClickCredit = () => {
     })
     return
   }
-
-  if (userStore.ap > 0){
-    userStore.randomCredit()
-    userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
-  } else {
+  if (userStore.ap <= 0){
     Message.error({
       content: h("h3", {}, t("toolbox.APが足りません")),
       position: "top"
     })
+    return
   }
+
+  userStore.randomCredit()
+  userStore.ap = userStore.ap - 10 >= 0 ? userStore.ap - 10 : 0
+  localStorage.setItem("credit", userStore.credit)
 }
 
 const loginDate = computed(() => {
