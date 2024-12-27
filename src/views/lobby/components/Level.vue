@@ -27,26 +27,28 @@ const openProfile = () => {
 </script>
 
 <template>
-  <div class="level-box" @click="openProfile">
-    <div class="container">
-      <div class="level css-cursor-hover-enabled">
-        <span>Lv.</span>
-        <p>{{ userStore.level }}</p>
-      </div>
-      <div class="right">
-        <span class="name">{{ t("杏仁レモンティー") }}</span>
-        <div>
-          <a-progress
-            :percent="userStore.exp / userStore.nextExp"
-            :show-text="false"
-            :color="isLevelMax ? '#ffe433' : '#89d5fd'"
-            trackColor="#535E67"
-          >
-          </a-progress>
-          <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE', 'margin-top': '0.5vh' }">
-            <span v-if="!isLevelMax">{{ userStore.exp + ' / ' + userStore.nextExp }}</span>
-            <span v-if="isLevelMax">{{ userStore.totalAccess + ' / ' + 'MAX' }}</span>
-          </p>
+  <div>
+    <div class="level-box" @click="openProfile">
+      <div class="container">
+        <div class="level css-cursor-hover-enabled">
+          <span>Lv.</span>
+          <p>{{ userStore.level }}</p>
+        </div>
+        <div class="right">
+          <span class="name">{{ t("杏仁レモンティー") }}</span>
+          <div>
+            <a-progress
+              :percent="userStore.exp / userStore.nextExp"
+              :show-text="false"
+              :color="isLevelMax ? '#ffe433' : '#89d5fd'"
+              trackColor="#535E67"
+            >
+            </a-progress>
+            <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE', 'margin-top': '0.5vh' }">
+              <span v-if="!isLevelMax">{{ userStore.exp + ' / ' + userStore.nextExp }}</span>
+              <span v-if="isLevelMax">{{ userStore.totalAccess + ' / ' + 'MAX' }}</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
