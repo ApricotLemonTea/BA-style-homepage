@@ -60,7 +60,7 @@ const showGuide = ref(false)
     <img v-if="envShowBackground === 'true'" :src="imgSrc" class="background-img" alt="">
 
     <div id="level-ref"></div>
-    <transition name="up">
+    <transition name="left">
       <Level v-if="!l2dOnly"></Level>
     </transition>
 

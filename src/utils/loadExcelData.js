@@ -3,7 +3,7 @@ import * as XLSX from 'xlsx'
 /**
  * 读取excel文件中的内容返回json数据
  * @param { string } filePath excel文件路径
- * @returns { Promise<Record<string, unknown[]> > } 一个包含所有工作表数据的对象，键为工作表名，值为对应的json化数据
+ * @returns { Promise<Record<string, unknown[]>> } 一个包含所有工作表数据的对象，键为工作表名，值为对应的json化数据
  */
 export async function loadExcelData(filePath) {
   try {
