@@ -50,8 +50,9 @@ const openProfile = () => {
         </div>
       </div>
     </div>
+
+    <Curtain ref="curtainRef"></Curtain>
   </div>
-  <Curtain ref="curtainRef"></Curtain>
 </template>
 
 <style scoped>

@@ -138,9 +138,9 @@ const openAnnounce = () => {
         <p class="blue-text-color">{{ t("contact.当サイトの紹介を始めます") }}</p>
       </template>
     </a-popover>
-  </div>
 
-  <TotalInfo ref="totalInfoRef"></TotalInfo>
+    <TotalInfo ref="totalInfoRef"></TotalInfo>
+  </div>
 </template>
 
 <style scoped>
