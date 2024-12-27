@@ -9,7 +9,7 @@ import * as XLSX from 'xlsx'
 export async function loadExcelData(filePath, sheetIndex) {
   try {
     // 使用 fetch 从 public 目录中加载 Excel 文件
-    const response = await fetch(filePath);
+    const response = await fetch(filePath + `?t=${ new Date().toString() }`);
     if (!response.ok) {
       throw new Error('文件加载失败');
     }

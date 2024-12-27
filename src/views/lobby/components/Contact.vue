@@ -24,7 +24,7 @@ const viewedAnnounceDate = ref()
 const hasNewAnnounce = ref()
 
 onMounted(async () => {
-  announcement.value = await loadExcelData("/data/announcement.xlsx?t=" + new Date().toString(), 0)
+  announcement.value = await loadExcelData("/data/announcement.xlsx", 0)
   recentAnnounceDate.value = announcement.value[0].time
   viewedAnnounceDate.value = localStorage.getItem("viewed-announce-date")
   hasNewAnnounce.value = viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1
