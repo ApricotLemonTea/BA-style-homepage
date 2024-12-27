@@ -17,28 +17,39 @@ const openPortfolio = () => {
 
 <template>
   <transition name="down2">
-    <a-popover>
-      <div
-        v-if="!props.l2dOnly"
-        :name="t('task.イラスト')"
-        class="task css-cursor-hover-enabled"
-        @click="openPortfolio"
-      ></div>
-      <template #title>
-        <h3 class="blue-text-color">Xfolio</h3>
-      </template>
-      <template #content>
-        <p class="blue-text-color">{{ t("task.ポートフォリオです") }}</p>
-      </template>
-    </a-popover>
+    <div
+      v-if="!props.l2dOnly"
+      :name="t('task.イラスト')"
+      class="task css-cursor-hover-enabled"
+      @click="openPortfolio"
+    >
+    </div>
   </transition>
+
+  <a-popover v-if="!props.l2dOnly">
+    <div class="task-block"></div>
+    <template #title>
+      <h3 class="blue-text-color">Xfolio</h3>
+    </template>
+    <template #content>
+      <p class="blue-text-color">{{ t("task.ポートフォリオです") }}</p>
+    </template>
+  </a-popover>
 
   <Curtain ref="curtainRef"></Curtain>
 </template>
 
 <style scoped>
+.task-block {
+  position: fixed;
+  bottom: 140px;
+  right: 60px;
+  width: 150px;
+  height: 150px;
+}
+
 .task {
-  position: absolute;
+  position: fixed;
   bottom: 140px;
   right: 60px;
   width: 150px;
