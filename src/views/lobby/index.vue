@@ -187,10 +187,10 @@ const showGuide = ref(false)
 }
 #contact-ref {
   position: fixed;
-  top: 150px;
+  top: 160px;
   left: 20px;
   width: 280px;
-  height: 200px;
+  height: 190px;
 }
 #ap-ref {
   position: fixed;
