@@ -15,28 +15,30 @@ const patchNoteZh = ref()
 const patchNoteEn = ref()
 
 onMounted(async () => {
-  announcementJa.value = await loadExcelData("/data/announcement.xlsx", 0)
+  const announcementData = await loadExcelData("/data/announcement.xlsx")
+  announcementJa.value = announcementData["日本語"]
   for (let item of announcementJa.value) {
     item.contents = item.contents.split("\r\n")
   }
-  announcementZh.value = await loadExcelData("/data/announcement.xlsx", 1)
+  announcementZh.value = announcementData["中文"]
   for (let item of announcementZh.value) {
     item.contents = item.contents.split("\r\n")
   }
-  announcementEn.value = await loadExcelData("/data/announcement.xlsx", 2)
+  announcementEn.value = announcementData["English"]
   for (let item of announcementEn.value) {
     item.contents = item.contents.split("\r\n")
   }
 
-  patchNoteJa.value = await loadExcelData("/data/patchNote.xlsx", 0)
+  const patchNoteData = await loadExcelData("/data/patchNote.xlsx")
+  patchNoteJa.value = patchNoteData["日本語"]
   for (let item of patchNoteJa.value) {
     item.contents = item.contents.split("\r\n")
   }
-  patchNoteZh.value = await loadExcelData("/data/patchNote.xlsx", 1)
+  patchNoteZh.value = patchNoteData["中文"]
   for (let item of patchNoteZh.value) {
     item.contents = item.contents.split("\r\n")
   }
-  patchNoteEn.value = await loadExcelData("/data/patchNote.xlsx", 2)
+  patchNoteEn.value = patchNoteData["English"]
   for (let item of patchNoteEn.value) {
     item.contents = item.contents.split("\r\n")
   }

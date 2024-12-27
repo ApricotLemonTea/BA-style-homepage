@@ -35,9 +35,11 @@ const tagList = useTagList(t)
 const selectedIndex = ref(0)
 
 onMounted(async () => {
-  missionJa.value = await loadExcelData("/data/mission.xlsx", 0)
-  missionZh.value = await loadExcelData("/data/mission.xlsx", 1)
-  missionEn.value = await loadExcelData("/data/mission.xlsx", 2)
+  const missionData = await loadExcelData("/data/mission.xlsx")
+
+  missionJa.value = missionData["日本語"]
+  missionZh.value = missionData["中文"]
+  missionEn.value = missionData["English"]
 })
 
 // *********************************
