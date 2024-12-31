@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
@@ -21,6 +21,17 @@ import NProgress from 'nprogress'
 
 import { useUserStore } from '@/store/userStore'
 const userStore = useUserStore()
+
+const welcomeDialogVisible = ref(false)
+
+onMounted(() => {
+  // 第一次访问本站则弹出对话框
+  const hasVisited = localStorage.getItem("hasVisited")
+  if (!hasVisited){
+    welcomeDialogVisible.value = true
+    localStorage.setItem("hasVisited", true)
+  }
+})
 
 // 只在第一次打开网站时显示加载动画
 if (userStore.isFirstOpen){
@@ -85,6 +96,31 @@ const showGuide = ref(false)
 
     <div id="curtain"></div>
 
+    <!--第一次访问本站的弹窗-->
+    <a-modal v-model:visible="welcomeDialogVisible"
+             modal-animation-name="no-slide-zoom-modal"
+             :footer="false">
+      <template #title>
+        Welcome
+      </template>
+      <div class="blue-text-color">
+        <p>いらっしゃいませ(｀・ω・´)</p>
+        <br />
+        <p>
+          当サイトは
+          <a href="https://x.com/ApricotLemonTea" style="color: #3987ff">{{ t("杏仁レモンティー")}}</a>
+          が開発・運営する個人ホームページです。
+        </p>
+        <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています。") }}</p>
+        <p>ブルアカ公式とは一切関係ありません、ご注意ください。</p>
+        <br />
+        <p>当サイトの各種機能は画面左の「ガイド」ボタンから紹介いたします。</p>
+        <br />
+        <p>（このメッセージは次回のアクセスから表示しません）</p>
+      </div>
+    </a-modal>
+
+    <!--漫游引导-->
     <el-tour v-model="showGuide" :target-area-clickable="false">
       <template #indicators="{ current, total }">
         <span class="blue-text-color">{{ current + 1 }} / {{ total }}</span>
