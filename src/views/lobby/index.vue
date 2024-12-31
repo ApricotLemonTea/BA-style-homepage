@@ -108,7 +108,7 @@ const showGuide = ref(false)
         <br />
         <p>
           {{ t("welcome.当サイトは") }}
-          <a href="https://x.com/ApricotLemonTea" style="color: #3987ff">{{ t("杏仁レモンティー")}}</a>
+          <a href="https://x.com/ApricotLemonTea" target="_blank" style="color: #3987ff">{{ t("杏仁レモンティー")}}</a>
           {{ t("welcome.が開発・運営する個人ホームページです。") }}
         </p>
         <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています。") }}</p>
