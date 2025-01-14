@@ -75,7 +75,7 @@ window.matchMedia('(hover: none)').addListener((e) => {
   hover.value = e.matches
 })
 
-// **********体力**********
+// ********************体力********************
 /* 自动回复AP的倒计时 */
 const apRecoverCountdown = computed(() => {
   return userStore.apRecoverCountdown
@@ -110,9 +110,9 @@ const handleClickApIncrease = () => {
 const increaseAp = () => {
   userStore.ap = 999
 }
-// ********************
+// ****************************************
 
-// **********信用点**********
+// ********************信用点********************
 /**
  * 点击信用点的事件：
  * 随机生成信用点数量，同时AP -10
@@ -166,9 +166,9 @@ const openPurchaseCreditDialog = () => {
     }
   })
 }
-// ********************
+// ****************************************
 
-// **********青辉石**********
+// ********************青辉石********************
 const loginDate = computed(() => {
   return localStorage.getItem("login-date")
 })
@@ -192,7 +192,22 @@ const increasePyroxene = () => {
   // 将领取日期（今天）存储到storage
   localStorage.setItem("login-date", nowDate.value)
 }
-// ********************
+// ****************************************
+
+// ********************修改语言********************
+const changeLocale = () => {
+  switch (i18n.global.locale) {
+    case "ja":
+      i18n.global.locale = "zh"
+      break
+    case "zh":
+      i18n.global.locale = "en"
+      break
+    case "en":
+      i18n.global.locale = "ja"
+      break
+  }
+}
 
 /**
  * 变更语言后将选择的语言存储到storage中
@@ -200,6 +215,7 @@ const increasePyroxene = () => {
 watch(() => i18n.global.locale, (newLanguage) => {
   localStorage.setItem("locale", newLanguage)
 })
+// ****************************************
 </script>
 
 <template>
@@ -252,39 +268,21 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </div>
 
     <!--切换语言的按钮-->
-    <a-popover>
-      <a
-        class="about toolbox"
-        :style="{
+    <a
+      @click="changeLocale"
+      class="about toolbox"
+      :style="{
           transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
           transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
         }"
-      >
-        <icon-language class="css-cursor-hover-enabled" />
-      </a>
-      <template #content>
-        <div>
-          <a-radio-group v-model="i18n.global.locale"
-                         direction="vertical"
-          >
-            <a-radio value="ja">
-              <p class="modal-text" style="width: 150px">日本語</p>
-            </a-radio>
-            <a-radio value="zh" style="margin-top: 10px; width: 150px">
-              <p class="modal-text">简体中文</p>
-            </a-radio>
-            <a-radio value="en" style="margin-top: 10px; width: 150px">
-              <p class="modal-text">English</p>
-            </a-radio>
-          </a-radio-group>
-        </div>
-      </template>
-    </a-popover>
+    >
+      <icon-language class="css-cursor-hover-enabled" />
+    </a>
 
     <!--打开about的按钮-->
     <a
       class="about toolbox"
-      @click="()=>{ aboutDialogVisible = true }"
+      @click="() => { aboutDialogVisible = true }"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
         transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
