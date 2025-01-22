@@ -42,7 +42,8 @@ const copyMailAddress = async () => {
     <div class="project-box">
       <a-popover>
         <div class="project css-cursor-hover-enabled"
-             @click="openUrl('https://twitter.com/ApricotLemonTea')">
+             @click="openUrl('https://twitter.com/ApricotLemonTea')"
+        >
           <img src="/img/twitter.png" alt="" />
           <span>SNS</span>
         </div>
@@ -53,27 +54,32 @@ const copyMailAddress = async () => {
           <div class="button-list">
             <div class="button-item" style="margin-left: 0">
               <img src="/img/twitter.png" alt=""
-                   @click="openUrl('https://twitter.com/ApricotLemonTea')"/>
+                   @click="openUrl('https://twitter.com/ApricotLemonTea')"
+              />
               <span>Twitter</span>
             </div>
             <div class="button-item">
               <img src="/img/x.png" alt=""
-                   @click="openUrl('https://twitter.com/A_LemonTea')"/>
+                   @click="openUrl('https://twitter.com/A_LemonTea')"
+              />
               <span>X (Sub)</span>
             </div>
             <div class="button-item">
               <img src="/img/misskey.png" alt=""
-                   @click="openUrl('https://misskey.io/@ApricotLemonTea')"/>
+                   @click="openUrl('https://misskey.io/@ApricotLemonTea')"
+              />
               <span>Misskey</span>
             </div>
             <div class="button-item">
               <img src="/img/bluesky.png" alt=""
-                   @click="openUrl('https://bsky.app/profile/apricotlemontea.com')"/>
+                   @click="openUrl('https://bsky.app/profile/apricotlemontea.com')"
+              />
               <span>Bluesky</span>
             </div>
             <div class="button-item">
               <img src="/img/weibo.png" alt=""
-                   @click="openUrl('https://m.weibo.cn/profile/7850690980')"/>
+                   @click="openUrl('https://m.weibo.cn/profile/7850690980')"
+              />
               <span>微博</span>
             </div>
           </div>
@@ -82,7 +88,8 @@ const copyMailAddress = async () => {
 
       <a-popover>
         <div class="project css-cursor-hover-enabled"
-             @click="openUrl('https://apricotlemontea.booth.pm')">
+             @click="openUrl('https://apricotlemontea.booth.pm')"
+        >
           <img src="/img/booth.png" alt="" />
           <span>Shop</span>
         </div>
@@ -93,13 +100,15 @@ const copyMailAddress = async () => {
           <div class="button-list">
             <div class="button-item" style="margin-left: 0">
               <img src="/img/booth.png" alt=""
-                   @click="openUrl('https://apricotlemontea.booth.pm')"/>
+                   @click="openUrl('https://apricotlemontea.booth.pm')"
+              />
               <span>BOOTH</span>
             </div>
             <div class="button-item">
               <img src="/img/melonbooks.png" alt=""
                    style="width: auto"
-                   @click="openUrl('https://www.melonbooks.co.jp/circle/index.php?circle_id=129456')"/>
+                   @click="openUrl('https://www.melonbooks.co.jp/circle/index.php?circle_id=129456')"
+              />
               <span>Melonbooks</span>
             </div>
           </div>
@@ -108,7 +117,8 @@ const copyMailAddress = async () => {
 
       <a-popover>
         <div class="project css-cursor-hover-enabled"
-             @click="openUrl('https://skeb.jp/@ApricotLemonTea')">
+             @click="openUrl('https://skeb.jp/@ApricotLemonTea')"
+        >
           <img src="/img/skeb.png" alt="" />
           <span>Skeb</span>
         </div>
@@ -122,7 +132,8 @@ const copyMailAddress = async () => {
 
       <a-popover>
         <div class="project css-cursor-hover-enabled"
-             @click="openUrl('https://apricotlemontea.fanbox.cc/')">
+             @click="openUrl('https://apricotlemontea.fanbox.cc/')"
+        >
           <img src="/img/fanbox.png" alt="" />
           <span>FANBOX</span>
         </div>
@@ -136,7 +147,8 @@ const copyMailAddress = async () => {
 
       <a-popover>
         <div class="project css-cursor-hover-enabled"
-             @click="openUrl('https://github.com/ApricotLemonTea/BA-style-homepage')">
+             @click="openUrl('https://github.com/ApricotLemonTea/BA-style-homepage')"
+        >
           <img src="/img/github.png" alt="" />
           <span>GitHub</span>
         </div>
@@ -150,7 +162,8 @@ const copyMailAddress = async () => {
 
       <a-popover>
         <div class="project css-cursor-hover-enabled"
-             @click="copyMailAddress">
+             @click="copyMailAddress"
+        >
           <img src="/img/mail.png" alt="" />
           <span>Mail</span>
         </div>
@@ -167,7 +180,8 @@ const copyMailAddress = async () => {
 
       <a-popover>
         <div class="project css-cursor-hover-enabled"
-          @click="openUrl('https://wavebox.me/wave/5n2bu0domp1j2fq9')">
+          @click="openUrl('https://wavebox.me/wave/5n2bu0domp1j2fq9')"
+        >
           <img src="/img/wavebox.png" alt="" />
           <span>Wavebox</span>
         </div>

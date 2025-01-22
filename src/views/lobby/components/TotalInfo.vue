@@ -96,7 +96,7 @@ const tabList = computed(() => {
     <template #title>
       <div class="total-info-header-block">
         <p class="title-text">ApricotLemonTea News</p>
-        <IconClose @click="()=>{ dialogVisible = false }"
+        <IconClose @click="() => { dialogVisible = false }"
                    class="close-button" size="4vh"/>
       </div>
     </template>
@@ -108,7 +108,7 @@ const tabList = computed(() => {
           <div class="total-info-tab-bar">
             <div v-for="(item, index) in tabList" :key="index"
                  :class="selectedTabIndex === index ? 'total-info-tab-button tab-selected' : 'total-info-tab-button'"
-                 @click="()=>{ selectedTabIndex = index; selectedTitleIndex = 0 }"
+                 @click="() => { selectedTabIndex = index; selectedTitleIndex = 0 }"
             >
               {{ item }}
             </div>
@@ -116,12 +116,13 @@ const tabList = computed(() => {
 
           <!--お知らせ-->
           <div v-show="tabList[selectedTabIndex] === t('totalInfo.お知らせ')"
-               class="total-info-content-block">
+               class="total-info-content-block"
+          >
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
               <div v-for="(item, index) in announcement" :key="index"
                    :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
-                   @click="()=>{selectedTitleIndex = index}"
+                   @click="() => { selectedTitleIndex = index }"
               >
                 {{ item.title }}
               </div>
@@ -129,7 +130,8 @@ const tabList = computed(() => {
             <!--正文内容-->
             <div v-for="(item, index) in announcement"  :key="index"
                  v-show="selectedTitleIndex === index"
-                 class="total-info-content">
+                 class="total-info-content"
+            >
               <div v-for="contentItem in item.contents" :key="contentItem"
                  v-html="contentItem"
                  style="margin-bottom: 3vh"
@@ -142,12 +144,13 @@ const tabList = computed(() => {
 
           <!--パッチノート-->
           <div v-show="tabList[selectedTabIndex] === t('totalInfo.パッチノート')"
-               class="total-info-content-block">
+               class="total-info-content-block"
+          >
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
               <div v-for="(item, index) in patchNote" :key="index"
                    :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
-                   @click="()=>{selectedTitleIndex = index}"
+                   @click="() => { selectedTitleIndex = index }"
               >
                 {{ item.title }}
               </div>
@@ -155,7 +158,8 @@ const tabList = computed(() => {
             <!--正文内容-->
             <div v-for="(item, index) in patchNote"  :key="index"
                  v-show="selectedTitleIndex === index"
-                 class="total-info-content">
+                 class="total-info-content"
+            >
               <ul style="margin: 0 30px">
                 <li v-for="contentItem in item.contents" :key="contentItem"
                     v-html="contentItem"
@@ -166,7 +170,8 @@ const tabList = computed(() => {
 
           <!--その他-->
           <div v-show="tabList[selectedTabIndex] === t('totalInfo.その他')"
-               class="total-info-content-block">
+               class="total-info-content-block"
+          >
             <p style="font-size: 2.5vh; margin: 10vh auto">{{ t("totalInfo.予備用のタブです、まだ何もありません。") }}</p>
           </div>
         </div>

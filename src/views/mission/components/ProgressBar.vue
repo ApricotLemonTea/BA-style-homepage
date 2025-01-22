@@ -15,7 +15,8 @@ const progressBarWidth = computed(() => {
              { width: progressBarWidth + '%' },
              props.percent > 1 ? { 'background-color': '#fada0aff' } : ''
            ]"
-      ></div>
+      >
+      </div>
     </div>
   </div>
 </template>

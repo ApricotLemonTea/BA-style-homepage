@@ -39,7 +39,8 @@ const goToDetail = () => {
   >
     <div class="mission-item-title-block">
       <div class="mission-tag"
-           :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''">
+           :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''"
+      >
         {{ tagList[props.tagIndex].label }}
       </div>
       <div class="mission-title">{{ props.title }}</div>

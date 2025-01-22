@@ -45,11 +45,13 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
 
       <div class="button-block blue-text-color">
         <div :class="tabIndex === 'profile' ? 'button wider-border' : 'button'"
-             @click="switchTab('profile')">
+             @click="switchTab('profile')"
+        >
           <p class="button-text">{{ t("profile.プロフィール") }}</p>
         </div>
         <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
-             @click="switchTab('OC')">
+             @click="switchTab('OC')"
+        >
           <p class="button-text">{{ t("profile.オリキャラ設定画") }}</p>
         </div>
       </div>

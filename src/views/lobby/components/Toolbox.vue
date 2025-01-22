@@ -307,7 +307,8 @@ watch(() => i18n.global.locale, (newLanguage) => {
   </div>
 
   <a-modal v-model:visible="increasePyroxeneDialogVisible" @ok="increasePyroxene"
-           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')">
+           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')"
+  >
     <template #title>
       {{ t("toolbox.青輝石購入？") }}
     </template>
@@ -317,7 +318,8 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </div>
   </a-modal>
   <a-modal v-model:visible="exceedPyroxeneDialogVisible"
-           :ok-text="t('toolbox.わかった')" hide-cancel>
+           :ok-text="t('toolbox.わかった')" hide-cancel
+  >
     <template #title>
       {{ t("toolbox.青輝石購入？") }}
     </template>
@@ -328,7 +330,8 @@ watch(() => i18n.global.locale, (newLanguage) => {
   </a-modal>
 
   <a-modal v-model:visible="increaseApDialogVisible" @ok="increaseAp"
-           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')">
+           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')"
+  >
     <template #title>
       {{ t("toolbox.AP購入？") }}
     </template>
@@ -350,7 +353,8 @@ watch(() => i18n.global.locale, (newLanguage) => {
 
   <a-modal v-model:visible="aboutDialogVisible"
            modal-animation-name="no-slide-zoom-modal"
-           :footer="false">
+           :footer="false"
+  >
     <template #title>
       About
     </template>

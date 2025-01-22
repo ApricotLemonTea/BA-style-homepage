@@ -83,7 +83,7 @@ const showGuide = ref(false)
 
     <div id="contact-ref"></div>
     <transition name="left">
-      <Contact v-if="!l2dOnly" @start-guide="()=>{ showGuide = true }"></Contact>
+      <Contact v-if="!l2dOnly" @start-guide="() => { showGuide = true }"></Contact>
     </transition>
 
     <div id="task-ref"></div>
@@ -99,7 +99,8 @@ const showGuide = ref(false)
     <!--第一次访问本站的弹窗-->
     <a-modal v-model:visible="welcomeDialogVisible"
              modal-animation-name="no-slide-zoom-modal"
-             :footer="false">
+             :footer="false"
+    >
       <template #title>
         Welcome
       </template>

@@ -51,10 +51,12 @@ const openAnnounce = () => {
 <template>
   <div class="contact-box">
     <a-badge :count="hasNewAnnounce" :offset="[-25, -10]"
-             dot :dot-style="{width: '13px', height: '13px'}">
+             dot :dot-style="{width: '13px', height: '13px'}"
+    >
       <a-popover position="top">
         <div class="contact css-cursor-hover-enabled"
-             @click="openAnnounce">
+             @click="openAnnounce"
+        >
           <img src="/img/announce.png" alt="" />
           <span style="white-space: nowrap; margin-top: 9px">{{ t("contact.お知らせ") }}</span>
         </div>
@@ -69,7 +71,8 @@ const openAnnounce = () => {
 
     <a-popover position="top">
       <div class="contact css-cursor-hover-enabled"
-           @click="openUrl('https://u1805.github.io/momotalk/')">
+           @click="openUrl('https://u1805.github.io/momotalk/')"
+      >
         <img src="/img/momotalk.png" alt="" />
         <span style="white-space: nowrap;">{{ t("contact.モモトーク") }}</span>
       </div>
@@ -83,27 +86,39 @@ const openAnnounce = () => {
           <p v-show="i18n.global.locale === 'ja'">使い方は
             <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-jp.md')"
                   class="css-cursor-hover-enabled link"
-                  style="color: #3987ff">こちら</span>
+                  style="color: #3987ff"
+            >
+              こちら
+            </span>
           </p>
           <!--中文使用说明-->
           <p v-show="i18n.global.locale === 'zh'">
             <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-zh_cn.md')"
                   class="css-cursor-hover-enabled link"
-                  style="color: #3987ff">点击这里</span>
+                  style="color: #3987ff"
+            >
+              点击这里
+            </span>
             查看食用说明
           </p>
           <!--英语使用说明-->
           <p v-show="i18n.global.locale === 'en'">
             <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use.md')"
                   class="css-cursor-hover-enabled link"
-                  style="color: #3987ff">Click here</span>
+                  style="color: #3987ff"
+            >
+              Click here
+            </span>
             to learn how to use
           </p>
           <br />
           <p>Made by
             <span @click="openUrl('https://github.com/U1805/momotalk')"
                   class="css-cursor-hover-enabled link"
-                  style="color: #3987ff">U1805</span>
+                  style="color: #3987ff"
+            >
+              U1805
+            </span>
           </p>
         </div>
       </template>
@@ -111,7 +126,8 @@ const openAnnounce = () => {
 
     <a-popover position="bottom">
       <div class="contact css-cursor-hover-enabled"
-           @click="openMission">
+           @click="openMission"
+      >
         <img src="/img/mission.png" alt="" />
         <span style="white-space: nowrap;">{{ t("contact.ミッション") }}</span>
       </div>
@@ -127,7 +143,8 @@ const openAnnounce = () => {
 
     <a-popover position="bottom">
       <div class="contact css-cursor-hover-enabled"
-           @click="$emit('start-guide')">
+           @click="$emit('start-guide')"
+      >
         <img src="/img/guide.png" alt="" />
         <span style="white-space: nowrap;">{{ t("contact.ガイド") }}</span>
       </div>
