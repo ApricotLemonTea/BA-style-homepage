@@ -44,12 +44,12 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       </div>
 
       <div class="button-block blue-text-color">
-        <div :class="tabIndex === 'profile' ? 'button wider-border' : 'button'"
+        <div :class="['button', tabIndex === 'profile' ? ' wider-border' : '']"
              @click="switchTab('profile')"
         >
           <p class="button-text">{{ t("profile.プロフィール") }}</p>
         </div>
-        <div :class="tabIndex === 'OC' ? 'button wider-border' : 'button'"
+        <div :class="['button', tabIndex === 'OC' ? 'wider-border' : '']"
              @click="switchTab('OC')"
         >
           <p class="button-text">{{ t("profile.オリキャラ設定画") }}</p>
@@ -156,7 +156,7 @@ const signImgSrc = ref("/profile/sign.png?t=" + new Date().getTime().toString())
       transform: scale(0.95);
     }
     .wider-border {
-      border: 0.3vh solid #003153;
+      border: 0.2vh solid #003153;
     }
   }
 }

@@ -97,26 +97,17 @@ watch(pyroxene, (newPyroxene) => {
   overflow: hidden;
 }
 
-/* 从页面下方进入的动画 */
-.view-animation-enter-from {
-  opacity: 0; /* 初始状态：完全透明 */
+/* 淡入淡出的动画 */
+.view-animation-enter-from,
+.view-animation-leave-to{
+  opacity: 0;
 }
-.view-animation-enter-to {
-  opacity: 1; /* 最终状态：完全不透明 */
+.view-animation-enter-to,
+.view-animation-leave-from{
+  opacity: 1;
 }
-.view-animation-enter-active {
-  transition: opacity 0.5s; /* 淡入 */
+.view-animation-enter-active,
+.view-animation-leave-active{
+  transition: 0.5s;
 }
-
-/* 离开动画 */
-.view-animation-leave-from {
-  opacity: 1; /* 初始状态：完全不透明 */
-}
-.view-animation-leave-to {
-  opacity: 0; /* 最终状态：完全透明 */
-}
-.view-animation-leave-active {
-  transition: opacity 0.5s;
-}
-
 </style>

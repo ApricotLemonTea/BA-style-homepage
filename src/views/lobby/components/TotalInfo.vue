@@ -84,7 +84,11 @@ const selectedTabIndex = ref(0)
 const selectedTitleIndex = ref(0)
 
 const tabList = computed(() => {
-  return [t("totalInfo.お知らせ"), t("totalInfo.パッチノート"), t("totalInfo.その他")]
+  return [
+    t("totalInfo.お知らせ"),
+    t("totalInfo.パッチノート"),
+    // t("totalInfo.その他")
+  ]
 })
 </script>
 
@@ -121,7 +125,7 @@ const tabList = computed(() => {
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
               <div v-for="(item, index) in announcement" :key="index"
-                   :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
+                   :class="['total-info-content-title', selectedTitleIndex === index ? ' title-selected' : '']"
                    @click="() => { selectedTitleIndex = index }"
               >
                 {{ item.title }}
@@ -149,7 +153,7 @@ const tabList = computed(() => {
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
               <div v-for="(item, index) in patchNote" :key="index"
-                   :class="selectedTitleIndex === index ? 'total-info-content-title title-selected' : 'total-info-content-title'"
+                   :class="['total-info-content-title', selectedTitleIndex === index ? ' title-selected' : '']"
                    @click="() => { selectedTitleIndex = index }"
               >
                 {{ item.title }}
@@ -182,7 +186,6 @@ const tabList = computed(() => {
 
 <style>
 .total-info-dialog {
-  //border-radius: 0.7vw;
   padding: 0;
   width: 60vw;
 
@@ -207,11 +210,9 @@ const tabList = computed(() => {
   }
 
   .total-info-container {
-    //background-color: #ff60ba;
     height: 58vh;
 
     .total-info-inner-container {
-      //background-color: #86a071;
       border-bottom: #7b9eb5 solid 1px;
       box-shadow: inset -1px 0 0 #7b9eb5, inset 1px 0 0 #7b9eb5;
       z-index: 50;
@@ -226,7 +227,7 @@ const tabList = computed(() => {
         .total-info-tab-button {
           background-color: #677890;
           color: #c1cce1;
-          width: 33.33333%;
+          width: 50%;
           height: 100%;
           display: flex;
           justify-content: center;
@@ -241,7 +242,6 @@ const tabList = computed(() => {
       }
 
       .total-info-content-block {
-        //background-color: #d8d897;
         height: 49vh;
         display: flex;
 
@@ -253,7 +253,6 @@ const tabList = computed(() => {
           margin-left: 1px;
 
           .total-info-content-title {
-            //background-color: #dbe6eb;
             background-color: #f5f7f9;
             height: 15%;
             display: flex;
@@ -267,7 +266,6 @@ const tabList = computed(() => {
           }
         }
         .total-info-content {
-          //background-color: #c18cff;
           max-height: 100%;
           width: 70%;
           font-size: 2.5vh;
