@@ -29,60 +29,29 @@ app.use(i18n)
 
 app.mount('#app')
 
+// i18n t函数
+const t = i18n.global.t
+
 /**
  * 页面需要更新时的弹窗提示
  */
 if ('serviceWorker' in navigator) {
   const updateSW = registerSW({
     onNeedRefresh() {
-      if (i18n.global.locale === 'ja'){
-        Modal.open({
-          title: "メッセージ",
-          content: () => [
-            h("p", { class: "blue-text-color" }, "アップデートがあります、ページを再起動してください。"),
-          ],
-          okText: "はい",
-          hideCancel: true,
-          closable: false,
-          maskClosable: false,
-          escToClose: false,
-          onOk: () => {
-            updateSW(true)
-          }
-        })
-      }
-      if (i18n.global.locale === 'zh'){
-        Modal.open({
-          title: "提示",
-          content: () => [
-            h("p", { class: "blue-text-color" }, "网站有更新，请刷新页面。"),
-          ],
-          okText: "确定",
-          hideCancel: true,
-          closable: false,
-          maskClosable: false,
-          escToClose: false,
-          onOk: () => {
-            updateSW(true)
-          }
-        })
-      }
-      if (i18n.global.locale === 'en'){
-        Modal.open({
-          title: "Message",
-          content: () => [
-            h("p", { class: "blue-text-color" }, "The website has been updated, please reload the page."),
-          ],
-          okText: "OK",
-          hideCancel: true,
-          closable: false,
-          maskClosable: false,
-          escToClose: false,
-          onOk: () => {
-            updateSW(true)
-          }
-        })
-      }
+      Modal.open({
+        title: t("notice.メッセージ"),
+        content: () => [
+          h("p", { class: "blue-text-color" }, t("notice.アップデートがあります、ページを再起動してください。")),
+        ],
+        okText: t("はい"),
+        hideCancel: true,
+        closable: false,
+        maskClosable: false,
+        escToClose: false,
+        onOk: () => {
+          updateSW(true)
+        }
+      })
     }
   })
 }
@@ -121,7 +90,7 @@ import aris from '/l2d/aris/Aris_home.skel?url'
 /*
  * students 是学生l2d的位置
  * l2dBGM 是学生背景音乐的位置
- * */
+ */
 const students = [hina_swimsuit, aris]
 // const l2dBGM = [hina_bgm, aris_bgm]
 /*——————————————————————————————————————————————————*/
