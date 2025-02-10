@@ -99,6 +99,7 @@ const showGuide = ref(false)
     <!--第一次访问本站的弹窗-->
     <a-modal v-model:visible="welcomeDialogVisible"
              modal-animation-name="no-slide-zoom-modal"
+             :mask-closable="false"
              :footer="false"
     >
       <template #title>
@@ -109,7 +110,7 @@ const showGuide = ref(false)
         <br />
         <p>
           {{ t("welcome.当サイトは") }}
-          <a href="https://x.com/ApricotLemonTea" target="_blank" style="color: #3987ff">{{ t("杏仁レモンティー")}}</a>
+          <a href="https://x.com/ApricotLemonTea" target="_blank" style="color: #3987ff; font-weight: bold">{{ t("杏仁レモンティー")}}</a>
           {{ t("welcome.が開発・運営する個人ホームページです。") }}
         </p>
         <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています。") }}</p>
