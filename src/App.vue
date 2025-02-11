@@ -6,6 +6,7 @@ import getAccessAnalytics from './utils/cloudflareAnalytics'
 import { Modal } from '@arco-design/web-vue'
 import { openUrl } from './utils/commonFunctions'
 import { useI18n } from 'vue-i18n'
+import SpotifyPlayer from './components/SpotifyPlayer.vue'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -75,11 +76,15 @@ watch(pyroxene, (newPyroxene) => {
 
 <template>
   <div id="background" :style="userStore.curtainStyle"></div>
+
   <main>
     <transition name="view-animation" mode="out-in">
       <RouterView />
     </transition>
   </main>
+
+  <SpotifyPlayer></SpotifyPlayer>
+
   <Cursor></Cursor>
 </template>
 

@@ -59,6 +59,8 @@ const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
 
 const change = () => {
+  userStore.switchSpotifyPlayerFlag()
+
   img.value = img.value === '/img/min.png' ? '/img/max.png' : '/img/min.png'
   emit('switch')
 }

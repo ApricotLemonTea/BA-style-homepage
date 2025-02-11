@@ -6,6 +6,8 @@ export const useUserStore = defineStore("userStore", {
     isFirstOpen: true,
     totalAccess: 0,
 
+    showSpotifyPlayerFlag: true,
+
     curtainStyle: {
       backgroundImage: `url('/shitim/Event_Main_Stage_Bg.png')`,
       backgroundSize: 'cover',
@@ -46,6 +48,13 @@ export const useUserStore = defineStore("userStore", {
       ]
       const randomImage = images[Math.floor(Math.random() * images.length)];
       this.curtainStyle.backgroundImage = `url(${randomImage})`;
+    },
+
+    /**
+     * 切换Spotify播放器是否显示
+     */
+    switchSpotifyPlayerFlag() {
+      this.showSpotifyPlayerFlag = !this.showSpotifyPlayerFlag
     },
 
     /**
