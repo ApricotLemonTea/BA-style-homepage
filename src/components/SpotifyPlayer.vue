@@ -24,7 +24,8 @@ const isShowPlayer = computed(() => {
   position: fixed;
   left: 2vw;
   bottom: 10vh;
-  width: 400px;
+  width: 370px;
+  opacity: 0.9;
 }
 
 .left-leave-to,
