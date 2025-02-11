@@ -45,10 +45,10 @@ const copyMailAddress = async () => {
              @click="openUrl('https://twitter.com/ApricotLemonTea')"
         >
           <img src="/img/twitter.png" alt="" />
-          <span>SNS</span>
+          <span>SNSs</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">SNS</h3>
+          <h3 class="blue-text-color">SNSs</h3>
         </template>
         <template #content>
           <div class="button-list">
@@ -91,10 +91,10 @@ const copyMailAddress = async () => {
              @click="openUrl('https://apricotlemontea.booth.pm')"
         >
           <img src="/img/booth.png" alt="" />
-          <span>Shop</span>
+          <span>Shops</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">Online Shop</h3>
+          <h3 class="blue-text-color">Online Shops</h3>
         </template>
         <template #content>
           <div class="button-list">
