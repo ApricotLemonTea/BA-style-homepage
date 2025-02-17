@@ -62,7 +62,7 @@ const copyMailAddress = async () => {
               <img src="/img/x.png" alt=""
                    @click="openUrl('https://twitter.com/A_LemonTea')"
               />
-              <span>X (Sub)</span>
+              <span>X (R18)</span>
             </div>
             <div class="button-item">
               <img src="/img/misskey.png" alt=""
