@@ -42,6 +42,8 @@ onMounted(async () => {
   missionEn.value = missionData["English"]
 })
 
+const bgImgSrc = ref("/profile/1007.png?t=" + new Date().getTime().toString())
+
 // *********************************
 // 每日登录逻辑（复制自Toolbox.vue）
 const loginDate = ref(localStorage.getItem("login-date"))
@@ -112,6 +114,11 @@ const increasePyroxene = () => {
          ]"
     >
       {{ t("mission.受取") }}
+    </div>
+
+    <!--chara背景图-->
+    <div class="chara-block">
+      <img :src="bgImgSrc" alt="">
     </div>
 
     <!--说明文字区域-->
@@ -232,5 +239,19 @@ const increasePyroxene = () => {
 .info-message-block span {
   margin: 0 10%;
   font-size: 1.2vw;
+}
+
+.chara-block {
+  position: fixed;
+  left: 3vw;
+  top: 6vh;
+  width: 30vw;
+  height: 94vh;
+
+  img {
+    height: 100%;
+    aspect-ratio: auto;
+    margin: 0 auto;
+  }
 }
 </style>
