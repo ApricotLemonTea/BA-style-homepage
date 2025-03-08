@@ -1,5 +1,6 @@
 <script setup>
 import TopBar from '@/components/TopBar.vue'
+import RewardPopup from './components/RewardPopup.vue'
 import { computed, ref, onMounted } from 'vue'
 import { getFormattedDate } from '@/utils/commonFunctions'
 import { useUserStore } from '@/store/userStore'
@@ -34,6 +35,8 @@ const mission = computed(() => {
 const tagList = useTagList(t)
 const selectedIndex = ref(0)
 
+const rewardPopupRef = ref()
+
 onMounted(async () => {
   const missionData = await loadExcelData("/data/mission.xlsx")
 
@@ -50,12 +53,11 @@ const loginDate = ref(localStorage.getItem("login-date"))
 const nowDate = ref(getFormattedDate(new Date()))
 
 const increasePyroxene = () => {
-  console.log(loginDate.value, nowDate.value)
-
   if (loginDate.value === nowDate.value){
     return
   }
 
+  rewardPopupRef.value.showPopup()
   userStore.pyroxene += 1200
   // 将领取日期（今天）存储到storage
   localStorage.setItem("login-date", nowDate.value)
@@ -125,6 +127,8 @@ const increasePyroxene = () => {
     <div class="info-message-block blue-text-color">
       <span>{{ t("mission.「開発」タグ以外のミッションはクリックすると詳細情報を確認できます") }}</span>
     </div>
+
+    <RewardPopup ref="rewardPopupRef"></RewardPopup>
   </div>
 </template>
 
