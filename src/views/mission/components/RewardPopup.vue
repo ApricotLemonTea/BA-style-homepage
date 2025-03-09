@@ -18,8 +18,8 @@ defineExpose({ showPopup })
 
 <template>
   <Transition
-    enter-active-class="animate__animated animate__zoomIn"
-    leave-active-class="animate__animated animate__zoomOut"
+    enter-active-class="animate__animated zoomIn"
+    leave-active-class="animate__animated zoomOut"
   >
     <div v-if="visible" class="reward-container">
       <img src="/img/pyroxene.png" alt="">
@@ -51,8 +51,39 @@ defineExpose({ showPopup })
   }
 }
 
-.animate__animated.animate__zoomIn,
-.animate__animated.animate__zoomOut {
+.animate__animated {
   --animate-duration: 0.3s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(1, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(1, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+.zoomOut {
+  animation-name: zoomOut;
 }
 </style>
