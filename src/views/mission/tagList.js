@@ -1,8 +1,10 @@
+import i18n from '@/locale'
+const t = i18n.global.t
+
 /**
  * 获取mission用的tag list
- * @param { function } t 传入i18n的t方法
  */
-export function useTagList(t) {
+export function useTagList() {
   return [
     {
       label: t("mission.missionTag.全体"),

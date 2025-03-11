@@ -32,7 +32,7 @@ const mission = computed(() => {
   }
 })
 
-const tagList = useTagList(t)
+const tagList = useTagList()
 const selectedIndex = ref(0)
 
 const rewardPopupRef = ref()

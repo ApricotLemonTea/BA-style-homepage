@@ -14,7 +14,7 @@ const props = defineProps([
   "completeDate",
   "detailUrl"
 ])
-const tagList = useTagList(t)
+const tagList = useTagList()
 const isFeatureTag = computed(() => {
   return props.tagIndex === 2
 })
