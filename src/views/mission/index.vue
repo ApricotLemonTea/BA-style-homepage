@@ -92,7 +92,7 @@ const increasePyroxene = () => {
       <div class="mission-item-container">
         <template v-for="item in mission" :key="item">
           <MissionItem v-show="selectedIndex === 0 ? true
-                                                  : item.tagIndex === selectedIndex"
+                                                   : item.tagIndex === selectedIndex"
                        :tagIndex="item.tagIndex"
                        :title="item.title"
                        :times="item.times"
