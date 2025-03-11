@@ -34,5 +34,5 @@ export function useTagList() {
     //     "color": "#ffffff"
     //   }
     // }
-  ];
+  ]
 }

@@ -1,11 +1,9 @@
 <script setup>
 import { computed } from 'vue'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
-import { useI18n } from 'vue-i18n'
 import { useTagList } from '@/views/mission/tagList'
 import { openUrl } from '@/utils/commonFunctions'
 
-const { t } = useI18n()
 const props = defineProps([
   "tagIndex",
   "title",
