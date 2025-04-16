@@ -46,7 +46,9 @@ onMounted(async () => {
   checkWindowSize()
 
   // 统计页面访问量总和并存储到store中
-  userStore.totalAccess = await getAccessAnalytics()
+  const { totalAccess, accessDataList } = await getAccessAnalytics()
+  userStore.totalAccess = totalAccess
+  userStore.accessDataList = accessDataList
   // 初始化当前ap
   userStore.initAp()
   // 开启自动回复AP的倒计时

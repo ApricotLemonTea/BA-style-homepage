@@ -4,8 +4,10 @@ import { useI18n } from 'vue-i18n'
 import i18n from '@/locale'
 import { loadExcelData } from '@/utils/loadExcelData'
 import EChart from '@/components/EChart.vue'
+import { useUserStore } from '@/store/userStore'
 
 const { t } = useI18n()
+const userStore = useUserStore()
 
 const announcementJa = ref()
 const announcementZh = ref()
@@ -96,15 +98,15 @@ const tabList = computed(() => {
 const chartOption = {
   xAxis: {
     type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    data: userStore.accessDataList.date
   },
   yAxis: {
     type: 'value'
   },
   series: [
     {
-      data: [90, 230, 224, 218, 135, 147, 260],
-      type: 'line'
+      type: 'line',
+      data: userStore.accessDataList.value
     }
   ]
 }
