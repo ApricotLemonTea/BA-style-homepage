@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import i18n from '@/locale'
 import { loadExcelData } from '@/utils/loadExcelData'
+import EChart from '@/components/EChart.vue'
 
 const { t } = useI18n()
 
@@ -87,9 +88,28 @@ const tabList = computed(() => {
   return [
     t("totalInfo.お知らせ"),
     t("totalInfo.パッチノート"),
-    // t("totalInfo.その他")
+    t("totalInfo.訪問数グラフ")
   ]
 })
+
+/** 网站访问量折线图图表相关 **/
+const chartRef = ref()
+
+const option = {
+  xAxis: {
+    type: 'category',
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [90, 230, 224, 218, 135, 147, 260],
+      type: 'line'
+    }
+  ]
+}
 </script>
 
 <template>
@@ -172,11 +192,12 @@ const tabList = computed(() => {
             </div>
           </div>
 
-          <!--その他-->
-          <div v-show="tabList[selectedTabIndex] === t('totalInfo.その他')"
+          <!--网站访问数折线图-->
+          <div v-show="tabList[selectedTabIndex] === t('totalInfo.訪問数グラフ')"
                class="total-info-content-block"
+               style="width: 100%; height: 49vh"
           >
-            <p style="font-size: 2.5vh; margin: 10vh auto">{{ t("totalInfo.予備用のタブです、まだ何もありません。") }}</p>
+            <EChart :option="option"></EChart>
           </div>
         </div>
       </div>
