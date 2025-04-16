@@ -96,12 +96,12 @@ const tabList = computed(() => {
 })
 
 /** 网站访问量折线图图表用的配置 **/
-const zoomStart = ((userStore.accessDataList.length - 30) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
+const zoomStart = (Math.max(userStore.accessDataList.length - 30, 0) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
 const chartOption = {
   tooltip: {
     trigger: 'axis',
     position: function (pt) {
-      return [pt[0], '10%'];
+      return [pt[0], '10%']
     }
   },
   grid: {
