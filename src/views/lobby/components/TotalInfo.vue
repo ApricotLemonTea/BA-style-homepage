@@ -96,47 +96,66 @@ const tabList = computed(() => {
 })
 
 /** 网站访问量折线图图表用的配置 **/
+const zoomStart = ((userStore.accessDataList.length - 30) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
 const chartOption = {
+  tooltip: {
+    trigger: 'axis',
+    position: function (pt) {
+      return [pt[0], '10%'];
+    }
+  },
+  title: {
+    left: 'center',
+    text: 'Large Area Chart'
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
   xAxis: {
-    type: 'time',
-    axisLabel: {
-      formatter: function (value) {
-        const date = new Date(value)
-        if (date.getDate() === 1) {
-          return echarts.format.formatTime('yyyy-MM-dd', date)
-        }
-        return ''
-      }
-    },
-    axisLine: { show: true },
-    splitLine: { show: false }
+    type: 'category',
+    boundaryGap: false,
   },
   yAxis: {
-    type: 'value'
+    type: 'value',
+    boundaryGap: [0, '100%']
   },
+  dataZoom: [
+    {
+      type: 'inside',
+      start: zoomStart,
+      end: 100
+    },
+    {
+      start: zoomStart,
+      end: 100
+    }
+  ],
   series: [
     {
       type: 'line',
-      data: userStore.accessDataList,
-      itemStyle: {
-        opacity: 0
-      }
+      symbol: 'none',
+      sampling: 'lttb',
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(68,211,255)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(70,184,255)'
+          }
+        ])
+      },
+      data: userStore.accessDataList
     }
-  ],
-  tooltip: {
-    trigger: 'axis',
-    formatter: function (params) {
-      const first = params[0]  // 只取第一个 series 的点
-      const date = first.value[0]  // 第一个是时间（x轴）
-      const formattedDate = echarts.format.formatTime('yyyy-MM-dd', date)
-
-      let result = `${formattedDate}<br/>`
-      params.forEach(item => {
-        result += `${item.marker} ${item.value[1]}<br/>`
-      })
-      return result
-    }
-  }
+  ]
 }
 </script>
 
