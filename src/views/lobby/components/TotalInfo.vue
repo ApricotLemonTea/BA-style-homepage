@@ -5,6 +5,7 @@ import i18n from '@/locale'
 import { loadExcelData } from '@/utils/loadExcelData'
 import EChart from '@/components/EChart.vue'
 import { useUserStore } from '@/store/userStore'
+import * as echarts from 'echarts'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -90,15 +91,25 @@ const tabList = computed(() => {
   return [
     t("totalInfo.お知らせ"),
     t("totalInfo.パッチノート"),
-    t("totalInfo.訪問数グラフ")
+    t("totalInfo.アクセス数グラフ")
   ]
 })
 
-/** 网站访问量折线图图表相关 **/
+/** 网站访问量折线图图表用的配置 **/
 const chartOption = {
   xAxis: {
-    type: 'category',
-    data: userStore.accessDataList.date
+    type: 'time',
+    axisLabel: {
+      formatter: function (value) {
+        const date = new Date(value)
+        if (date.getDate() === 1) {
+          return echarts.format.formatTime('yyyy-MM-dd', date)
+        }
+        return ''
+      }
+    },
+    axisLine: { show: true },
+    splitLine: { show: false }
   },
   yAxis: {
     type: 'value'
@@ -106,7 +117,10 @@ const chartOption = {
   series: [
     {
       type: 'line',
-      data: userStore.accessDataList.value
+      data: userStore.accessDataList.value,
+      itemStyle: {
+        opacity: 0
+      }
     }
   ]
 }
@@ -193,9 +207,8 @@ const chartOption = {
           </div>
 
           <!--网站访问数折线图-->
-          <div v-if="tabList[selectedTabIndex] === t('totalInfo.訪問数グラフ')"
+          <div v-if="tabList[selectedTabIndex] === t('totalInfo.アクセス数グラフ')"
                class="total-info-content-block"
-               style="width: 100%; height: 49vh"
           >
             <EChart :option="chartOption"></EChart>
           </div>

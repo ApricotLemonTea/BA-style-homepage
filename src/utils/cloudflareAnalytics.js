@@ -51,7 +51,7 @@ const getAccessAnalytics = async () => {
     totalAccess += item.sum.requests
 
     accessDataList.date.push(item.dimensions.date)
-    accessDataList.value.push(item.sum.requests)
+    accessDataList.value.push([item.dimensions.date, item.sum.requests])
   }
 
   accessDataList.date.reverse()
