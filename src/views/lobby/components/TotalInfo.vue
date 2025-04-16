@@ -93,9 +93,7 @@ const tabList = computed(() => {
 })
 
 /** 网站访问量折线图图表相关 **/
-const chartRef = ref()
-
-const option = {
+const chartOption = {
   xAxis: {
     type: 'category',
     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -193,11 +191,11 @@ const option = {
           </div>
 
           <!--网站访问数折线图-->
-          <div v-show="tabList[selectedTabIndex] === t('totalInfo.訪問数グラフ')"
+          <div v-if="tabList[selectedTabIndex] === t('totalInfo.訪問数グラフ')"
                class="total-info-content-block"
                style="width: 100%; height: 49vh"
           >
-            <EChart :option="option"></EChart>
+            <EChart :option="chartOption"></EChart>
           </div>
         </div>
       </div>
