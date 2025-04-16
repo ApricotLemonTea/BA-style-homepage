@@ -5,8 +5,8 @@ const apiToken = import.meta.env.VITE_CLOUDFLARE_API_TOKEN
 const zoneId = import.meta.env.VITE_CLOUDFLARE_ZONE_ID
 
 /**
- * cloudflare api统计从2024-11-01至今的访问量总和
- * @returns { Promise<number> } 访问量总和
+ * cloudflare api统计过去一年(?)的访问量总和
+ * @returns {Promise<{totalAccess: number, accessDataList: *[]}>} 访问量总和
  */
 const getAccessAnalytics = async () => {
   const headers = {
@@ -42,12 +42,16 @@ const getAccessAnalytics = async () => {
   }
   const res = await axios.post("/client/v4/graphql", data, { headers })
 
-  let result = 0
+  let totalAccess = 0
+  let accessDataList = []
   for (const item of res.data.data.viewer.zones[0].httpRequests1dGroups){
-    result += item.sum.requests
+    totalAccess += item.sum.requests
+    accessDataList.push([item.dimensions.date, item.sum.requests])
   }
 
-  return result
+  accessDataList.reverse()
+
+  return { totalAccess, accessDataList }
 }
 
 export default getAccessAnalytics

@@ -3,8 +3,12 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import i18n from '@/locale'
 import { loadExcelData } from '@/utils/loadExcelData'
+import EChart from '@/components/EChart.vue'
+import { useUserStore } from '@/store/userStore'
+import * as echarts from 'echarts'
 
 const { t } = useI18n()
+const userStore = useUserStore()
 
 const announcementJa = ref()
 const announcementZh = ref()
@@ -87,9 +91,73 @@ const tabList = computed(() => {
   return [
     t("totalInfo.お知らせ"),
     t("totalInfo.パッチノート"),
-    // t("totalInfo.その他")
+    t("totalInfo.アクセス数グラフ")
   ]
 })
+
+/** 网站访问量折线图图表用的配置 **/
+const zoomStart = ((userStore.accessDataList.length - 30) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
+const chartOption = {
+  tooltip: {
+    trigger: 'axis',
+    position: function (pt) {
+      return [pt[0], '10%'];
+    }
+  },
+  grid: {
+    left: '10%',
+    right: '10%'
+  },
+  toolbox: {
+    feature: {
+      restore: {},
+    },
+    bottom: '2%',
+    right: '5%'
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+  },
+  yAxis: {
+    type: 'value',
+    boundaryGap: [0, '20%']
+  },
+  dataZoom: [
+    {
+      type: 'inside',
+      start: zoomStart,
+      end: 100
+    },
+    {
+      start: zoomStart,
+      end: 100
+    }
+  ],
+  series: [
+    {
+      data: userStore.accessDataList,
+      type: 'line',
+      symbol: 'none',
+      sampling: 'lttb',
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(68,211,255)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(70,184,255)'
+          }
+        ])
+      },
+      emphasis: {
+        disabled: true
+      }
+    }
+  ]
+}
 </script>
 
 <template>
@@ -172,11 +240,11 @@ const tabList = computed(() => {
             </div>
           </div>
 
-          <!--その他-->
-          <div v-show="tabList[selectedTabIndex] === t('totalInfo.その他')"
+          <!--网站访问数折线图-->
+          <div v-if="tabList[selectedTabIndex] === t('totalInfo.アクセス数グラフ')"
                class="total-info-content-block"
           >
-            <p style="font-size: 2.5vh; margin: 10vh auto">{{ t("totalInfo.予備用のタブです、まだ何もありません。") }}</p>
+            <EChart :option="chartOption"></EChart>
           </div>
         </div>
       </div>

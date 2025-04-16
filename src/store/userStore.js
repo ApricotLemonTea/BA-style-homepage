@@ -5,6 +5,7 @@ export const useUserStore = defineStore("userStore", {
   state: () => ({
     isFirstOpen: true,
     totalAccess: 0,
+    accessDataList: {},
 
     showSpotifyPlayerFlag: true,
 
