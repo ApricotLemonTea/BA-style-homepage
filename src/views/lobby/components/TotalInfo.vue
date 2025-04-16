@@ -117,7 +117,7 @@ const chartOption = {
   series: [
     {
       type: 'line',
-      data: userStore.accessDataList.value,
+      data: userStore.accessDataList,
       itemStyle: {
         opacity: 0
       }
