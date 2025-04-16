@@ -104,18 +104,16 @@ const chartOption = {
       return [pt[0], '10%'];
     }
   },
-  title: {
-    left: 'center',
-    text: 'Large Area Chart'
+  grid: {
+    left: '10%',
+    right: '10%'
   },
   toolbox: {
     feature: {
-      dataZoom: {
-        yAxisIndex: 'none'
-      },
       restore: {},
-      saveAsImage: {}
-    }
+    },
+    bottom: '2%',
+    right: '5%'
   },
   xAxis: {
     type: 'category',
@@ -123,7 +121,7 @@ const chartOption = {
   },
   yAxis: {
     type: 'value',
-    boundaryGap: [0, '100%']
+    boundaryGap: [0, '20%']
   },
   dataZoom: [
     {
@@ -138,6 +136,7 @@ const chartOption = {
   ],
   series: [
     {
+      data: userStore.accessDataList,
       type: 'line',
       symbol: 'none',
       sampling: 'lttb',
@@ -153,7 +152,9 @@ const chartOption = {
           }
         ])
       },
-      data: userStore.accessDataList
+      emphasis: {
+        disabled: true
+      }
     }
   ]
 }
