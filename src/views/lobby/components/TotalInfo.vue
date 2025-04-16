@@ -122,7 +122,21 @@ const chartOption = {
         opacity: 0
       }
     }
-  ]
+  ],
+  tooltip: {
+    trigger: 'axis',
+    formatter: function (params) {
+      const first = params[0]  // 只取第一个 series 的点
+      const date = first.value[0]  // 第一个是时间（x轴）
+      const formattedDate = echarts.format.formatTime('yyyy-MM-dd', date)
+
+      let result = `${formattedDate}<br/>`
+      params.forEach(item => {
+        result += `${item.marker} ${item.value[1]}<br/>`
+      })
+      return result
+    }
+  }
 }
 </script>
 
