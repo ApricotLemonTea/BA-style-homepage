@@ -21,8 +21,9 @@
 
   "contact": {
     "お知らせ": "Notice",
-    "お知らせとパッチノート": "Announcements and Patch Notes",
-    "重要な情報とサイトの更新履歴はここに書きます": "Important information and update history of this site will be written here",
+    "お知らせとパッチノート": "Announcements and Patch Notes and Visits",
+    "重要な情報とサイトの更新履歴はここに書きます": "Important(?) information and update history of this site will be written here",
+    "当サイトの日別訪問者数のグラフもあります": "And there is a graph of this website's visits",
     "ガイド": "Guide",
     "当サイトの紹介を始めます": "Starting the introduction of this site",
     "ミッション": "Tasks",
