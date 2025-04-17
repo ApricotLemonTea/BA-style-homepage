@@ -65,6 +65,7 @@ const openAnnounce = () => {
         </template>
         <template #content>
           <p class="blue-text-color">{{ t("contact.重要な情報とサイトの更新履歴はここに書きます") }}</p>
+          <p class="blue-text-color">{{ t("contact.当サイトの日別訪問者数のグラフもあります") }}</p>
         </template>
       </a-popover>
     </a-badge>

@@ -91,13 +91,16 @@ const tabList = computed(() => {
   return [
     t("totalInfo.お知らせ"),
     t("totalInfo.パッチノート"),
-    t("totalInfo.アクセス数グラフ")
+    t("totalInfo.訪問者数グラフ")
   ]
 })
 
 /** 网站访问量折线图图表用的配置 **/
 const zoomStart = (Math.max(userStore.accessDataList.length - 30, 0) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
 const chartOption = {
+  dataset: {
+    source: userStore.accessDataList
+  },
   tooltip: {
     trigger: 'axis',
     position: function (pt) {
@@ -110,7 +113,7 @@ const chartOption = {
   },
   toolbox: {
     feature: {
-      restore: {},
+      restore: {}
     },
     bottom: '2%',
     right: '5%'
@@ -119,10 +122,20 @@ const chartOption = {
     type: 'category',
     boundaryGap: false,
   },
-  yAxis: {
-    type: 'value',
-    boundaryGap: [0, '20%']
-  },
+  yAxis: [
+    {
+      type: 'value',
+      boundaryGap: [0, '10%'],
+      position: 'left',
+      alignTicks: true
+    },
+    {
+      type: 'value',
+      boundaryGap: [0, '30%'],
+      position: 'right',
+      alignTicks: true
+    }
+  ],
   dataZoom: [
     {
       type: 'inside',
@@ -136,10 +149,21 @@ const chartOption = {
   ],
   series: [
     {
-      data: userStore.accessDataList,
+      name: t("graph.訪問者数"),
       type: 'line',
-      symbol: 'none',
       sampling: 'lttb',
+      yAxisIndex: 0,
+      symbol: 'none',
+      itemStyle: {
+        color: 'rgb(255,49,73)'
+      }
+    },
+    {
+      name: t("graph.リクエスト数"),
+      type: 'line',
+      sampling: 'lttb',
+      yAxisIndex: 1,
+      symbol: 'none',
       areaStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
           {
@@ -241,7 +265,7 @@ const chartOption = {
           </div>
 
           <!--网站访问数折线图-->
-          <div v-if="tabList[selectedTabIndex] === t('totalInfo.アクセス数グラフ')"
+          <div v-if="tabList[selectedTabIndex] === t('totalInfo.訪問者数グラフ')"
                class="total-info-content-block"
           >
             <EChart :option="chartOption"></EChart>

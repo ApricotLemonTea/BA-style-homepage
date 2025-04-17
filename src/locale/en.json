@@ -21,8 +21,9 @@
 
   "contact": {
     "お知らせ": "Notice",
-    "お知らせとパッチノート": "Announcements and Patch Notes",
-    "重要な情報とサイトの更新履歴はここに書きます": "Important information and update history of this site will be written here",
+    "お知らせとパッチノート": "Announcements and Patch Notes and Visits",
+    "重要な情報とサイトの更新履歴はここに書きます": "Important(?) information and update history of this site will be written here",
+    "当サイトの日別訪問者数のグラフもあります": "And there is a graph of this website's visits",
     "ガイド": "Guide",
     "当サイトの紹介を始めます": "Starting the introduction of this site",
     "ミッション": "Tasks",
@@ -94,7 +95,7 @@
   "totalInfo": {
     "お知らせ": "Announcements",
     "パッチノート": "Patch Notes",
-    "アクセス数グラフ": "Access Graph",
+    "訪問者数グラフ": "Visits Graph",
     "予備用のタブです、まだ何もありません。": "This is a placeholder tab, nothing here yet."
   },
 
@@ -134,5 +135,10 @@
     "ブルアカ公式とは一切関係ありません、ご注意ください。": "Attention: This site has nothing to do with Blue Archive official.",
     "当サイトの各種機能は画面左の「ガイド」ボタンから紹介いたします。": "You can click the \"Guide\" button on the left side to know the features of this site.",
     "（このメッセージは次回のアクセスから表示しません）": "（This message will not appear from next time）"
+  },
+
+  "graph": {
+    "リクエスト数": "Requests",
+    "訪問者数": "Visitors"
   }
 }

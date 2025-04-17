@@ -21,20 +21,16 @@ const getAccessAnalytics = async () => {
             filter: { date_geq: "2024-11-01", date_leq: "${getFormattedDate(new Date())}" },
             orderBy: [date_DESC]
           ) {
-            sum {
-              bytes
-              cachedBytes
-              cachedRequests
-              encryptedBytes
-              encryptedRequests
-              pageViews
-              requests
-              threats
+              dimensions {
+                date
+              }
+              uniq {
+                uniques
+              }
+              sum {
+                requests
+              }
             }
-            dimensions {
-              date
-            }
-          }
         }
       }
     }`,
@@ -46,7 +42,7 @@ const getAccessAnalytics = async () => {
   let accessDataList = []
   for (const item of res.data.data.viewer.zones[0].httpRequests1dGroups){
     totalAccess += item.sum.requests
-    accessDataList.push([item.dimensions.date, item.sum.requests])
+    accessDataList.push([item.dimensions.date, item.uniq.uniques, item.sum.requests])
   }
 
   accessDataList.reverse()
