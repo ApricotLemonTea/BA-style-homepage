@@ -91,7 +91,7 @@ const tabList = computed(() => {
   return [
     t("totalInfo.お知らせ"),
     t("totalInfo.パッチノート"),
-    t("totalInfo.アクセス数グラフ")
+    t("totalInfo.訪問者数グラフ")
   ]
 })
 
@@ -265,7 +265,7 @@ const chartOption = {
           </div>
 
           <!--网站访问数折线图-->
-          <div v-if="tabList[selectedTabIndex] === t('totalInfo.アクセス数グラフ')"
+          <div v-if="tabList[selectedTabIndex] === t('totalInfo.訪問者数グラフ')"
                class="total-info-content-block"
           >
             <EChart :option="chartOption"></EChart>
