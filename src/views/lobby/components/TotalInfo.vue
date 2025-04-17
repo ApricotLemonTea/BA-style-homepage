@@ -98,6 +98,9 @@ const tabList = computed(() => {
 /** 网站访问量折线图图表用的配置 **/
 const zoomStart = (Math.max(userStore.accessDataList.length - 30, 0) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
 const chartOption = {
+  dataset: {
+    source: userStore.accessDataList
+  },
   tooltip: {
     trigger: 'axis',
     position: function (pt) {
@@ -119,10 +122,20 @@ const chartOption = {
     type: 'category',
     boundaryGap: false,
   },
-  yAxis: {
-    type: 'value',
-    boundaryGap: [0, '20%']
-  },
+  yAxis: [
+    {
+      type: 'value',
+      boundaryGap: [0, '15%'],
+      position: 'left',
+      alignTicks: true
+    },
+    {
+      type: 'value',
+      boundaryGap: [0, '50%'],
+      position: 'right',
+      alignTicks: true
+    }
+  ],
   dataZoom: [
     {
       type: 'inside',
@@ -136,10 +149,10 @@ const chartOption = {
   ],
   series: [
     {
-      data: userStore.accessDataList,
       type: 'line',
-      symbol: 'none',
       sampling: 'lttb',
+      yAxisIndex: 0,
+      symbol: 'none',
       areaStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
           {
@@ -154,6 +167,15 @@ const chartOption = {
       },
       emphasis: {
         disabled: true
+      }
+    },
+    {
+      type: 'line',
+      sampling: 'lttb',
+      yAxisIndex: 1,
+      symbol: 'none',
+      itemStyle: {
+        color: 'rgb(255,49,73)'
       }
     }
   ]
