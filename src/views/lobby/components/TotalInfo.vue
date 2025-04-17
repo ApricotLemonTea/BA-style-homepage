@@ -131,7 +131,7 @@ const chartOption = {
     },
     {
       type: 'value',
-      boundaryGap: [0, '50%'],
+      boundaryGap: [0, '30%'],
       position: 'right',
       alignTicks: true
     }
@@ -149,10 +149,20 @@ const chartOption = {
   ],
   series: [
     {
-      name: t("graph.リクエスト数"),
+      name: t("graph.訪問者数"),
       type: 'line',
       sampling: 'lttb',
       yAxisIndex: 0,
+      symbol: 'none',
+      itemStyle: {
+        color: 'rgb(255,49,73)'
+      }
+    },
+    {
+      name: t("graph.リクエスト数"),
+      type: 'line',
+      sampling: 'lttb',
+      yAxisIndex: 1,
       symbol: 'none',
       areaStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -168,16 +178,6 @@ const chartOption = {
       },
       emphasis: {
         disabled: true
-      }
-    },
-    {
-      name: t("graph.訪問者数"),
-      type: 'line',
-      sampling: 'lttb',
-      yAxisIndex: 1,
-      symbol: 'none',
-      itemStyle: {
-        color: 'rgb(255,49,73)'
       }
     }
   ]
