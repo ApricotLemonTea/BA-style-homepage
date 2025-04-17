@@ -134,5 +134,10 @@
     "ブルアカ公式とは一切関係ありません、ご注意ください。": "Attention: This site has nothing to do with Blue Archive official.",
     "当サイトの各種機能は画面左の「ガイド」ボタンから紹介いたします。": "You can click the \"Guide\" button on the left side to know the features of this site.",
     "（このメッセージは次回のアクセスから表示しません）": "（This message will not appear from next time）"
+  },
+
+  "graph": {
+    "リクエスト数": "Requests",
+    "訪問者数": "Visitors"
   }
 }

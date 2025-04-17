@@ -149,6 +149,7 @@ const chartOption = {
   ],
   series: [
     {
+      name: t("graph.リクエスト数"),
       type: 'line',
       sampling: 'lttb',
       yAxisIndex: 0,
@@ -170,6 +171,7 @@ const chartOption = {
       }
     },
     {
+      name: t("graph.訪問者数"),
       type: 'line',
       sampling: 'lttb',
       yAxisIndex: 1,
