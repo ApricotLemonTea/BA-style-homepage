@@ -113,7 +113,7 @@ const chartOption = {
   },
   toolbox: {
     feature: {
-      restore: {},
+      restore: {}
     },
     bottom: '2%',
     right: '5%'
@@ -125,7 +125,7 @@ const chartOption = {
   yAxis: [
     {
       type: 'value',
-      boundaryGap: [0, '15%'],
+      boundaryGap: [0, '10%'],
       position: 'left',
       alignTicks: true
     },
