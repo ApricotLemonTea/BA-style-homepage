@@ -361,7 +361,11 @@ watch(() => i18n.global.locale, (newLanguage) => {
       About
     </template>
     <div style="color: #003153">
-      <p>{{ t("toolbox.about.当サイトは杏仁レモンティーの個人ホームページです。") }}</p>
+      <p>
+        {{ t("welcome.当サイトは") }}
+        <a href="https://x.com/ApricotLemonTea" target="_blank" style="color: #3987ff; font-weight: bold">{{ t("杏仁レモンティー")}}</a>
+        {{ t("welcome.が開発・運営する個人ホームページです。") }}
+      </p>
       <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています。") }}</p>
       <p>{{ t("toolbox.about.（当サイトはブルアカ公式とは一切関係ありません）") }}</p>
       <br />
