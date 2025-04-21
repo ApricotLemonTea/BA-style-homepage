@@ -46,6 +46,7 @@ const getAccessAnalytics = async () => {
   }
 
   accessDataList.reverse()
+  accessDataList.pop()
 
   return { totalAccess, accessDataList }
 }
