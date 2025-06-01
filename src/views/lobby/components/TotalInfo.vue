@@ -228,6 +228,11 @@ const chartOption = {
                  v-show="selectedTitleIndex === index"
                  class="total-info-content"
             >
+              <h3 style="text-align: center">
+                {{ item.title }}
+              </h3>
+              <a-divider :size="3"></a-divider>
+              <br>
               <div v-for="contentItem in item.contents" :key="contentItem"
                  v-html="contentItem"
                  style="margin-bottom: 3vh"
@@ -256,6 +261,11 @@ const chartOption = {
                  v-show="selectedTitleIndex === index"
                  class="total-info-content"
             >
+              <h3 style="text-align: center">
+                {{ item.title }}
+              </h3>
+              <a-divider :size="3"></a-divider>
+              <br>
               <ul style="margin: 0 30px">
                 <li v-for="contentItem in item.contents" :key="contentItem"
                     v-html="contentItem"
