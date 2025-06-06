@@ -23,15 +23,27 @@ import { useUserStore } from '@/store/userStore'
 const userStore = useUserStore()
 
 const welcomeDialogVisible = ref(false)
+const dontShowWelcomeDialogCheckBox = ref(false)
 
 onMounted(() => {
-  // 第一次访问本站则弹出对话框
-  const hasVisited = localStorage.getItem("hasVisited")
-  if (!hasVisited){
+  // 删除旧的是否显示欢迎信息弹窗的标记
+  localStorage.removeItem("hasVisited")
+
+  // 弹出欢迎信息
+  const dontShowWelcomeDialogFlag = localStorage.getItem("dontShowWelcomeDialogFlag")
+  if (!dontShowWelcomeDialogFlag) {
     welcomeDialogVisible.value = true
-    localStorage.setItem("hasVisited", true)
   }
 })
+
+/*
+  记录用户选择是否显示欢迎信息弹窗
+ */
+const setDontShowWelcomeDialogFlag = () => {
+  if (dontShowWelcomeDialogCheckBox.value) {
+    localStorage.setItem("dontShowWelcomeDialogFlag", true)
+  }
+}
 
 // 只在第一次打开网站时显示加载动画
 if (userStore.isFirstOpen){
@@ -98,6 +110,7 @@ const showGuide = ref(false)
 
     <!--第一次访问本站的弹窗-->
     <a-modal v-model:visible="welcomeDialogVisible"
+             @close="setDontShowWelcomeDialogFlag"
              modal-animation-name="no-slide-zoom-modal"
              :mask-closable="false"
              :footer="false"
@@ -118,7 +131,9 @@ const showGuide = ref(false)
         <br />
         <p>{{ t("welcome.当サイトの各種機能は画面左の「ガイド」ボタンから紹介いたします。") }}</p>
         <br />
-        <p>{{ t("welcome.（このメッセージは次回のアクセスから表示しません）") }}</p>
+        <a-checkbox v-model="dontShowWelcomeDialogCheckBox" style="margin-right: 5%">
+          <p class="blue-text-color">{{ t("welcome.次回から表示しない") }}</p>
+        </a-checkbox>
       </div>
     </a-modal>
 
