@@ -5,6 +5,7 @@ import { useUserStore } from '@/store/userStore'
 import { useI18n } from "vue-i18n"
 
 import Curtain from '@/components/Curtain.vue'
+import { numberWithCommas } from '../../../utils/commonFunctions'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -45,8 +46,8 @@ const openProfile = () => {
             >
             </a-progress>
             <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE', 'margin-top': '0.5vh' }">
-              <span v-if="!isLevelMax">{{ userStore.exp + ' / ' + userStore.nextExp }}</span>
-              <span v-if="isLevelMax">{{ userStore.totalAccess + ' / ' + 'MAX' }}</span>
+              <span v-if="!isLevelMax">{{ numberWithCommas(userStore.exp) + ' / ' + numberWithCommas(userStore.nextExp) }}</span>
+              <span v-if="isLevelMax">{{ numberWithCommas(userStore.totalAccess) + ' / ' + 'MAX' }}</span>
             </p>
           </div>
         </div>
