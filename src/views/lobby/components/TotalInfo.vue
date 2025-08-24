@@ -231,7 +231,8 @@ const chartOption = {
               <h3 style="text-align: center">
                 {{ item.title }}
               </h3>
-              <a-divider :size="3"></a-divider>
+              <p style="text-align: right; font-size: 1.8vh">{{ item.time }}</p>
+              <a-divider :size="2"></a-divider>
               <br>
               <div v-for="contentItem in item.contents" :key="contentItem"
                  v-html="contentItem"
@@ -239,7 +240,6 @@ const chartOption = {
               >
               </div>
               <br>
-              <p style="text-align: right;">{{ item.time }}</p>
             </div>
           </div>
 
