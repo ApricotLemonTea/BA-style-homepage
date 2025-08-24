@@ -7,6 +7,7 @@ import { Modal } from '@arco-design/web-vue'
 import { openUrl } from './utils/commonFunctions'
 import { useI18n } from 'vue-i18n'
 import SpotifyPlayer from './components/SpotifyPlayer.vue'
+import WelcomeDialog from '@/components/WelcomeDialog.vue'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -86,6 +87,8 @@ watch(pyroxene, (newPyroxene) => {
   </main>
 
   <SpotifyPlayer></SpotifyPlayer>
+
+  <WelcomeDialog></WelcomeDialog>
 
   <Cursor></Cursor>
 </template>
