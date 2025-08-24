@@ -41,7 +41,7 @@ const getAccessAnalytics = async () => {
   let totalAccess = 0
   let accessDataList = []
   for (const item of res.data.data.viewer.zones[0].httpRequests1dGroups){
-    totalAccess += item.sum.requests
+    totalAccess += item.uniq.uniques
     accessDataList.push([item.dimensions.date, item.uniq.uniques, item.sum.requests])
   }
 
