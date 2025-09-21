@@ -270,16 +270,26 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </div>
 
     <!--切换语言的按钮-->
-    <a
-      @click="changeLocale"
-      class="about toolbox"
-      :style="{
+    <a-popover>
+      <a
+        @click="changeLocale"
+        class="about toolbox"
+        :style="{
           transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
           transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
         }"
-    >
-      <icon-language class="css-cursor-hover-enabled" />
-    </a>
+      >
+        <icon-language class="css-cursor-hover-enabled" />
+      </a>
+
+      <template #content>
+        <span v-show="i18n.global.locale == 'ja'">現在の表示言語：日本語</span>
+        <span v-show="i18n.global.locale == 'zh'">当前显示语言：中文</span>
+        <span v-show="i18n.global.locale == 'en'">Current language: English</span>
+        <br>
+        <span>(Click to change language)</span>
+      </template>
+    </a-popover>
 
     <!--打开about的按钮-->
     <a

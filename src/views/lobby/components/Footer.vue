@@ -52,35 +52,41 @@ const copyMailAddress = async () => {
         </template>
         <template #content>
           <div class="button-list">
-            <div class="button-item" style="margin-left: 0">
+            <div class="button-item css-cursor-hover-enabled" style="margin-left: 0">
               <img src="/img/twitter.png" alt=""
                    @click="openUrl('https://twitter.com/ApricotLemonTea')"
               />
               <span>Twitter</span>
             </div>
-            <div class="button-item">
-              <img src="/img/x.png" alt=""
-                   @click="openUrl('https://twitter.com/A_LemonTea')"
-              />
-              <span>X (R18)</span>
-            </div>
-            <div class="button-item">
+            <!--<div class="button-item css-cursor-hover-enabled">-->
+            <!--  <img src="/img/x.png" alt=""-->
+            <!--       @click="openUrl('https://twitter.com/A_LemonTea')"-->
+            <!--  />-->
+            <!--  <span>X (R18)</span>-->
+            <!--</div>-->
+            <div class="button-item css-cursor-hover-enabled">
               <img src="/img/misskey.png" alt=""
                    @click="openUrl('https://misskey.io/@ApricotLemonTea')"
               />
               <span>Misskey</span>
             </div>
-            <div class="button-item">
+            <div class="button-item css-cursor-hover-enabled">
+              <img src="/img/pixiv.png" alt=""
+                   @click="openUrl('https://www.pixiv.net/users/13926723')"
+              />
+              <span>pixiv</span>
+            </div>
+            <div class="button-item css-cursor-hover-enabled">
               <img src="/img/bluesky.png" alt=""
                    @click="openUrl('https://bsky.app/profile/apricotlemontea.com')"
               />
-              <span>Bluesky</span>
+              <span style="text-decoration: line-through">Bluesky</span>
             </div>
-            <div class="button-item">
+            <div class="button-item css-cursor-hover-enabled">
               <img src="/img/weibo.png" alt=""
                    @click="openUrl('https://m.weibo.cn/profile/7850690980')"
               />
-              <span>微博</span>
+              <span style="text-decoration: line-through">微博</span>
             </div>
           </div>
         </template>
@@ -98,13 +104,13 @@ const copyMailAddress = async () => {
         </template>
         <template #content>
           <div class="button-list">
-            <div class="button-item" style="margin-left: 0">
+            <div class="button-item css-cursor-hover-enabled" style="margin-left: 0">
               <img src="/img/booth.png" alt=""
                    @click="openUrl('https://apricotlemontea.booth.pm')"
               />
               <span>BOOTH</span>
             </div>
-            <div class="button-item">
+            <div class="button-item css-cursor-hover-enabled">
               <img src="/img/melonbooks.png" alt=""
                    style="width: auto"
                    @click="openUrl('https://www.melonbooks.co.jp/circle/index.php?circle_id=129456')"
@@ -306,6 +312,9 @@ const copyMailAddress = async () => {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
+  }
+  .button-item:hover {
+    opacity: 0.7;
   }
 
   .button-item img {

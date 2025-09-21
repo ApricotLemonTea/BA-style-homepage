@@ -41,6 +41,10 @@ const openPortfolio = () => {
   transition: transform 0.1s;
 }
 
+.task:hover {
+  opacity: 0.7;
+}
+
 .task:before {
   content: '';
   position: absolute;
