@@ -14,7 +14,7 @@ const isShowPlayer = computed(() => {
 <template>
   <transition name="left">
     <div class="spotify-player" v-show="isShowPlayer">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4wjMH1kXpeNcIWY76tbIoh?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4wjMH1kXpeNcIWY76tbIoh?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </transition>
 </template>
@@ -26,6 +26,7 @@ const isShowPlayer = computed(() => {
   bottom: 10vh;
   width: 370px;
   opacity: 0.9;
+  padding-bottom: 70px;
 }
 
 .left-leave-to,
