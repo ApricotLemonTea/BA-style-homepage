@@ -42,6 +42,7 @@ const goToDetail = () => {
         {{ tagList[props.tagIndex].label }}
       </div>
       <div class="mission-title">{{ props.title }}</div>
+      <icon-right v-if="!isFeatureTag" size="30" style="margin-left: 1vw"></icon-right>
     </div>
     <div class="mission-times-block">
       <div class="mission-times">
@@ -116,5 +117,8 @@ const goToDetail = () => {
 }
 .actionable:active {
   transform: scale(0.97);
+}
+.actionable:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 </style>

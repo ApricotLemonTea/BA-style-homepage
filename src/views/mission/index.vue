@@ -159,6 +159,9 @@ const increasePyroxene = () => {
       margin-left: 0.3%;
       border-radius: 0.6vh;
     }
+    .mission-tab-item:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
     .selected {
       background-color: #2f4766ff;
       color: #fada0aff;
