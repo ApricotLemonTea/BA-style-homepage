@@ -338,7 +338,7 @@ const chartOption = {
           font-weight: bold;
         }
         .total-info-tab-button:hover {
-          opacity: 0.8;
+          background-color: #7e90a9;
         }
         .tab-selected {
           background-color: #40708b;
@@ -367,7 +367,7 @@ const chartOption = {
             padding-left: 1vw;
           }
           .total-info-content-title:hover {
-            opacity: 0.8;
+            background-color: #e7ecef;
           }
           .title-selected {
             background-color: #dbe6eb;

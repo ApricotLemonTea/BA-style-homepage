@@ -52,40 +52,28 @@ const copyMailAddress = async () => {
         </template>
         <template #content>
           <div class="button-list">
-            <div class="button-item css-cursor-hover-enabled" style="margin-left: 0">
-              <img src="/img/twitter.png" alt=""
-                   @click="openUrl('https://twitter.com/ApricotLemonTea')"
-              />
+            <div class="button-item css-cursor-hover-enabled" style="margin-left: 0" @click="openUrl('https://twitter.com/ApricotLemonTea')">
+              <img src="/img/twitter.png" alt="" />
               <span>Twitter</span>
             </div>
-            <!--<div class="button-item css-cursor-hover-enabled">-->
+            <!--<div class="button-item css-cursor-hover-enabled" @click="openUrl('https://twitter.com/A_LemonTea')>-->
             <!--  <img src="/img/x.png" alt=""-->
-            <!--       @click="openUrl('https://twitter.com/A_LemonTea')"-->
-            <!--  />-->
             <!--  <span>X (R18)</span>-->
             <!--</div>-->
-            <div class="button-item css-cursor-hover-enabled">
-              <img src="/img/misskey.png" alt=""
-                   @click="openUrl('https://misskey.io/@ApricotLemonTea')"
-              />
+            <div class="button-item css-cursor-hover-enabled" @click="openUrl('https://misskey.io/@ApricotLemonTea')">
+              <img src="/img/misskey.png" alt=""/>
               <span>Misskey</span>
             </div>
-            <div class="button-item css-cursor-hover-enabled">
-              <img src="/img/pixiv.png" alt=""
-                   @click="openUrl('https://www.pixiv.net/users/13926723')"
-              />
+            <div class="button-item css-cursor-hover-enabled" @click="openUrl('https://www.pixiv.net/users/13926723')">
+              <img src="/img/pixiv.png" alt=""/>
               <span>pixiv</span>
             </div>
-            <div class="button-item css-cursor-hover-enabled">
-              <img src="/img/bluesky.png" alt=""
-                   @click="openUrl('https://bsky.app/profile/apricotlemontea.com')"
-              />
+            <div class="button-item css-cursor-hover-enabled" @click="openUrl('https://bsky.app/profile/apricotlemontea.com')">
+              <img src="/img/bluesky.png" alt=""/>
               <span style="text-decoration: line-through">Bluesky</span>
             </div>
-            <div class="button-item css-cursor-hover-enabled">
-              <img src="/img/weibo.png" alt=""
-                   @click="openUrl('https://m.weibo.cn/profile/7850690980')"
-              />
+            <div class="button-item css-cursor-hover-enabled" @click="openUrl('https://m.weibo.cn/profile/7850690980')">
+              <img src="/img/weibo.png" alt=""/>
               <span style="text-decoration: line-through">微博</span>
             </div>
           </div>
@@ -104,16 +92,13 @@ const copyMailAddress = async () => {
         </template>
         <template #content>
           <div class="button-list">
-            <div class="button-item css-cursor-hover-enabled" style="margin-left: 0">
-              <img src="/img/booth.png" alt=""
-                   @click="openUrl('https://apricotlemontea.booth.pm')"
-              />
+            <div class="button-item css-cursor-hover-enabled" style="margin-left: 0" @click="openUrl('https://apricotlemontea.booth.pm')">
+              <img src="/img/booth.png" alt=""/>
               <span>BOOTH</span>
             </div>
-            <div class="button-item css-cursor-hover-enabled">
+            <div class="button-item css-cursor-hover-enabled"  @click="openUrl('https://www.melonbooks.co.jp/circle/index.php?circle_id=129456')">
               <img src="/img/melonbooks.png" alt=""
                    style="width: auto"
-                   @click="openUrl('https://www.melonbooks.co.jp/circle/index.php?circle_id=129456')"
               />
               <span>Melonbooks</span>
             </div>
@@ -314,7 +299,9 @@ const copyMailAddress = async () => {
     margin-left: 30px;
   }
   .button-item:hover {
-    opacity: 0.7;
+    img {
+      opacity: 0.7;
+    }
   }
 
   .button-item img {
