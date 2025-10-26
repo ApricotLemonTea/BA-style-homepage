@@ -12,7 +12,7 @@ const userStore = useUserStore()
 const { t } = useI18n()
 
 const isLevelMax = computed(() => {
-  return userStore.totalAccess >= 294784
+  return userStore.todayAccess >= 99
 })
 
 const curtainRef = ref()
@@ -33,7 +33,7 @@ const openProfile = () => {
       <div class="container">
         <div class="level css-cursor-hover-enabled">
           <span>Lv.</span>
-          <p>{{ userStore.level }}</p>
+          <p>??</p>
         </div>
         <div class="right">
           <span class="name">{{ t('杏仁レモンティー') }}</span>

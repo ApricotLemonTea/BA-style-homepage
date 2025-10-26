@@ -255,7 +255,7 @@ const chartOption = {
               <h3 style="text-align: center">
                 {{ item.title }}
               </h3>
-              <p style="text-align: right; font-size: 1.8vh">{{ item.time }}</p>
+              <p style="text-align: right; font-size: 1.8vh; margin-top: 1.5vh">{{ item.time }}</p>
               <a-divider :size="2"></a-divider>
               <br />
               <div

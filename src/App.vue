@@ -2,7 +2,7 @@
 import { h, onMounted, watch, computed } from 'vue'
 import { useUserStore } from './store/userStore'
 import Cursor from '@/components/Cursor.vue'
-import getAccessAnalytics from './utils/cloudflareAnalytics'
+import { getAccessAnalyticsByDay, getAccessAnalyticsByHour } from './utils/cloudflareAnalytics'
 import { Modal } from '@arco-design/web-vue'
 import { openUrl } from './utils/commonFunctions'
 import { useI18n } from 'vue-i18n'
@@ -64,9 +64,11 @@ onMounted(async () => {
   checkWindowSize()
 
   // 统计页面访问量总和并存储到store中
-  const { totalAccess, accessDataList } = await getAccessAnalytics()
+  const { totalAccess, accessDataList } = await getAccessAnalyticsByDay()
+  const todayAccess = await getAccessAnalyticsByHour()
   userStore.totalAccess = totalAccess
   userStore.accessDataList = accessDataList
+  userStore.todayAccess = todayAccess
   // 初始化当前ap
   userStore.initAp()
   // 开启自动回复AP的倒计时

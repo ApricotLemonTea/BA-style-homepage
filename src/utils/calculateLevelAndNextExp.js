@@ -1,27 +1,35 @@
 /**
  * 计算当前等级和下一级所需经验 <br/>
  *
- * @param total 总经验量
+ * @param today 今日访问量
+ * @param total 总访问量
  * @return {{exp: number, level: number, nextExp: number}}
  */
-const calculateLevelAndNextExp = (total) => {
-  if (total >= 294784) {
+const calculateLevelAndNextExp = (today, total) => {
+  if (today >= 99) {
     return {
-      exp: total - 294784,
-      level: 90,
+      exp: total,
+      level: 99,
       nextExp: 0
     }
   }
-
-  for (let i = 0; i <= levelExpList.length - 1; i++) {
-    if (total < levelExpList[i + 1].Total) {
-      return {
-        exp: total - levelExpList[i].Total,
-        level: levelExpList[i].Lv,
-        nextExp: levelExpList[i].Next
-      }
-    }
+  return {
+    exp: today,
+    level: today,
+    nextExp: 99
   }
+  /**
+   * 旧的计算经验值的逻辑（用总访问量）
+   */
+  // for (let i = 0; i <= levelExpList.length - 1; i++) {
+  //   if (total < levelExpList[i + 1].Total) {
+  //     return {
+  //       exp: total - levelExpList[i].Total,
+  //       level: levelExpList[i].Lv,
+  //       nextExp: levelExpList[i].Next
+  //     }
+  //   }
+  // }
 }
 
 /**

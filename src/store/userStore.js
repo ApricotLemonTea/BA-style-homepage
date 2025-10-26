@@ -6,6 +6,7 @@ export const useUserStore = defineStore('userStore', {
     isFirstOpen: true,
     totalAccess: 0,
     accessDataList: [],
+    todayAccess: 0,
 
     showSpotifyPlayerFlag: true,
 
@@ -26,13 +27,13 @@ export const useUserStore = defineStore('userStore', {
   }),
   getters: {
     exp(state) {
-      return calculateLevelAndNextExp(state.totalAccess).exp
+      return calculateLevelAndNextExp(state.todayAccess, state.totalAccess).exp
     },
     level(state) {
-      return calculateLevelAndNextExp(state.totalAccess).level
+      return calculateLevelAndNextExp(state.todayAccess, state.totalAccess).level
     },
     nextExp(state) {
-      return calculateLevelAndNextExp(state.totalAccess).nextExp
+      return calculateLevelAndNextExp(state.todayAccess, state.totalAccess).nextExp
     },
     maxAp() {
       return 60 + this.level * 2
