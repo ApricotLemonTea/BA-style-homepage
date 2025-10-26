@@ -19,42 +19,42 @@ const patchNoteZh = ref()
 const patchNoteEn = ref()
 
 onMounted(async () => {
-  const announcementData = await loadExcelData("/data/announcement.xlsx")
-  announcementJa.value = announcementData["日本語"]
+  const announcementData = await loadExcelData('/data/announcement.xlsx')
+  announcementJa.value = announcementData['日本語']
   for (let item of announcementJa.value) {
-    item.contents = item.contents.split("\r\n")
+    item.contents = item.contents.split('\r\n')
   }
-  announcementZh.value = announcementData["中文"]
+  announcementZh.value = announcementData['中文']
   for (let item of announcementZh.value) {
-    item.contents = item.contents.split("\r\n")
+    item.contents = item.contents.split('\r\n')
   }
-  announcementEn.value = announcementData["English"]
+  announcementEn.value = announcementData['English']
   for (let item of announcementEn.value) {
-    item.contents = item.contents.split("\r\n")
+    item.contents = item.contents.split('\r\n')
   }
 
-  const patchNoteData = await loadExcelData("/data/patchNote.xlsx")
-  patchNoteJa.value = patchNoteData["日本語"]
+  const patchNoteData = await loadExcelData('/data/patchNote.xlsx')
+  patchNoteJa.value = patchNoteData['日本語']
   for (let item of patchNoteJa.value) {
-    item.contents = item.contents.split("\r\n")
+    item.contents = item.contents.split('\r\n')
   }
-  patchNoteZh.value = patchNoteData["中文"]
+  patchNoteZh.value = patchNoteData['中文']
   for (let item of patchNoteZh.value) {
-    item.contents = item.contents.split("\r\n")
+    item.contents = item.contents.split('\r\n')
   }
-  patchNoteEn.value = patchNoteData["English"]
+  patchNoteEn.value = patchNoteData['English']
   for (let item of patchNoteEn.value) {
-    item.contents = item.contents.split("\r\n")
+    item.contents = item.contents.split('\r\n')
   }
 })
 
 const announcement = computed(() => {
-  switch (i18n.global.locale){
-    case "ja":
+  switch (i18n.global.locale) {
+    case 'ja':
       return announcementJa.value
-    case "zh":
+    case 'zh':
       return announcementZh.value
-    case "en":
+    case 'en':
       return announcementEn.value
 
     default:
@@ -63,12 +63,12 @@ const announcement = computed(() => {
 })
 
 const patchNote = computed(() => {
-  switch (i18n.global.locale){
-    case "ja":
+  switch (i18n.global.locale) {
+    case 'ja':
       return patchNoteJa.value
-    case "zh":
+    case 'zh':
       return patchNoteZh.value
-    case "en":
+    case 'en':
       return patchNoteEn.value
 
     default:
@@ -88,15 +88,12 @@ const selectedTabIndex = ref(0)
 const selectedTitleIndex = ref(0)
 
 const tabList = computed(() => {
-  return [
-    t("totalInfo.お知らせ"),
-    t("totalInfo.パッチノート"),
-    t("totalInfo.訪問者数グラフ")
-  ]
+  return [t('totalInfo.お知らせ'), t('totalInfo.パッチノート'), t('totalInfo.訪問者数グラフ')]
 })
 
 /** 网站访问量折线图图表用的配置 **/
-const zoomStart = (Math.max(userStore.accessDataList.length - 30, 0) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
+const zoomStart =
+  (Math.max(userStore.accessDataList.length - 30, 0) / userStore.accessDataList.length) * 100 // 默认显示最近30天的数据
 const chartOption = {
   dataset: {
     source: userStore.accessDataList
@@ -120,7 +117,7 @@ const chartOption = {
   },
   xAxis: {
     type: 'category',
-    boundaryGap: false,
+    boundaryGap: false
   },
   yAxis: [
     {
@@ -149,7 +146,7 @@ const chartOption = {
   ],
   series: [
     {
-      name: t("graph.訪問者数"),
+      name: t('graph.訪問者数'),
       type: 'line',
       sampling: 'lttb',
       yAxisIndex: 0,
@@ -159,7 +156,7 @@ const chartOption = {
       }
     },
     {
-      name: t("graph.リクエスト数"),
+      name: t('graph.リクエスト数'),
       type: 'line',
       sampling: 'lttb',
       yAxisIndex: 1,
@@ -185,15 +182,19 @@ const chartOption = {
 </script>
 
 <template>
-  <el-dialog v-model="dialogVisible"
-             class="total-info-dialog"
-             :show-close="false"
-  >
+  <el-dialog v-model="dialogVisible" class="total-info-dialog" :show-close="false">
     <template #title>
       <div class="total-info-header-block">
         <p class="title-text">ApricotLemonTea News</p>
-        <IconClose @click="() => { dialogVisible = false }"
-                   class="close-button" size="4vh"/>
+        <IconClose
+          @click="
+            () => {
+              dialogVisible = false
+            }
+          "
+          class="close-button"
+          size="4vh"
+        />
       </div>
     </template>
 
@@ -202,81 +203,121 @@ const chartOption = {
         <div class="total-info-inner-container">
           <!--顶部的tab bar-->
           <div class="total-info-tab-bar">
-            <div v-for="(item, index) in tabList" :key="index"
-                 :class="selectedTabIndex === index ? 'total-info-tab-button tab-selected' : 'total-info-tab-button'"
-                 @click="() => { selectedTabIndex = index; selectedTitleIndex = 0 }"
+            <div
+              v-for="(item, index) in tabList"
+              :key="index"
+              :class="
+                selectedTabIndex === index
+                  ? 'total-info-tab-button tab-selected'
+                  : 'total-info-tab-button'
+              "
+              @click="
+                () => {
+                  selectedTabIndex = index
+                  selectedTitleIndex = 0
+                }
+              "
             >
               {{ item }}
             </div>
           </div>
 
           <!--お知らせ-->
-          <div v-show="tabList[selectedTabIndex] === t('totalInfo.お知らせ')"
-               class="total-info-content-block"
+          <div
+            v-show="tabList[selectedTabIndex] === t('totalInfo.お知らせ')"
+            class="total-info-content-block"
           >
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
-              <div v-for="(item, index) in announcement" :key="index"
-                   :class="['total-info-content-title', selectedTitleIndex === index ? ' title-selected' : '']"
-                   @click="() => { selectedTitleIndex = index }"
+              <div
+                v-for="(item, index) in announcement"
+                :key="index"
+                :class="[
+                  'total-info-content-title',
+                  selectedTitleIndex === index ? ' title-selected' : ''
+                ]"
+                @click="
+                  () => {
+                    selectedTitleIndex = index
+                  }
+                "
               >
                 {{ item.title }}
               </div>
             </div>
             <!--正文内容-->
-            <div v-for="(item, index) in announcement"  :key="index"
-                 v-show="selectedTitleIndex === index"
-                 class="total-info-content"
+            <div
+              v-for="(item, index) in announcement"
+              :key="index"
+              v-show="selectedTitleIndex === index"
+              class="total-info-content"
             >
               <h3 style="text-align: center">
                 {{ item.title }}
               </h3>
               <p style="text-align: right; font-size: 1.8vh">{{ item.time }}</p>
               <a-divider :size="2"></a-divider>
-              <br>
-              <div v-for="contentItem in item.contents" :key="contentItem"
-                 v-html="contentItem"
-                 style="margin-bottom: 3vh"
-              >
-              </div>
-              <br>
+              <br />
+              <div
+                v-for="contentItem in item.contents"
+                :key="contentItem"
+                v-html="contentItem"
+                style="margin-bottom: 3vh"
+              ></div>
+              <br />
             </div>
           </div>
 
           <!--パッチノート-->
-          <div v-show="tabList[selectedTabIndex] === t('totalInfo.パッチノート')"
-               class="total-info-content-block"
+          <div
+            v-show="tabList[selectedTabIndex] === t('totalInfo.パッチノート')"
+            class="total-info-content-block"
           >
             <!--左侧标题栏-->
             <div class="total-info-content-title-block">
-              <div v-for="(item, index) in patchNote" :key="index"
-                   :class="['total-info-content-title', selectedTitleIndex === index ? ' title-selected' : '']"
-                   @click="() => { selectedTitleIndex = index }"
+              <div
+                v-for="(item, index) in patchNote"
+                :key="index"
+                :class="[
+                  'total-info-content-title',
+                  selectedTitleIndex === index ? ' title-selected' : ''
+                ]"
+                @click="
+                  () => {
+                    selectedTitleIndex = index
+                  }
+                "
               >
                 {{ item.title }}
               </div>
             </div>
             <!--正文内容-->
-            <div v-for="(item, index) in patchNote"  :key="index"
-                 v-show="selectedTitleIndex === index"
-                 class="total-info-content"
+            <div
+              v-for="(item, index) in patchNote"
+              :key="index"
+              v-show="selectedTitleIndex === index"
+              class="total-info-content"
             >
               <h3 style="text-align: center">
                 {{ item.title }}
               </h3>
               <a-divider :size="3"></a-divider>
-              <br>
+              <br />
               <ul style="margin: 0 30px">
-                <li v-for="contentItem in item.contents" :key="contentItem"
-                    v-html="contentItem"
-                    style="margin-bottom: 3vh"></li>
+                <li
+                  v-for="contentItem in item.contents"
+                  :key="contentItem"
+                  v-html="contentItem"
+                  style="margin-bottom: 3vh"
+                ></li>
               </ul>
             </div>
           </div>
 
           <!--网站访问数折线图-->
-          <div v-if="tabList[selectedTabIndex] === t('totalInfo.訪問者数グラフ')"
-               class="total-info-content-block"
+          <div
+            v-if="tabList[selectedTabIndex] === t('totalInfo.訪問者数グラフ')"
+            class="total-info-content-block"
           >
             <EChart :option="chartOption"></EChart>
           </div>
@@ -303,8 +344,9 @@ const chartOption = {
       font-size: 4vh;
       font-weight: bold;
       margin-left: 1vw;
-      transform: skewx(-10deg)
+      transform: skewx(-10deg);
     }
+
     .close-button {
       color: white;
       margin: 0 0.8vw 0 auto;
@@ -316,7 +358,9 @@ const chartOption = {
 
     .total-info-inner-container {
       border-bottom: #7b9eb5 solid 1px;
-      box-shadow: inset -1px 0 0 #7b9eb5, inset 1px 0 0 #7b9eb5;
+      box-shadow:
+        inset -1px 0 0 #7b9eb5,
+        inset 1px 0 0 #7b9eb5;
       z-index: 50;
       margin: 0 1vw 1vw 1vw;
       height: 55vh;
@@ -337,9 +381,11 @@ const chartOption = {
           font-size: 2.5vh;
           font-weight: bold;
         }
+
         .total-info-tab-button:hover {
           background-color: #7e90a9;
         }
+
         .tab-selected {
           background-color: #40708b;
           color: white;
@@ -366,13 +412,16 @@ const chartOption = {
             font-weight: bold;
             padding-left: 1vw;
           }
+
           .total-info-content-title:hover {
             background-color: #e7ecef;
           }
+
           .title-selected {
             background-color: #dbe6eb;
           }
         }
+
         .total-info-content {
           max-height: 100%;
           width: 70%;

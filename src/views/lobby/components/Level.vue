@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/store/userStore'
-import { useI18n } from "vue-i18n"
+import { useI18n } from 'vue-i18n'
 
 import Curtain from '@/components/Curtain.vue'
 import { numberWithCommas } from '../../../utils/commonFunctions'
@@ -22,7 +22,7 @@ const curtainRef = ref()
 const openProfile = () => {
   userStore.apTooltipVisible = false
   curtainRef.value.skip(() => {
-    router.push({ name: "Profile" })
+    router.push({ name: 'Profile' })
   })
 }
 </script>
@@ -36,7 +36,7 @@ const openProfile = () => {
           <p>{{ userStore.level }}</p>
         </div>
         <div class="right">
-          <span class="name">{{ t("杏仁レモンティー") }}</span>
+          <span class="name">{{ t('杏仁レモンティー') }}</span>
           <div>
             <a-progress
               :percent="userStore.exp / userStore.nextExp"
@@ -46,8 +46,12 @@ const openProfile = () => {
             >
             </a-progress>
             <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE', 'margin-top': '0.5vh' }">
-              <span v-if="!isLevelMax">{{ numberWithCommas(userStore.exp) + ' / ' + numberWithCommas(userStore.nextExp) }}</span>
-              <span v-if="isLevelMax">{{ numberWithCommas(userStore.totalAccess) + ' / ' + 'MAX' }}</span>
+              <span v-if="!isLevelMax">{{
+                numberWithCommas(userStore.exp) + ' / ' + numberWithCommas(userStore.nextExp)
+              }}</span>
+              <span v-if="isLevelMax">{{
+                numberWithCommas(userStore.totalAccess) + ' / ' + 'MAX'
+              }}</span>
             </p>
           </div>
         </div>

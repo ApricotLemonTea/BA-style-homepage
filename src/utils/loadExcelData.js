@@ -8,29 +8,28 @@ import * as XLSX from 'xlsx'
 export async function loadExcelData(filePath) {
   try {
     // 使用 fetch 从 public 目录中加载 Excel 文件
-    const response = await fetch(filePath + `?t=${ new Date().toString() }`);
+    const response = await fetch(filePath + `?t=${new Date().toString()}`)
     if (!response.ok) {
-      throw new Error('文件加载失败');
+      throw new Error('文件加载失败')
     }
 
     // 获取文件的 ArrayBuffer
-    const data = await response.arrayBuffer();
+    const data = await response.arrayBuffer()
 
     // 使用 xlsx 库解析 Excel 数据
-    const workbook = XLSX.read(data, { type: 'array' });
+    const workbook = XLSX.read(data, { type: 'array' })
 
     // 初始化一个空对象来存储每个工作表的数据
-    const sheetsData = {};
+    const sheetsData = {}
 
     // 遍历所有工作表并将其转换为 JSON
     workbook.SheetNames.forEach((sheetName) => {
-      const sheet = workbook.Sheets[sheetName];
-      sheetsData[sheetName] = XLSX.utils.sheet_to_json(sheet);
-    });
+      const sheet = workbook.Sheets[sheetName]
+      sheetsData[sheetName] = XLSX.utils.sheet_to_json(sheet)
+    })
 
-    return sheetsData;
-
+    return sheetsData
   } catch (error) {
-    console.error('读取文件时发生错误:', error);
+    console.error('读取文件时发生错误:', error)
   }
 }

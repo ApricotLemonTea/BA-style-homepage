@@ -165,6 +165,7 @@ window.document.body.onmouseover = function (event) {
     display: none;
   }
 }
+
 #cursor {
   pointer-events: none;
   z-index: 9999;

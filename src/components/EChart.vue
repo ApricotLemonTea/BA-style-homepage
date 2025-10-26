@@ -52,11 +52,15 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeChart)
 })
 
-watch(() => props.option, (newOption) => {
-  if (chartInstance && newOption) {
-    chartInstance.setOption(newOption)
-  }
-}, { deep: true })
+watch(
+  () => props.option,
+  (newOption) => {
+    if (chartInstance && newOption) {
+      chartInstance.setOption(newOption)
+    }
+  },
+  { deep: true }
+)
 </script>
 
 <style scoped>

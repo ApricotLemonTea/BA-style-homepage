@@ -18,7 +18,10 @@ const getAccessAnalytics = async () => {
         zones(filter: { zoneTag: "${zoneId}" }) {
           httpRequests1dGroups(
             limit: 9999,
-            filter: { date_geq: "2024-11-01", date_leq: "${getFormattedDate(new Date())}" },
+            filter: {
+              date_geq: "2024-11-01",
+              date_leq: "${getFormattedDate(new Date())}"
+            },
             orderBy: [date_DESC]
           ) {
               dimensions {
@@ -36,11 +39,11 @@ const getAccessAnalytics = async () => {
     }`,
     variables: {}
   }
-  const res = await axios.post("/client/v4/graphql", data, { headers })
+  const res = await axios.post('/client/v4/graphql', data, { headers })
 
   let totalAccess = 0
   let accessDataList = []
-  for (const item of res.data.data.viewer.zones[0].httpRequests1dGroups){
+  for (const item of res.data.data.viewer.zones[0].httpRequests1dGroups) {
     totalAccess += item.uniq.uniques
     accessDataList.push([item.dimensions.date, item.uniq.uniques, item.sum.requests])
   }

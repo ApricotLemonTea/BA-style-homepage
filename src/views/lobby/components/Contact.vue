@@ -3,7 +3,7 @@
 // import config from '/_config.json'
 import { ref, onMounted } from 'vue'
 import TotalInfo from '@/views/lobby/components/TotalInfo.vue'
-import { useI18n } from "vue-i18n"
+import { useI18n } from 'vue-i18n'
 import { openUrl } from '@/utils/commonFunctions'
 import i18n from '@/locale'
 import router from '@/router'
@@ -16,7 +16,7 @@ import { loadExcelData } from '@/utils/loadExcelData'
 const { t } = useI18n()
 const totalInfoRef = ref()
 
-defineEmits(["start-guide"])
+defineEmits(['start-guide'])
 
 const announcement = ref()
 const recentAnnounceDate = ref()
@@ -24,10 +24,10 @@ const viewedAnnounceDate = ref()
 const hasNewAnnounce = ref()
 
 onMounted(async () => {
-  const announcementData = await loadExcelData("/data/announcement.xlsx")
-  announcement.value = announcementData["日本語"]
+  const announcementData = await loadExcelData('/data/announcement.xlsx')
+  announcement.value = announcementData['日本語']
   recentAnnounceDate.value = announcement.value[0].time
-  viewedAnnounceDate.value = localStorage.getItem("viewed-announce-date")
+  viewedAnnounceDate.value = localStorage.getItem('viewed-announce-date')
   hasNewAnnounce.value = viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1
 })
 
@@ -35,14 +35,14 @@ onMounted(async () => {
  * 打开mission页面
  */
 const openMission = () => {
-  router.push("/mission")
+  router.push('/mission')
 }
 
 /**
  * 打开announce页面
  */
 const openAnnounce = () => {
-  localStorage.setItem("viewed-announce-date", recentAnnounceDate.value)
+  localStorage.setItem('viewed-announce-date', recentAnnounceDate.value)
   hasNewAnnounce.value = 0
   totalInfoRef.value.open()
 }
@@ -50,53 +50,62 @@ const openAnnounce = () => {
 
 <template>
   <div class="contact-box">
-    <a-badge :count="hasNewAnnounce" :offset="[-25, -10]"
-             dot :dot-style="{width: '13px', height: '13px'}"
+    <a-badge
+      :count="hasNewAnnounce"
+      :offset="[-25, -10]"
+      dot
+      :dot-style="{ width: '13px', height: '13px' }"
     >
       <a-popover position="top">
-        <div class="contact css-cursor-hover-enabled"
-             @click="openAnnounce"
-        >
+        <div class="contact css-cursor-hover-enabled" @click="openAnnounce">
           <img src="/img/announce.png" alt="" />
-          <span style="white-space: nowrap; margin-top: 9px">{{ t("contact.お知らせ") }}</span>
+          <span style="white-space: nowrap; margin-top: 9px">{{ t('contact.お知らせ') }}</span>
         </div>
         <template #title>
-          <h3 class="blue-text-color">{{ t("contact.お知らせとパッチノート") }}</h3>
+          <h3 class="blue-text-color">{{ t('contact.お知らせとパッチノート') }}</h3>
         </template>
         <template #content>
-          <p class="blue-text-color">{{ t("contact.重要な情報とサイトの更新履歴はここに書きます") }}</p>
-          <p class="blue-text-color">{{ t("contact.当サイトの日別訪問者数のグラフもあります") }}</p>
+          <p class="blue-text-color">
+            {{ t('contact.重要な情報とサイトの更新履歴はここに書きます') }}
+          </p>
+          <p class="blue-text-color">{{ t('contact.当サイトの日別訪問者数のグラフもあります') }}</p>
         </template>
       </a-popover>
     </a-badge>
 
     <a-popover position="top">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openUrl('https://u1805.github.io/momotalk/')"
+      <div
+        class="contact css-cursor-hover-enabled"
+        @click="openUrl('https://u1805.github.io/momotalk/')"
       >
         <img src="/img/momotalk.png" alt="" />
-        <span style="white-space: nowrap;">{{ t("contact.モモトーク") }}</span>
+        <span style="white-space: nowrap">{{ t('contact.モモトーク') }}</span>
       </div>
       <template #title>
-        <h3 class="blue-text-color">{{ t("contact.モモトークエディター") }}</h3>
+        <h3 class="blue-text-color">{{ t('contact.モモトークエディター') }}</h3>
       </template>
       <template #content>
         <div class="blue-text-color">
-          <p>{{ t("contact.モモトーク風のチャット作成ツールです。") }}</p>
+          <p>{{ t('contact.モモトーク風のチャット作成ツールです。') }}</p>
           <!--日语使用说明-->
-          <p v-show="i18n.global.locale === 'ja'">使い方は
-            <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-jp.md')"
-                  class="css-cursor-hover-enabled link"
-                  style="color: #3987ff"
+          <p v-show="i18n.global.locale === 'ja'">
+            使い方は
+            <span
+              @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-jp.md')"
+              class="css-cursor-hover-enabled link"
+              style="color: #3987ff"
             >
               こちら
             </span>
           </p>
           <!--中文使用说明-->
           <p v-show="i18n.global.locale === 'zh'">
-            <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-zh_cn.md')"
-                  class="css-cursor-hover-enabled link"
-                  style="color: #3987ff"
+            <span
+              @click="
+                openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use-zh_cn.md')
+              "
+              class="css-cursor-hover-enabled link"
+              style="color: #3987ff"
             >
               点击这里
             </span>
@@ -104,19 +113,22 @@ const openAnnounce = () => {
           </p>
           <!--英语使用说明-->
           <p v-show="i18n.global.locale === 'en'">
-            <span @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use.md')"
-                  class="css-cursor-hover-enabled link"
-                  style="color: #3987ff"
+            <span
+              @click="openUrl('https://github.com/U1805/momotalk/blob/main/docs/How-to-use.md')"
+              class="css-cursor-hover-enabled link"
+              style="color: #3987ff"
             >
               Click here
             </span>
             to learn how to use
           </p>
           <br />
-          <p>Made by
-            <span @click="openUrl('https://github.com/U1805/momotalk')"
-                  class="css-cursor-hover-enabled link"
-                  style="color: #3987ff"
+          <p>
+            Made by
+            <span
+              @click="openUrl('https://github.com/U1805/momotalk')"
+              class="css-cursor-hover-enabled link"
+              style="color: #3987ff"
             >
               U1805
             </span>
@@ -126,34 +138,30 @@ const openAnnounce = () => {
     </a-popover>
 
     <a-popover position="bottom">
-      <div class="contact css-cursor-hover-enabled"
-           @click="openMission"
-      >
+      <div class="contact css-cursor-hover-enabled" @click="openMission">
         <img src="/img/mission.png" alt="" />
-        <span style="white-space: nowrap;">{{ t("contact.ミッション") }}</span>
+        <span style="white-space: nowrap">{{ t('contact.ミッション') }}</span>
       </div>
       <template #title>
-        <h3 class="blue-text-color">{{ t("contact.ミッション") }}</h3>
+        <h3 class="blue-text-color">{{ t('contact.ミッション') }}</h3>
       </template>
       <template #content>
         <div class="blue-text-color">
-          <p>{{ t("contact.やることやったこといろいろ") }}</p>
+          <p>{{ t('contact.やることやったこといろいろ') }}</p>
         </div>
       </template>
     </a-popover>
 
     <a-popover position="bottom">
-      <div class="contact css-cursor-hover-enabled"
-           @click="$emit('start-guide')"
-      >
+      <div class="contact css-cursor-hover-enabled" @click="$emit('start-guide')">
         <img src="/img/guide.png" alt="" />
-        <span style="white-space: nowrap;">{{ t("contact.ガイド") }}</span>
+        <span style="white-space: nowrap">{{ t('contact.ガイド') }}</span>
       </div>
       <template #title>
-        <h3 class="blue-text-color">{{ t("contact.ガイド") }}</h3>
+        <h3 class="blue-text-color">{{ t('contact.ガイド') }}</h3>
       </template>
       <template #content>
-        <p class="blue-text-color">{{ t("contact.当サイトの紹介を始めます") }}</p>
+        <p class="blue-text-color">{{ t('contact.当サイトの紹介を始めます') }}</p>
       </template>
     </a-popover>
 

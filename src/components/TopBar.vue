@@ -38,12 +38,12 @@ watch(pyroxene, (n) => {
  *  "-1":回到上一步, "lobby": 回到大厅
  */
 const routerNavigate = (routerCase) => {
-  switch (routerCase){
-    case "-1":
+  switch (routerCase) {
+    case '-1':
       router.go(-1)
       break
-    case "lobby":
-      router.push("/")
+    case 'lobby':
+      router.push('/')
       break
   }
 }
@@ -52,11 +52,11 @@ const routerNavigate = (routerCase) => {
 <template>
   <div class="top-bar blue-text-color">
     <div class="back-button" @click="routerNavigate('-1')">
-      <img src="/img/back.png" alt="" style="height: 100%; margin: 0 auto">
+      <img src="/img/back.png" alt="" style="height: 100%; margin: 0 auto" />
     </div>
 
     <div class="page-title">
-      <p>{{ t("topBarTitle." + route.meta.topBarTitle) }}</p>
+      <p>{{ t('topBarTitle.' + route.meta.topBarTitle) }}</p>
     </div>
 
     <div class="status-block" style="margin-left: auto">
@@ -78,7 +78,7 @@ const routerNavigate = (routerCase) => {
     </div>
 
     <div class="other-button" @click="routerNavigate('lobby')">
-      <img src="/img/home.png" alt="" style="height: 100%; margin: 0 auto">
+      <img src="/img/home.png" alt="" style="height: 100%; margin: 0 auto" />
     </div>
   </div>
 </template>
@@ -98,10 +98,12 @@ const routerNavigate = (routerCase) => {
     height: 166%;
     aspect-ratio: 1;
   }
+
   .back-button img {
     border-radius: 50%;
     box-shadow: 3px 3px 7px rgba(49, 123, 146, 0.2);
   }
+
   .back-button:active {
     transform: scale(0.9);
   }
@@ -116,6 +118,7 @@ const routerNavigate = (routerCase) => {
     font-weight: bold;
     border-bottom: 0.52vh solid #ffed6f;
   }
+
   .status-block {
     width: 12%;
     display: flex;
@@ -140,10 +143,12 @@ const routerNavigate = (routerCase) => {
     aspect-ratio: 1;
     margin-top: 0.5vh;
   }
+
   .other-button:active {
     transform: scale(0.9);
   }
 }
+
 .top-bar img {
   height: 70%;
   margin: 0 5% 0 10%;

@@ -10,7 +10,7 @@ const curtainRef = ref()
 
 const openPortfolio = () => {
   curtainRef.value.skip(() => {
-    window.open("https://xfolio.jp/portfolio/ApricotLemonTea")
+    window.open('https://xfolio.jp/portfolio/ApricotLemonTea')
   })
 }
 </script>
@@ -22,8 +22,7 @@ const openPortfolio = () => {
       :name="t('task.イラスト')"
       class="task css-cursor-hover-enabled"
       @click="openPortfolio"
-    >
-    </div>
+    ></div>
   </transition>
 
   <Curtain ref="curtainRef"></Curtain>

@@ -1,24 +1,19 @@
 {
   "杏仁レモンティー": "ApricotLemonTea",
-  
   "はい": "OK",
   "いいえ": "Cancel",
   "閉じる": "Close",
-
   "topBarTitle": {
     "プロフィール": "Profile",
     "ミッション": "Tasks"
   },
-
   "notice": {
     "メッセージ": "Message",
     "PCでの閲覧を推奨します、スマホは今後対応します。": "This site is recommended viewing on PC, mobile support will come soon.",
     "このまま進むとレイアウトが正しく表示できない場合があります。": "If you accessed on this device, the page layout may not display correctly.",
     "旧リンクまとめサイトのLit Linkに移動しますか？": "Would you like to move to the previous link summary site Lit.Link?",
-
     "アップデートがあります、ページを再起動してください。": "The website has been updated, please reload the page."
   },
-
   "contact": {
     "お知らせ": "Notice",
     "お知らせとパッチノート": "Announcements and Patch Notes and Visits",
@@ -32,7 +27,6 @@
     "モモトークエディター": "MomoTalk Editor",
     "モモトーク風のチャット作成ツールです。": "A web chat generator, styled from Blue Archive MomoTalk."
   },
-
   "footer": {
     "メールアドレスをコピーしました": "Email address copied",
     "主にここで喋ってます": "Mainly talking here",
@@ -44,7 +38,6 @@
     "(クリックでコピーできます)": "(Click to copy)",
     "ご要望、ご感想などはこちらに": "Send your requests or feedback here"
   },
-
   "mission": {
     "ミッション": "Tasks",
     "missionTag": {
@@ -58,12 +51,10 @@
     "回数": "Times",
     "「開発」タグ以外のミッションはクリックすると詳細情報を確認できます": "The tasks (except the 'Feature' tag) can be clicked to view more details"
   },
-
   "task": {
     "イラスト": "Illusts",
     "ポートフォリオです": "This is a portfolio"
   },
-
   "toolbox": {
     "次の回復まであと": "Time until next recovery:",
     "秒。": "seconds.",
@@ -91,14 +82,12 @@
       "（当サイトはブルアカ公式とは一切関係ありません）": "(This site has nothing to do with Blue Archive official)"
     }
   },
-
   "totalInfo": {
     "お知らせ": "Announcements",
     "パッチノート": "Patch Notes",
     "訪問者数グラフ": "Visits Graph",
     "予備用のタブです、まだ何もありません。": "This is a placeholder tab, nothing here yet."
   },
-
   "guide": {
     "プロフィールと経験値とレベル": "Profile, Experience Points, and Level",
     "クリックするとプロフィール画面に移動します。": "Click to move to the profile page.",
@@ -120,14 +109,12 @@
     "外部リンクその他": "Other External Links",
     "杏仁レモンティーのSNSなどの外部リンクです。": "External links to ApricotLemonTea's SNS and more."
   },
-
   "profile": {
     "絵が少し描ける一般人です。": "A regular person who can draw a little bit.",
     "好きなものなんでもやります。": "Will do anything I like.",
     "プロフィール": "Profile",
     "オリキャラ設定画": "OC Design Art"
   },
-
   "welcome": {
     "いらっしゃいませ(｀・ω・´)": "Welcome(｀・ω・´)",
     "当サイトは": "This site is a personal homepage made and operated by ",
@@ -136,7 +123,6 @@
     "当サイトの各種機能は画面左の「ガイド」ボタンから紹介いたします。": "You can click the \"Guide\" button on the left side to know the features of this site.",
     "次回から表示しない": "Don't show this dialog again"
   },
-
   "graph": {
     "リクエスト数": "Requests",
     "訪問者数": "Visitors"

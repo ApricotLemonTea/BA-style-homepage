@@ -4,7 +4,7 @@
  * @returns { string }
  */
 export const numberWithCommas = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
 
 /**
@@ -12,7 +12,7 @@ export const numberWithCommas = (num) => {
  * @param { string } url 要打开的目标地址
  * @param { string } target 打开方式，默认为新建标签页打开
  */
-export const openUrl = (url, target = "_blank") => {
+export const openUrl = (url, target = '_blank') => {
   window.open(url, target)
 }
 
@@ -21,8 +21,8 @@ export const openUrl = (url, target = "_blank") => {
  * @returns { string }
  */
 export const getFormattedDate = (date) => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份从0开始，需要加1
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0') // 月份从0开始，需要加1
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
 }

@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from "vue"
-import "animate.css"
+import { ref } from 'vue'
+import 'animate.css'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -22,8 +22,8 @@ defineExpose({ showPopup })
     leave-active-class="animate__animated zoomOut"
   >
     <div v-if="visible" class="reward-container">
-      <img src="/img/pyroxene.png" alt="">
-      <p>{{ t("guide.青輝石") }} x1200</p>
+      <img src="/img/pyroxene.png" alt="" />
+      <p>{{ t('guide.青輝石') }} x1200</p>
     </div>
   </Transition>
 </template>
@@ -44,6 +44,7 @@ defineExpose({ showPopup })
   img {
     height: 13vh;
   }
+
   p {
     color: white;
     font-size: 3vh;
@@ -65,6 +66,7 @@ defineExpose({ showPopup })
     opacity: 1;
   }
 }
+
 .zoomIn {
   animation-name: zoomIn;
 }
@@ -83,6 +85,7 @@ defineExpose({ showPopup })
     opacity: 0;
   }
 }
+
 .zoomOut {
   animation-name: zoomOut;
 }

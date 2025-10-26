@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 
-export const useUserStore = defineStore("userStore", {
+export const useUserStore = defineStore('userStore', {
   state: () => ({
     isFirstOpen: true,
     totalAccess: 0,
@@ -16,8 +16,8 @@ export const useUserStore = defineStore("userStore", {
     },
 
     ap: 0,
-    credit: localStorage.getItem("credit") ? Number(localStorage.getItem("credit")) : 50000000,
-    pyroxene:  localStorage.getItem("pyroxene") ? Number(localStorage.getItem("pyroxene")) : 24000,
+    credit: localStorage.getItem('credit') ? Number(localStorage.getItem('credit')) : 50000000,
+    pyroxene: localStorage.getItem('pyroxene') ? Number(localStorage.getItem('pyroxene')) : 24000,
 
     apRecoverCountdown: 9,
     apTooltipCountdown: 0,
@@ -43,12 +43,9 @@ export const useUserStore = defineStore("userStore", {
      * 切换背景图（蓝 / 紫）
      */
     changeBackground() {
-      const images = [
-        '/shitim/Event_Main_Stage_Bg_Purple.png',
-        '/shitim/Event_Main_Stage_Bg.png'
-      ]
-      const randomImage = images[Math.floor(Math.random() * images.length)];
-      this.curtainStyle.backgroundImage = `url(${randomImage})`;
+      const images = ['/shitim/Event_Main_Stage_Bg_Purple.png', '/shitim/Event_Main_Stage_Bg.png']
+      const randomImage = images[Math.floor(Math.random() * images.length)]
+      this.curtainStyle.backgroundImage = `url(${randomImage})`
     },
 
     /**
@@ -63,9 +60,16 @@ export const useUserStore = defineStore("userStore", {
      * ap初始值根据今天经过的时间减少
      */
     initAp() {
-      this.ap = this.maxAp - Math.trunc(
-        this.maxAp * ((new Date().getTime() - new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()} 00:00:00`)) / 86400000)
-      )
+      this.ap =
+        this.maxAp -
+        Math.trunc(
+          this.maxAp *
+            ((new Date().getTime() -
+              new Date(
+                `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()} 00:00:00`
+              )) /
+              86400000)
+        )
     },
 
     /**
@@ -92,16 +96,16 @@ export const useUserStore = defineStore("userStore", {
         if (this.ap < this.maxAp) {
           this.apRecoverCountdown -= 1
         }
-        if (this.apTooltipCountdown >= 0){
+        if (this.apTooltipCountdown >= 0) {
           this.apTooltipCountdown -= 1
         }
 
         // 时间到了之后的重置
-        if (this.apRecoverCountdown < 0){
+        if (this.apRecoverCountdown < 0) {
           this.ap += 1
           this.apRecoverCountdown = 9
         }
-        if (this.apTooltipCountdown < 0){
+        if (this.apTooltipCountdown < 0) {
           this.apTooltipVisible = false
         }
       }, 1000)

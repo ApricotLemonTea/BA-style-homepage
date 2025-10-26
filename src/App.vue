@@ -17,18 +17,35 @@ const userStore = useUserStore()
  */
 const checkWindowSize = () => {
   // 只在第一次打开网站时弹出提示
-  if (window.innerWidth < 1200 && userStore.isFirstOpen){
+  if (window.innerWidth < 1200 && userStore.isFirstOpen) {
     Modal.open({
-      title: t("notice.メッセージ"),
+      title: t('notice.メッセージ'),
       content: () => [
-        h("p", { class: "blue-text-color" }, t("notice.PCでの閲覧を推奨します、スマホは今後対応します。")),
-        h("p", { class: "blue-text-color" }, t("notice.このまま進むとレイアウトが正しく表示できない場合があります。")),
-        h("br", {}, ""),
-        h("p", { class: "blue-text-color", style: { "font-weight": "bold" } }, t("notice.旧リンクまとめサイトのLit Linkに移動しますか？")),
+        h(
+          'p',
+          { class: 'blue-text-color' },
+          t('notice.PCでの閲覧を推奨します、スマホは今後対応します。')
+        ),
+        h(
+          'p',
+          { class: 'blue-text-color' },
+          t('notice.このまま進むとレイアウトが正しく表示できない場合があります。')
+        ),
+        h('br', {}, ''),
+        h(
+          'p',
+          {
+            class: 'blue-text-color',
+            style: { 'font-weight': 'bold' }
+          },
+          t('notice.旧リンクまとめサイトのLit Linkに移動しますか？')
+        )
       ],
-      okText: t("はい"),
-      cancelText: t("いいえ"),
-      onOk: () => { openUrl("https://lit.link/ApricotLemonTea", "_self") }
+      okText: t('はい'),
+      cancelText: t('いいえ'),
+      onOk: () => {
+        openUrl('https://lit.link/ApricotLemonTea', '_self')
+      }
     })
   }
 }
@@ -36,8 +53,8 @@ const checkWindowSize = () => {
 onMounted(async () => {
   // 控制台打印(｀・ω・´)b
   for (let i = 1; i <= 5; i++) {
-    console.warn("(｀・ω・´)b")
-    console.error("(｀・ω・´)b")
+    console.warn('(｀・ω・´)b')
+    console.error('(｀・ω・´)b')
   }
 
   // 切换背景图
@@ -63,7 +80,7 @@ const credit = computed(() => {
   return userStore.credit
 })
 watch(credit, (newCredit) => {
-  localStorage.setItem("credit", (newCredit || 0).toString())
+  localStorage.setItem('credit', (newCredit || 0).toString())
 })
 
 /**
@@ -73,7 +90,7 @@ const pyroxene = computed(() => {
   return userStore.pyroxene
 })
 watch(pyroxene, (newPyroxene) => {
-  localStorage.setItem("pyroxene", (newPyroxene || 0).toString())
+  localStorage.setItem('pyroxene', (newPyroxene || 0).toString())
 })
 </script>
 
@@ -109,15 +126,17 @@ watch(pyroxene, (newPyroxene) => {
 
 /* 淡入淡出的动画 */
 .view-animation-enter-from,
-.view-animation-leave-to{
+.view-animation-leave-to {
   opacity: 0;
 }
+
 .view-animation-enter-to,
-.view-animation-leave-from{
+.view-animation-leave-from {
   opacity: 1;
 }
+
 .view-animation-enter-active,
-.view-animation-leave-active{
+.view-animation-leave-active {
   transition: 0.5s;
 }
 </style>

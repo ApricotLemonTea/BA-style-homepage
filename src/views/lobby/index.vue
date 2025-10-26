@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 
 import Cursor from '@/components/Cursor.vue'
@@ -20,15 +21,16 @@ const envShowBackground = import.meta.env.VITE_SHOW_BACKGROUND
 import NProgress from 'nprogress'
 
 import { useUserStore } from '@/store/userStore'
+
 const userStore = useUserStore()
 
 onMounted(() => {
   // 删除旧的是否显示欢迎信息弹窗的标记
-  localStorage.removeItem("hasVisited")
+  localStorage.removeItem('hasVisited')
 })
 
 // 只在第一次打开网站时显示加载动画
-if (userStore.isFirstOpen){
+if (userStore.isFirstOpen) {
   NProgress.start()
   loading.value = true
 
@@ -51,7 +53,7 @@ const switchL2D = () => {
   l2dOnly.value = !l2dOnly.value
 }
 
-const imgSrc = ref("/l2d/hp_bg.png?t=" + new Date().toString())
+const imgSrc = ref('/l2d/hp_bg.png?t=' + new Date().toString())
 
 const showGuide = ref(false)
 </script>
@@ -62,7 +64,7 @@ const showGuide = ref(false)
   </transition>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img v-if="envShowBackground === 'true'" :src="imgSrc" class="background-img" alt="">
+    <img v-if="envShowBackground === 'true'" :src="imgSrc" class="background-img" alt="" />
 
     <div id="level-ref"></div>
     <transition name="left">
@@ -77,7 +79,14 @@ const showGuide = ref(false)
 
     <div id="contact-ref"></div>
     <transition name="left">
-      <Contact v-if="!l2dOnly" @start-guide="() => { showGuide = true }"></Contact>
+      <Contact
+        v-if="!l2dOnly"
+        @start-guide="
+          () => {
+            showGuide = true
+          }
+        "
+      ></Contact>
     </transition>
 
     <div id="task-ref"></div>
@@ -98,76 +107,98 @@ const showGuide = ref(false)
 
       <el-tour-step target="#level-ref">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.プロフィールと経験値とレベル") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.プロフィールと経験値とレベル') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.クリックするとプロフィール画面に移動します。") }}</p>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.サイトの訪問数が増えると経験値が上がって、レベルもアップします。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.クリックするとプロフィール画面に移動します。') }}
+          </p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.サイトの訪問数が増えると経験値が上がって、レベルもアップします。') }}
+          </p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#contact-ref">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.ゲーム内機能のコーナー") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.ゲーム内機能のコーナー') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.ゲーム内の機能を再現しようとするコーナーです。") }}</p>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.もちろん実際の内容はゲームと異なります。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.ゲーム内の機能を再現しようとするコーナーです。') }}
+          </p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.もちろん実際の内容はゲームと異なります。') }}
+          </p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#ap-ref">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.AP") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.AP') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.10秒ごとに1AP自動回復します、チャージもできます。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.10秒ごとに1AP自動回復します、チャージもできます。') }}
+          </p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#credit-ref">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.クレジット") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.クレジット') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.クリックすることでギャンブル(?)できます。") }}</p>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.一回10APを消費します。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.クリックすることでギャンブル(?)できます。') }}
+          </p>
+          <p class="blue-text-color mt-md-ml-10">{{ t('guide.一回10APを消費します。') }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#pyroxene-ref">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.青輝石") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.青輝石') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.青輝石一日一回無料配布。（ログインボーナス！）") }}</p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.青輝石一日一回無料配布。（ログインボーナス！）') }}
+          </p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#locale-ref">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.言語切替") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.言語切替') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.他の言語に切り替えられます。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">{{ t('guide.他の言語に切り替えられます。') }}</p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#task-ref" placement="top-end">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.外部リンク") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.外部リンク') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{
+              t(
+                'guide.Xfolioのサイトに移動します、杏仁レモンティーのポートフォリオみたいなものです。'
+              )
+            }}
+          </p>
         </template>
       </el-tour-step>
 
       <el-tour-step target="#footer-ref" placement="top">
         <template #header>
-          <h3 class="blue-text-color">{{ t("guide.外部リンクその他") }}</h3>
+          <h3 class="blue-text-color">{{ t('guide.外部リンクその他') }}</h3>
         </template>
         <template #default>
-          <p class="blue-text-color mt-md-ml-10">{{ t("guide.杏仁レモンティーのSNSなどの外部リンクです。") }}</p>
+          <p class="blue-text-color mt-md-ml-10">
+            {{ t('guide.杏仁レモンティーのSNSなどの外部リンクです。') }}
+          </p>
         </template>
       </el-tour-step>
     </el-tour>
@@ -184,6 +215,7 @@ const showGuide = ref(false)
   height: 100vh;
   object-fit: cover;
 }
+
 #level-ref {
   position: fixed;
   top: 30px;
@@ -191,6 +223,7 @@ const showGuide = ref(false)
   width: 380px;
   height: 120px;
 }
+
 #contact-ref {
   position: fixed;
   top: 160px;
@@ -198,6 +231,7 @@ const showGuide = ref(false)
   width: 280px;
   height: 190px;
 }
+
 #ap-ref {
   position: fixed;
   top: 20px;
@@ -205,6 +239,7 @@ const showGuide = ref(false)
   width: 240px;
   height: 90px;
 }
+
 #credit-ref {
   position: fixed;
   top: 20px;
@@ -212,6 +247,7 @@ const showGuide = ref(false)
   width: 240px;
   height: 90px;
 }
+
 #pyroxene-ref {
   position: fixed;
   top: 20px;
@@ -219,6 +255,7 @@ const showGuide = ref(false)
   width: 240px;
   height: 90px;
 }
+
 #locale-ref {
   position: fixed;
   top: 20px;
@@ -226,6 +263,7 @@ const showGuide = ref(false)
   width: 100px;
   height: 90px;
 }
+
 #task-ref {
   position: fixed;
   bottom: 130px;
@@ -233,6 +271,7 @@ const showGuide = ref(false)
   width: 200px;
   height: 160px;
 }
+
 #footer-ref {
   position: fixed;
   bottom: 0;

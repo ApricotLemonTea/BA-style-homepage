@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import routes from '@/router/routes'
 
 const router = createRouter({
@@ -7,7 +7,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.title){
+  if (to.meta.title) {
     document.title = to.meta.title
   }
   next()

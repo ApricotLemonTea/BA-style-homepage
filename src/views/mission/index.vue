@@ -19,12 +19,12 @@ const missionZh = ref()
 const missionEn = ref()
 
 const mission = computed(() => {
-  switch (i18n.global.locale){
-    case "ja":
+  switch (i18n.global.locale) {
+    case 'ja':
       return missionJa.value
-    case "zh":
+    case 'zh':
       return missionZh.value
-    case "en":
+    case 'en':
       return missionEn.value
 
     default:
@@ -38,32 +38,32 @@ const selectedIndex = ref(0)
 const rewardPopupRef = ref()
 
 onMounted(async () => {
-  const missionData = await loadExcelData("/data/mission.xlsx")
+  const missionData = await loadExcelData('/data/mission.xlsx')
 
-  missionJa.value = missionData["日本語"]
-  missionZh.value = missionData["中文"]
-  missionEn.value = missionData["English"]
+  missionJa.value = missionData['日本語']
+  missionZh.value = missionData['中文']
+  missionEn.value = missionData['English']
 })
 
-const bgImgSrc = ref("/profile/1007.png?t=" + new Date().getTime().toString())
+const bgImgSrc = ref('/profile/1007.png?t=' + new Date().getTime().toString())
 
 // *********************************
 // 每日登录逻辑（复制自Toolbox.vue）
-const loginDate = ref(localStorage.getItem("login-date"))
+const loginDate = ref(localStorage.getItem('login-date'))
 const nowDate = ref(getFormattedDate(new Date()))
 
 const increasePyroxene = () => {
-  if (loginDate.value === nowDate.value){
+  if (loginDate.value === nowDate.value) {
     return
   }
 
   rewardPopupRef.value.showPopup()
   userStore.pyroxene += 1200
   // 将领取日期（今天）存储到storage
-  localStorage.setItem("login-date", nowDate.value)
+  localStorage.setItem('login-date', nowDate.value)
 
   // 更新本页面的loginDate
-  loginDate.value = localStorage.getItem("login-date")
+  loginDate.value = localStorage.getItem('login-date')
 }
 // *********************************
 </script>
@@ -76,14 +76,20 @@ const increasePyroxene = () => {
     <div class="mission-container blue-text-color">
       <!--tab切换-->
       <div class="mission-tab-block">
-        <div v-for="(item, index) in tagList" :key="index"
-             @click="() => { selectedIndex = index }"
-             :class="[
-               'mission-tab-item',
-               index === 0 ? 'first-tab' : '',
-               index === tagList.length - 1 ? 'end-tab' : ''
-             ]"
-             :style="index === selectedIndex ? item.style : ''"
+        <div
+          v-for="(item, index) in tagList"
+          :key="index"
+          @click="
+            () => {
+              selectedIndex = index
+            }
+          "
+          :class="[
+            'mission-tab-item',
+            index === 0 ? 'first-tab' : '',
+            index === tagList.length - 1 ? 'end-tab' : ''
+          ]"
+          :style="index === selectedIndex ? item.style : ''"
         >
           {{ item.label }}
         </div>
@@ -91,14 +97,14 @@ const increasePyroxene = () => {
       <!--所有mission项目-->
       <div class="mission-item-container">
         <template v-for="item in mission" :key="item">
-          <MissionItem v-show="selectedIndex === 0 ? true
-                                                   : item.tagIndex === selectedIndex"
-                       :tagIndex="item.tagIndex"
-                       :title="item.title"
-                       :times="item.times"
-                       :maxTimes="item.maxTimes"
-                       :detailUrl="item.detailUrl"
-                       :completeDate="item.completeDate"
+          <MissionItem
+            v-show="selectedIndex === 0 ? true : item.tagIndex === selectedIndex"
+            :tagIndex="item.tagIndex"
+            :title="item.title"
+            :times="item.times"
+            :maxTimes="item.maxTimes"
+            :detailUrl="item.detailUrl"
+            :completeDate="item.completeDate"
           />
         </template>
       </div>
@@ -106,26 +112,28 @@ const increasePyroxene = () => {
 
     <!--底部每日登录区域-->
     <div class="login-bonus-block">
-      <div class="login-text">{{ t("mission.デイリーログイン") }}（{{ loginDate === nowDate ? 1 : 0 }} / 1）</div>
+      <div class="login-text">
+        {{ t('mission.デイリーログイン') }}（{{ loginDate === nowDate ? 1 : 0 }} / 1）
+      </div>
       <ProgressBar :percent="loginDate === nowDate ? 1 : 0" />
     </div>
-    <div @click="increasePyroxene"
-         :class="[
-           'yellow-button',
-           loginDate === nowDate ? 'disabled' : ''
-         ]"
+    <div
+      @click="increasePyroxene"
+      :class="['yellow-button', loginDate === nowDate ? 'disabled' : '']"
     >
-      {{ t("mission.受取") }}
+      {{ t('mission.受取') }}
     </div>
 
     <!--chara背景图-->
     <div class="chara-block">
-      <img :src="bgImgSrc" alt="">
+      <img :src="bgImgSrc" alt="" />
     </div>
 
     <!--说明文字区域-->
     <div class="info-message-block blue-text-color">
-      <span>{{ t("mission.「開発」タグ以外のミッションはクリックすると詳細情報を確認できます") }}</span>
+      <span>{{
+        t('mission.「開発」タグ以外のミッションはクリックすると詳細情報を確認できます')
+      }}</span>
     </div>
 
     <RewardPopup ref="rewardPopupRef"></RewardPopup>
@@ -159,17 +167,21 @@ const increasePyroxene = () => {
       margin-left: 0.3%;
       border-radius: 0.6vh;
     }
+
     .mission-tab-item:hover {
       background-color: rgba(255, 255, 255, 0.8);
     }
+
     .selected {
       background-color: #2f4766ff;
       color: #fada0aff;
     }
+
     .first-tab {
       margin-left: 0;
       border-top-left-radius: 1.7vh;
     }
+
     .end-tab {
       border-top-right-radius: 1.7vh;
     }
@@ -220,13 +232,16 @@ const increasePyroxene = () => {
   align-items: center;
   font-size: 1.5vw;
 }
+
 .yellow-button:active {
   transform: scale(0.93) skew(-10deg);
 }
+
 .disabled {
   background-color: #dedee0ff;
   color: #9c9c9cff;
 }
+
 .disabled:active {
   transform: scale(1) skew(-10deg);
 }
@@ -243,6 +258,7 @@ const increasePyroxene = () => {
   justify-content: center;
   align-items: center;
 }
+
 .info-message-block span {
   margin: 0 10%;
   font-size: 1.2vw;

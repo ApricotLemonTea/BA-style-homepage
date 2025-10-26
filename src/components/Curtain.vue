@@ -60,6 +60,7 @@ defineExpose({ skip })
   align-items: center;
   justify-content: center;
 }
+
 .curtain img {
   width: 500px;
   height: auto;

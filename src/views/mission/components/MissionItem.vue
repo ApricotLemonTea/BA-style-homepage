@@ -4,14 +4,7 @@ import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import { useTagList } from '@/views/mission/tagList'
 import { openUrl } from '@/utils/commonFunctions'
 
-const props = defineProps([
-  "tagIndex",
-  "title",
-  "times",
-  "maxTimes",
-  "completeDate",
-  "detailUrl"
-])
+const props = defineProps(['tagIndex', 'title', 'times', 'maxTimes', 'completeDate', 'detailUrl'])
 const tagList = useTagList()
 const isFeatureTag = computed(() => {
   return props.tagIndex === 2
@@ -29,15 +22,11 @@ const goToDetail = () => {
 </script>
 
 <template>
-  <div @click="goToDetail"
-       :class="[
-          'mission-item',
-          !isFeatureTag ? 'actionable' : ''
-       ]"
-  >
+  <div @click="goToDetail" :class="['mission-item', !isFeatureTag ? 'actionable' : '']">
     <div class="mission-item-title-block">
-      <div class="mission-tag"
-           :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''"
+      <div
+        class="mission-tag"
+        :style="tagList[props.tagIndex] != null ? tagList[props.tagIndex].style : ''"
       >
         {{ tagList[props.tagIndex].label }}
       </div>
@@ -47,7 +36,7 @@ const goToDetail = () => {
     <div class="mission-times-block">
       <div class="mission-times">
         <span>{{ props.times }} / {{ props.maxTimes }}</span>
-        <ProgressBar :percent="props.times / props.maxTimes"/>
+        <ProgressBar :percent="props.times / props.maxTimes" />
       </div>
       <div class="mission-complete-date">{{ props.completeDate }}</div>
     </div>
@@ -84,6 +73,7 @@ const goToDetail = () => {
       align-items: center;
       font-size: 1.3vw;
     }
+
     .mission-title {
       font-size: 1.5vw;
       margin-left: 3%;
@@ -101,10 +91,12 @@ const goToDetail = () => {
       justify-content: center;
       align-items: start;
     }
+
     .mission-times span {
       margin: 0 5% 1.2%;
       font-size: 1.2vw;
     }
+
     .mission-complete-date {
       flex-grow: 1;
       display: flex;
@@ -115,9 +107,11 @@ const goToDetail = () => {
     }
   }
 }
+
 .actionable:active {
   transform: scale(0.97);
 }
+
 .actionable:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }

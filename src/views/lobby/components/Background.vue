@@ -6,7 +6,8 @@ import { sound } from '@pixi/sound'
 
 const props = defineProps(['l2dOnly'])
 
-let animation, id = 0
+let animation,
+  id = 0
 
 const l2d = new PIXI.Application({
   width: 2560,
@@ -32,7 +33,7 @@ const setL2D = (num) => {
   animation = new Spine(studentsL2D[id].spineData)
   l2d.stage.addChild(animation)
   if (animation.state.hasAnimation('Idle_01')) {
-    animation.scale.set(.85)
+    animation.scale.set(0.85)
     animation.state.setAnimation(0, 'Idle_01', true)
     animation.state.timeScale = 1
     animation.autoUpdate = true

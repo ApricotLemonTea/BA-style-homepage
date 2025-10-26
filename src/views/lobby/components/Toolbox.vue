@@ -3,7 +3,7 @@ import { reactive, ref, watch, computed, h } from 'vue'
 import { useUserStore } from '@/store/userStore'
 import gsap from 'gsap'
 import { getFormattedDate, numberWithCommas, openUrl } from '@/utils/commonFunctions'
-import { useI18n } from "vue-i18n"
+import { useI18n } from 'vue-i18n'
 import i18n from '@/locale'
 import { Message, Modal } from '@arco-design/web-vue'
 
@@ -100,7 +100,7 @@ const handleClickAp = () => {
  * 点击体力加号的事件
  */
 const handleClickApIncrease = () => {
-  if (userStore.ap < 999){
+  if (userStore.ap < 999) {
     increaseApDialogVisible.value = true
   } else {
     exceedApDialogVisible.value = true
@@ -120,16 +120,16 @@ const increaseAp = () => {
  * 随机生成信用点数量，同时AP -10
  */
 const handleClickCredit = () => {
-  if (userStore.credit === 0){
+  if (userStore.credit === 0) {
     // 打开弹窗询问是否要花费青辉石购买信用点
     openPurchaseCreditDialog()
 
     return
   }
-  if (userStore.ap <= 0){
+  if (userStore.ap <= 0) {
     Message.error({
-      content: h("h3", {}, t("toolbox.APが足りません")),
-      position: "top"
+      content: h('h3', {}, t('toolbox.APが足りません')),
+      position: 'top'
     })
     return
   }
@@ -143,19 +143,30 @@ const handleClickCredit = () => {
  */
 const openPurchaseCreditDialog = () => {
   Modal.open({
-    title: t("toolbox.お金がない！"),
+    title: t('toolbox.お金がない！'),
     content: () => [
-      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, t("toolbox.もうお財布空っぽですよ")),
-      h("div", { class: "blue-text-color", style: { "font-size": "20px" } }, t("toolbox.1200青輝石でクレジットを購入しますか？")),
+      h(
+        'div',
+        { class: 'blue-text-color', style: { 'font-size': '20px' } },
+        t('toolbox.もうお財布空っぽですよ')
+      ),
+      h(
+        'div',
+        {
+          class: 'blue-text-color',
+          style: { 'font-size': '20px' }
+        },
+        t('toolbox.1200青輝石でクレジットを購入しますか？')
+      )
     ],
-    okText: t("はい"),
-    cancelText: t("いいえ"),
+    okText: t('はい'),
+    cancelText: t('いいえ'),
     maskClosable: false,
     onBeforeOk: () => {
-      if (userStore.pyroxene < 1200){
+      if (userStore.pyroxene < 1200) {
         Message.error({
-          content: h("h3", {}, t("toolbox.青輝石もない！")),
-          position: "top"
+          content: h('h3', {}, t('toolbox.青輝石もない！')),
+          position: 'top'
         })
         return false
       } else {
@@ -172,14 +183,14 @@ const openPurchaseCreditDialog = () => {
 
 // ********************青辉石********************
 const loginDate = computed(() => {
-  return localStorage.getItem("login-date")
+  return localStorage.getItem('login-date')
 })
 const nowDate = ref(getFormattedDate(new Date()))
 /**
  * 点击青辉石打开弹窗
  */
 const handleClickPyroxene = () => {
-  if (loginDate.value !== nowDate.value){
+  if (loginDate.value !== nowDate.value) {
     increasePyroxeneDialogVisible.value = true
   } else {
     // 每天只能拿一次
@@ -192,21 +203,21 @@ const handleClickPyroxene = () => {
 const increasePyroxene = () => {
   userStore.pyroxene += 1200
   // 将领取日期（今天）存储到storage
-  localStorage.setItem("login-date", nowDate.value)
+  localStorage.setItem('login-date', nowDate.value)
 }
 // ****************************************
 
 // ********************修改语言********************
 const changeLocale = () => {
   switch (i18n.global.locale) {
-    case "ja":
-      i18n.global.locale = "zh"
+    case 'ja':
+      i18n.global.locale = 'zh'
       break
-    case "zh":
-      i18n.global.locale = "en"
+    case 'zh':
+      i18n.global.locale = 'en'
       break
-    case "en":
-      i18n.global.locale = "ja"
+    case 'en':
+      i18n.global.locale = 'ja'
       break
   }
 }
@@ -214,18 +225,23 @@ const changeLocale = () => {
 /**
  * 变更语言后将选择的语言存储到storage中
  */
-watch(() => i18n.global.locale, (newLanguage) => {
-  localStorage.setItem("locale", newLanguage)
-})
+watch(
+  () => i18n.global.locale,
+  (newLanguage) => {
+    localStorage.setItem('locale', newLanguage)
+  }
+)
 // ****************************************
 </script>
 
 <template>
   <div class="toolbox-box">
     <!--体力-->
-    <a-tooltip position="bottom" background-color="#254268"
-               :popup-visible="apTooltipVisible"
-               @click="handleClickAp"
+    <a-tooltip
+      position="bottom"
+      background-color="#254268"
+      :popup-visible="apTooltipVisible"
+      @click="handleClickAp"
     >
       <div
         class="toolbox"
@@ -239,13 +255,17 @@ watch(() => i18n.global.locale, (newLanguage) => {
         <img @click="handleClickApIncrease" src="/img/plus.png" alt="" class="plus-icon" />
       </div>
       <template #content>
-        <p v-if="userStore.ap < userStore.maxAp">{{ t("toolbox.次の回復まであと") }} <span style="color: #60c7ff">{{ apRecoverCountdown }}</span> {{ t("toolbox.秒。") }}</p>
-        <p v-else>{{ t("toolbox.自動回復の上限に到達しました。") }}</p>
+        <p v-if="userStore.ap < userStore.maxAp">
+          {{ t('toolbox.次の回復まであと') }}
+          <span style="color: #60c7ff">{{ apRecoverCountdown }}</span> {{ t('toolbox.秒。') }}
+        </p>
+        <p v-else>{{ t('toolbox.自動回復の上限に到達しました。') }}</p>
       </template>
     </a-tooltip>
 
     <!--信用点-->
-    <div @click="handleClickCredit"
+    <div
+      @click="handleClickCredit"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
@@ -257,7 +277,8 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </div>
 
     <!--青辉石-->
-    <div @click="handleClickPyroxene"
+    <div
+      @click="handleClickPyroxene"
       class="toolbox"
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
@@ -286,7 +307,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
         <span v-show="i18n.global.locale == 'ja'">現在の表示言語：日本語</span>
         <span v-show="i18n.global.locale == 'zh'">当前显示语言：中文</span>
         <span v-show="i18n.global.locale == 'en'">Current language: English</span>
-        <br>
+        <br />
         <span>(Click to change language)</span>
       </template>
     </a-popover>
@@ -294,7 +315,11 @@ watch(() => i18n.global.locale, (newLanguage) => {
     <!--打开about的按钮-->
     <a
       class="about toolbox"
-      @click="() => { aboutDialogVisible = true }"
+      @click="
+        () => {
+          aboutDialogVisible = true
+        }
+      "
       :style="{
         transform: (!props.l2dOnly ? 'translateY(0)' : 'translateY(-300px)') + ' skew(-10deg)',
         transition: 'transform 0.3s ' + (!props.l2dOnly ? 'ease-out' : 'ease-in')
@@ -318,73 +343,90 @@ watch(() => i18n.global.locale, (newLanguage) => {
     </a>
   </div>
 
-  <a-modal v-model:visible="increasePyroxeneDialogVisible" @ok="increasePyroxene"
-           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')"
+  <a-modal
+    v-model:visible="increasePyroxeneDialogVisible"
+    @ok="increasePyroxene"
+    :ok-text="t('toolbox.いいね！')"
+    :cancel-text="t('toolbox.いらない')"
   >
     <template #title>
-      {{ t("toolbox.青輝石購入？") }}
+      {{ t('toolbox.青輝石購入？') }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">{{ t("toolbox.青輝石1200個") }}</div>
-      <div class="modal-text">{{ t("toolbox.一日一回無料！") }}</div>
+      <div class="modal-text">{{ t('toolbox.青輝石1200個') }}</div>
+      <div class="modal-text">{{ t('toolbox.一日一回無料！') }}</div>
     </div>
   </a-modal>
-  <a-modal v-model:visible="exceedPyroxeneDialogVisible"
-           :ok-text="t('toolbox.わかった')" hide-cancel
+  <a-modal
+    v-model:visible="exceedPyroxeneDialogVisible"
+    :ok-text="t('toolbox.わかった')"
+    hide-cancel
   >
     <template #title>
-      {{ t("toolbox.青輝石購入？") }}
+      {{ t('toolbox.青輝石購入？') }}
     </template>
     <div>
-      <div class="modal-text">{{ t("toolbox.今日の分はもらったよ") }}</div>
-      <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
+      <div class="modal-text">{{ t('toolbox.今日の分はもらったよ') }}</div>
+      <div class="modal-text">{{ t('toolbox.また今度来てね') }}</div>
     </div>
   </a-modal>
 
-  <a-modal v-model:visible="increaseApDialogVisible" @ok="increaseAp"
-           :ok-text="t('toolbox.いいね！')" :cancel-text="t('toolbox.いらない')"
+  <a-modal
+    v-model:visible="increaseApDialogVisible"
+    @ok="increaseAp"
+    :ok-text="t('toolbox.いいね！')"
+    :cancel-text="t('toolbox.いらない')"
   >
     <template #title>
-      {{ t("toolbox.AP購入？") }}
+      {{ t('toolbox.AP購入？') }}
     </template>
     <div style="margin: 0 20px">
-      <div class="modal-text">{{ t("toolbox.AP最大まで回復") }}</div>
-      <div class="modal-text">{{ t("toolbox.しかも無料！") }}</div>
+      <div class="modal-text">{{ t('toolbox.AP最大まで回復') }}</div>
+      <div class="modal-text">{{ t('toolbox.しかも無料！') }}</div>
     </div>
   </a-modal>
-  <a-modal v-model:visible="exceedApDialogVisible"
-           :ok-text="t('toolbox.わかった')" hide-cancel>
+  <a-modal v-model:visible="exceedApDialogVisible" :ok-text="t('toolbox.わかった')" hide-cancel>
     <template #title>
-      {{ t("toolbox.AP購入？") }}
+      {{ t('toolbox.AP購入？') }}
     </template>
     <div>
-      <div class="modal-text">{{ t("toolbox.もうAP最大だよ") }}</div>
-      <div class="modal-text">{{ t("toolbox.また今度来てね") }}</div>
+      <div class="modal-text">{{ t('toolbox.もうAP最大だよ') }}</div>
+      <div class="modal-text">{{ t('toolbox.また今度来てね') }}</div>
     </div>
   </a-modal>
 
-  <a-modal v-model:visible="aboutDialogVisible"
-           modal-animation-name="no-slide-zoom-modal"
-           :footer="false"
+  <a-modal
+    v-model:visible="aboutDialogVisible"
+    modal-animation-name="no-slide-zoom-modal"
+    :footer="false"
   >
-    <template #title>
-      About
-    </template>
+    <template #title> About</template>
     <div style="color: #003153">
       <p>
-        {{ t("welcome.当サイトは") }}
-        <a href="https://x.com/ApricotLemonTea" target="_blank" style="color: #3987ff; font-weight: bold">{{ t("杏仁レモンティー")}}</a>
-        {{ t("welcome.が開発・運営する個人ホームページです。") }}
+        {{ t('welcome.当サイトは') }}
+        <a
+          href="https://x.com/ApricotLemonTea"
+          target="_blank"
+          style="color: #3987ff; font-weight: bold"
+          >{{ t('杏仁レモンティー') }}</a
+        >
+        {{ t('welcome.が開発・運営する個人ホームページです。') }}
       </p>
-      <p>{{ t("toolbox.about.ブルーアーカイブのロビー仕様に作っています。") }}</p>
-      <p>{{ t("toolbox.about.（当サイトはブルアカ公式とは一切関係ありません）") }}</p>
+      <p>{{ t('toolbox.about.ブルーアーカイブのロビー仕様に作っています。') }}</p>
+      <p>{{ t('toolbox.about.（当サイトはブルアカ公式とは一切関係ありません）') }}</p>
       <br />
-      <p>Copyright © 2024 <span>{{ t("杏仁レモンティー") }}</span> All Rights Reserved.</p>
+      <p>
+        Copyright © 2024 <span>{{ t('杏仁レモンティー') }}</span> All Rights Reserved.
+      </p>
       <br />
-      <p>Originally made by
-        <span @click="openUrl('https://github.com/sf-yuzifu')"
-              class="css-cursor-hover-enabled link"
-              style="color: #3987ff">小鱼yuzifu</span>
+      <p>
+        Originally made by
+        <span
+          @click="openUrl('https://github.com/sf-yuzifu')"
+          class="css-cursor-hover-enabled link"
+          style="color: #3987ff"
+          >小鱼yuzifu</span
+        >
       </p>
       <!--<p>Font using-->
       <!--  <span @click="openUrl('https://booth.pm/ja/items/4525676')"-->
@@ -424,6 +466,7 @@ watch(() => i18n.global.locale, (newLanguage) => {
   transform: skew(10deg);
   margin: 0 8px 0 10px;
 }
+
 .toolbox span {
   font-size: 26px;
   transform: skew(10deg);

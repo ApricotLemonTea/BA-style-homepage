@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 
-const props = defineProps(["percent"]) // percent取值范围 0 ~ 1
+const props = defineProps(['percent']) // percent取值范围 0 ~ 1
 const progressBarWidth = computed(() => {
   return Math.min(props.percent * 100, 100)
 })
@@ -10,13 +10,13 @@ const progressBarWidth = computed(() => {
 <template>
   <div class="progress-bar-container">
     <div class="progress-bar-background">
-      <div class="progress-bar"
-           :style="[
-             { width: progressBarWidth + '%' },
-             props.percent > 1 ? { 'background-color': '#fada0aff' } : ''
-           ]"
-      >
-      </div>
+      <div
+        class="progress-bar"
+        :style="[
+          { width: progressBarWidth + '%' },
+          props.percent > 1 ? { 'background-color': '#fada0aff' } : ''
+        ]"
+      ></div>
     </div>
   </div>
 </template>
