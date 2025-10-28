@@ -50,7 +50,9 @@ const openProfile = () => {
                 numberWithCommas(userStore.exp) + ' / ' + numberWithCommas(userStore.nextExp)
               }}</span>
               <span v-if="isLevelMax">{{
-                numberWithCommas(userStore.totalAccess) + ' / ' + 'MAX'
+                numberWithCommas(userStore.todayAccess) +
+                ' / ' +
+                numberWithCommas(userStore.totalAccess)
               }}</span>
             </p>
           </div>
