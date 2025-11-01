@@ -19,7 +19,7 @@ const getAccessAnalyticsByDay = async () => {
           httpRequests1dGroups(
             limit: 9999,
             filter: {
-              date_geq: "2024-11-01",
+              date_geq: "${getOneYearAgo()}",
               date_leq: "${getFormattedDate(new Date())}"
             },
             orderBy: [date_DESC]
@@ -114,4 +114,16 @@ const getUTCRangeForTodayJST = () => {
   const utcEnd = new Date(jstEnd.getTime()).toISOString()
 
   return { utcStart, utcEnd }
+}
+
+/**
+ * 获取一年前的今天的下一天（api查询用起始时间）
+ * @return {string}
+ */
+const getOneYearAgo = () => {
+  const today = new Date()
+  const lastYear = new Date(today)
+  lastYear.setFullYear(today.getFullYear() - 1)
+  lastYear.setDate(lastYear.getDate() + 1)
+  return getFormattedDate(lastYear)
 }
