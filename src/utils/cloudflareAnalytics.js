@@ -103,15 +103,20 @@ export { getAccessAnalyticsByDay, getAccessAnalyticsByHour }
  * @return {{utcEnd: string, utcStart: string}}
  */
 const getUTCRangeForTodayJST = () => {
-  const jstNow = new Date()
+  // 当前本地时间
+  const now = new Date()
 
-  // JST 当天的开始与结束
-  const jstStart = new Date(jstNow.getFullYear(), jstNow.getMonth(), jstNow.getDate(), 0, 0, 0)
-  const jstEnd = new Date(jstNow.getFullYear(), jstNow.getMonth(), jstNow.getDate(), 23, 59, 59)
+  // 转成对应 UTC 时间
+  const nowUTC = new Date(now.toISOString())
 
-  // 转成 UTC（减去9小时）
-  const utcStart = new Date(jstStart.getTime()).toISOString()
-  const utcEnd = new Date(jstEnd.getTime()).toISOString()
+  // 提取 UTC 年月日
+  const year = nowUTC.getUTCFullYear()
+  const month = nowUTC.getUTCMonth()
+  const date = nowUTC.getUTCDate()
+
+  // 生成该 UTC 日的 00:00:00 和 23:59:59
+  const utcStart = new Date(Date.UTC(year, month, date, 0, 0, 0)).toISOString()
+  const utcEnd = new Date(Date.UTC(year, month, date, 23, 59, 59)).toISOString()
 
   return { utcStart, utcEnd }
 }
