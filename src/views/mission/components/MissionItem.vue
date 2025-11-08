@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import ProgressBar from '@/views/mission/components/ProgressBar.vue'
 import { useTagList } from '@/views/mission/tagList'
 import { openUrl } from '@/utils/commonFunctions'
+import { Message } from '@arco-design/web-vue'
 
 const props = defineProps(['tagIndex', 'title', 'times', 'maxTimes', 'completeDate', 'detailUrl'])
 const tagList = useTagList()
@@ -15,6 +16,13 @@ const isFeatureTag = computed(() => {
  */
 const goToDetail = () => {
   if (isFeatureTag.value) {
+    return
+  }
+
+  if (props.detailUrl.substring(0, 3) === 'xxx') {
+    Message.warning({
+      content: props.detailUrl.substring(3)
+    })
     return
   }
   openUrl(props.detailUrl)
