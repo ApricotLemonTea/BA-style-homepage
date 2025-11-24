@@ -266,7 +266,7 @@ const showGuide = ref(false)
 
 #task-ref {
   position: fixed;
-  bottom: 130px;
+  bottom: 160px;
   right: 30px;
   width: 200px;
   height: 160px;

@@ -31,7 +31,7 @@ const openPortfolio = () => {
 <style scoped>
 .task {
   position: fixed;
-  bottom: 140px;
+  bottom: 170px;
   right: 60px;
   width: 150px;
   height: 150px;
