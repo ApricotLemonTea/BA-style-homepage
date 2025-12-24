@@ -2,10 +2,11 @@
 import { ref } from 'vue'
 import TopBar from '../../components/TopBar.vue'
 import { useI18n } from 'vue-i18n'
+import { PROFILE_TAB_INDEX } from '@/consts/consts'
 
 const { t } = useI18n()
 
-const tabIndex = ref('profile')
+const tabIndex = ref(PROFILE_TAB_INDEX.PROFILE)
 const switchTab = (index) => {
   tabIndex.value = index
 }
@@ -22,8 +23,9 @@ const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
     <TopBar></TopBar>
 
     <div class="profile-container">
+      <!--展示框1：个人名片-->
       <div
-        v-show="tabIndex === 'profile'"
+        v-show="tabIndex === PROFILE_TAB_INDEX.PROFILE"
         class="id-card"
         :style="envShowBackground === 'true' ? { backgroundImage: `url(${bgImgSrc})` } : ''"
       >
@@ -40,18 +42,23 @@ const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
         </div>
       </div>
 
-      <div v-show="tabIndex === 'OC'" class="oc-card">
+      <!--展示框2：OC设定图-->
+      <div v-show="tabIndex === PROFILE_TAB_INDEX.OC_DESIGN" class="oc-card">
         <img v-if="envShowBackground === 'true'" :src="ocImgSrc" alt="" class="oc-card-img" />
       </div>
 
+      <!--菜单切换按钮-->
       <div class="button-block blue-text-color">
         <div
-          :class="['button', tabIndex === 'profile' ? ' wider-border' : '']"
-          @click="switchTab('profile')"
+          :class="['button', tabIndex === PROFILE_TAB_INDEX.PROFILE ? ' wider-border' : '']"
+          @click="switchTab(PROFILE_TAB_INDEX.PROFILE)"
         >
           <p class="button-text">{{ t('profile.プロフィール') }}</p>
         </div>
-        <div :class="['button', tabIndex === 'OC' ? 'wider-border' : '']" @click="switchTab('OC')">
+        <div
+          :class="['button', tabIndex === PROFILE_TAB_INDEX.OC_DESIGN ? 'wider-border' : '']"
+          @click="switchTab(PROFILE_TAB_INDEX.OC_DESIGN)"
+        >
           <p class="button-text">{{ t('profile.オリキャラ設定画') }}</p>
         </div>
       </div>
