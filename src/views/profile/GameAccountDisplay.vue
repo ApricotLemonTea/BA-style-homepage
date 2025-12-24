@@ -4,8 +4,11 @@ import { ref } from 'vue'
 
 const accountListLength = gameAccountList.length
 const accountIndex = ref(0)
+const slideDirection = ref('slide-right')
 
 const changeIndex = (dir) => {
+  slideDirection.value = dir === 'left' ? 'slide-left' : 'slide-right'
+
   switch (dir) {
     case 'left':
       accountIndex.value = (accountIndex.value - 1 + accountListLength) % accountListLength
@@ -23,8 +26,14 @@ const changeIndex = (dir) => {
       <img src="/l2d/arrow.png" />
     </div>
     <div class="main-block">
-      <div class="account-img">
-        <img :src="gameAccountList[accountIndex].imgUrl" />
+      <div class="account-image-block">
+        <transition :name="slideDirection">
+          <img
+            :key="accountIndex"
+            :src="gameAccountList[accountIndex].imgUrl"
+            class="account-image"
+          />
+        </transition>
       </div>
       <div class="account-info">
         <p>{{ gameAccountList[accountIndex].server }}</p>
@@ -66,7 +75,7 @@ const changeIndex = (dir) => {
     height: 100%;
     width: 90%;
 
-    .account-img {
+    .account-image-block {
       width: 100%;
       height: 90%;
       display: flex;
@@ -89,5 +98,39 @@ const changeIndex = (dir) => {
       gap: 0.5vh;
     }
   }
+}
+
+.account-image {
+  z-index: -1;
+  position: absolute;
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: transform 0.4s ease;
+}
+
+.slide-right-enter {
+  transform: translateX(100%);
+}
+
+.slide-right-leave-to {
+  transform: translateX(-100%);
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: transform 0.4s ease;
+}
+
+.slide-left-enter {
+  transform: translateX(-100%);
+}
+
+.slide-left-leave-to {
+  transform: translateX(100%);
 }
 </style>
