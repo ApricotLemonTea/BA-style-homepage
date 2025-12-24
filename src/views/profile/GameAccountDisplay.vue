@@ -53,10 +53,9 @@ const changeIndex = (dir) => {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   .switch-arrow {
-    height: 100%;
+    height: 90%;
     width: 5%;
     display: flex;
     justify-content: center;
