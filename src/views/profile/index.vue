@@ -47,6 +47,9 @@ const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
         <img v-if="envShowBackground === 'true'" :src="ocImgSrc" alt="" class="oc-card-img" />
       </div>
 
+      <!--展示框3：游戏账号-->
+      <div v-show="tabIndex === PROFILE_TAB_INDEX.GAME_ACCOUNT" class="game-account-card"></div>
+
       <!--菜单切换按钮-->
       <div class="button-block blue-text-color">
         <div
@@ -60,6 +63,12 @@ const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
           @click="switchTab(PROFILE_TAB_INDEX.OC_DESIGN)"
         >
           <p class="button-text">{{ t('profile.オリキャラ設定画') }}</p>
+        </div>
+        <div
+          :class="['button', tabIndex === PROFILE_TAB_INDEX.GAME_ACCOUNT ? 'wider-border' : '']"
+          @click="switchTab(PROFILE_TAB_INDEX.GAME_ACCOUNT)"
+        >
+          <p class="button-text">{{ t('profile.ゲームアカウント') }}</p>
         </div>
       </div>
     </div>
@@ -138,6 +147,14 @@ const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
       padding: 0 0 0 4vw;
       font-size: 2.5vh;
     }
+  }
+
+  .game-account-card {
+    background-color: pink;
+    width: 60vw;
+    height: 70vh;
+    margin-left: 7vw;
+    display: flex;
   }
 
   .button-block {
