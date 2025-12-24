@@ -35,7 +35,7 @@ const changeIndex = (dir) => {
           />
         </transition>
       </div>
-      <div class="account-info">
+      <div class="account-info blue-text-color">
         <p>{{ gameAccountList[accountIndex].server }}</p>
         <p>{{ gameAccountList[accountIndex].characterName }}</p>
         <p>{{ gameAccountList[accountIndex].time }}</p>
