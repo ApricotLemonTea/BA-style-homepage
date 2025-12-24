@@ -2,16 +2,16 @@
 import { gameAccountList } from './gameAccountList'
 import { ref } from 'vue'
 
-const maxAccountIndex = 0
+const accountListLength = gameAccountList.length
 const accountIndex = ref(0)
 
 const changeIndex = (dir) => {
   switch (dir) {
     case 'left':
-      accountIndex.value = accountIndex.value - 1 >= 0 ? accountIndex.value - 1 : maxAccountIndex
+      accountIndex.value = (accountIndex.value - 1 + accountListLength) % accountListLength
       break
     case 'right':
-      accountIndex.value = (accountIndex.value + 1) % (maxAccountIndex + 1)
+      accountIndex.value = (accountIndex.value + 1) % accountListLength
       break
   }
 }
