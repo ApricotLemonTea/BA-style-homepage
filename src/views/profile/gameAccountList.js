@@ -1,6 +1,6 @@
 export const gameAccountList = [
   {
-    imgUrl: '/profile/ff14.png',
+    imgUrl: '/profile/ba.png',
     server: 'ブルーアーカイブ / 日本版',
     characterName: '杏仁レモンティー',
     time: '(2025-12)'
@@ -13,7 +13,13 @@ export const gameAccountList = [
   },
   {
     imgUrl: '/profile/dnf.png',
-    server: '地下城与勇士 / 上海一区',
+    server: '地下城与勇士 / 跨五 / 上海一区',
+    characterName: '杏仁柠檬茶',
+    time: '(2025-12)'
+  },
+  {
+    imgUrl: '/profile/steam.png',
+    server: 'steam',
     characterName: '杏仁柠檬茶',
     time: '(2025-12)'
   }
