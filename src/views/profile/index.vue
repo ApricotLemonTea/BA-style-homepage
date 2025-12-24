@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import TopBar from '../../components/TopBar.vue'
 import { useI18n } from 'vue-i18n'
 import { PROFILE_TAB_INDEX } from '@/consts/consts'
+import GameAccountDisplay from '@/views/profile/GameAccountDisplay.vue'
 
 const { t } = useI18n()
 
@@ -48,7 +49,9 @@ const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
       </div>
 
       <!--展示框3：游戏账号-->
-      <div v-show="tabIndex === PROFILE_TAB_INDEX.GAME_ACCOUNT" class="game-account-card"></div>
+      <div v-show="tabIndex === PROFILE_TAB_INDEX.GAME_ACCOUNT" class="game-account-card">
+        <game-account-display></game-account-display>
+      </div>
 
       <!--菜单切换按钮-->
       <div class="button-block blue-text-color">
@@ -150,7 +153,6 @@ const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
   }
 
   .game-account-card {
-    background-color: pink;
     width: 60vw;
     height: 70vh;
     margin-left: 7vw;
