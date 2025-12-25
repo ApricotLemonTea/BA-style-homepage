@@ -22,9 +22,12 @@ const changeIndex = (dir) => {
 
 <template>
   <div class="game-account-display-container">
-    <div class="switch-arrow" @click="changeIndex('left')">
-      <img src="/l2d/arrow.png" />
+    <!--左切换箭头-->
+    <div class="switch-arrow-block">
+      <img src="/l2d/arrow.png" class="left-arrow" @click="changeIndex('left')" />
     </div>
+
+    <!--图片展示区域-->
     <div class="main-block">
       <div class="account-image-block">
         <transition :name="slideDirection">
@@ -41,8 +44,10 @@ const changeIndex = (dir) => {
         <p>{{ gameAccountList[accountIndex].time }}</p>
       </div>
     </div>
-    <div class="switch-arrow" @click="changeIndex('right')">
-      <img src="/l2d/arrow.png" style="transform: rotate(180deg)" />
+    
+    <!--右切换箭头-->
+    <div class="switch-arrow-block">
+      <img src="/l2d/arrow.png" class="right-arrow" @click="changeIndex('right')" />
     </div>
   </div>
 </template>
@@ -54,20 +59,29 @@ const changeIndex = (dir) => {
   display: flex;
   justify-content: center;
 
-  .switch-arrow {
+  .switch-arrow-block {
     height: 90%;
     width: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    img {
+    .left-arrow {
       width: 70%;
     }
-  }
 
-  .switch-arrow:active {
-    transform: scale(0.9);
+    .left-arrow:active {
+      transform: scale(0.9);
+    }
+
+    .right-arrow {
+      width: 70%;
+      transform: rotate(180deg);
+    }
+
+    .right-arrow:active {
+      transform: rotate(180deg) scale(0.9);
+    }
   }
 
   .main-block {
