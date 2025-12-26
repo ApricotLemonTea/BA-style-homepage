@@ -19,7 +19,7 @@ export const gameAccountList = [
   },
   {
     imgUrl: '/profile/steam.png',
-    server: 'steam',
+    server: 'Steam',
     characterName: '杏仁柠檬茶',
     time: '(2025-12)'
   }
