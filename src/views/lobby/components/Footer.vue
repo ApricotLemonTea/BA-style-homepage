@@ -63,10 +63,13 @@ const copyMailAddress = async () => {
               <img src="/img/twitter.png" alt="" />
               <span>Twitter</span>
             </div>
-            <!--<div class="button-item css-cursor-hover-enabled" @click="openUrl('https://twitter.com/A_LemonTea')>-->
-            <!--  <img src="/img/x.png" alt=""-->
-            <!--  <span>X (R18)</span>-->
-            <!--</div>-->
+            <div
+              class="button-item css-cursor-hover-enabled"
+              @click="openUrl('https://twitter.com/A_LemonTea')"
+            >
+              <img src="/img/x.png" alt="" />
+              <span>X (sub)</span>
+            </div>
             <div
               class="button-item css-cursor-hover-enabled"
               @click="openUrl('https://misskey.io/@ApricotLemonTea')"
@@ -82,18 +85,18 @@ const copyMailAddress = async () => {
               <span>pixiv</span>
             </div>
             <div
-              class="button-item css-cursor-hover-enabled"
+              class="button-item css-cursor-hover-enabled banished-link"
               @click="openUrl('https://bsky.app/profile/apricotlemontea.com')"
             >
               <img src="/img/bluesky.png" alt="" />
-              <span style="text-decoration: line-through">Bluesky</span>
+              <span>Bluesky</span>
             </div>
             <div
-              class="button-item css-cursor-hover-enabled"
+              class="button-item css-cursor-hover-enabled banished-link"
               @click="openUrl('https://m.weibo.cn/profile/7850690980')"
             >
               <img src="/img/weibo.png" alt="" />
-              <span style="text-decoration: line-through">微博</span>
+              <span>微博</span>
             </div>
           </div>
         </template>
