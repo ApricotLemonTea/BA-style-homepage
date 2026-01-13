@@ -18,6 +18,8 @@ const changeIndex = (dir) => {
       break
   }
 }
+
+const today = new Date().toISOString().slice(0, 10)
 </script>
 
 <template>
@@ -33,7 +35,7 @@ const changeIndex = (dir) => {
         <transition :name="slideDirection">
           <img
             :key="accountIndex"
-            :src="gameAccountList[accountIndex].imgUrl"
+            :src="`${gameAccountList[accountIndex].imgUrl}?date=${today}`"
             class="account-image"
           />
         </transition>
@@ -44,7 +46,7 @@ const changeIndex = (dir) => {
         <p>{{ gameAccountList[accountIndex].time }}</p>
       </div>
     </div>
-    
+
     <!--右切换箭头-->
     <div class="switch-arrow-block">
       <img src="/l2d/arrow.png" class="right-arrow" @click="changeIndex('right')" />
