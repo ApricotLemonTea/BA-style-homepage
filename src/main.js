@@ -2,13 +2,12 @@ import './assets/index.css'
 import '@arco-design/web-vue/dist/arco.css'
 
 import 'pixi-spine' // Do this once at the very start of your code. This registers the loader!
-import { createApp, h } from 'vue'
-import ArcoVue, { Modal } from '@arco-design/web-vue'
+import { createApp } from 'vue'
+import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
 import App from './App.vue'
 import router from '@/router'
 import i18n from '@/locale'
-import { registerSW } from 'virtual:pwa-register'
 import { createPinia } from 'pinia'
 import * as PIXI from 'pixi.js'
 // import { sound } from '@pixi/sound'
@@ -39,30 +38,30 @@ const t = i18n.global.t
 /**
  * 页面需要更新时的弹窗提示
  */
-if ('serviceWorker' in navigator) {
-  const updateSW = registerSW({
-    onNeedRefresh() {
-      Modal.open({
-        title: t('notice.メッセージ'),
-        content: () => [
-          h(
-            'p',
-            { class: 'blue-text-color' },
-            t('notice.アップデートがあります、ページを再起動してください。')
-          )
-        ],
-        okText: t('はい'),
-        hideCancel: true,
-        closable: false,
-        maskClosable: false,
-        escToClose: false,
-        onOk: () => {
-          updateSW(true)
-        }
-      })
-    }
-  })
-}
+// if ('serviceWorker' in navigator) {
+//   const updateSW = registerSW({
+//     onNeedRefresh() {
+//       Modal.open({
+//         title: t('notice.メッセージ'),
+//         content: () => [
+//           h(
+//             'p',
+//             { class: 'blue-text-color' },
+//             t('notice.アップデートがあります、ページを再起動してください。')
+//           )
+//         ],
+//         okText: t('はい'),
+//         hideCancel: true,
+//         closable: false,
+//         maskClosable: false,
+//         escToClose: false,
+//         onOk: () => {
+//           updateSW(true)
+//         }
+//       })
+//     }
+//   })
+// }
 
 window.l2d_complete = false
 
