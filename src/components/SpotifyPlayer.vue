@@ -31,10 +31,9 @@ const isShowPlayer = computed(() => {
 .spotify-player {
   position: fixed;
   left: 2vw;
-  bottom: 10vh;
+  bottom: 160px;
   width: 370px;
   opacity: 0.9;
-  padding-bottom: 70px;
 }
 
 .left-leave-to,
