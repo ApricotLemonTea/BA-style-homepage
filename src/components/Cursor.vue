@@ -67,6 +67,17 @@ window.document.body.onmouseover = function (event) {
     document.querySelector('#cursor').classList.remove('hover')
   }
 }
+
+/**
+ * 进入iframe时隐藏自定义光标
+ */
+const iframe = document.querySelector('iframe')
+iframe.addEventListener('mouseenter', () => {
+  document.querySelector('#cursor').style.opacity = 0
+})
+iframe.addEventListener('mouseleave', () => {
+  document.querySelector('#cursor').style.opacity = 1
+})
 </script>
 
 <template>
