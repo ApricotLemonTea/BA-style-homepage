@@ -68,7 +68,7 @@ const copyMailAddress = async () => {
               @click="openUrl('https://twitter.com/A_LemonTea')"
             >
               <img src="/img/x.png" alt="" />
-              <span>X (sub)</span>
+              <span>?</span>
             </div>
             <div
               class="button-item css-cursor-hover-enabled"
