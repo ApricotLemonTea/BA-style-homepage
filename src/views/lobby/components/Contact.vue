@@ -126,7 +126,7 @@ const openAnnounce = () => {
           <p>
             Made by
             <span
-              @click="openUrl('https://github.com/U1805/momotalk')"
+              @click="openUrl('https://github.com/U1805')"
               class="css-cursor-hover-enabled link"
               style="color: #3987ff"
             >
