@@ -109,7 +109,7 @@ const openAnnounce = () => {
             >
               点击这里
             </span>
-            查看食用说明
+            查看使用说明
           </p>
           <!--英语使用说明-->
           <p v-show="i18n.global.locale === 'en'">
