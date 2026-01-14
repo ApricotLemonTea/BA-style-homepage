@@ -137,3 +137,5 @@ yarn.lock
 /gitignoreFolder
 
 ~$*
+
+*.clip
