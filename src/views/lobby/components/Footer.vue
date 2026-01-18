@@ -93,7 +93,7 @@ const copyMailAddress = async () => {
             </div>
             <div
               class="button-item css-cursor-hover-enabled banished-link"
-              @click="openUrl('https://m.weibo.cn/profile/7850690980')"
+              @click="openUrl('https://www.weibo.com/u/7850690980')"
             >
               <img src="/img/weibo.png" alt="" />
               <span>微博</span>
