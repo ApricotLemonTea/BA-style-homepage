@@ -9,7 +9,7 @@ export const gameAccountList = [
     imgUrl: '/profile/ff14.png',
     server: 'FINAL FANTASY XIV / Mana / Asura',
     characterName: 'Apricot Lemontea',
-    time: '(2026-01)'
+    time: '(2026-02)'
   },
   {
     imgUrl: '/profile/dnf.png',
