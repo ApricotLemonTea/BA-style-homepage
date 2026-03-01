@@ -163,7 +163,7 @@ const increasePyroxene = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.7vw;
+      font-size: 1.6vw;
       margin-left: 0.3%;
       border-radius: 0.6vh;
     }

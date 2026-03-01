@@ -25,16 +25,16 @@ const progressBarWidth = computed(() => {
 .progress-bar-container {
   width: 92.5%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 0.5vh;
   text-align: center;
   transform: skew(-10deg);
 }
 
 .progress-bar-background {
-  width: 100%;
-  height: 2vh;
+  width: 90%;
+  height: 1vh;
   background-color: #343c42ff;
-  border-radius: 0.5vh;
+  border-radius: 0.3vh;
   overflow: hidden;
   padding: 0.2vh;
 }
@@ -42,7 +42,7 @@ const progressBarWidth = computed(() => {
 .progress-bar {
   height: 100%;
   background-color: #00bfffff;
-  border-radius: 0.3vh;
+  border-radius: 0;
   transition: width 0.5s ease;
 }
 </style>

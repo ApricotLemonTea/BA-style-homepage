@@ -39,7 +39,6 @@ const goToDetail = () => {
         {{ tagList[props.tagIndex].label }}
       </div>
       <div class="mission-title">{{ props.title }}</div>
-      <icon-right v-if="!isFeatureTag" size="30" style="margin-left: 1vw"></icon-right>
     </div>
     <div class="mission-times-block">
       <div class="mission-times">
@@ -55,7 +54,7 @@ const goToDetail = () => {
 .mission-item {
   background-color: #ffffff;
   width: 97%;
-  min-height: 25%;
+  min-height: 15%;
   border-radius: 1.1vh;
   margin-top: 2%;
   display: flex;
@@ -71,7 +70,7 @@ const goToDetail = () => {
 
     .mission-tag {
       background-color: #389fe8ff;
-      min-width: 11%;
+      min-width: 7%;
       height: 70%;
       border-radius: 0.7vh;
       padding: 0 1%;
@@ -79,11 +78,11 @@ const goToDetail = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.3vw;
+      font-size: 0.85vw;
     }
 
     .mission-title {
-      font-size: 1.5vw;
+      font-size: 0.95vw;
       margin-left: 3%;
     }
   }
@@ -101,8 +100,8 @@ const goToDetail = () => {
     }
 
     .mission-times span {
-      margin: 0 5% 1.2%;
-      font-size: 1.2vw;
+      margin: 0.3% 5%;
+      font-size: 0.8vw;
     }
 
     .mission-complete-date {
@@ -110,8 +109,8 @@ const goToDetail = () => {
       display: flex;
       justify-content: end;
       align-items: end;
-      font-size: 1.2vw;
-      padding: 0 2vw 1.5vh 0;
+      font-size: 0.9vw;
+      padding: 0 2vw 1vh 0;
     }
   }
 }
