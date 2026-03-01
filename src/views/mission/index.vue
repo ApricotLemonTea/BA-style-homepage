@@ -115,7 +115,7 @@ const increasePyroxene = () => {
       <div class="login-text">
         {{ t('mission.デイリーログイン') }}（{{ loginDate === nowDate ? 1 : 0 }} / 1）
       </div>
-      <ProgressBar :percent="loginDate === nowDate ? 1 : 0" />
+      <ProgressBar :percent="loginDate === nowDate ? 1 : 0" style="margin-top: 0.7vh" />
     </div>
     <div
       @click="increasePyroxene"

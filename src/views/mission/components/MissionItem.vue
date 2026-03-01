@@ -43,7 +43,7 @@ const goToDetail = () => {
     <div class="mission-times-block">
       <div class="mission-times">
         <span>{{ props.times }} / {{ props.maxTimes }}</span>
-        <ProgressBar :percent="props.times / props.maxTimes" />
+        <ProgressBar :percent="props.times / props.maxTimes" :width="'90%'" />
       </div>
       <div class="mission-complete-date">{{ props.completeDate }}</div>
     </div>
