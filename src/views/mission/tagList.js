@@ -14,6 +14,8 @@ export function useTagList() {
         color: '#fada0aff'
       }
     },
+
+    // 1 イベント
     {
       label: t('mission.missionTag.イベント'),
       style: {
@@ -21,6 +23,17 @@ export function useTagList() {
         color: '#ffffff'
       }
     },
+
+    // 2 旅行
+    {
+      label: t('mission.missionTag.旅行'),
+      style: {
+        'background-color': '#4fbe47',
+        color: '#ffffff'
+      }
+    },
+
+    // 3 開発
     {
       label: t('mission.missionTag.開発'),
       style: {
@@ -28,12 +41,5 @@ export function useTagList() {
         color: '#ffffff'
       }
     }
-    // {
-    //   label: t("mission.missionTag.実績"),
-    //   style: {
-    //     "background-color": "#e08700ff",
-    //     "color": "#ffffff"
-    //   }
-    // }
   ]
 }

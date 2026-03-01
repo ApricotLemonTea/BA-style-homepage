@@ -8,7 +8,7 @@ import { Message } from '@arco-design/web-vue'
 const props = defineProps(['tagIndex', 'title', 'times', 'maxTimes', 'completeDate', 'detailUrl'])
 const tagList = useTagList()
 const isFeatureTag = computed(() => {
-  return props.tagIndex === 2
+  return props.tagIndex === 3
 })
 
 /**
@@ -71,7 +71,7 @@ const goToDetail = () => {
 
     .mission-tag {
       background-color: #389fe8ff;
-      min-width: 10%;
+      min-width: 11%;
       height: 70%;
       border-radius: 0.7vh;
       padding: 0 1%;
