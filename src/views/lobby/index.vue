@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -53,7 +53,34 @@ const switchL2D = () => {
   l2dOnly.value = !l2dOnly.value
 }
 
-const imgSrc = ref('/l2d/hp_bg.png?t=' + new Date().toString())
+const backgrounds = ['/l2d/hp_bg.png', '/l2d/hp_bg2.png']
+const currentBgIndex = ref(0)
+const isSwitchingBg = ref(false)
+const bgDirection = ref('right')
+const prevBgSrc = ref('')
+const nextBgSrc = ref('')
+const nextBgIndex = ref(0)
+
+const getBgSrc = (index) => backgrounds[index]
+
+const currentBgSrc = computed(() => getBgSrc(currentBgIndex.value))
+
+const switchBg = (step = 1) => {
+  if (isSwitchingBg.value) return
+  const len = backgrounds.length
+  const targetIndex = (currentBgIndex.value + step + len) % len
+
+  bgDirection.value = step > 0 ? 'right' : 'left'
+  prevBgSrc.value = getBgSrc(currentBgIndex.value)
+  nextBgSrc.value = getBgSrc(targetIndex)
+  nextBgIndex.value = targetIndex
+  isSwitchingBg.value = true
+}
+
+const handleBgAnimationEnd = () => {
+  currentBgIndex.value = nextBgIndex.value
+  isSwitchingBg.value = false
+}
 
 const showGuide = ref(false)
 </script>
@@ -64,7 +91,49 @@ const showGuide = ref(false)
   </transition>
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
-    <img v-if="envShowBackground === 'true'" :src="imgSrc" class="background-img" alt="" />
+    <div v-if="envShowBackground === 'true'" class="background-wrapper">
+      <img
+        v-if="!isSwitchingBg"
+        :src="currentBgSrc"
+        class="background-img"
+        alt=""
+      />
+      <template v-else>
+        <img
+          :src="prevBgSrc"
+          :class="[
+            'background-img',
+            bgDirection === 'right' ? 'bg-slide-out-left' : 'bg-slide-out-right'
+          ]"
+          alt=""
+          @animationend="handleBgAnimationEnd"
+        />
+        <img
+          :src="nextBgSrc"
+          :class="[
+            'background-img',
+            bgDirection === 'right' ? 'bg-slide-in-right' : 'bg-slide-in-left'
+          ]"
+          alt=""
+        />
+      </template>
+    </div>
+    <button
+      v-if="envShowBackground === 'true'"
+      class="bg-arrow bg-arrow-left"
+      type="button"
+      @click="switchBg(-1)"
+    >
+      <img src="/l2d/arrow.png" alt="prev" />
+    </button>
+    <button
+      v-if="envShowBackground === 'true'"
+      class="bg-arrow bg-arrow-right"
+      type="button"
+      @click="switchBg(1)"
+    >
+      <img src="/l2d/arrow.png" alt="next" />
+    </button>
 
     <div id="level-ref"></div>
     <transition name="left">
@@ -207,6 +276,15 @@ const showGuide = ref(false)
 </template>
 
 <style scoped>
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .background-img {
   position: fixed;
   top: 0;
@@ -214,6 +292,95 @@ const showGuide = ref(false)
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+@keyframes bg-slide-out-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes bg-slide-out-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.background-img.bg-slide-out-left {
+  animation: bg-slide-out-left 0.4s ease-in-out forwards;
+}
+
+.background-img.bg-slide-out-right {
+  animation: bg-slide-out-right 0.4s ease-in-out forwards;
+}
+
+@keyframes bg-slide-in-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bg-slide-in-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.background-img.bg-slide-in-right {
+  animation: bg-slide-in-right 0.4s ease-in-out forwards;
+}
+
+.background-img.bg-slide-in-left {
+  animation: bg-slide-in-left 0.4s ease-in-out forwards;
+}
+
+.bg-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.bg-arrow:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.bg-arrow-left {
+  left: 16px;
+}
+
+.bg-arrow-right {
+  right: 16px;
+}
+
+.bg-arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bg-arrow-right img {
+  transform: scaleX(-1);
 }
 
 #level-ref {
