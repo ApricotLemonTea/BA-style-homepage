@@ -139,3 +139,5 @@ yarn.lock
 ~$*
 
 *.clip
+
+*.lnk
