@@ -1,4 +1,4 @@
-import request from '@/utils/request'
+import request from '@/utils/request_tmp'
 import { BACKEND_API_URL } from '@/consts/consts'
 
 export function apiRequest(page) {

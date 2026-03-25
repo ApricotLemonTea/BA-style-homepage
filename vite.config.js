@@ -23,7 +23,7 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            return id.toString().split('node_modules/')[1].split('/')[0].toString()
           }
         }
       }
@@ -33,7 +33,11 @@ export default defineConfig({
     proxy: {
       '/client/v4': {
         target: 'https://api.cloudflare.com',
-        changeOrigin: true,
+        changeOrigin: true
+      },
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true
       }
     }
   },
@@ -69,7 +73,7 @@ export default defineConfig({
       },
       pngquant: {
         quality: [0.9, 1],
-        speed: 4,
+        speed: 4
       },
       svgo: {
         plugins: [
@@ -112,10 +116,10 @@ export default defineConfig({
       threshold: 10240 // the unit is Bytes
     }),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver()]
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver()]
     })
   ],
   resolve: {

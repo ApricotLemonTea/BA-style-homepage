@@ -3,6 +3,10 @@
     {
       "source": "/client/v4/:path*",
       "destination": "https://api.cloudflare.com/client/v4/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "http://os3-388-27004.vs.sakura.ne.jp/api/:path*"
     }
   ],
   "github": {
