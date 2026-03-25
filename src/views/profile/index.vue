@@ -1,9 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import TopBar from '../../components/TopBar.vue'
 import { useI18n } from 'vue-i18n'
-import { PROFILE_TAB_INDEX } from '@/consts/consts'
+import { PAGE_LIST, PROFILE_TAB_INDEX } from '@/consts/consts'
 import GameAccountDisplay from '@/views/profile/GameAccountDisplay.vue'
+import { apiRequest } from '@/backend/apiRequest'
 
 const { t } = useI18n()
 
@@ -17,6 +18,11 @@ const envShowBackground = import.meta.env.VITE_SHOW_BACKGROUND
 const bgImgSrc = ref('/profile/pf-bg.png?t=' + new Date().getTime().toString())
 const ocImgSrc = ref('/profile/aio.png?t=' + new Date().getTime().toString())
 const signImgSrc = ref('/profile/sign.png?t=' + new Date().getTime().toString())
+
+onMounted(() => {
+  // 记录页面访问
+  apiRequest(PAGE_LIST.PROFILE)
+})
 </script>
 
 <template>

@@ -21,12 +21,17 @@ const envShowBackground = import.meta.env.VITE_SHOW_BACKGROUND
 import NProgress from 'nprogress'
 
 import { useUserStore } from '@/store/userStore'
+import { PAGE_LIST } from '@/consts/consts'
+import { apiRequest } from '@/backend/apiRequest'
 
 const userStore = useUserStore()
 
 onMounted(() => {
   // 删除旧的是否显示欢迎信息弹窗的标记
   localStorage.removeItem('hasVisited')
+
+  // 记录页面访问
+  apiRequest(PAGE_LIST.LOBBY)
 })
 
 // 只在第一次打开网站时显示加载动画
@@ -92,12 +97,7 @@ const showGuide = ref(false)
   <main v-if="!loading">
     <!--<Background :l2dOnly="l2dOnly"></Background>-->
     <div v-if="envShowBackground === 'true'" class="background-wrapper">
-      <img
-        v-if="!isSwitchingBg"
-        :src="currentBgSrc"
-        class="background-img"
-        alt=""
-      />
+      <img v-if="!isSwitchingBg" :src="currentBgSrc" class="background-img" alt="" />
       <template v-else>
         <img
           :src="prevBgSrc"
