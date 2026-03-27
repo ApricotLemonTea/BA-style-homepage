@@ -5,7 +5,7 @@ export const PROFILE_TAB_INDEX = {
 }
 
 export const BACKEND_API_URL = {
-  VISITS: '/visits'
+  COUNT_PAGE_VISITS: '/visits/countPageVisits'
 }
 
 export const PAGE_LIST = {

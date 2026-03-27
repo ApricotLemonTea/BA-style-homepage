@@ -10,7 +10,7 @@ import { useI18n } from 'vue-i18n'
 import i18n from '@/locale'
 import { useTagList } from '@/views/mission/tagList'
 import { loadExcelData } from '@/utils/loadExcelData'
-import { apiRequest } from '@/backend/apiRequest'
+import { countPageVisits } from '@/backend/visits'
 import { PAGE_LIST } from '@/consts/consts'
 
 const { t } = useI18n()
@@ -41,7 +41,7 @@ const rewardPopupRef = ref()
 
 onMounted(async () => {
   // 记录页面访问
-  apiRequest(PAGE_LIST.MISSION)
+  countPageVisits(PAGE_LIST.MISSION)
 
   const missionData = await loadExcelData('/data/mission.xlsx')
 

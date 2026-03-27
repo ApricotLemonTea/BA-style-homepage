@@ -22,7 +22,7 @@ import NProgress from 'nprogress'
 
 import { useUserStore } from '@/store/userStore'
 import { PAGE_LIST } from '@/consts/consts'
-import { apiRequest } from '@/backend/apiRequest'
+import { countPageVisits } from '@/backend/visits'
 
 const userStore = useUserStore()
 
@@ -31,7 +31,7 @@ onMounted(() => {
   localStorage.removeItem('hasVisited')
 
   // 记录页面访问
-  apiRequest(PAGE_LIST.LOBBY)
+  countPageVisits(PAGE_LIST.LOBBY)
 })
 
 // 只在第一次打开网站时显示加载动画
