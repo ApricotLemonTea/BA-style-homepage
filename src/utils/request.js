@@ -1,3 +1,7 @@
+/**
+ * 前后端都部署到服务器后启用
+ */
+
 import axios from 'axios'
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL

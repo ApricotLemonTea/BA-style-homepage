@@ -1,3 +1,7 @@
+/**
+ * 前端vercel，后端服务器时的临时配置
+ */
+
 import axios from 'axios'
 
 const request = axios.create({
