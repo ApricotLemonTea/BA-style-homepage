@@ -6,7 +6,7 @@ const zoneId = import.meta.env.VITE_CLOUDFLARE_ZONE_ID
 
 /**
  * cloudflare api统计过去一年(?)的日访问量
- * @returns {Promise<{totalAccess: number, accessDataList: *[]}>} 访问量总和
+ * @returns {Promise<{sumAccess: number, accessDataList: *[]}>} 访问量总和
  */
 const getAccessAnalyticsByDay = async () => {
   const headers = {
@@ -43,18 +43,18 @@ const getAccessAnalyticsByDay = async () => {
   const resData = res.data.data.viewer.zones[0].httpRequests1dGroups
 
   const todayAccess = resData[0].uniq.uniques
-  let totalAccess = 0
+  let sumAccess = 0
   let accessDataList = []
 
   for (const item of resData) {
-    totalAccess += item.uniq.uniques
+    sumAccess += item.uniq.uniques
     accessDataList.push([item.dimensions.date, item.uniq.uniques, item.sum.requests])
   }
 
   accessDataList.reverse()
   accessDataList.pop()
 
-  return { todayAccess, totalAccess, accessDataList }
+  return { todayAccess, sumAccess, accessDataList }
 }
 
 export { getAccessAnalyticsByDay }

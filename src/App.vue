@@ -8,6 +8,8 @@ import { openUrl } from './utils/commonFunctions'
 import { useI18n } from 'vue-i18n'
 import SpotifyPlayer from './components/SpotifyPlayer.vue'
 import WelcomeDialog from '@/components/WelcomeDialog.vue'
+import { countPageVisits, getPageVisitsData } from '@/backend/visits'
+import { PAGE_LIST } from '@/consts/consts'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -63,11 +65,17 @@ onMounted(async () => {
   // 判断浏览器宽度是否适合显示
   checkWindowSize()
 
-  // 统计页面访问量总和并存储到store中
-  const { todayAccess, totalAccess, accessDataList } = await getAccessAnalyticsByDay()
-  userStore.totalAccess = totalAccess
+  // 记录页面访问
+  await countPageVisits(PAGE_LIST.LOBBY)
+
+  // 获取页面访问量总和并存储到store中
+  const { accessDataList } = await getAccessAnalyticsByDay()
   userStore.accessDataList = accessDataList
-  userStore.todayAccess = todayAccess
+
+  const res = await getPageVisitsData()
+  userStore.todayAccess = res?.todayLobbyVisits
+  userStore.sumAccess = res?.sumLobbyVisits
+
   // 初始化当前ap
   userStore.initAp()
   // 开启自动回复AP的倒计时

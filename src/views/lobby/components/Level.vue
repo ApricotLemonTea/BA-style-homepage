@@ -1,19 +1,19 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/store/userStore'
 import { useI18n } from 'vue-i18n'
 
 import Curtain from '@/components/Curtain.vue'
-import { numberWithCommas } from '../../../utils/commonFunctions'
+import { numberWithCommas } from '@/utils/commonFunctions'
 
 const router = useRouter()
 const userStore = useUserStore()
 const { t } = useI18n()
 
-const isLevelMax = computed(() => {
-  return userStore.todayAccess >= 99
-})
+// const isLevelMax = computed(() => {
+//   return userStore.todayAccess >= 99
+// })
 
 const curtainRef = ref()
 /**
@@ -38,21 +38,22 @@ const openProfile = () => {
         <div class="right">
           <span class="name">{{ t('杏仁レモンティー') }}</span>
           <div>
-            <a-progress
-              :percent="userStore.exp / userStore.nextExp"
-              :show-text="false"
-              :color="isLevelMax ? '#ffe433' : '#89d5fd'"
-              trackColor="#535E67"
-            >
-            </a-progress>
-            <p :style="{ color: isLevelMax ? '#ffe433' : '#66E0FE', 'margin-top': '0.5vh' }">
-              <span v-if="!isLevelMax">{{
-                numberWithCommas(userStore.exp) + ' / ' + numberWithCommas(userStore.nextExp)
-              }}</span>
-              <span v-if="isLevelMax">{{
+            <!--<a-progress-->
+            <!--  :percent="userStore.exp / userStore.nextExp"-->
+            <!--  :show-text="false"-->
+            <!--  :color="isLevelMax ? '#ffe433' : '#89d5fd'"-->
+            <!--  trackColor="#535E67"-->
+            <!--/>-->
+            <a-progress :percent="1" :show-text="false" :color="'#ffe433'" trackColor="#535E67" />
+
+            <p :style="{ color: '#ffe433', 'margin-top': '0.5vh' }">
+              <!--<span v-if="!isLevelMax">{{-->
+              <!--  numberWithCommas(userStore.exp) + ' / ' + numberWithCommas(userStore.nextExp)-->
+              <!--}}</span>-->
+              <span>{{
                 numberWithCommas(userStore.todayAccess) +
                 ' / ' +
-                numberWithCommas(userStore.totalAccess)
+                numberWithCommas(userStore.sumAccess)
               }}</span>
             </p>
           </div>

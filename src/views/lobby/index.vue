@@ -29,9 +29,6 @@ const userStore = useUserStore()
 onMounted(() => {
   // 删除旧的是否显示欢迎信息弹窗的标记
   localStorage.removeItem('hasVisited')
-
-  // 记录页面访问
-  countPageVisits(PAGE_LIST.LOBBY)
 })
 
 // 只在第一次打开网站时显示加载动画

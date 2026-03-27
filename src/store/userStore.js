@@ -4,7 +4,7 @@ import calculateLevelAndNextExp from '@/utils/calculateLevelAndNextExp'
 export const useUserStore = defineStore('userStore', {
   state: () => ({
     isFirstOpen: true,
-    totalAccess: 0,
+    sumAccess: 0,
     accessDataList: [],
     todayAccess: 0,
 
@@ -27,13 +27,13 @@ export const useUserStore = defineStore('userStore', {
   }),
   getters: {
     exp(state) {
-      return calculateLevelAndNextExp(state.todayAccess, state.totalAccess).exp
+      return calculateLevelAndNextExp(state.todayAccess, state.sumAccess).exp
     },
     level(state) {
-      return calculateLevelAndNextExp(state.todayAccess, state.totalAccess).level
+      return calculateLevelAndNextExp(state.todayAccess, state.sumAccess).level
     },
     nextExp(state) {
-      return calculateLevelAndNextExp(state.todayAccess, state.totalAccess).nextExp
+      return calculateLevelAndNextExp(state.todayAccess, state.sumAccess).nextExp
     },
     maxAp() {
       return 60 + this.level * 2
