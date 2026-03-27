@@ -206,11 +206,8 @@ const chartOption = {
             <div
               v-for="(item, index) in tabList"
               :key="index"
-              :class="
-                selectedTabIndex === index
-                  ? 'total-info-tab-button tab-selected'
-                  : 'total-info-tab-button'
-              "
+              :class="['total-info-tab-button', selectedTabIndex === index ? 'tab-selected' : '']"
+              :style="index === 2 ? { textDecoration: 'line-through', fontWeight: 'normal' } : {}"
               @click="
                 () => {
                   selectedTabIndex = index
