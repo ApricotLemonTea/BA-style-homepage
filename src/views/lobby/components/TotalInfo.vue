@@ -6,7 +6,7 @@ import { loadExcelData } from '@/utils/loadExcelData'
 import EChart from '@/components/EChart.vue'
 import { useUserStore } from '@/store/userStore'
 import * as echarts from 'echarts'
-import { getAnnouncement } from '@/backend/contents'
+import { getAnnouncement, getPatchNote } from '@/backend/contents'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -20,11 +20,6 @@ const patchNoteZh = ref()
 const patchNoteEn = ref()
 
 onMounted(async () => {
-  const announcementRes = await getAnnouncement()
-  announcementJa.value = announcementRes?.announcementJa
-  announcementZh.value = announcementRes?.announcementZh
-  announcementEn.value = announcementRes?.announcementEn
-
   /**
    * 旧逻辑：从excel文件读取数据
    */
@@ -32,7 +27,12 @@ onMounted(async () => {
   // announcementJa.value = announcementData['日本語']
   // announcementZh.value = announcementData['中文']
   // announcementEn.value = announcementData['English']
-  
+
+  const announcementRes = await getAnnouncement()
+  announcementJa.value = announcementRes?.announcementJa
+  announcementZh.value = announcementRes?.announcementZh
+  announcementEn.value = announcementRes?.announcementEn
+
   for (let item of announcementJa.value) {
     item.contents = item.contents.split('\n')
   }
@@ -43,18 +43,27 @@ onMounted(async () => {
     item.contents = item.contents.split('\n')
   }
 
-  const patchNoteData = await loadExcelData('/data/patchNote.xlsx')
-  patchNoteJa.value = patchNoteData['日本語']
+  /**
+   * 旧逻辑：从excel文件读取数据
+   */
+  // const patchNoteData = await loadExcelData('/data/patchNote.xlsx')
+  // patchNoteJa.value = patchNoteData['日本語']
+  // patchNoteZh.value = patchNoteData['中文']
+  // patchNoteEn.value = patchNoteData['English']
+
+  const patchNoteRes = await getPatchNote()
+  patchNoteJa.value = patchNoteRes?.patchNoteJa
+  patchNoteZh.value = patchNoteRes?.patchNoteZh
+  patchNoteEn.value = patchNoteRes?.patchNoteEn
+
   for (let item of patchNoteJa.value) {
-    item.contents = item.contents.split('\r\n')
+    item.contents = item.contents.split('\n')
   }
-  patchNoteZh.value = patchNoteData['中文']
   for (let item of patchNoteZh.value) {
-    item.contents = item.contents.split('\r\n')
+    item.contents = item.contents.split('\n')
   }
-  patchNoteEn.value = patchNoteData['English']
   for (let item of patchNoteEn.value) {
-    item.contents = item.contents.split('\r\n')
+    item.contents = item.contents.split('\n')
   }
 })
 
