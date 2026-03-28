@@ -6,6 +6,7 @@ import { loadExcelData } from '@/utils/loadExcelData'
 import EChart from '@/components/EChart.vue'
 import { useUserStore } from '@/store/userStore'
 import * as echarts from 'echarts'
+import { getAnnouncement } from '@/backend/contents'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -19,18 +20,27 @@ const patchNoteZh = ref()
 const patchNoteEn = ref()
 
 onMounted(async () => {
-  const announcementData = await loadExcelData('/data/announcement.xlsx')
-  announcementJa.value = announcementData['日本語']
+  const announcementRes = await getAnnouncement()
+  announcementJa.value = announcementRes?.announcementJa
+  announcementZh.value = announcementRes?.announcementZh
+  announcementEn.value = announcementRes?.announcementEn
+
+  /**
+   * 旧逻辑：从excel文件读取数据
+   */
+  // const announcementData = await loadExcelData('/data/announcement.xlsx')
+  // announcementJa.value = announcementData['日本語']
+  // announcementZh.value = announcementData['中文']
+  // announcementEn.value = announcementData['English']
+  
   for (let item of announcementJa.value) {
-    item.contents = item.contents.split('\r\n')
+    item.contents = item.contents.split('\n')
   }
-  announcementZh.value = announcementData['中文']
   for (let item of announcementZh.value) {
-    item.contents = item.contents.split('\r\n')
+    item.contents = item.contents.split('\n')
   }
-  announcementEn.value = announcementData['English']
   for (let item of announcementEn.value) {
-    item.contents = item.contents.split('\r\n')
+    item.contents = item.contents.split('\n')
   }
 
   const patchNoteData = await loadExcelData('/data/patchNote.xlsx')
