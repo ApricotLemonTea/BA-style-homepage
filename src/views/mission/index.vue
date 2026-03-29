@@ -9,9 +9,9 @@ import MissionItem from '@/views/mission/components/MissionItem.vue'
 import { useI18n } from 'vue-i18n'
 import i18n from '@/locale'
 import { useTagList } from '@/views/mission/tagList'
-import { loadExcelData } from '@/utils/loadExcelData'
 import { countPageVisits } from '@/backend/visits'
 import { PAGE_LIST } from '@/consts/consts'
+import { getMission } from '@/backend/contents'
 
 const { t } = useI18n()
 const userStore = useUserStore()
@@ -43,11 +43,15 @@ onMounted(async () => {
   // 记录页面访问
   countPageVisits(PAGE_LIST.MISSION)
 
-  const missionData = await loadExcelData('/data/mission.xlsx')
+  // const missionData = await loadExcelData('/data/mission.xlsx')
+  // missionJa.value = missionData['日本語']
+  // missionZh.value = missionData['中文']
+  // missionEn.value = missionData['English']
 
-  missionJa.value = missionData['日本語']
-  missionZh.value = missionData['中文']
-  missionEn.value = missionData['English']
+  const missionRes = await getMission()
+  missionJa.value = missionRes?.missionJa
+  missionZh.value = missionRes?.missionZh
+  missionEn.value = missionRes?.missionEn
 })
 
 const bgImgSrc = ref('/profile/1007.png?t=' + new Date().getTime().toString())
@@ -103,7 +107,7 @@ const increasePyroxene = () => {
       <div class="mission-item-container">
         <template v-for="item in mission" :key="item">
           <MissionItem
-            v-show="selectedIndex === 0 ? true : item.tagIndex === selectedIndex"
+            v-show="selectedIndex === 0 ? true : item.tagIndex === selectedIndex.toString()"
             :tagIndex="item.tagIndex"
             :title="item.title"
             :times="item.times"

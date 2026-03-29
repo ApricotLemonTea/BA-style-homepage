@@ -9,7 +9,8 @@ export const BACKEND_API_URL = {
   GET_PAGE_VISITS_DATA: '/visits/getPageVisitsData',
 
   GET_ANNOUNCEMENT: '/contents/announcement',
-  GET_PATCH_NOTE: '/contents/patch-note'
+  GET_PATCH_NOTE: '/contents/patch-note',
+  GET_MISSION: '/contents/mission'
 }
 
 export const PAGE_LIST = {

@@ -8,3 +8,7 @@ export async function getAnnouncement() {
 export async function getPatchNote() {
   return request.get(BACKEND_API_URL.GET_PATCH_NOTE)
 }
+
+export async function getMission() {
+  return request.get(BACKEND_API_URL.GET_MISSION)
+}
