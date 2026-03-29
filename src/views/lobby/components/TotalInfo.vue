@@ -2,7 +2,6 @@
 import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import i18n from '@/locale'
-import { loadExcelData } from '@/utils/loadExcelData'
 import EChart from '@/components/EChart.vue'
 import { useUserStore } from '@/store/userStore'
 import * as echarts from 'echarts'

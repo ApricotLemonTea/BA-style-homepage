@@ -7,7 +7,6 @@ import { useI18n } from 'vue-i18n'
 import { openUrl } from '@/utils/commonFunctions'
 import i18n from '@/locale'
 import router from '@/router'
-import { loadExcelData } from '@/utils/loadExcelData'
 import { getAnnouncement } from '@/backend/contents'
 
 // const IconFont = Icon.addFromIconFontCn({
