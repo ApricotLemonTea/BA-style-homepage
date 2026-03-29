@@ -8,6 +8,7 @@ import { openUrl } from '@/utils/commonFunctions'
 import i18n from '@/locale'
 import router from '@/router'
 import { loadExcelData } from '@/utils/loadExcelData'
+import { getAnnouncement } from '@/backend/contents'
 
 // const IconFont = Icon.addFromIconFontCn({
 //   src: config.iconfont
@@ -24,8 +25,11 @@ const viewedAnnounceDate = ref()
 const hasNewAnnounce = ref()
 
 onMounted(async () => {
-  const announcementData = await loadExcelData('/data/announcement.xlsx')
-  announcement.value = announcementData['日本語']
+  // const announcementData = await loadExcelData('/data/announcement.xlsx')
+  // announcement.value = announcementData['日本語']
+  const announcementData = await getAnnouncement()
+  announcement.value = announcementData?.announcementJa
+
   recentAnnounceDate.value = announcement.value[0].time
   viewedAnnounceDate.value = localStorage.getItem('viewed-announce-date')
   hasNewAnnounce.value = viewedAnnounceDate.value === recentAnnounceDate.value ? 0 : 1

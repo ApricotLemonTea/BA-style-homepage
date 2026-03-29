@@ -21,8 +21,6 @@ const envShowBackground = import.meta.env.VITE_SHOW_BACKGROUND
 import NProgress from 'nprogress'
 
 import { useUserStore } from '@/store/userStore'
-import { PAGE_LIST } from '@/consts/consts'
-import { countPageVisits } from '@/backend/visits'
 
 const userStore = useUserStore()
 
