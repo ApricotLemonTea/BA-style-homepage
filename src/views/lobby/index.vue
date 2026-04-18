@@ -53,7 +53,7 @@ const switchL2D = () => {
   l2dOnly.value = !l2dOnly.value
 }
 
-const backgrounds = ['/l2d/hp_bg.png', '/l2d/hp_bg2.png']
+const backgrounds = ['/l2d/hp_bg2.png', '/l2d/hp_bg.png']
 const currentBgIndex = ref(0)
 const isSwitchingBg = ref(false)
 const bgDirection = ref('right')
