@@ -34,8 +34,39 @@ const mission = computed(() => {
   }
 })
 
+const todoListJa = ref()
+const todoListZh = ref()
+const todoListEn = ref()
+
+const todoList = computed(() => {
+  switch (i18n.global.locale) {
+    case 'ja':
+      return todoListJa.value
+    case 'zh':
+      return todoListZh.value
+    case 'en':
+      return todoListEn.value
+
+    default:
+      return todoListJa.value
+  }
+})
+
 const tagList = useTagList()
 const selectedIndex = ref(0)
+
+/** 第 0 个 tab 展示 todoList，其余 tab 按 tag 过滤 mission */
+const displayedList = computed(() => {
+  if (selectedIndex.value === 0) {
+    const list = todoList.value
+    return Array.isArray(list) ? list : []
+  }
+  const m = mission.value
+  if (!Array.isArray(m)) {
+    return []
+  }
+  return m.filter((item) => item.tagIndex === selectedIndex.value.toString())
+})
 
 const rewardPopupRef = ref()
 
@@ -52,6 +83,10 @@ onMounted(async () => {
   missionJa.value = missionRes?.missionJa
   missionZh.value = missionRes?.missionZh
   missionEn.value = missionRes?.missionEn
+
+  todoListJa.value = missionRes?.todoListJa
+  todoListZh.value = missionRes?.todoListZh
+  todoListEn.value = missionRes?.todoListEn
 })
 
 const bgImgSrc = ref('/profile/1007.png?t=' + new Date().getTime().toString())
@@ -105,9 +140,8 @@ const increasePyroxene = () => {
       </div>
       <!--所有mission项目-->
       <div class="mission-item-container">
-        <template v-for="item in mission" :key="item">
+        <template v-for="item in displayedList" :key="item">
           <MissionItem
-            v-show="selectedIndex === 0 ? true : item.tagIndex === selectedIndex.toString()"
             :tagIndex="item.tagIndex"
             :title="item.title"
             :times="item.times"
