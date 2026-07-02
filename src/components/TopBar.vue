@@ -40,7 +40,8 @@ watch(pyroxene, (n) => {
 const routerNavigate = (routerCase) => {
   switch (routerCase) {
     case '-1':
-      router.go(-1)
+      // router.go(-1)
+      router.push('/') // 暂定统一回到大厅
       break
     case 'lobby':
       router.push('/')
