@@ -89,7 +89,7 @@ onMounted(async () => {
   todoListEn.value = missionRes?.todoListEn
 })
 
-const bgImgSrc = ref('/profile/1007.png?t=' + new Date().getTime().toString())
+const bgImgSrc = ref('/l2d/hp_bg3.png?t=' + new Date().getTime().toString())
 
 // *********************************
 // 每日登录逻辑（复制自Toolbox.vue）
@@ -174,9 +174,7 @@ const increasePyroxene = () => {
 
     <!--说明文字区域-->
     <div class="info-message-block blue-text-color">
-      <span>{{
-        t('mission.「開発」タグ以外のミッションはクリックすると詳細情報を確認できます')
-      }}</span>
+      <span>Background Illust: ふたみーや</span>
     </div>
 
     <RewardPopup ref="rewardPopupRef"></RewardPopup>
@@ -231,7 +229,7 @@ const increasePyroxene = () => {
   }
 
   .mission-item-container {
-    background-color: #75757525;
+    background-color: #58585842;
     border-radius: 0.7vh;
     flex-grow: 1;
     display: flex;
@@ -291,11 +289,11 @@ const increasePyroxene = () => {
 
 .info-message-block {
   background-color: rgba(250, 252, 255, 0.89);
-  width: 30vw;
+  width: 25vw;
   height: 10vh;
   position: fixed;
-  left: 4vw;
-  bottom: 13vh;
+  left: 7vw;
+  bottom: 10vh;
   border-radius: 3vh;
   display: flex;
   justify-content: center;
@@ -308,11 +306,12 @@ const increasePyroxene = () => {
 }
 
 .chara-block {
+  z-index: -1;
   position: fixed;
-  left: 3vw;
-  top: 6vh;
-  width: 30vw;
-  height: 94vh;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
 
   img {
     height: 100%;
