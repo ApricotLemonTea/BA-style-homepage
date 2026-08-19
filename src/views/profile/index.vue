@@ -144,11 +144,12 @@ onMounted(() => {
     }
 
     .detail-block {
-      width: 25vw;
+      width: 30vw;
       height: 30vh;
-      margin: 13vh 4.5vw 0 auto;
+      margin: 13vh 3.7vw 0 auto;
       display: flex;
       flex-direction: column;
+      text-align: center;
     }
 
     .detail-block p {
