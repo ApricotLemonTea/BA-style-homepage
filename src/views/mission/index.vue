@@ -248,7 +248,7 @@ const increasePyroxene = () => {
   bottom: 4vh;
   right: 20.5vw;
   border-radius: 1.5vh;
-  box-shadow: 2px 2px 5px #bec9d8;
+  box-shadow: 2px 2px 5px #7e8083;
   display: flex;
   flex-direction: column;
 
@@ -267,7 +267,7 @@ const increasePyroxene = () => {
   right: 7.5vw;
   transform: skew(-10deg);
   border-radius: 1.2vh;
-  box-shadow: 5px 5px 5px #bec9d8;
+  box-shadow: 5px 5px 5px #7e8083;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -289,12 +289,12 @@ const increasePyroxene = () => {
 
 .info-message-block {
   background-color: rgba(250, 252, 255, 0.89);
-  width: 25vw;
-  height: 10vh;
+  width: 23vw;
+  height: 7vh;
   position: fixed;
-  left: 7vw;
-  bottom: 10vh;
-  border-radius: 3vh;
+  left: 9vw;
+  bottom: 5.5vh;
+  border-radius: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;

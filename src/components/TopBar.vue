@@ -90,9 +90,9 @@ const routerNavigate = (routerCase) => {
   width: 90vw;
   height: 5vh;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 1vw;
   background-color: white;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 0.5vw 0.5vw;
   display: flex;
 
   .back-button {
