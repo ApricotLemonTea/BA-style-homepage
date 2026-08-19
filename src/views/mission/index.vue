@@ -174,7 +174,12 @@ const increasePyroxene = () => {
 
     <!--说明文字区域-->
     <div class="info-message-block blue-text-color">
-      <span>Background Illust: ふたみーや</span>
+      <span
+        >Background Illust:
+        <a href="https://x.com/futami_ya" target="_blank" style="color: #3987ff"
+          >ふたみーや</a
+        ></span
+      >
     </div>
 
     <RewardPopup ref="rewardPopupRef"></RewardPopup>
