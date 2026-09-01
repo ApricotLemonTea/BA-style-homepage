@@ -1,9 +1,15 @@
 export const gameAccountList = [
   {
+    imgUrl: '/profile/arknights.png',
+    server: '明日方舟 / 官服',
+    characterName: '杏仁柠檬茶',
+    time: '(2026-09)'
+  },
+  {
     imgUrl: '/profile/dnf.png',
     server: '地下城与勇士 / 跨五 / 上海一区',
     characterName: 'ApricotTea',
-    time: '(2026-07)'
+    time: '(2026-09)'
   },
   {
     imgUrl: '/profile/steam.png',
