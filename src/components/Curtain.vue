@@ -47,7 +47,7 @@ defineExpose({ skip })
   top: 0;
   left: 0;
   z-index: 20;
-  width: 100vw;
+  width: 105vw;
 }
 
 .curtain {
