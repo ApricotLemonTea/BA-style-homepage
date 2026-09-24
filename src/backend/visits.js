@@ -17,3 +17,7 @@ export async function countPageVisits(page) {
 export async function getPageVisitsData() {
   return await request.get(BACKEND_API_URL.GET_PAGE_VISITS_DATA)
 }
+
+export async function getVisitsDataList() {
+  return await request.get(BACKEND_API_URL.GET_VISITS_DATA_LIST)
+}

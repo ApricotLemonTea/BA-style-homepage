@@ -143,12 +143,6 @@ const chartOption = {
       boundaryGap: [0, '10%'],
       position: 'left',
       alignTicks: true
-    },
-    {
-      type: 'value',
-      boundaryGap: [0, '30%'],
-      position: 'right',
-      alignTicks: true
     }
   ],
   dataZoom: [
@@ -167,32 +161,14 @@ const chartOption = {
       name: t('graph.訪問者数'),
       type: 'line',
       sampling: 'lttb',
+      encode: {
+        x: 'date',
+        y: 'todayLobbyVisits'
+      },
       yAxisIndex: 0,
       symbol: 'none',
       itemStyle: {
-        color: 'rgb(255,49,73)'
-      }
-    },
-    {
-      name: t('graph.リクエスト数'),
-      type: 'line',
-      sampling: 'lttb',
-      yAxisIndex: 1,
-      symbol: 'none',
-      areaStyle: {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: 'rgb(68,211,255)'
-          },
-          {
-            offset: 1,
-            color: 'rgb(70,184,255)'
-          }
-        ])
-      },
-      emphasis: {
-        disabled: true
+        color: '#2b95f7'
       }
     }
   ]
@@ -225,7 +201,6 @@ const chartOption = {
               v-for="(item, index) in tabList"
               :key="index"
               :class="['total-info-tab-button', selectedTabIndex === index ? 'tab-selected' : '']"
-              :style="index === 2 ? { textDecoration: 'line-through', fontWeight: 'normal' } : {}"
               @click="
                 () => {
                   selectedTabIndex = index

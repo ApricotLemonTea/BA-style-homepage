@@ -8,7 +8,7 @@ import { openUrl } from './utils/commonFunctions'
 import { useI18n } from 'vue-i18n'
 import SpotifyPlayer from './components/SpotifyPlayer.vue'
 import WelcomeDialog from '@/components/WelcomeDialog.vue'
-import { countPageVisits, getPageVisitsData } from '@/backend/visits'
+import { countPageVisits, getPageVisitsData, getVisitsDataList } from '@/backend/visits'
 import { PAGE_LIST } from '@/consts/consts'
 
 const { t } = useI18n()
@@ -69,7 +69,7 @@ onMounted(async () => {
   await countPageVisits(PAGE_LIST.LOBBY)
 
   // 获取页面访问量总和并存储到store中
-  const { accessDataList } = await getAccessAnalyticsByDay()
+  const accessDataList = await getVisitsDataList()
   userStore.accessDataList = accessDataList
 
   const res = await getPageVisitsData()
