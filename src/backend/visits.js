@@ -19,5 +19,6 @@ export async function getPageVisitsData() {
 }
 
 export async function getVisitsDataList() {
-  return await request.get(BACKEND_API_URL.GET_VISITS_DATA_LIST)
+  const res = await request.get(BACKEND_API_URL.GET_VISITS_DATA_LIST)
+  return res.slice(0, -1)
 }
