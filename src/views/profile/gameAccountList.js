@@ -3,7 +3,7 @@ export const gameAccountList = [
     imgUrl: '/profile/arknights.png',
     server: '明日方舟 / 官服',
     characterName: '杏仁柠檬茶',
-    time: '(2026-10)'
+    time: '(2026-11)'
   },
   {
     imgUrl: '/profile/dnf.png',
