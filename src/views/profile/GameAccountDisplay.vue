@@ -31,6 +31,11 @@ const today = new Date().toISOString().slice(0, 10)
 
     <!--图片展示区域-->
     <div class="main-block">
+      <!--页码-->
+      <div class="page-no">
+        <p>{{ accountIndex + 1 }} / {{ accountListLength }}</p>
+      </div>
+      <!--图片-->
       <div class="account-image-block">
         <transition :name="slideDirection">
           <img
@@ -40,6 +45,7 @@ const today = new Date().toISOString().slice(0, 10)
           />
         </transition>
       </div>
+      <!--账号信息-->
       <div class="account-info blue-text-color">
         <p>{{ gameAccountList[accountIndex].server }}</p>
         <p>{{ gameAccountList[accountIndex].characterName }}</p>
@@ -89,6 +95,19 @@ const today = new Date().toISOString().slice(0, 10)
   .main-block {
     height: 100%;
     width: 90%;
+
+    .page-no {
+      position: relative;
+      top: -2vh;
+      width: 100%;
+      height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2vh;
+      gap: 0.5vh;
+    }
 
     .account-image-block {
       width: 100%;
